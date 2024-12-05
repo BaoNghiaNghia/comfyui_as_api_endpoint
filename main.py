@@ -11,10 +11,6 @@ from dotenv import load_dotenv
 import os
 
 
-
-# Step 1: Initialize the connection settings and load environment variables
-print(colored("Step 1: Initialize the connection settings and load environment variables.", "cyan"))
-print(colored("Loading configuration from the .env file.", "yellow"))
 load_dotenv()
 
 
@@ -28,8 +24,6 @@ client_id = str(uuid.uuid4())
 # Display the server address and client ID for transparency
 print(colored(f"Server Address: {server_address}", "magenta"))
 print(colored(f"Generated Client ID: {client_id}", "magenta"))
-input(colored("Press Enter to continue...", "green"))
-
 
 
 # Queue prompt function
@@ -37,12 +31,6 @@ def queue_prompt(prompt):
     p = {"prompt": prompt, "client_id": client_id}
     data = json.dumps(p, indent=4).encode('utf-8')  # Prettify JSON for print
     req = urllib.request.Request(f"http://{server_address}/prompt", data=data)
-    
-    # Step 5: Queue the prompt and prepare to send it to the ComfyUI server
-    print(colored(f"Step 5: Queuing the prompt for client ID {client_id}.", "cyan"))
-    input(colored("Press Enter to view the JSON that will be sent...", "green"))
-    
-    input(colored("Press Enter to continue and send the prompt...", "green"))
     
     return json.loads(urllib.request.urlopen(req).read())
 
@@ -74,9 +62,6 @@ def get_images(ws, prompt):
     output_images = {}
 
     last_reported_percentage = 0
-    
-    print(colored("Step 6: Start listening for progress updates via the WebSocket connection.", "cyan"))
-    input(colored("Press Enter to continue...", "green"))
 
     while True:
         out = ws.recv()
@@ -101,10 +86,6 @@ def get_images(ws, prompt):
         else:
             continue  # Previews are binary data
 
-    # Fetch history and images after completion
-    print(colored("Step 7: Fetch the history and download the images after execution completes.", "cyan"))
-    input(colored("Press Enter to continue...", "green"))
-
     history = get_history(prompt_id)[prompt_id]
     for o in history['outputs']:
         for node_id in history['outputs']:
@@ -126,12 +107,9 @@ def generate_images():
     # Step 3: Establish WebSocket connection
     ws = websocket.WebSocket()
     ws_url = f"ws://{server_address}/ws?clientId={client_id}"
-    print(colored(f"Step 3: Establishing WebSocket connection to {ws_url}", "cyan"))
-    input(colored("Press Enter to continue...", "green"))
     ws.connect(ws_url)
     
     # Step 4: Load workflow from file and print it
-    print(colored("Step 4: Loading the image generation workflow from 'workflow.json'.", "cyan"))
     with open("workflow.json", "r", encoding="utf-8") as f:
         workflow_data = f.read()
 
@@ -156,16 +134,10 @@ def generate_images():
     # Set a random seed for the KSampler node
     seed = random.randint(1, 1000000000000000)
     workflow["25"]["inputs"]["noise_seed"] = seed
-    
-    input(colored("Press Enter to continue...", "green"))
 
     # Fetch generated images
     images = get_images(ws, workflow)
-
-    # Step 8: Close WebSocket connection after fetching the images
-    print(colored(f"Step 8: Closing WebSocket connection to {ws_url}", "cyan"))
     ws.close()
-    input(colored("Press Enter to continue...", "green"))
 
     return images, seed
 
