@@ -1,5 +1,6 @@
 import os
 import json
+import logging
 import requests
 import random
 import uuid
@@ -118,8 +119,36 @@ async def get_images(ws, prompt):
 
     return output_images
 
+
+def authenticate_user(domain, token):
+    try:
+        if not domain or not token:
+            raise ValueError("Domain, token must be provided for authentication")
+
+        headers = {
+            'Content-Type': 'application/json',
+            'Authorization' : 'Bearer ' + token
+        }
+        response = requests.get(domain, headers=headers)
+        response.raise_for_status()  # Raise HTTPError for bad response codes
+
+        logging.info(f"Authentication successful with domain {domain}")
+        return response.status_code, response.reason
+    except ValueError as ve:
+        logging.error(f"Authentication failed: {ve}")
+        return None
+    except requests.exceptions.RequestException as re:
+        logging.error(f"Request error during authentication: {re}")
+        return None
+    except Exception as e:
+        logging.error(f"An unexpected error occurred during authentication: {e}")
+        return None
+
 # Main image generation function
 async def generate_images(positive_prompt, poster_number):
+    
+
+    
     ws = ws_client.WebSocket()
     ws_url = f"ws://{server_address}/ws?clientId={client_id}"
     ws.connect(ws_url)

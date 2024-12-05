@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
 from .models import LLMRequest, PromptRequest
-from .services import generate_images, get_quick_prompts_data, ask_llm_service
+from .services import generate_images, get_quick_prompts_data, ask_llm_service, authenticate_user
 from PIL import Image
 import io
 
@@ -34,6 +34,14 @@ async def ask_llm(request: LLMRequest):
 @router.post("/generate_images/")
 async def generate_images_api(request: PromptRequest):
     try:
+        # Authenticate if email and password are provided
+        if request.token:
+            status_code, message = authenticate_user(request.domain, request.token)
+            if status_code != 200:
+                raise Exception("Authentication failed")
+
+            print(f"Authenticated successfully. Response: {message}")
+
         images, seed = await generate_images(request.positive_prompt, request.poster_number)
 
         # Convert images to a format FastAPI can return
