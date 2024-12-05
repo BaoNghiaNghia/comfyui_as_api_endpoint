@@ -60,7 +60,6 @@ def get_history(prompt_id):
 def get_images(ws, prompt):
     prompt_id = queue_prompt(prompt)['prompt_id']
     output_images = {}
-
     last_reported_percentage = 0
 
     while True:
@@ -86,6 +85,7 @@ def get_images(ws, prompt):
         else:
             continue  # Previews are binary data
 
+
     history = get_history(prompt_id)[prompt_id]
     for o in history['outputs']:
         for node_id in history['outputs']:
@@ -104,12 +104,10 @@ def get_images(ws, prompt):
 
 # Generate images function with customizable input
 def generate_images():
-    # Step 3: Establish WebSocket connection
     ws = websocket.WebSocket()
     ws_url = f"ws://{server_address}/ws?clientId={client_id}"
     ws.connect(ws_url)
     
-    # Step 4: Load workflow from file and print it
     with open("workflow.json", "r", encoding="utf-8") as f:
         workflow_data = f.read()
 

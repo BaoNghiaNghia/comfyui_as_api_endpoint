@@ -34,12 +34,7 @@ async def ask_llm(request: LLMRequest):
 @router.post("/generate_images/")
 async def generate_images_api(request: PromptRequest):
     try:
-        images, seed = await generate_images(
-            request.positive_prompt,
-            request.negative_prompt,
-            request.steps,
-            (request.width, request.height)
-        )
+        images, seed = await generate_images(request.positive_prompt, request.poster_number)
 
         # Convert images to a format FastAPI can return
         image_responses = []

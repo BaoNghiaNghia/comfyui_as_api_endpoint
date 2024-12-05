@@ -7,7 +7,4 @@ class LLMRequest(BaseModel):
 # Request model for image generation
 class PromptRequest(BaseModel):
     positive_prompt: str
-    negative_prompt: str
-    steps: int = 25
-    width: int = 512
-    height: int = 512
+    poster_number: int = 5
