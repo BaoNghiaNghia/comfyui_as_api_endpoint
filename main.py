@@ -103,7 +103,7 @@ def get_images(ws, prompt):
 
 
 # Generate images function with customizable input
-def generate_images():
+def generate_images_for_test():
     ws = websocket.WebSocket()
     ws_url = f"ws://{server_address}/ws?clientId={client_id}"
     ws.connect(ws_url)
@@ -142,4 +142,4 @@ def generate_images():
 
 
 if __name__ == "__main__":
-    images, seed = generate_images()
+    images, seed = generate_images_for_test()
