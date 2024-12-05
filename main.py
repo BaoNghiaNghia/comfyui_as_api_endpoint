@@ -10,19 +10,27 @@ from termcolor import colored
 from dotenv import load_dotenv
 import os
 
+
+
 # Step 1: Initialize the connection settings and load environment variables
 print(colored("Step 1: Initialize the connection settings and load environment variables.", "cyan"))
 print(colored("Loading configuration from the .env file.", "yellow"))
 load_dotenv()
 
+
+
 # Get server address from environment variable, default to "localhost:8188" if not set
 server_address = os.getenv('COMFYUI_SERVER_ADDRESS', 'localhost:8188')
 client_id = str(uuid.uuid4())
+
+
 
 # Display the server address and client ID for transparency
 print(colored(f"Server Address: {server_address}", "magenta"))
 print(colored(f"Generated Client ID: {client_id}", "magenta"))
 input(colored("Press Enter to continue...", "green"))
+
+
 
 # Queue prompt function
 def queue_prompt(prompt):
@@ -34,13 +42,11 @@ def queue_prompt(prompt):
     print(colored(f"Step 5: Queuing the prompt for client ID {client_id}.", "cyan"))
     input(colored("Press Enter to view the JSON that will be sent...", "green"))
     
-    # Pretty-printed JSON for the prompt
-    print(colored("Here's the JSON that will be sent:", "yellow"))
-    print(colored(json.dumps(p, indent=4), "blue"))  # Pretty-printed JSON
-    
     input(colored("Press Enter to continue and send the prompt...", "green"))
     
     return json.loads(urllib.request.urlopen(req).read())
+
+
 
 # Get image function
 def get_image(filename, subfolder, folder_type):
@@ -52,11 +58,15 @@ def get_image(filename, subfolder, folder_type):
     with urllib.request.urlopen(f"http://{server_address}/view?{url_values}") as response:
         return response.read()
 
+
+
 # Get history for a prompt ID
 def get_history(prompt_id):
     print(colored(f"Fetching history for prompt ID: {prompt_id}.", "cyan"))
     with urllib.request.urlopen(f"http://{server_address}/history/{prompt_id}") as response:
         return json.loads(response.read())
+
+
 
 # Get images from the workflow
 def get_images(ws, prompt):
@@ -109,8 +119,10 @@ def get_images(ws, prompt):
 
     return output_images
 
+
+
 # Generate images function with customizable input
-def generate_images(positive_prompt, negative_prompt, steps=25, resolution=(512, 512)):
+def generate_images():
     # Step 3: Establish WebSocket connection
     ws = websocket.WebSocket()
     ws_url = f"ws://{server_address}/ws?clientId={client_id}"
@@ -124,33 +136,26 @@ def generate_images(positive_prompt, negative_prompt, steps=25, resolution=(512,
         workflow_data = f.read()
 
     workflow = json.loads(workflow_data)
-    
-    input(colored("Press Enter to view the loaded workflow before customization...", "green"))
-    
-    # Print the loaded workflow before customization
-    print(colored("Here's the workflow as it was loaded before customization:", "yellow"))
-    print(colored(json.dumps(workflow, indent=4), "blue"))  # Pretty-print the workflow
-    
-    input(colored("Press Enter to continue to customization...", "green"))
 
-    # Customize workflow based on inputs
-    print(colored("Step 5: Customizing the workflow with the provided inputs.", "cyan"))
-    print(colored(f"Setting positive prompt: {positive_prompt}", "yellow"))
-    print(colored(f"Setting negative prompt: {negative_prompt}", "yellow"))
-    workflow["6"]["inputs"]["text"] = positive_prompt
-    workflow["7"]["inputs"]["text"] = negative_prompt
+    workflow["6"]["inputs"]["text"] = """
+        ((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))
 
-    print(colored(f"Setting steps for generation: {steps}", "yellow"))
-    workflow["3"]["inputs"]["steps"] = steps
+        Scene Description:
+        A vibrant and festive Vietnamese Lunar New Year celebration. The scene features a bustling environment with traditional decorations: red lanterns hanging in the air, peach blossoms in full bloom, and kumquat trees adorned with golden fruits. In the foreground, people in colorful áo dài (traditional Vietnamese attire) are smiling and engaging in joyous activities such as giving red envelopes (lì xì) to children and enjoying Tết delicacies.
 
-    print(colored(f"Setting resolution to {resolution[0]}x{resolution[1]}", "yellow"))
-    workflow["5"]["inputs"]["width"] = resolution[0]
-    workflow["5"]["inputs"]["height"] = resolution[1]
+        Background Details:
+        A lively village or urban setting decorated with banners handwriter big text "Happy New Year" in top center, strings of lights, and fireworks lighting up the evening sky. Market stalls and family gatherings add a sense of community and tradition.
+
+        Color Palette:
+        Dominated by auspicious colors like red and gold, symbolizing luck and prosperity, with hints of pink from peach blossoms and green from the kumquat trees. The lighting is warm and inviting, emphasizing the celebratory mood.
+
+        Composition:
+        The layout has a balanced mix of cultural symbols and joyful interactions. Focus on the details of traditional clothing, decorations, and facial expressions to capture the essence of Vietnamese New Year traditions.
+    """
 
     # Set a random seed for the KSampler node
-    seed = random.randint(1, 1000000000)
-    print(colored(f"Setting random seed for generation: {seed}", "yellow"))
-    workflow["3"]["inputs"]["seed"] = seed
+    seed = random.randint(1, 1000000000000000)
+    workflow["25"]["inputs"]["noise_seed"] = seed
     
     input(colored("Press Enter to continue...", "green"))
 
@@ -164,25 +169,7 @@ def generate_images(positive_prompt, negative_prompt, steps=25, resolution=(512,
 
     return images, seed
 
-# Example of calling the method and saving the images
+
+
 if __name__ == "__main__":
-    # Step 2: User input for prompts
-    positive_prompt = input(colored("Enter the positive prompt: ", "cyan"))
-    negative_prompt = input(colored("Enter the negative prompt: ", "cyan"))
-
-    print(colored("Step 2: User inputs the positive and negative prompts for image generation.", "cyan"))
-    input(colored("Press Enter to continue...", "green"))
-
-    # Call the generate_images function
-    images, seed = generate_images(positive_prompt, negative_prompt)
-
-    # Step 9: Save the images
-    print(colored("Step 9: Saving the generated images locally.", "cyan"))
-    input(colored("Press Enter to continue...", "green"))
-    
-    for node_id in images:
-        for image_data in images[node_id]:
-            image = Image.open(io.BytesIO(image_data))
-            filename = f"outputs/{node_id}-{seed}.png"
-            image.save(filename)
-            print(colored(f"Image saved as {filename}", "blue"))
+    images, seed = generate_images()

@@ -23,6 +23,8 @@ cd ComfyUI
 
 Create a `Dockerfile` in the root of your ComfyUI directory with the following content:
 
+
+
 ```Dockerfile
 # Base image with Python 3.11 and CUDA 12.5 support
 FROM nvidia/cuda:12.5.0-runtime-ubuntu22.04
@@ -59,6 +61,8 @@ EXPOSE 8188
 CMD ["python3", "main.py", "--listen", "0.0.0.0"]
 ```
 
+
+
 ### 3. Build the Docker Image
 
 Navigate to the directory where the `Dockerfile` is located and build the Docker image:
@@ -86,19 +90,19 @@ This command maps your local `models` directory to `/app/models` inside the cont
 To use GGUF models or other safetensor models, follow the steps below to download them directly into the `checkpoints` directory.
 
 1. **Navigate to the Checkpoints Directory**:
-   ```bash
-   cd /home/mukul/dev-ai/vison/models/checkpoints
-   ```
+```bash
+cd /home/mukul/dev-ai/vison/models/checkpoints
+```
 
 2. **Download `flux1-schnell-fp8.safetensors`**:
-   ```bash
-   wget https://huggingface.co/Comfy-Org/flux1-schnell/resolve/main/flux1-schnell-fp8.safetensors?download=true -O flux1-schnell-fp8.safetensors
-   ```
+```bash
+wget https://huggingface.co/Comfy-Org/flux1-schnell/resolve/main/flux1-schnell-fp8.safetensors?download=true -O flux1-schnell-fp8.safetensors
+```
 
 3. **Download `flux1-dev-fp8.safetensors`**:
-   ```bash
-   wget https://huggingface.co/Comfy-Org/flux1-dev/resolve/main/flux1-dev-fp8.safetensors?download=true -O flux1-dev-fp8.safetensors
-   ```
+```bash
+wget https://huggingface.co/Comfy-Org/flux1-dev/resolve/main/flux1-dev-fp8.safetensors?download=true -O flux1-dev-fp8.safetensors
+```
 
 These commands will place the corresponding `.safetensors` files into the `checkpoints` directory.
 
