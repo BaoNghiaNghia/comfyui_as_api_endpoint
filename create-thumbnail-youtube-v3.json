@@ -6,8 +6,8 @@
       "id": 22,
       "type": "BasicGuider",
       "pos": [
-        1424.360595703125,
-        -90.5538558959961
+        1136.2242431640625,
+        -465.2529602050781
       ],
       "size": [
         309.4721374511719,
@@ -50,8 +50,8 @@
       "id": 16,
       "type": "KSamplerSelect",
       "pos": [
-        1423.4920654296875,
-        39.34928894042969
+        1135.355712890625,
+        -335.349853515625
       ],
       "size": [
         308.6337585449219,
@@ -82,8 +82,8 @@
       "id": 50,
       "type": "LoraLoader",
       "pos": [
-        95.61076354980469,
-        -752.4605712890625
+        -180.9611053466797,
+        -985.4972534179688
       ],
       "size": [
         414.3505554199219,
@@ -135,101 +135,11 @@
       ]
     },
     {
-      "id": 49,
-      "type": "LoraLoader",
-      "pos": [
-        94.00542449951172,
-        -554.61572265625
-      ],
-      "size": [
-        414.3505554199219,
-        126
-      ],
-      "flags": {},
-      "order": 17,
-      "mode": 4,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 86
-        },
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 92
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            87
-          ],
-          "slot_index": 0,
-          "shape": 3
-        },
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            93
-          ],
-          "slot_index": 1,
-          "shape": 3
-        }
-      ],
-      "title": "Load LoRA (Fix hand)",
-      "properties": {
-        "Node name for S&R": "LoraLoader"
-      },
-      "widgets_values": [
-        "Hand v2.safetensors",
-        1,
-        0.2
-      ]
-    },
-    {
-      "id": 12,
-      "type": "UNETLoader",
-      "pos": [
-        -740,
-        -750
-      ],
-      "size": [
-        315,
-        82
-      ],
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            78
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "UNETLoader"
-      },
-      "widgets_values": [
-        "flux1-dev-fp8.safetensors",
-        "default"
-      ]
-    },
-    {
       "id": 26,
       "type": "LoraLoader",
       "pos": [
-        92.73772430419922,
-        -355.19940185546875
+        -183.8341522216797,
+        -588.2362060546875
       ],
       "size": [
         414.3505554199219,
@@ -284,15 +194,15 @@
       "id": 29,
       "type": "EmptyLatentImage",
       "pos": [
-        1422.9903564453125,
-        193.31866455078125
+        1134.85400390625,
+        -181.38052368164062
       ],
       "size": [
         309.50823974609375,
         106
       ],
       "flags": {},
-      "order": 2,
+      "order": 1,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -320,8 +230,8 @@
       "id": 27,
       "type": "LoraLoader",
       "pos": [
-        93.99608612060547,
-        -165.19944763183594
+        -182.57579040527344,
+        -398.2365417480469
       ],
       "size": [
         414.3505554199219,
@@ -374,59 +284,11 @@
       ]
     },
     {
-      "id": 60,
-      "type": "ShowText|pysssss",
-      "pos": [
-        -740.5872802734375,
-        249.8394012451172
-      ],
-      "size": [
-        384.9148254394531,
-        717.33203125
-      ],
-      "flags": {},
-      "order": 14,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "text",
-          "type": "STRING",
-          "link": 104,
-          "widget": {
-            "name": "text"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [
-            105
-          ],
-          "slot_index": 0,
-          "shape": 6
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ShowText|pysssss"
-      },
-      "widgets_values": [
-        [
-          "chuyển câu sau thành 1 câu tiếng Anh đơn giản dành cho Stable Diffusion và loại bỏ chữ tiếng việt: ảnh toàn cảnh, 1 con tàu hình dáng thuyền buồm bay ngoài vũ trụ, người ngoài hành tinh, phong cách phim viễn tưởng, siêu thực, phim ,chất lượng cao, chi tiết, ánh sáng phim , 4k"
-        ],
-        "describe \"Merry Christmas\" as a prompt base on this format prompt. And must have banner title: ```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\nScene Description:\nA vibrant and festive Vietnamese Lunar New Year celebration. The scene features a bustling environment with traditional decorations: red lanterns hanging in the air, peach blossoms in full bloom, and kumquat trees adorned with golden fruits. In the foreground, people in colorful áo dài (traditional Vietnamese attire) are smiling and engaging in joyous activities such as giving red envelopes (lì xì) to children and enjoying Tết delicacies.\n\n\nBanner Title:\nThe handwriter big text \"Vietnamese Rice Harvesting\" in top center or center\n\n\nBackground Details:\nA lively village or urban setting decorated with banners handwriter big text \"Happy New Year\" in top center, strings of lights, and fireworks lighting up the evening sky. Market stalls and family gatherings add a sense of community and tradition.\n\n\nColor Palette:\nDominated by auspicious colors like red and gold, symbolizing luck and prosperity, with hints of pink from peach blossoms and green from the kumquat trees. The lighting is warm and inviting, emphasizing the celebratory mood.\n\n\nComposition:\nThe layout has a balanced mix of cultural symbols and joyful interactions. Focus on the details of traditional clothing, decorations, and facial expressions to capture the essence of Vietnamese New Year traditions.\n```"
-      ],
-      "color": "#232",
-      "bgcolor": "#353",
-      "shape": 1
-    },
-    {
       "id": 62,
       "type": "CLIPTextEncode",
       "pos": [
-        583.8214111328125,
-        249.76365661621094
+        295.6852111816406,
+        -124.93547058105469
       ],
       "size": [
         210,
@@ -475,56 +337,11 @@
       "shape": 1
     },
     {
-      "id": 32,
-      "type": "PatchModelAddDownscale",
-      "pos": [
-        847.418701171875,
-        -163.6222381591797
-      ],
-      "size": [
-        465.8802490234375,
-        202
-      ],
-      "flags": {},
-      "order": 21,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 54
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            55
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "PatchModelAddDownscale"
-      },
-      "widgets_values": [
-        3,
-        2,
-        0,
-        0.35,
-        true,
-        "bicubic",
-        "bicubic"
-      ]
-    },
-    {
       "id": 55,
       "type": "LoraLoaderModelOnly",
       "pos": [
-        -330,
-        -750
+        -606.5718383789062,
+        -983.0366821289062
       ],
       "size": [
         315,
@@ -560,46 +377,11 @@
       ]
     },
     {
-      "id": 11,
-      "type": "DualCLIPLoader",
-      "pos": [
-        -328.8555603027344,
-        -590.1334228515625
-      ],
-      "size": [
-        311.8746032714844,
-        106
-      ],
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            73
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "DualCLIPLoader"
-      },
-      "widgets_values": [
-        "t5xxl_fp8_e4m3fn.safetensors",
-        "clip_l.safetensors",
-        "flux"
-      ]
-    },
-    {
       "id": 17,
       "type": "BasicScheduler",
       "pos": [
-        849.2696533203125,
-        98.00000762939453
+        561.1342163085938,
+        -276.69915771484375
       ],
       "size": [
         464.12835693359375,
@@ -639,8 +421,8 @@
       "id": 43,
       "type": "FluxGuidance",
       "pos": [
-        848.1112060546875,
-        251.9212188720703
+        559.9757690429688,
+        -122.77791595458984
       ],
       "size": [
         466.19598388671875,
@@ -677,8 +459,8 @@
       "id": 58,
       "type": "ShowText|pysssss",
       "pos": [
-        125.24525451660156,
-        250.34439086914062
+        246.27999877929688,
+        250.04721069335938
       ],
       "size": [
         384.70587158203125,
@@ -715,58 +497,25 @@
         [
           "A highly detailed and cinematic 4k image of a sailing ship spaceship flying through space, surrounded by aliens, in a surreal and cinematic sci-fi style, with movie lighting. \n"
         ],
-        "((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\nScene Description:\nA cozy and warm Christmas morning scene.  A decorated Christmas tree with twinkling lights and colorful ornaments stands tall. Presents wrapped in festive paper are piled beneath the tree.  Stockings hang from the fireplace mantel, overflowing with small gifts and treats. In the foreground, family members in warm, comfortable pajamas are gathered around the tree, opening gifts and sharing joyful moments. A mug of hot cocoa rests on a nearby table, steam gently rising.\n\nBanner Title:\nThe handwriter big text \"Merry Christmas\" in top center or center\n\n\nBackground Details:\nA snow-covered landscape visible through a window. The fireplace is lit, casting a warm glow on the scene.  Christmas carols play softly in the background.  A sense of peace and togetherness permeates the room.\n\n\nColor Palette:\nDominant colors of red, green, and gold from the Christmas decorations, complemented by the warm browns and creams of the room and the white of the snow outside. The lighting is soft and warm, creating a cozy and inviting atmosphere.\n\n\nComposition:\nThe layout should focus on the intimate and joyful interaction of the family members, the details of the Christmas decorations, and the warmth of the setting.  Capture the essence of Christmas morning traditions and the spirit of giving and togetherness.\n"
+        "((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\nScene Description:\nA cozy and warm Christmas morning scene.  A decorated Christmas tree with twinkling lights and colorful ornaments stands in the living room. Presents wrapped in bright paper are piled underneath.  In the foreground, family members in festive pajamas are gathered around, exchanging gifts and sharing smiles. A crackling fireplace adds to the ambiance, with stockings hung on the mantelpiece.  A table laden with Christmas treats like cookies, candy canes, and a fruitcake sits nearby.\n\n\nBanner Title:\nThe handwriter big text \"Merry Christmas\" in top center or center\n\n\nBackground Details:\nA snow-covered landscape visible through the window, with a warm glow emanating from the house. Soft Christmas carols playing in the background.\n\n\nColor Palette:\nDominated by traditional Christmas colors like red, green, and gold, accented with the warm glow of firelight and the white of the snow. The lighting is soft and inviting, creating a sense of peace and joy.\n\n\nComposition:\nThe layout focuses on the intimacy and warmth of the family gathering, with the Christmas tree and presents as central elements. Capture the expressions of joy and excitement on the faces of the family members.  Include details of the festive decorations and the comforting atmosphere of the Christmas morning scene.\n```"
       ],
       "color": "#232",
       "bgcolor": "#353",
       "shape": 1
     },
     {
-      "id": 25,
-      "type": "RandomNoise",
-      "pos": [
-        1423.8544921875,
-        -236.4818115234375
-      ],
-      "size": [
-        307.4601745605469,
-        82.260009765625
-      ],
-      "flags": {},
-      "order": 4,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "NOISE",
-          "type": "NOISE",
-          "links": [
-            37
-          ],
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "RandomNoise"
-      },
-      "widgets_values": [
-        264539559504395,
-        "randomize"
-      ]
-    },
-    {
       "id": 44,
       "type": "Note",
       "pos": [
-        -740,
-        -610
+        -1016.5712280273438,
+        -843.0366821289062
       ],
       "size": [
         210,
         721.4047241210938
       ],
       "flags": {},
-      "order": 5,
+      "order": 2,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -782,8 +531,8 @@
       "id": 61,
       "type": "Gemini_API_Zho",
       "pos": [
-        -312.84295654296875,
-        249.11366271972656
+        -191.8079833984375,
+        248.81654357910156
       ],
       "size": [
         382.7574768066406,
@@ -838,15 +587,15 @@
       "id": 65,
       "type": "Note",
       "pos": [
-        -312.055908203125,
-        430.5095520019531
+        -191.02101135253906,
+        430.2123107910156
       ],
       "size": [
         382.0196838378906,
         145.08924865722656
       ],
       "flags": {},
-      "order": 6,
+      "order": 3,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -862,8 +611,8 @@
       "id": 41,
       "type": "ImageUpscaleWithModel",
       "pos": [
-        2926.543212890625,
-        108.0076675415039
+        2569.039306640625,
+        -18.534244537353516
       ],
       "size": [
         296.97412109375,
@@ -906,8 +655,8 @@
       "id": 48,
       "type": "ColorCorrect",
       "pos": [
-        2926.543212890625,
-        558.0075073242188
+        2569.039306640625,
+        431.4656066894531
       ],
       "size": [
         294.759765625,
@@ -915,7 +664,7 @@
       ],
       "flags": {},
       "order": 34,
-      "mode": 4,
+      "mode": 0,
       "inputs": [
         {
           "name": "image",
@@ -951,8 +700,8 @@
       "id": 47,
       "type": "ProPostFilmGrain",
       "pos": [
-        2926.543212890625,
-        208.00765991210938
+        2569.039306640625,
+        81.46576690673828
       ],
       "size": [
         295.24066162109375,
@@ -960,7 +709,7 @@
       ],
       "flags": {},
       "order": 32,
-      "mode": 4,
+      "mode": 0,
       "inputs": [
         {
           "name": "image",
@@ -991,7 +740,7 @@
         1,
         0,
         1,
-        995,
+        773,
         "randomize"
       ],
       "color": "#432",
@@ -1001,15 +750,15 @@
       "id": 40,
       "type": "UpscaleModelLoader",
       "pos": [
-        2926.543212890625,
-        -21.992273330688477
+        2569.039306640625,
+        -148.53421020507812
       ],
       "size": [
         295.739013671875,
         58
       ],
       "flags": {},
-      "order": 7,
+      "order": 4,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1033,43 +782,11 @@
       "bgcolor": "#653"
     },
     {
-      "id": 42,
-      "type": "SaveImage",
-      "pos": [
-        3296.543212890625,
-        -21.992273330688477
-      ],
-      "size": [
-        1241.6512451171875,
-        752.5809326171875
-      ],
-      "flags": {},
-      "order": 35,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 67
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "Node name for S&R": "SaveImage"
-      },
-      "widgets_values": [
-        "final_thumbnail"
-      ],
-      "color": "#432",
-      "bgcolor": "#653",
-      "shape": 1
-    },
-    {
       "id": 57,
       "type": "FaceRestoreModelLoader",
       "pos": [
-        2296.64208984375,
-        5.660123348236084
+        2008.5079345703125,
+        -369.0390319824219
       ],
       "size": [
         315,
@@ -1078,7 +795,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 8,
+      "order": 5,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1100,93 +817,19 @@
       "bgcolor": "#3f5159"
     },
     {
-      "id": 69,
-      "type": "SaveImage",
-      "pos": [
-        3583.4716796875,
-        -898.592041015625
-      ],
-      "size": [
-        939.8038940429688,
-        727.0061645507812
-      ],
-      "flags": {},
-      "order": 33,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 115
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "Node name for S&R": "SaveImage"
-      },
-      "widgets_values": [
-        "final_thumbnail"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 67,
-      "type": "Stage1_load",
-      "pos": [
-        2743.4716796875,
-        -898.592041015625
-      ],
-      "size": [
-        315,
-        126
-      ],
-      "flags": {},
-      "order": 9,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "stage1_model",
-          "type": "STAGE1",
-          "links": [
-            109
-          ]
-        },
-        {
-          "name": "task",
-          "type": "TASK",
-          "links": [
-            110
-          ],
-          "slot_index": 1
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "Stage1_load"
-      },
-      "widgets_values": [
-        "bsr",
-        "cuda",
-        "float32"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
       "id": 68,
       "type": "Stage2_load",
       "pos": [
-        2743.4716796875,
-        -288.5920104980469
+        2568.321044921875,
+        -413.9908752441406
       ],
       "size": [
         315,
         122
       ],
       "flags": {},
-      "order": 10,
-      "mode": 0,
+      "order": 6,
+      "mode": 4,
       "inputs": [],
       "outputs": [
         {
@@ -1224,98 +867,11 @@
       "bgcolor": "#355"
     },
     {
-      "id": 66,
-      "type": "DiffBIR_sample_advanced",
-      "pos": [
-        3123.4716796875,
-        -898.592041015625
-      ],
-      "size": [
-        400,
-        730
-      ],
-      "flags": {},
-      "order": 31,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "stage1_model",
-          "type": "STAGE1",
-          "link": 109
-        },
-        {
-          "name": "task",
-          "type": "TASK",
-          "link": 110
-        },
-        {
-          "name": "cldm",
-          "type": "CLDM",
-          "link": 111
-        },
-        {
-          "name": "diffusion",
-          "type": "DIFFUSION",
-          "link": 112
-        },
-        {
-          "name": "infer_type",
-          "type": "INFER_TYPE",
-          "link": 113
-        },
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 116
-        }
-      ],
-      "outputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "links": [
-            115
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "DiffBIR_sample_advanced"
-      },
-      "widgets_values": [
-        2,
-        30,
-        4,
-        true,
-        true,
-        512,
-        256,
-        true,
-        true,
-        512,
-        256,
-        "high detailed",
-        "low detailed",
-        588544908728177,
-        "randomize",
-        "cuda",
-        false,
-        "w_mse",
-        1,
-        1001,
-        -1,
-        "latent",
-        1
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
       "id": 8,
       "type": "VAEDecode",
       "pos": [
-        1822.472412109375,
-        -45.20092010498047
+        1534.3360595703125,
+        -419.9000549316406
       ],
       "size": [
         350.7171325683594,
@@ -1355,8 +911,8 @@
       "id": 13,
       "type": "SamplerCustomAdvanced",
       "pos": [
-        1821.751220703125,
-        52.85721206665039
+        1533.6148681640625,
+        -321.8418884277344
       ],
       "size": [
         350.9081115722656,
@@ -1423,15 +979,15 @@
       "id": 10,
       "type": "VAELoader",
       "pos": [
-        1822.063232421875,
-        209.96621704101562
+        1533.9268798828125,
+        -164.7329559326172
       ],
       "size": [
         348.4757995605469,
         58
       ],
       "flags": {},
-      "order": 11,
+      "order": 7,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1456,8 +1012,8 @@
       "id": 56,
       "type": "FaceRestoreCFWithModel",
       "pos": [
-        2296.855712890625,
-        127.60147857666016
+        2008.7215576171875,
+        -247.09771728515625
       ],
       "size": [
         315,
@@ -1501,11 +1057,89 @@
       "bgcolor": "#3f5159"
     },
     {
+      "id": 25,
+      "type": "RandomNoise",
+      "pos": [
+        1135.7181396484375,
+        -611.1806030273438
+      ],
+      "size": [
+        307.4601745605469,
+        82.260009765625
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "NOISE",
+          "type": "NOISE",
+          "links": [
+            37
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RandomNoise"
+      },
+      "widgets_values": [
+        188883340585560,
+        "randomize"
+      ]
+    },
+    {
+      "id": 32,
+      "type": "PatchModelAddDownscale",
+      "pos": [
+        559.2832641601562,
+        -538.3212280273438
+      ],
+      "size": [
+        465.8802490234375,
+        202
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 54
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            55
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PatchModelAddDownscale"
+      },
+      "widgets_values": [
+        3,
+        2,
+        0,
+        0.35,
+        true,
+        "bicubic",
+        "bicubic"
+      ]
+    },
+    {
       "id": 9,
       "type": "SaveImage",
       "pos": [
-        2767.125732421875,
-        819.023681640625
+        1883.8341064453125,
+        151.21981811523438
       ],
       "size": [
         630.6275634765625,
@@ -1532,11 +1166,290 @@
       "shape": 1
     },
     {
+      "id": 67,
+      "type": "Stage1_load",
+      "pos": [
+        2568.321044921875,
+        -1023.9909057617188
+      ],
+      "size": [
+        315,
+        126
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "stage1_model",
+          "type": "STAGE1",
+          "links": [
+            109
+          ]
+        },
+        {
+          "name": "task",
+          "type": "TASK",
+          "links": [
+            110
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Stage1_load"
+      },
+      "widgets_values": [
+        "bsr",
+        "cuda",
+        "float32"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 69,
+      "type": "SaveImage",
+      "pos": [
+        3408.321044921875,
+        -1023.9909057617188
+      ],
+      "size": [
+        939.8038940429688,
+        727.0061645507812
+      ],
+      "flags": {},
+      "order": 33,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 115
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "final_thumbnail"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 12,
+      "type": "UNETLoader",
+      "pos": [
+        -1016.5712280273438,
+        -983.0366821289062
+      ],
+      "size": [
+        315,
+        82
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            78
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "flux1-dev-fp8.safetensors",
+        "default"
+      ]
+    },
+    {
+      "id": 11,
+      "type": "DualCLIPLoader",
+      "pos": [
+        -605.4274291992188,
+        -823.1701049804688
+      ],
+      "size": [
+        311.8746032714844,
+        106
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            73
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DualCLIPLoader"
+      },
+      "widgets_values": [
+        "t5xxl_fp8_e4m3fn.safetensors",
+        "clip_l.safetensors",
+        "flux"
+      ]
+    },
+    {
+      "id": 49,
+      "type": "LoraLoader",
+      "pos": [
+        -182.5664520263672,
+        -787.6524047851562
+      ],
+      "size": [
+        414.3505554199219,
+        126
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 86
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 92
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            87
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            93
+          ],
+          "slot_index": 1,
+          "shape": 3
+        }
+      ],
+      "title": "Load LoRA (Fix hand)",
+      "properties": {
+        "Node name for S&R": "LoraLoader"
+      },
+      "widgets_values": [
+        "Hand v2.safetensors",
+        1,
+        0.2
+      ]
+    },
+    {
+      "id": 42,
+      "type": "SaveImage",
+      "pos": [
+        2939.039306640625,
+        -148.53421020507812
+      ],
+      "size": [
+        1241.6512451171875,
+        752.5809326171875
+      ],
+      "flags": {},
+      "order": 35,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 67
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "final_thumbnail"
+      ],
+      "color": "#432",
+      "bgcolor": "#653",
+      "shape": 1
+    },
+    {
+      "id": 60,
+      "type": "ShowText|pysssss",
+      "pos": [
+        -619.5527954101562,
+        249.54226684570312
+      ],
+      "size": [
+        384.9148254394531,
+        717.33203125
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 104,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            105
+          ],
+          "slot_index": 0,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        [
+          "chuyển câu sau thành 1 câu tiếng Anh đơn giản dành cho Stable Diffusion và loại bỏ chữ tiếng việt: ảnh toàn cảnh, 1 con tàu hình dáng thuyền buồm bay ngoài vũ trụ, người ngoài hành tinh, phong cách phim viễn tưởng, siêu thực, phim ,chất lượng cao, chi tiết, ánh sáng phim , 4k"
+        ],
+        "describe \"Merry Christmas\" as a prompt base on this format prompt. And must have banner title: ```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\nScene Description:\nA vibrant and festive Vietnamese Lunar New Year celebration. The scene features a bustling environment with traditional decorations: red lanterns hanging in the air, peach blossoms in full bloom, and kumquat trees adorned with golden fruits. In the foreground, people in colorful áo dài (traditional Vietnamese attire) are smiling and engaging in joyous activities such as giving red envelopes (lì xì) to children and enjoying Tết delicacies.\n\n\nBanner Title:\nThe handwriter big text \"Vietnamese Rice Harvesting\" in top center or center\n\n\nBackground Details:\nA lively village or urban setting decorated with banners handwriter big text \"Happy New Year\" in top center, strings of lights, and fireworks lighting up the evening sky. Market stalls and family gatherings add a sense of community and tradition.\n\n\nColor Palette:\nDominated by auspicious colors like red and gold, symbolizing luck and prosperity, with hints of pink from peach blossoms and green from the kumquat trees. The lighting is warm and inviting, emphasizing the celebratory mood.\n\n\nComposition:\nThe layout has a balanced mix of cultural symbols and joyful interactions. Focus on the details of traditional clothing, decorations, and facial expressions to capture the essence of Vietnamese New Year traditions.\n```"
+      ],
+      "color": "#232",
+      "bgcolor": "#353",
+      "shape": 1
+    },
+    {
       "id": 59,
       "type": "TextCombinations",
       "pos": [
-        -1231.3756103515625,
-        250.34410095214844
+        -1102.1343994140625,
+        199.1940155029297
       ],
       "size": [
         412.17681884765625,
@@ -1577,12 +1490,99 @@
         "text1 + text2 to output1, text2 to output2",
         " ",
         "false",
-        131763342313812,
+        57260430630944,
         "randomize"
       ],
-      "color": "#232",
-      "bgcolor": "#353",
+      "color": "#332922",
+      "bgcolor": "#593930",
       "shape": 1
+    },
+    {
+      "id": 66,
+      "type": "DiffBIR_sample_advanced",
+      "pos": [
+        2948.321044921875,
+        -1023.9909057617188
+      ],
+      "size": [
+        400,
+        730
+      ],
+      "flags": {},
+      "order": 31,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "stage1_model",
+          "type": "STAGE1",
+          "link": 109
+        },
+        {
+          "name": "task",
+          "type": "TASK",
+          "link": 110
+        },
+        {
+          "name": "cldm",
+          "type": "CLDM",
+          "link": 111
+        },
+        {
+          "name": "diffusion",
+          "type": "DIFFUSION",
+          "link": 112
+        },
+        {
+          "name": "infer_type",
+          "type": "INFER_TYPE",
+          "link": 113
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 116
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            115
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DiffBIR_sample_advanced"
+      },
+      "widgets_values": [
+        2,
+        30,
+        4,
+        true,
+        true,
+        512,
+        256,
+        true,
+        true,
+        512,
+        256,
+        "high detailed, high quality",
+        "low detailed, blurry, messy",
+        368932555298100,
+        "randomize",
+        "cuda",
+        false,
+        "w_mse",
+        1,
+        1001,
+        -1,
+        "latent",
+        1
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
     }
   ],
   "links": [
@@ -1920,8 +1920,8 @@
       "id": 1,
       "title": "Upscale by Model",
       "bounding": [
-        2906.543212890625,
-        -101.99230194091797,
+        2549.039306640625,
+        -228.53424072265625,
         1657.5068359375,
         851.4898681640625
       ],
@@ -1933,8 +1933,8 @@
       "id": 2,
       "title": "Face & Detail",
       "bounding": [
-        2282.7548828125,
-        -70.46267700195312,
+        1994.620361328125,
+        -445.1617736816406,
         346.00970458984375,
         316.99493408203125
       ],
@@ -1946,10 +1946,36 @@
       "id": 3,
       "title": "Upscale by DIFFBIR",
       "bounding": [
-        2723.4716796875,
-        -988.5919799804688,
+        2548.321044921875,
+        -1113.9903564453125,
         1819.6151123046875,
         850.93896484375
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 4,
+      "title": "Core workflow",
+      "bounding": [
+        -1103.1160888671875,
+        -1114.07177734375,
+        3625.175537109375,
+        1211.8509521484375
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 5,
+      "title": "Google AI (Gemini)",
+      "bounding": [
+        -636.006591796875,
+        170.3100128173828,
+        1288.0623779296875,
+        843.3838500976562
       ],
       "color": "#3f789e",
       "font_size": 24,
@@ -1959,10 +1985,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.45,
+      "scale": 0.5989500000000051,
       "offset": [
-        -131.32670388157533,
-        1462.760155677558
+        -678.0970926559155,
+        1679.3777071296397
       ]
     },
     "ue_links": []

@@ -46,6 +46,7 @@ system_prompt = """
     **Output**: "A dreamy watercolor painting of a rainy street, soft reflections glistening in the puddles under warm streetlights."
 """
 
+
 # Service to get quick prompts data
 def get_quick_prompts_data():
     with open("quick_prompts.json", "r") as f:
@@ -143,7 +144,8 @@ def authenticate_user(domain, token):
     except Exception as e:
         logging.error(f"An unexpected error occurred during authentication: {e}")
         return None
-    
+
+
 def create_prompt_and_call_api(input_string):
     topic = input_string.split('"')[1]
     
