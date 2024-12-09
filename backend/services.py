@@ -143,12 +143,54 @@ def authenticate_user(domain, token):
     except Exception as e:
         logging.error(f"An unexpected error occurred during authentication: {e}")
         return None
+    
+def create_prompt_and_call_api(input_string):
+    topic = input_string.split('"')[1]
+    
+    # Generate the formatted prompt
+    prompt = f"""((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))
+        Scene Description:
+        A vibrant and festive Vietnamese Lunar New Year celebration. The scene features a bustling environment with traditional decorations: red lanterns hanging in the air, peach blossoms in full bloom, and kumquat trees adorned with golden fruits. In the foreground, people in colorful áo dài (traditional Vietnamese attire) are smiling and engaging in joyous activities such as giving red envelopes (lì xì) to children and enjoying Tết delicacies.
+
+        Banner Title:
+        The handwritten big text "{topic}" in top center
+
+        Background Details:
+        A lively village or urban setting decorated with banners handwritten big text "Happy New Year" in top center, strings of lights, and fireworks lighting up the evening sky. Market stalls and family gatherings add a sense of community and tradition.
+
+        Color Palette:
+        Dominated by auspicious colors like red and gold, symbolizing luck and prosperity, with hints of pink from peach blossoms and green from the kumquat trees. The lighting is warm and inviting, emphasizing the celebratory mood.
+
+        Composition:
+        The layout has a balanced mix of cultural symbols and joyful interactions. Focus on the details of traditional clothing, decorations, and facial expressions to capture the essence of Vietnamese New Year traditions."""
+    
+    # Prepare the data for the API request
+    data = {
+        "contents": [
+            {
+                "parts": [
+                    {"text": prompt}
+                ]
+            }
+        ]
+    }
+
+    # API endpoint and headers
+    api_key = "YOUR_API_KEY"  # Replace with your actual API key
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key={api_key}"
+    headers = {"Content-Type": "application/json"}
+    
+    # Make the POST request
+    try:
+        response = requests.post(url, headers=headers, json=data)
+        response.raise_for_status()  # Raise an HTTPError for bad responses
+        print("API Response:")
+        print(json.dumps(response.json(), indent=4))
+    except requests.exceptions.RequestException as e:
+        print(f"An error occurred: {e}")
 
 # Main image generation function
 async def generate_images(positive_prompt, poster_number):
-    
-
-    
     ws = ws_client.WebSocket()
     ws_url = f"ws://{server_address}/ws?clientId={client_id}"
     ws.connect(ws_url)
@@ -158,7 +200,9 @@ async def generate_images(positive_prompt, poster_number):
 
     workflow = json.loads(workflow_data)
 
-    workflow["6"]["inputs"]["text"] = positive_prompt
+    prompt_string = create_prompt_and_call_api(positive_prompt)
+
+    workflow["6"]["inputs"]["text"] = prompt_string
 
     # Set a random seed for the KSampler node
     seed = random.randint(1, 1000000000000000)

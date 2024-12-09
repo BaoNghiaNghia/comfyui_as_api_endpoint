@@ -7,7 +7,6 @@ import io
 
 router = APIRouter()
 
-# Serve HTML file (index.html)
 @router.get("/")
 async def get_index():
     return FileResponse("ui/index.html")
