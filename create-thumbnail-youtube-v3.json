@@ -1,6 +1,6 @@
 {
-  "last_node_id": 69,
-  "last_link_id": 116,
+  "last_node_id": 76,
+  "last_link_id": 120,
   "nodes": [
     {
       "id": 22,
@@ -14,7 +14,7 @@
         46
       ],
       "flags": {},
-      "order": 25,
+      "order": 28,
       "mode": 0,
       "inputs": [
         {
@@ -90,7 +90,7 @@
         126
       ],
       "flags": {},
-      "order": 15,
+      "order": 18,
       "mode": 4,
       "inputs": [
         {
@@ -146,7 +146,7 @@
         126
       ],
       "flags": {},
-      "order": 19,
+      "order": 22,
       "mode": 0,
       "inputs": [
         {
@@ -238,7 +238,7 @@
         126
       ],
       "flags": {},
-      "order": 20,
+      "order": 23,
       "mode": 0,
       "inputs": [
         {
@@ -297,7 +297,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 23,
+      "order": 26,
       "mode": 0,
       "inputs": [
         {
@@ -348,7 +348,7 @@
         82
       ],
       "flags": {},
-      "order": 13,
+      "order": 16,
       "mode": 4,
       "inputs": [
         {
@@ -388,7 +388,7 @@
         106
       ],
       "flags": {},
-      "order": 22,
+      "order": 25,
       "mode": 0,
       "inputs": [
         {
@@ -429,7 +429,7 @@
         58.31459426879883
       ],
       "flags": {},
-      "order": 24,
+      "order": 27,
       "mode": 0,
       "inputs": [
         {
@@ -456,78 +456,6 @@
       ]
     },
     {
-      "id": 58,
-      "type": "ShowText|pysssss",
-      "pos": [
-        246.27999877929688,
-        250.04721069335938
-      ],
-      "size": [
-        384.70587158203125,
-        741.8711547851562
-      ],
-      "flags": {},
-      "order": 18,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "text",
-          "type": "STRING",
-          "link": 103,
-          "widget": {
-            "name": "text"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [
-            106
-          ],
-          "slot_index": 0,
-          "shape": 6
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ShowText|pysssss"
-      },
-      "widgets_values": [
-        [
-          "A highly detailed and cinematic 4k image of a sailing ship spaceship flying through space, surrounded by aliens, in a surreal and cinematic sci-fi style, with movie lighting. \n"
-        ],
-        "((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\nScene Description:\nA cozy and warm Christmas morning scene.  A decorated Christmas tree with twinkling lights and colorful ornaments stands in the living room. Presents wrapped in bright paper are piled underneath.  In the foreground, family members in festive pajamas are gathered around, exchanging gifts and sharing smiles. A crackling fireplace adds to the ambiance, with stockings hung on the mantelpiece.  A table laden with Christmas treats like cookies, candy canes, and a fruitcake sits nearby.\n\n\nBanner Title:\nThe handwriter big text \"Merry Christmas\" in top center or center\n\n\nBackground Details:\nA snow-covered landscape visible through the window, with a warm glow emanating from the house. Soft Christmas carols playing in the background.\n\n\nColor Palette:\nDominated by traditional Christmas colors like red, green, and gold, accented with the warm glow of firelight and the white of the snow. The lighting is soft and inviting, creating a sense of peace and joy.\n\n\nComposition:\nThe layout focuses on the intimacy and warmth of the family gathering, with the Christmas tree and presents as central elements. Capture the expressions of joy and excitement on the faces of the family members.  Include details of the festive decorations and the comforting atmosphere of the Christmas morning scene.\n```"
-      ],
-      "color": "#232",
-      "bgcolor": "#353",
-      "shape": 1
-    },
-    {
-      "id": 44,
-      "type": "Note",
-      "pos": [
-        -1016.5712280273438,
-        -843.0366821289062
-      ],
-      "size": [
-        210,
-        721.4047241210938
-      ],
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [],
-      "title": "Styles thumbnail",
-      "properties": {},
-      "widgets_values": [
-        "photo\nillustration\n3d\ncartoonfun\ncomic\ndark\nwatercolor\npixelart\nsurreal\noilpainting\nnature\ninkprint\npencil\nretrowave\nvintagejapanese\nlifestyle\ncollage\nglitchart\nretroglow\nlowkeycinematic\nanalogmemories\ntrippyillustration\nfantasycartoon\npastelpaint\narcadebits\nsquishy3d\nproductphotography\nhistorical\nfelted\npodium\nredveil\ndarklightdreamscaped\ndreamlandscapes\nlinework\nsonnyanime\nsoftpasty\nsoftretro\nplushyworld\nfilmeffect\nanime\nwarnandcold\nsparking\nblurrylongexposure\nfluttedglass\nglimmerish\n40sinfluence\ndadapop\n80smovie\nrenaissancefashion\nfineart\nneoclassicart\nhighendlight\nfantasyanime\n3dcolorful\nillustratorphoto"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
       "id": 61,
       "type": "Gemini_API_Zho",
       "pos": [
@@ -541,7 +469,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 16,
+      "order": 19,
       "mode": 0,
       "inputs": [
         {
@@ -595,7 +523,7 @@
         145.08924865722656
       ],
       "flags": {},
-      "order": 3,
+      "order": 2,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -608,157 +536,18 @@
       "bgcolor": "#653"
     },
     {
-      "id": 41,
-      "type": "ImageUpscaleWithModel",
-      "pos": [
-        2569.039306640625,
-        -18.534244537353516
-      ],
-      "size": [
-        296.97412109375,
-        46
-      ],
-      "flags": {},
-      "order": 30,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "upscale_model",
-          "type": "UPSCALE_MODEL",
-          "link": 59
-        },
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 102
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            99
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ImageUpscaleWithModel"
-      },
-      "widgets_values": [],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
-      "id": 48,
-      "type": "ColorCorrect",
-      "pos": [
-        2569.039306640625,
-        431.4656066894531
-      ],
-      "size": [
-        294.759765625,
-        178
-      ],
-      "flags": {},
-      "order": 34,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 66
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            67
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ColorCorrect"
-      },
-      "widgets_values": [
-        0,
-        0,
-        0,
-        2,
-        2,
-        1
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
-      "id": 47,
-      "type": "ProPostFilmGrain",
-      "pos": [
-        2569.039306640625,
-        81.46576690673828
-      ],
-      "size": [
-        295.24066162109375,
-        300.5332336425781
-      ],
-      "flags": {},
-      "order": 32,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 99
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            66
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ProPostFilmGrain"
-      },
-      "widgets_values": [
-        false,
-        "Fine",
-        0.5,
-        0.4,
-        0.2,
-        0.1,
-        1,
-        0,
-        1,
-        773,
-        "randomize"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
       "id": 40,
       "type": "UpscaleModelLoader",
       "pos": [
-        2569.039306640625,
-        -148.53421020507812
+        2597.088623046875,
+        -148.94171142578125
       ],
       "size": [
         295.739013671875,
         58
       ],
       "flags": {},
-      "order": 4,
+      "order": 3,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -795,7 +584,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 5,
+      "order": 4,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -820,15 +609,15 @@
       "id": 68,
       "type": "Stage2_load",
       "pos": [
-        2568.321044921875,
-        -413.9908752441406
+        2592.857177734375,
+        -408.3599548339844
       ],
       "size": [
         315,
         122
       ],
       "flags": {},
-      "order": 6,
+      "order": 5,
       "mode": 4,
       "inputs": [],
       "outputs": [
@@ -878,7 +667,7 @@
         46
       ],
       "flags": {},
-      "order": 27,
+      "order": 30,
       "mode": 0,
       "inputs": [
         {
@@ -908,107 +697,6 @@
       "widgets_values": []
     },
     {
-      "id": 13,
-      "type": "SamplerCustomAdvanced",
-      "pos": [
-        1533.6148681640625,
-        -321.8418884277344
-      ],
-      "size": [
-        350.9081115722656,
-        106
-      ],
-      "flags": {},
-      "order": 26,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "noise",
-          "type": "NOISE",
-          "link": 37,
-          "slot_index": 0
-        },
-        {
-          "name": "guider",
-          "type": "GUIDER",
-          "link": 30,
-          "slot_index": 1
-        },
-        {
-          "name": "sampler",
-          "type": "SAMPLER",
-          "link": 19,
-          "slot_index": 2
-        },
-        {
-          "name": "sigmas",
-          "type": "SIGMAS",
-          "link": 20,
-          "slot_index": 3
-        },
-        {
-          "name": "latent_image",
-          "type": "LATENT",
-          "link": 53,
-          "slot_index": 4
-        }
-      ],
-      "outputs": [
-        {
-          "name": "output",
-          "type": "LATENT",
-          "links": [
-            24
-          ],
-          "slot_index": 0,
-          "shape": 3
-        },
-        {
-          "name": "denoised_output",
-          "type": "LATENT",
-          "links": null,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "SamplerCustomAdvanced"
-      },
-      "widgets_values": []
-    },
-    {
-      "id": 10,
-      "type": "VAELoader",
-      "pos": [
-        1533.9268798828125,
-        -164.7329559326172
-      ],
-      "size": [
-        348.4757995605469,
-        58
-      ],
-      "flags": {},
-      "order": 7,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            12
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "VAELoader"
-      },
-      "widgets_values": [
-        "ae.safetensors"
-      ]
-    },
-    {
       "id": 56,
       "type": "FaceRestoreCFWithModel",
       "pos": [
@@ -1020,7 +708,7 @@
         102
       ],
       "flags": {},
-      "order": 28,
+      "order": 31,
       "mode": 0,
       "inputs": [
         {
@@ -1068,7 +756,7 @@
         82.260009765625
       ],
       "flags": {},
-      "order": 8,
+      "order": 6,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1085,7 +773,7 @@
         "Node name for S&R": "RandomNoise"
       },
       "widgets_values": [
-        188883340585560,
+        81932534894299,
         "randomize"
       ]
     },
@@ -1101,7 +789,7 @@
         202
       ],
       "flags": {},
-      "order": 21,
+      "order": 24,
       "mode": 0,
       "inputs": [
         {
@@ -1135,49 +823,18 @@
       ]
     },
     {
-      "id": 9,
-      "type": "SaveImage",
-      "pos": [
-        1883.8341064453125,
-        151.21981811523438
-      ],
-      "size": [
-        630.6275634765625,
-        407.3680114746094
-      ],
-      "flags": {},
-      "order": 29,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 95
-        }
-      ],
-      "outputs": [],
-      "title": "Preview Image",
-      "properties": {
-        "Node name for S&R": "SaveImage"
-      },
-      "widgets_values": [
-        "preview"
-      ],
-      "shape": 1
-    },
-    {
       "id": 67,
       "type": "Stage1_load",
       "pos": [
-        2568.321044921875,
-        -1023.9909057617188
+        2592.857177734375,
+        -1018.360107421875
       ],
       "size": [
         315,
         126
       ],
       "flags": {},
-      "order": 9,
+      "order": 7,
       "mode": 4,
       "inputs": [],
       "outputs": [
@@ -1212,15 +869,15 @@
       "id": 69,
       "type": "SaveImage",
       "pos": [
-        3408.321044921875,
-        -1023.9909057617188
+        3432.857177734375,
+        -1018.360107421875
       ],
       "size": [
         939.8038940429688,
         727.0061645507812
       ],
       "flags": {},
-      "order": 33,
+      "order": 36,
       "mode": 4,
       "inputs": [
         {
@@ -1251,7 +908,7 @@
         82
       ],
       "flags": {},
-      "order": 10,
+      "order": 8,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1285,7 +942,7 @@
         106
       ],
       "flags": {},
-      "order": 11,
+      "order": 9,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1320,7 +977,7 @@
         126
       ],
       "flags": {},
-      "order": 17,
+      "order": 20,
       "mode": 4,
       "inputs": [
         {
@@ -1365,151 +1022,18 @@
       ]
     },
     {
-      "id": 42,
-      "type": "SaveImage",
-      "pos": [
-        2939.039306640625,
-        -148.53421020507812
-      ],
-      "size": [
-        1241.6512451171875,
-        752.5809326171875
-      ],
-      "flags": {},
-      "order": 35,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 67
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "Node name for S&R": "SaveImage"
-      },
-      "widgets_values": [
-        "final_thumbnail"
-      ],
-      "color": "#432",
-      "bgcolor": "#653",
-      "shape": 1
-    },
-    {
-      "id": 60,
-      "type": "ShowText|pysssss",
-      "pos": [
-        -619.5527954101562,
-        249.54226684570312
-      ],
-      "size": [
-        384.9148254394531,
-        717.33203125
-      ],
-      "flags": {},
-      "order": 14,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "text",
-          "type": "STRING",
-          "link": 104,
-          "widget": {
-            "name": "text"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [
-            105
-          ],
-          "slot_index": 0,
-          "shape": 6
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ShowText|pysssss"
-      },
-      "widgets_values": [
-        [
-          "chuyển câu sau thành 1 câu tiếng Anh đơn giản dành cho Stable Diffusion và loại bỏ chữ tiếng việt: ảnh toàn cảnh, 1 con tàu hình dáng thuyền buồm bay ngoài vũ trụ, người ngoài hành tinh, phong cách phim viễn tưởng, siêu thực, phim ,chất lượng cao, chi tiết, ánh sáng phim , 4k"
-        ],
-        "describe \"Merry Christmas\" as a prompt base on this format prompt. And must have banner title: ```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\nScene Description:\nA vibrant and festive Vietnamese Lunar New Year celebration. The scene features a bustling environment with traditional decorations: red lanterns hanging in the air, peach blossoms in full bloom, and kumquat trees adorned with golden fruits. In the foreground, people in colorful áo dài (traditional Vietnamese attire) are smiling and engaging in joyous activities such as giving red envelopes (lì xì) to children and enjoying Tết delicacies.\n\n\nBanner Title:\nThe handwriter big text \"Vietnamese Rice Harvesting\" in top center or center\n\n\nBackground Details:\nA lively village or urban setting decorated with banners handwriter big text \"Happy New Year\" in top center, strings of lights, and fireworks lighting up the evening sky. Market stalls and family gatherings add a sense of community and tradition.\n\n\nColor Palette:\nDominated by auspicious colors like red and gold, symbolizing luck and prosperity, with hints of pink from peach blossoms and green from the kumquat trees. The lighting is warm and inviting, emphasizing the celebratory mood.\n\n\nComposition:\nThe layout has a balanced mix of cultural symbols and joyful interactions. Focus on the details of traditional clothing, decorations, and facial expressions to capture the essence of Vietnamese New Year traditions.\n```"
-      ],
-      "color": "#232",
-      "bgcolor": "#353",
-      "shape": 1
-    },
-    {
-      "id": 59,
-      "type": "TextCombinations",
-      "pos": [
-        -1102.1343994140625,
-        199.1940155029297
-      ],
-      "size": [
-        412.17681884765625,
-        715.5905151367188
-      ],
-      "flags": {},
-      "order": 12,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "output1",
-          "type": "STRING",
-          "links": [
-            104
-          ],
-          "slot_index": 0,
-          "shape": 3
-        },
-        {
-          "name": "output2",
-          "type": "STRING",
-          "links": null,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "TextCombinations",
-        "ttNbgOverride": {
-          "color": "#232",
-          "bgcolor": "#353",
-          "groupcolor": "#8A8"
-        }
-      },
-      "widgets_values": [
-        "describe \"Merry Christmas\" as a prompt base on this format prompt. And must have banner title:",
-        "```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\nScene Description:\nA vibrant and festive Vietnamese Lunar New Year celebration. The scene features a bustling environment with traditional decorations: red lanterns hanging in the air, peach blossoms in full bloom, and kumquat trees adorned with golden fruits. In the foreground, people in colorful áo dài (traditional Vietnamese attire) are smiling and engaging in joyous activities such as giving red envelopes (lì xì) to children and enjoying Tết delicacies.\n\n\nBanner Title:\nThe handwriter big text \"Vietnamese Rice Harvesting\" in top center or center\n\n\nBackground Details:\nA lively village or urban setting decorated with banners handwriter big text \"Happy New Year\" in top center, strings of lights, and fireworks lighting up the evening sky. Market stalls and family gatherings add a sense of community and tradition.\n\n\nColor Palette:\nDominated by auspicious colors like red and gold, symbolizing luck and prosperity, with hints of pink from peach blossoms and green from the kumquat trees. The lighting is warm and inviting, emphasizing the celebratory mood.\n\n\nComposition:\nThe layout has a balanced mix of cultural symbols and joyful interactions. Focus on the details of traditional clothing, decorations, and facial expressions to capture the essence of Vietnamese New Year traditions.\n```",
-        "text1 + text2 to output1, text2 to output2",
-        " ",
-        "false",
-        57260430630944,
-        "randomize"
-      ],
-      "color": "#332922",
-      "bgcolor": "#593930",
-      "shape": 1
-    },
-    {
       "id": 66,
       "type": "DiffBIR_sample_advanced",
       "pos": [
-        2948.321044921875,
-        -1023.9909057617188
+        2972.857177734375,
+        -1018.360107421875
       ],
       "size": [
         400,
         730
       ],
       "flags": {},
-      "order": 31,
+      "order": 34,
       "mode": 4,
       "inputs": [
         {
@@ -1570,7 +1094,7 @@
         256,
         "high detailed, high quality",
         "low detailed, blurry, messy",
-        368932555298100,
+        631348908021993,
         "randomize",
         "cuda",
         false,
@@ -1583,6 +1107,595 @@
       ],
       "color": "#233",
       "bgcolor": "#355"
+    },
+    {
+      "id": 71,
+      "type": "Note",
+      "pos": [
+        -430,
+        -2040
+      ],
+      "size": [
+        302.4878845214844,
+        784.4933471679688
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Template 2",
+      "properties": {},
+      "widgets_values": [
+        "```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\nbo-cpposter, poster of a white girl, A Japanese beautiful girl wear roller skate shoes and pose on great night, dressed in a stylish jacket, inside a jacket is strapless, with a casual denim skirt. she roller skating andadding a retro touch to her outfit. The bright light of city highlights her relaxed and cheerful expression,and the roller skate shoes pops against the clear night sky. The background features a vibrant with a few trees or distant buildings,creating a fresh and joyful atmosphere. Art style: realistic,high detail,vibrant colors,warm and cheerful.,f1.4 50mm,commercial photo style,<lora:flux.1_lora_flyway_T-poster:1>,with text around is 'Roller 186'\n```"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 72,
+      "type": "Note",
+      "pos": [
+        -93.84400177001953,
+        -2040.8975830078125
+      ],
+      "size": [
+        302.4878845214844,
+        784.4933471679688
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Template 3",
+      "properties": {},
+      "widgets_values": [
+        "```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\nFlat illustration poster design, poster of a white girl, A Japanese beautiful girl wear roller skate shoes and pose on great night, dressed in a stylish jacket, inside a jacket is strapless, with a casual denim skirt. she roller skating andadding a retro touch to her outfit. The bright light of city highlights her relaxed and cheerful expression,and the roller skate shoes pops against the clear night sky. The background features a vibrant with a few trees or distant buildings,creating a fresh and joyful atmosphere. Art style: realistic,high detail,vibrant colors,warm and cheerful.,f1.4 50mm,commercial photo style, with text around is 'Roller 186',\n```"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 59,
+      "type": "TextCombinations",
+      "pos": [
+        -1102.1343994140625,
+        199.1940155029297
+      ],
+      "size": [
+        412.17681884765625,
+        715.5905151367188
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "output1",
+          "type": "STRING",
+          "links": [
+            104
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "output2",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "TextCombinations",
+        "ttNbgOverride": {
+          "color": "#232",
+          "bgcolor": "#353",
+          "groupcolor": "#8A8"
+        }
+      },
+      "widgets_values": [
+        "describe \"Merry Christmas\" as a prompt base on this format prompt. And must have banner title:",
+        "```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\nScene Description:\nA vibrant and festive Vietnamese Lunar New Year celebration. The scene features a bustling environment with traditional decorations: red lanterns hanging in the air, peach blossoms in full bloom, and kumquat trees adorned with golden fruits. In the foreground, people in colorful áo dài (traditional Vietnamese attire) are smiling and engaging in joyous activities such as giving red envelopes (lì xì) to children and enjoying Tết delicacies.\n\n\nBanner Title:\nThe handwriter big text \"Vietnamese Rice Harvesting\" in top center or center\n\n\nBackground Details:\nA lively village or urban setting decorated with banners handwriter big text \"Happy New Year\" in top center, strings of lights, and fireworks lighting up the evening sky. Market stalls and family gatherings add a sense of community and tradition.\n\n\nColor Palette:\nDominated by auspicious colors like red and gold, symbolizing luck and prosperity, with hints of pink from peach blossoms and green from the kumquat trees. The lighting is warm and inviting, emphasizing the celebratory mood.\n\n\nComposition:\nThe layout has a balanced mix of cultural symbols and joyful interactions. Focus on the details of traditional clothing, decorations, and facial expressions to capture the essence of Vietnamese New Year traditions.\n```",
+        "text1 + text2 to output1, text2 to output2",
+        " ",
+        "false",
+        39613366365805,
+        "randomize"
+      ],
+      "color": "#332922",
+      "bgcolor": "#593930",
+      "shape": 1
+    },
+    {
+      "id": 58,
+      "type": "ShowText|pysssss",
+      "pos": [
+        246.27999877929688,
+        250.04721069335938
+      ],
+      "size": [
+        384.70587158203125,
+        741.8711547851562
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 103,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            106
+          ],
+          "slot_index": 0,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        [
+          "A highly detailed and cinematic 4k image of a sailing ship spaceship flying through space, surrounded by aliens, in a surreal and cinematic sci-fi style, with movie lighting. \n"
+        ],
+        "((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\nScene Description:\nA cozy and warm Christmas morning scene.  A decorated Christmas tree with twinkling lights and colorful ornaments stands prominently. Presents wrapped in festive paper are piled beneath the tree.  In the foreground, family members in comfortable pajamas or holiday sweaters are gathered, exchanging gifts and sharing warm smiles. A crackling fireplace adds to the ambiance, with stockings hung on the mantelpiece.  A table nearby displays a delicious Christmas breakfast spread, including cookies, milk, and perhaps a Christmas ham or other festive dishes.\n\nBanner Title:\nThe handwriter big text \"Merry Christmas\" in top center or center\n\n\nBackground Details:\nA snow-covered landscape visible through a window, adding to the winter wonderland feel.  The interior of the room is decorated with garlands, wreaths, and other Christmas decorations.  Soft Christmas music plays in the background.\n\n\nColor Palette:\nClassic Christmas colors like red, green, and gold dominate the scene, complemented by the warm glow of the firelight and the twinkling lights on the tree.  The snow outside adds a touch of cool white and blue.\n\n\nComposition:\nThe layout emphasizes the warmth and joy of Christmas morning, focusing on the family interaction and the festive details of the decorations and the meal.  Capture the expressions of love, happiness, and excitement on the faces of the family members.\n```"
+      ],
+      "color": "#232",
+      "bgcolor": "#353",
+      "shape": 1
+    },
+    {
+      "id": 60,
+      "type": "ShowText|pysssss",
+      "pos": [
+        -619.5527954101562,
+        249.54226684570312
+      ],
+      "size": [
+        384.9148254394531,
+        717.33203125
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 104,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            105
+          ],
+          "slot_index": 0,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        [
+          "chuyển câu sau thành 1 câu tiếng Anh đơn giản dành cho Stable Diffusion và loại bỏ chữ tiếng việt: ảnh toàn cảnh, 1 con tàu hình dáng thuyền buồm bay ngoài vũ trụ, người ngoài hành tinh, phong cách phim viễn tưởng, siêu thực, phim ,chất lượng cao, chi tiết, ánh sáng phim , 4k"
+        ],
+        "describe \"Merry Christmas\" as a prompt base on this format prompt. And must have banner title: ```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\nScene Description:\nA vibrant and festive Vietnamese Lunar New Year celebration. The scene features a bustling environment with traditional decorations: red lanterns hanging in the air, peach blossoms in full bloom, and kumquat trees adorned with golden fruits. In the foreground, people in colorful áo dài (traditional Vietnamese attire) are smiling and engaging in joyous activities such as giving red envelopes (lì xì) to children and enjoying Tết delicacies.\n\n\nBanner Title:\nThe handwriter big text \"Vietnamese Rice Harvesting\" in top center or center\n\n\nBackground Details:\nA lively village or urban setting decorated with banners handwriter big text \"Happy New Year\" in top center, strings of lights, and fireworks lighting up the evening sky. Market stalls and family gatherings add a sense of community and tradition.\n\n\nColor Palette:\nDominated by auspicious colors like red and gold, symbolizing luck and prosperity, with hints of pink from peach blossoms and green from the kumquat trees. The lighting is warm and inviting, emphasizing the celebratory mood.\n\n\nComposition:\nThe layout has a balanced mix of cultural symbols and joyful interactions. Focus on the details of traditional clothing, decorations, and facial expressions to capture the essence of Vietnamese New Year traditions.\n```"
+      ],
+      "color": "#232",
+      "bgcolor": "#353",
+      "shape": 1
+    },
+    {
+      "id": 44,
+      "type": "Note",
+      "pos": [
+        -1068.18408203125,
+        -2041.55322265625
+      ],
+      "size": [
+        210,
+        773.589599609375
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Styles thumbnail",
+      "properties": {},
+      "widgets_values": [
+        "photo\nillustration\n3d\ncartoon fun\ncomic\ndark\nwater color\npixel art\nsurreal\noil painting\nnature\nink print\npencil\nretrowave\nvintage japanese\nlifestyle\ncollage\nglitchart\nretroglow\nlowkey cinematic\nanalog memories\ntrippy illustration\nfantasy cartoon\npastel paint\narcadebits\nsquishy 3d\nproduct photography\nhistorical\nfelted\npodium\nredveil\ndarklight dreamscaped\ndreamlandscapes\nlinework\nsonny anime\nsoft pasty\nsoft retro\nplushy world\nfilm effect\nanime\nwarnand cold\nsparking\nblurry long exposure\nflutted glass\nglimmerish\n40s influence\ndadapop\n80smovie\nrenaissance fashion\nfineart\nneo classicart\nhighend light\nfantasy anime\n3d colorful\nillustrator photo"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 70,
+      "type": "Note",
+      "pos": [
+        -760,
+        -2050
+      ],
+      "size": [
+        302.4878845214844,
+        784.4933471679688
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Template 1",
+      "properties": {},
+      "widgets_values": [
+        "```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\nScene Description:\nA vibrant and festive Vietnamese Lunar New Year celebration. The scene features a bustling environment with traditional decorations: red lanterns hanging in the air, peach blossoms in full bloom, and kumquat trees adorned with golden fruits. In the foreground, people in colorful áo dài (traditional Vietnamese attire) are smiling and engaging in joyous activities such as giving red envelopes (lì xì) to children and enjoying Tết delicacies.\n\n\nBanner Title:\nThe handwriter big text \"Vietnamese Rice Harvesting\" in top center or center\n\n\nBackground Details:\nA lively village or urban setting decorated with banners handwriter big text \"Happy New Year\" in top center, strings of lights, and fireworks lighting up the evening sky. Market stalls and family gatherings add a sense of community and tradition.\n\n\nColor Palette:\nDominated by auspicious colors like red and gold, symbolizing luck and prosperity, with hints of pink from peach blossoms and green from the kumquat trees. The lighting is warm and inviting, emphasizing the celebratory mood.\n\n\nComposition:\nThe layout has a balanced mix of cultural symbols and joyful interactions. Focus on the details of traditional clothing, decorations, and facial expressions to capture the essence of Vietnamese New Year traditions.\n```"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 41,
+      "type": "ImageUpscaleWithModel",
+      "pos": [
+        2597.088623046875,
+        -18.941804885864258
+      ],
+      "size": [
+        296.97412109375,
+        46
+      ],
+      "flags": {},
+      "order": 33,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "upscale_model",
+          "type": "UPSCALE_MODEL",
+          "link": 59
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 102
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            119
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageUpscaleWithModel"
+      },
+      "widgets_values": [],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 76,
+      "type": "ImageScale",
+      "pos": [
+        2597.1923828125,
+        71.53702545166016
+      ],
+      "size": [
+        297.8346862792969,
+        130
+      ],
+      "flags": {},
+      "order": 35,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 119
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            120
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageScale"
+      },
+      "widgets_values": [
+        "nearest-exact",
+        1920,
+        1080,
+        "disabled"
+      ]
+    },
+    {
+      "id": 48,
+      "type": "ColorCorrect",
+      "pos": [
+        2597.962890625,
+        600.1946411132812
+      ],
+      "size": [
+        294.759765625,
+        178
+      ],
+      "flags": {},
+      "order": 38,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 66
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            67
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ColorCorrect"
+      },
+      "widgets_values": [
+        0,
+        0,
+        0,
+        2,
+        2,
+        1
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 47,
+      "type": "ProPostFilmGrain",
+      "pos": [
+        2597.962890625,
+        250.1941680908203
+      ],
+      "size": [
+        295.24066162109375,
+        300.5332336425781
+      ],
+      "flags": {},
+      "order": 37,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 120
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            66
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ProPostFilmGrain"
+      },
+      "widgets_values": [
+        false,
+        "Fine",
+        0.5,
+        0.4,
+        0.2,
+        0.1,
+        1,
+        0,
+        1,
+        390,
+        "randomize"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 10,
+      "type": "VAELoader",
+      "pos": [
+        1531.1402587890625,
+        -132.966064453125
+      ],
+      "size": [
+        348.4757995605469,
+        58
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            12
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "ae.safetensors"
+      ]
+    },
+    {
+      "id": 13,
+      "type": "SamplerCustomAdvanced",
+      "pos": [
+        1534.1722412109375,
+        -311.81024169921875
+      ],
+      "size": [
+        350.9081115722656,
+        106
+      ],
+      "flags": {},
+      "order": 29,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "noise",
+          "type": "NOISE",
+          "link": 37,
+          "slot_index": 0
+        },
+        {
+          "name": "guider",
+          "type": "GUIDER",
+          "link": 30,
+          "slot_index": 1
+        },
+        {
+          "name": "sampler",
+          "type": "SAMPLER",
+          "link": 19,
+          "slot_index": 2
+        },
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 20,
+          "slot_index": 3
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 53,
+          "slot_index": 4
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "LATENT",
+          "links": [
+            24
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "denoised_output",
+          "type": "LATENT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SamplerCustomAdvanced"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 9,
+      "type": "SaveImage",
+      "pos": [
+        1892.5885009765625,
+        151.21981811523438
+      ],
+      "size": [
+        630.6275634765625,
+        407.3680114746094
+      ],
+      "flags": {},
+      "order": 32,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 95
+        }
+      ],
+      "outputs": [],
+      "title": "Preview Image",
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "preview"
+      ],
+      "shape": 1
+    },
+    {
+      "id": 42,
+      "type": "SaveImage",
+      "pos": [
+        2921.619384765625,
+        -143.15966796875
+      ],
+      "size": [
+        1241.6512451171875,
+        752.5809326171875
+      ],
+      "flags": {},
+      "order": 39,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 67
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "final_thumbnail"
+      ],
+      "color": "#432",
+      "bgcolor": "#653",
+      "shape": 1
     }
   ],
   "links": [
@@ -1795,14 +1908,6 @@
       "FACERESTORE_MODEL"
     ],
     [
-      99,
-      41,
-      0,
-      47,
-      0,
-      "IMAGE"
-    ],
-    [
       102,
       56,
       0,
@@ -1913,6 +2018,22 @@
       66,
       5,
       "IMAGE"
+    ],
+    [
+      119,
+      41,
+      0,
+      76,
+      0,
+      "IMAGE"
+    ],
+    [
+      120,
+      76,
+      0,
+      47,
+      0,
+      "IMAGE"
     ]
   ],
   "groups": [
@@ -1920,10 +2041,10 @@
       "id": 1,
       "title": "Upscale by Model",
       "bounding": [
-        2549.039306640625,
-        -228.53424072265625,
-        1657.5068359375,
-        851.4898681640625
+        2577.088623046875,
+        -228.94168090820312,
+        1658.952392578125,
+        1033.6268310546875
       ],
       "color": "#3f789e",
       "font_size": 24,
@@ -1946,8 +2067,8 @@
       "id": 3,
       "title": "Upscale by DIFFBIR",
       "bounding": [
-        2548.321044921875,
-        -1113.9903564453125,
+        2572.857177734375,
+        -1108.360107421875,
         1819.6151123046875,
         850.93896484375
       ],
@@ -1980,15 +2101,28 @@
       "color": "#3f789e",
       "font_size": 24,
       "flags": {}
+    },
+    {
+      "id": 6,
+      "title": "Template Prompt",
+      "bounding": [
+        -1102.791748046875,
+        -2132.598876953125,
+        3616.40478515625,
+        890.6337280273438
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
     }
   ],
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.5989500000000051,
+      "scale": 1.5535220464768995,
       "offset": [
-        -678.0970926559155,
-        1679.3777071296397
+        -2868.744657079158,
+        134.31353052998907
       ]
     },
     "ue_links": []

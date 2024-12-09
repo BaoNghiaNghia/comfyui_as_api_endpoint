@@ -196,7 +196,7 @@ async def generate_images(positive_prompt, poster_number):
     ws = ws_client.WebSocket()
     ws_url = f"ws://{server_address}/ws?clientId={client_id}"
     ws.connect(ws_url)
-    
+
     with open("workflow.json", "r", encoding="utf-8") as f:
         workflow_data = f.read()
 
