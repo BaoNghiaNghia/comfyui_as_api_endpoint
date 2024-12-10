@@ -14,8 +14,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 8000
 
 # Step 6: Set environment variables (Optional, if not using .env)
-ENV COMFYUI_SERVER_ADDRESS=127.0.0.1:8188
-ENV OLLAMA_SERVER_ADDRESS=127.0.0.1:11436
+# ENV COMFYUI_SERVER_ADDRESS=127.0.0.1:8188
+# ENV OLLAMA_SERVER_ADDRESS=127.0.0.1:11436
 
 # Step 7: Run FastAPI using Uvicorn with the correct path for the entry point
-CMD ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+CMD ["uvicorn", "backend.main:app", "--host", "127.0.0.1", "--port", "8000", "--reload"]

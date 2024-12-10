@@ -5,24 +5,32 @@ DreamCanvas is an AI-powered image generator that allows users to create high-qu
 ---
 
 ## **Table of Contents**
-- [Setup](#setup)
-  - [Requirements](#requirements)
-  - [Installation](#installation)
-  - [Running the Server](#running-the-server)
-  - [Running with Docker](#running-with-docker)
-- [Functionality](#functionality)
-  - [Positive and Negative Prompts](#positive-and-negative-prompts)
-  - [LLM-Assisted Prompt Generation](#llm-assisted-prompt-generation)
-  - [Quick Prompts](#quick-prompts)
-  - [Image Caching and Navigation](#image-caching-and-navigation)
-  - [UI Reset](#ui-reset)
-- [Architecture](#architecture)
-  - [Backend](#backend)
-    - [Key Endpoints](#key-endpoints)
-  - [Frontend](#frontend)
-    - [UI Components](#ui-components)
-  - [Tools and Libraries](#tools-and-libraries)
-- [Testing](#testing)
+
+- [**DreamCanvas - AI-Powered Creativity**](#dreamcanvas---ai-powered-creativity)
+  - [**Table of Contents**](#table-of-contents)
+  - [**Setup**](#setup)
+    - [**Requirements**](#requirements)
+    - [**Installation**](#installation)
+  - [**Running the Server**](#running-the-server)
+    - [**Local Environment**](#local-environment)
+  - [**Running with Docker**](#running-with-docker)
+    - [**1. Build the Docker Image**](#1-build-the-docker-image)
+    - [**2. Run the Docker Container**](#2-run-the-docker-container)
+    - [**3. Access the Application**](#3-access-the-application)
+  - [**Functionality**](#functionality)
+    - [**Positive and Negative Prompts**](#positive-and-negative-prompts)
+    - [**LLM-Assisted Prompt Generation**](#llm-assisted-prompt-generation)
+    - [**Quick Prompts**](#quick-prompts)
+    - [**Image Caching and Navigation**](#image-caching-and-navigation)
+    - [**UI Reset**](#ui-reset)
+  - [**Architecture**](#architecture)
+    - [**Backend**](#backend)
+      - [**Key Endpoints**](#key-endpoints)
+    - [**Frontend**](#frontend)
+      - [**UI Components**](#ui-components)
+    - [**Tools and Libraries**](#tools-and-libraries)
+  - [**Testing**](#testing)
+  - [**Kill Server**](#kill-server)
 
 ---
 
@@ -31,21 +39,26 @@ DreamCanvas is an AI-powered image generator that allows users to create high-qu
 ### **Requirements**
 
 1. **Conda Environment**:
+
    - The project uses Conda for environment management. Make sure Conda is installed on your system.
 
 2. **ComfyUI**:
+
    - ComfyUI should be installed and running. You must have the checkpoint `realvisxlV50Lightning.Ng9I.safetensors` installed in the `checkpoints` folder for the workflow.
    - Alternatively, you can modify `workflow.json` to use any other model/checkpoint.
 
 3. **Ollama**:
+
    - Ollama LLM server should be installed and accessible.
 
 4. **Configuration via `.env`**:
-   - The project uses a `.env` file for configuring server addresses. Below are custom configuration settings:
-     ```bash
+    - The project uses a `.env` file for configuring server addresses. Below are custom configuration settings:
+
+    ```bash
      COMFYUI_SERVER_ADDRESS=192.168.1.10:8188
      OLLAMA_SERVER_ADDRESS=192.168.1.10:11436
-     ```
+    ```
+
    - Adjust these values to match your environment.
 
 ### **Installation**
@@ -53,8 +66,8 @@ DreamCanvas is an AI-powered image generator that allows users to create high-qu
 1. **Clone the Repository**:
 
    ```bash
-   git clone https://github.com/Teachings/DreamCanvas.git
-   cd DreamCanvas
+    git clone https://github.com/Teachings/DreamCanvas.git
+    cd DreamCanvas
    ```
 
 2. **Set Up Conda Environment**:
@@ -122,6 +135,7 @@ docker run -d -p 8000:8000 --env-file .env --name dreamcanvas dreamcanvas
 ```
 
 This command will:
+
 - Start the container in **detached mode** (`-d`).
 - Map port **8000** of the container to port **8000** on your host.
 - Use the `.env` file to set environment variables.
@@ -164,6 +178,7 @@ You can now access the application at `http://localhost:8000/`
 ### **Backend**
 
 The backend is powered by **FastAPI** and handles the following operations:
+
 - Generating images using ComfyUI.
 - Fetching creative suggestions from the local LLM.
 - Serving quick prompts from configuration files.
@@ -171,8 +186,10 @@ The backend is powered by **FastAPI** and handles the following operations:
 #### **Key Endpoints**
 
 1. **POST /generate_images/**
+
    - **Description**: Generates an AI image using the provided prompts and image settings.
    - **Request Example**:
+
      ```json
      {
        "positive_prompt": "a beautiful sunset",
@@ -182,17 +199,22 @@ The backend is powered by **FastAPI** and handles the following operations:
        "height": 512
      }
      ```
+
    - **Response**: A binary stream containing the generated image.
 
 2. **POST /ask_llm/**
+
    - **Description**: Requests a creative prompt from the local LLM server (Ollama).
    - **Request Example**:
+
      ```json
      {
        "positive_prompt": "a beautiful sunset"
      }
      ```
+
    - **Response**:
+
      ```json
      {
        "assistant_reply": "How about a stunning sunset over the mountains with golden light reflecting on the water?"
@@ -202,6 +224,7 @@ The backend is powered by **FastAPI** and handles the following operations:
 3. **GET /quick_prompts/**
    - **Description**: Retrieves quick prompt configurations from the `quick_prompts.json` file for dynamic UI updates.
    - **Response Example**:
+
      ```json
      {
        "Positive Quick Prompts": [
@@ -222,6 +245,7 @@ The backend is powered by **FastAPI** and handles the following operations:
 ### **Frontend**
 
 The frontend is built with HTML, CSS, and JavaScript. It dynamically interacts with the backend for:
+
 - Generating images.
 - Fetching creative prompts from the LLM.
 - Loading quick prompt configurations from `quick_prompts.json`.
@@ -229,13 +253,16 @@ The frontend is built with HTML, CSS, and JavaScript. It dynamically interacts w
 #### **UI Components**
 
 1. **Image Generation Form**:
+
    - Includes fields for positive and negative prompts, image steps, width, and height.
    - Quick prompt buttons for easy input.
 
 2. **LLM Integration**:
+
    - A section that allows users to request and apply creative prompts generated by the LLM.
 
 3. **Image Display and Navigation**:
+
    - Displays the generated images and includes buttons for navigating through cached images.
 
 4. **Reset Functionality**:
