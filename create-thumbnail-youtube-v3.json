@@ -418,124 +418,6 @@
       ]
     },
     {
-      "id": 43,
-      "type": "FluxGuidance",
-      "pos": [
-        559.9757690429688,
-        -122.77791595458984
-      ],
-      "size": [
-        466.19598388671875,
-        58.31459426879883
-      ],
-      "flags": {},
-      "order": 25,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "conditioning",
-          "type": "CONDITIONING",
-          "link": 108
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            63
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "FluxGuidance"
-      },
-      "widgets_values": [
-        3.5
-      ]
-    },
-    {
-      "id": 61,
-      "type": "Gemini_API_Zho",
-      "pos": [
-        -191.8079833984375,
-        248.81654357910156
-      ],
-      "size": [
-        382.7574768066406,
-        126
-      ],
-      "flags": {
-        "collapsed": false
-      },
-      "order": 17,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": null,
-          "shape": 7
-        },
-        {
-          "name": "prompt",
-          "type": "STRING",
-          "link": 105,
-          "widget": {
-            "name": "prompt"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "text",
-          "type": "STRING",
-          "links": [
-            103
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "Gemini_API_Zho"
-      },
-      "widgets_values": [
-        "What is the meaning of life?",
-        "gemini-1.5-pro-latest",
-        false,
-        "AIzaSyA1Z5slGG7kbIOWinCnuz4OJiJ3a6G0t7Y"
-      ],
-      "color": "#232",
-      "bgcolor": "#353",
-      "shape": 1
-    },
-    {
-      "id": 65,
-      "type": "Note",
-      "pos": [
-        -191.02101135253906,
-        430.2123107910156
-      ],
-      "size": [
-        382.0196838378906,
-        145.08924865722656
-      ],
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [],
-      "title": "Google AI API Key",
-      "properties": {},
-      "widgets_values": [
-        "Thay đổi key mới trong trường hợp key hết hạn\n\nAIzaSyA1Z5slGG7kbIOWinCnuz4OJiJ3a6G0t7Y\nAIzaSyC1KVctwhDdVbIDv2cOZDa1kWyz0gq_jOQ\nAIzaSyA85MP5jctMT9rKVR6gT16tEmsuO4JqpLg\nAIzaSyCzXVTqFDI1a1XV5iLwIAcqY-bjR1Xpz8Y"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
       "id": 40,
       "type": "UpscaleModelLoader",
       "pos": [
@@ -547,7 +429,7 @@
         58
       ],
       "flags": {},
-      "order": 3,
+      "order": 2,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -584,7 +466,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 4,
+      "order": 3,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -705,7 +587,7 @@
         82.260009765625
       ],
       "flags": {},
-      "order": 5,
+      "order": 4,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -722,7 +604,7 @@
         "Node name for S&R": "RandomNoise"
       },
       "widgets_values": [
-        81932534894299,
+        112022607008381,
         "randomize"
       ]
     },
@@ -783,7 +665,7 @@
         82
       ],
       "flags": {},
-      "order": 6,
+      "order": 5,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -817,7 +699,7 @@
         106
       ],
       "flags": {},
-      "order": 7,
+      "order": 6,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -938,55 +820,7 @@
         [
           "A highly detailed and cinematic 4k image of a sailing ship spaceship flying through space, surrounded by aliens, in a surreal and cinematic sci-fi style, with movie lighting. \n"
         ],
-        "((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\nScene Description:\nA cozy and warm Christmas morning scene.  A decorated Christmas tree with twinkling lights and colorful ornaments stands prominently. Presents wrapped in festive paper are piled beneath the tree.  In the foreground, family members in comfortable pajamas or holiday sweaters are gathered, exchanging gifts and sharing warm smiles. A crackling fireplace adds to the ambiance, with stockings hung on the mantelpiece.  A table nearby displays a delicious Christmas breakfast spread, including cookies, milk, and perhaps a Christmas ham or other festive dishes.\n\nBanner Title:\nThe handwriter big text \"Merry Christmas\" in top center or center\n\n\nBackground Details:\nA snow-covered landscape visible through a window, adding to the winter wonderland feel.  The interior of the room is decorated with garlands, wreaths, and other Christmas decorations.  Soft Christmas music plays in the background.\n\n\nColor Palette:\nClassic Christmas colors like red, green, and gold dominate the scene, complemented by the warm glow of the firelight and the twinkling lights on the tree.  The snow outside adds a touch of cool white and blue.\n\n\nComposition:\nThe layout emphasizes the warmth and joy of Christmas morning, focusing on the family interaction and the festive details of the decorations and the meal.  Capture the expressions of love, happiness, and excitement on the faces of the family members.\n```"
-      ],
-      "color": "#232",
-      "bgcolor": "#353",
-      "shape": 1
-    },
-    {
-      "id": 60,
-      "type": "ShowText|pysssss",
-      "pos": [
-        -619.5527954101562,
-        249.54226684570312
-      ],
-      "size": [
-        384.9148254394531,
-        717.33203125
-      ],
-      "flags": {},
-      "order": 15,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "text",
-          "type": "STRING",
-          "link": 104,
-          "widget": {
-            "name": "text"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [
-            105
-          ],
-          "slot_index": 0,
-          "shape": 6
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ShowText|pysssss"
-      },
-      "widgets_values": [
-        [
-          "chuyển câu sau thành 1 câu tiếng Anh đơn giản dành cho Stable Diffusion và loại bỏ chữ tiếng việt: ảnh toàn cảnh, 1 con tàu hình dáng thuyền buồm bay ngoài vũ trụ, người ngoài hành tinh, phong cách phim viễn tưởng, siêu thực, phim ,chất lượng cao, chi tiết, ánh sáng phim , 4k"
-        ],
-        "describe \"Merry Christmas\" as a prompt base on this format prompt. And must have banner title: ```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\nScene Description:\nA vibrant and festive Vietnamese Lunar New Year celebration. The scene features a bustling environment with traditional decorations: red lanterns hanging in the air, peach blossoms in full bloom, and kumquat trees adorned with golden fruits. In the foreground, people in colorful áo dài (traditional Vietnamese attire) are smiling and engaging in joyous activities such as giving red envelopes (lì xì) to children and enjoying Tết delicacies.\n\n\nBanner Title:\nThe handwriter big text \"Vietnamese Rice Harvesting\" in top center or center\n\n\nBackground Details:\nA lively village or urban setting decorated with banners handwriter big text \"Happy New Year\" in top center, strings of lights, and fireworks lighting up the evening sky. Market stalls and family gatherings add a sense of community and tradition.\n\n\nColor Palette:\nDominated by auspicious colors like red and gold, symbolizing luck and prosperity, with hints of pink from peach blossoms and green from the kumquat trees. The lighting is warm and inviting, emphasizing the celebratory mood.\n\n\nComposition:\nThe layout has a balanced mix of cultural symbols and joyful interactions. Focus on the details of traditional clothing, decorations, and facial expressions to capture the essence of Vietnamese New Year traditions.\n```"
+        "((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\nScene Description:\nA cozy and warm Christmas morning scene.  A decorated Christmas tree with twinkling lights and colorful ornaments stands in the center of a living room. Presents wrapped in festive paper are piled beneath the tree.  A fireplace crackles merrily, casting a warm glow on the scene. Stockings hang from the mantelpiece, overflowing with small gifts and treats.  Family members in warm, comfortable clothing are gathered around the tree, exchanging gifts, smiling, and sharing stories. A steaming mug of hot chocolate rests on a nearby table.\n\n\nBanner Title:\nThe handwriter big text \"Merry Christmas\" in top center or center\n\n\nBackground Details:\nA snow-covered landscape seen through a window adds to the festive atmosphere. The room is decorated with garlands, wreaths, and other Christmas decorations. Soft Christmas music plays in the background. The overall feeling is one of joy, peace, and togetherness.\n\n\nColor Palette:\nDominant colors are red, green, and gold, traditional Christmas colors. Warm browns and creams from the fireplace and wooden furniture add to the cozy feel.  The lighting is warm and inviting, creating a magical atmosphere.\n\n\nComposition:\nThe layout should focus on the warmth and intimacy of the Christmas morning scene.  Close-ups of family interactions, the details of the decorations, and the glow of the fireplace should be emphasized to capture the spirit of Christmas.\n```"
       ],
       "color": "#232",
       "bgcolor": "#353",
@@ -1004,7 +838,7 @@
         773.589599609375
       ],
       "flags": {},
-      "order": 8,
+      "order": 7,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -1028,7 +862,7 @@
         784.4933471679688
       ],
       "flags": {},
-      "order": 9,
+      "order": 8,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -1171,56 +1005,6 @@
       "bgcolor": "#653"
     },
     {
-      "id": 47,
-      "type": "ProPostFilmGrain",
-      "pos": [
-        2571.680908203125,
-        -635.0445556640625
-      ],
-      "size": [
-        295.24066162109375,
-        300.5332336425781
-      ],
-      "flags": {},
-      "order": 33,
-      "mode": 4,
-      "inputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 120
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            66
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ProPostFilmGrain"
-      },
-      "widgets_values": [
-        false,
-        "Fine",
-        0.5,
-        0.4,
-        0.2,
-        0.1,
-        1,
-        0,
-        1,
-        390,
-        "randomize"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
       "id": 10,
       "type": "VAELoader",
       "pos": [
@@ -1232,7 +1016,7 @@
         58
       ],
       "flags": {},
-      "order": 10,
+      "order": 9,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1322,35 +1106,271 @@
       "widgets_values": []
     },
     {
-      "id": 9,
-      "type": "SaveImage",
+      "id": 59,
+      "type": "TextCombinations",
       "pos": [
-        1892.5885009765625,
-        151.21981811523438
+        -1102.1343994140625,
+        199.1940155029297
       ],
       "size": [
-        630.6275634765625,
-        407.3680114746094
+        412.17681884765625,
+        715.5905151367188
       ],
       "flags": {},
-      "order": 30,
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "output1",
+          "type": "STRING",
+          "links": [
+            104
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "output2",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "TextCombinations",
+        "ttNbgOverride": {
+          "color": "#232",
+          "bgcolor": "#353",
+          "groupcolor": "#8A8"
+        }
+      },
+      "widgets_values": [
+        "describe \"Merry Christmas\" as a prompt base on this format prompt. And must have banner title:",
+        "```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\nScene Description:\nA vibrant and festive Vietnamese Lunar New Year celebration. The scene features a bustling environment with traditional decorations: red lanterns hanging in the air, peach blossoms in full bloom, and kumquat trees adorned with golden fruits. In the foreground, people in colorful áo dài (traditional Vietnamese attire) are smiling and engaging in joyous activities such as giving red envelopes (lì xì) to children and enjoying Tết delicacies.\n\n\nBanner Title:\nThe handwriter big text \"Vietnamese Rice Harvesting\" in top center or center\n\n\nBackground Details:\nA lively village or urban setting decorated with banners handwriter big text \"Happy New Year\" in top center, strings of lights, and fireworks lighting up the evening sky. Market stalls and family gatherings add a sense of community and tradition.\n\n\nColor Palette:\nDominated by auspicious colors like red and gold, symbolizing luck and prosperity, with hints of pink from peach blossoms and green from the kumquat trees. The lighting is warm and inviting, emphasizing the celebratory mood.\n\n\nComposition:\nThe layout has a balanced mix of cultural symbols and joyful interactions. Focus on the details of traditional clothing, decorations, and facial expressions to capture the essence of Vietnamese New Year traditions.\n```",
+        "text1 + text2 to output1, text2 to output2",
+        " ",
+        "false",
+        562463899775502,
+        "randomize"
+      ],
+      "color": "#332922",
+      "bgcolor": "#593930",
+      "shape": 1
+    },
+    {
+      "id": 71,
+      "type": "Note",
+      "pos": [
+        -430,
+        -2040
+      ],
+      "size": [
+        302.4878845214844,
+        784.4933471679688
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Template 2",
+      "properties": {},
+      "widgets_values": [
+        "```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\nbo-cpposter, poster of a white girl, A Japanese beautiful girl wear roller skate shoes and pose on great night, dressed in a stylish jacket, inside a jacket is strapless, with a casual denim skirt. she roller skating andadding a retro touch to her outfit. The bright light of city highlights her relaxed and cheerful expression,and the roller skate shoes pops against the clear night sky. The background features a vibrant with a few trees or distant buildings,creating a fresh and joyful atmosphere. Art style: realistic,high detail,vibrant colors,warm and cheerful.,f1.4 50mm,commercial photo style,<lora:flux.1_lora_flyway_T-poster:1>,with text around is 'Roller 186'\n```"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 72,
+      "type": "Note",
+      "pos": [
+        -93.84400177001953,
+        -2040.8975830078125
+      ],
+      "size": [
+        302.4878845214844,
+        784.4933471679688
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Template 3",
+      "properties": {},
+      "widgets_values": [
+        "```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\nFlat illustration poster design, poster of a white girl, A Japanese beautiful girl wear roller skate shoes and pose on great night, dressed in a stylish jacket, inside a jacket is strapless, with a casual denim skirt. she roller skating andadding a retro touch to her outfit. The bright light of city highlights her relaxed and cheerful expression,and the roller skate shoes pops against the clear night sky. The background features a vibrant with a few trees or distant buildings,creating a fresh and joyful atmosphere. Art style: realistic,high detail,vibrant colors,warm and cheerful.,f1.4 50mm,commercial photo style, with text around is 'Roller 186',\n```"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 61,
+      "type": "Gemini_API_Zho",
+      "pos": [
+        -191.8079833984375,
+        248.81654357910156
+      ],
+      "size": [
+        382.7574768066406,
+        126
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 17,
       "mode": 0,
       "inputs": [
         {
-          "name": "images",
+          "name": "image",
           "type": "IMAGE",
-          "link": 95
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "link": 105,
+          "widget": {
+            "name": "prompt"
+          }
         }
       ],
-      "outputs": [],
-      "title": "Preview Image",
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [
+            103
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
       "properties": {
-        "Node name for S&R": "SaveImage"
+        "Node name for S&R": "Gemini_API_Zho"
       },
       "widgets_values": [
-        "preview"
+        "What is the meaning of life?",
+        "gemini-1.5-pro-latest",
+        false,
+        "AIzaSyA1Z5slGG7kbIOWinCnuz4OJiJ3a6G0t7Y"
       ],
+      "color": "#232",
+      "bgcolor": "#353",
       "shape": 1
+    },
+    {
+      "id": 65,
+      "type": "Note",
+      "pos": [
+        -191.02101135253906,
+        430.2123107910156
+      ],
+      "size": [
+        382.0196838378906,
+        145.08924865722656
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Google AI API Key",
+      "properties": {},
+      "widgets_values": [
+        "Thay đổi key mới trong trường hợp key hết hạn\n\nAIzaSyA1Z5slGG7kbIOWinCnuz4OJiJ3a6G0t7Y\nAIzaSyC1KVctwhDdVbIDv2cOZDa1kWyz0gq_jOQ\nAIzaSyA85MP5jctMT9rKVR6gT16tEmsuO4JqpLg\nAIzaSyCzXVTqFDI1a1XV5iLwIAcqY-bjR1Xpz8Y"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 60,
+      "type": "ShowText|pysssss",
+      "pos": [
+        -619.5527954101562,
+        249.54226684570312
+      ],
+      "size": [
+        384.9148254394531,
+        717.33203125
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 104,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            105
+          ],
+          "slot_index": 0,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        [
+          "chuyển câu sau thành 1 câu tiếng Anh đơn giản dành cho Stable Diffusion và loại bỏ chữ tiếng việt: ảnh toàn cảnh, 1 con tàu hình dáng thuyền buồm bay ngoài vũ trụ, người ngoài hành tinh, phong cách phim viễn tưởng, siêu thực, phim ,chất lượng cao, chi tiết, ánh sáng phim , 4k"
+        ],
+        "describe \"Merry Christmas\" as a prompt base on this format prompt. And must have banner title: ```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\nScene Description:\nA vibrant and festive Vietnamese Lunar New Year celebration. The scene features a bustling environment with traditional decorations: red lanterns hanging in the air, peach blossoms in full bloom, and kumquat trees adorned with golden fruits. In the foreground, people in colorful áo dài (traditional Vietnamese attire) are smiling and engaging in joyous activities such as giving red envelopes (lì xì) to children and enjoying Tết delicacies.\n\n\nBanner Title:\nThe handwriter big text \"Vietnamese Rice Harvesting\" in top center or center\n\n\nBackground Details:\nA lively village or urban setting decorated with banners handwriter big text \"Happy New Year\" in top center, strings of lights, and fireworks lighting up the evening sky. Market stalls and family gatherings add a sense of community and tradition.\n\n\nColor Palette:\nDominated by auspicious colors like red and gold, symbolizing luck and prosperity, with hints of pink from peach blossoms and green from the kumquat trees. The lighting is warm and inviting, emphasizing the celebratory mood.\n\n\nComposition:\nThe layout has a balanced mix of cultural symbols and joyful interactions. Focus on the details of traditional clothing, decorations, and facial expressions to capture the essence of Vietnamese New Year traditions.\n```"
+      ],
+      "color": "#232",
+      "bgcolor": "#353",
+      "shape": 1
+    },
+    {
+      "id": 43,
+      "type": "FluxGuidance",
+      "pos": [
+        559.9757690429688,
+        -122.77791595458984
+      ],
+      "size": [
+        466.19598388671875,
+        58.31459426879883
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 108
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            63
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FluxGuidance"
+      },
+      "widgets_values": [
+        4.5
+      ]
     },
     {
       "id": 42,
@@ -1385,105 +1405,85 @@
       "shape": 1
     },
     {
-      "id": 59,
-      "type": "TextCombinations",
+      "id": 47,
+      "type": "ProPostFilmGrain",
       "pos": [
-        -1102.1343994140625,
-        199.1940155029297
+        2571.680908203125,
+        -635.0445556640625
       ],
       "size": [
-        412.17681884765625,
-        715.5905151367188
+        295.24066162109375,
+        300.5332336425781
       ],
       "flags": {},
-      "order": 11,
-      "mode": 0,
-      "inputs": [],
+      "order": 33,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 120
+        }
+      ],
       "outputs": [
         {
-          "name": "output1",
-          "type": "STRING",
+          "name": "IMAGE",
+          "type": "IMAGE",
           "links": [
-            104
+            66
           ],
-          "slot_index": 0,
-          "shape": 3
-        },
-        {
-          "name": "output2",
-          "type": "STRING",
-          "links": null,
-          "shape": 3
+          "slot_index": 0
         }
       ],
       "properties": {
-        "Node name for S&R": "TextCombinations",
-        "ttNbgOverride": {
-          "color": "#232",
-          "bgcolor": "#353",
-          "groupcolor": "#8A8"
-        }
+        "Node name for S&R": "ProPostFilmGrain"
       },
       "widgets_values": [
-        "describe \"Merry Christmas\" as a prompt base on this format prompt. And must have banner title:",
-        "```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\nScene Description:\nA vibrant and festive Vietnamese Lunar New Year celebration. The scene features a bustling environment with traditional decorations: red lanterns hanging in the air, peach blossoms in full bloom, and kumquat trees adorned with golden fruits. In the foreground, people in colorful áo dài (traditional Vietnamese attire) are smiling and engaging in joyous activities such as giving red envelopes (lì xì) to children and enjoying Tết delicacies.\n\n\nBanner Title:\nThe handwriter big text \"Vietnamese Rice Harvesting\" in top center or center\n\n\nBackground Details:\nA lively village or urban setting decorated with banners handwriter big text \"Happy New Year\" in top center, strings of lights, and fireworks lighting up the evening sky. Market stalls and family gatherings add a sense of community and tradition.\n\n\nColor Palette:\nDominated by auspicious colors like red and gold, symbolizing luck and prosperity, with hints of pink from peach blossoms and green from the kumquat trees. The lighting is warm and inviting, emphasizing the celebratory mood.\n\n\nComposition:\nThe layout has a balanced mix of cultural symbols and joyful interactions. Focus on the details of traditional clothing, decorations, and facial expressions to capture the essence of Vietnamese New Year traditions.\n```",
-        "text1 + text2 to output1, text2 to output2",
-        " ",
-        "false",
-        39613366365805,
+        false,
+        "Fine",
+        0.5,
+        0.4,
+        0.2,
+        0.1,
+        1,
+        0,
+        1,
+        108,
         "randomize"
       ],
-      "color": "#332922",
-      "bgcolor": "#593930",
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 9,
+      "type": "SaveImage",
+      "pos": [
+        1892.5885009765625,
+        151.21981811523438
+      ],
+      "size": [
+        630.6275634765625,
+        407.3680114746094
+      ],
+      "flags": {},
+      "order": 30,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 95
+        }
+      ],
+      "outputs": [],
+      "title": "Preview Image",
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "preview"
+      ],
       "shape": 1
-    },
-    {
-      "id": 71,
-      "type": "Note",
-      "pos": [
-        -430,
-        -2040
-      ],
-      "size": [
-        302.4878845214844,
-        784.4933471679688
-      ],
-      "flags": {},
-      "order": 12,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [],
-      "title": "Template 2",
-      "properties": {},
-      "widgets_values": [
-        "```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\nbo-cpposter, poster of a white girl, A Japanese beautiful girl wear roller skate shoes and pose on great night, dressed in a stylish jacket, inside a jacket is strapless, with a casual denim skirt. she roller skating andadding a retro touch to her outfit. The bright light of city highlights her relaxed and cheerful expression,and the roller skate shoes pops against the clear night sky. The background features a vibrant with a few trees or distant buildings,creating a fresh and joyful atmosphere. Art style: realistic,high detail,vibrant colors,warm and cheerful.,f1.4 50mm,commercial photo style,<lora:flux.1_lora_flyway_T-poster:1>,with text around is 'Roller 186'\n```"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
-      "id": 72,
-      "type": "Note",
-      "pos": [
-        -93.84400177001953,
-        -2040.8975830078125
-      ],
-      "size": [
-        302.4878845214844,
-        784.4933471679688
-      ],
-      "flags": {},
-      "order": 13,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [],
-      "title": "Template 3",
-      "properties": {},
-      "widgets_values": [
-        "```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\nFlat illustration poster design, poster of a white girl, A Japanese beautiful girl wear roller skate shoes and pose on great night, dressed in a stylish jacket, inside a jacket is strapless, with a casual denim skirt. she roller skating andadding a retro touch to her outfit. The bright light of city highlights her relaxed and cheerful expression,and the roller skate shoes pops against the clear night sky. The background features a vibrant with a few trees or distant buildings,creating a fresh and joyful atmosphere. Art style: realistic,high detail,vibrant colors,warm and cheerful.,f1.4 50mm,commercial photo style, with text around is 'Roller 186',\n```"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
     }
   ],
   "links": [
@@ -1838,10 +1838,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 1.1167815779424761,
+      "scale": 0.8390545288824103,
       "offset": [
-        1662.2090346623688,
-        -79.22284177400554
+        -913.7850252953627,
+        804.6386270676383
       ]
     },
     "ue_links": []

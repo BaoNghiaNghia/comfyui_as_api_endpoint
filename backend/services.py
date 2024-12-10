@@ -147,14 +147,23 @@ def authenticate_user(domain, token):
 
 
 def create_prompt_and_call_api(input_string):
-    topic = input_string.split('"')[1]
-    
-    sceneTemplate1 = """
+    try:
+        # Extract the topic from the input string
+        topic = input_string.split('"')[1]
+    except IndexError:
+        raise ValueError("Input string must contain a topic enclosed in double quotes.")
+
+    # Randomly choose a text style
+    textStyle = random.choice(["The handwritten big text", "The title of the movie is"])
+
+    # Scene templates
+    scene_templates = [
+        """
         Scene Description:
         A vibrant and festive Vietnamese Lunar New Year celebration. The scene features a bustling environment with traditional decorations: red lanterns hanging in the air, peach blossoms in full bloom, and kumquat trees adorned with golden fruits. In the foreground, people in colorful áo dài (traditional Vietnamese attire) are smiling and engaging in joyous activities such as giving red envelopes (lì xì) to children and enjoying Tết delicacies.
 
         Banner Title:
-        The handwritten big text "{topic}" in top center
+        {textStyle} "{topic}" in top center
 
         Background Details:
         A lively village or urban setting decorated with banners handwritten big text "Happy New Year" in top center, strings of lights, and fireworks lighting up the evening sky. Market stalls and family gatherings add a sense of community and tradition.
@@ -164,40 +173,55 @@ def create_prompt_and_call_api(input_string):
 
         Composition:
         The layout has a balanced mix of cultural symbols and joyful interactions. Focus on the details of traditional clothing, decorations, and facial expressions to capture the essence of Vietnamese New Year traditions.
-    """
-    
-    # Generate the formatted prompt
-    prompt = f"""((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))
-        {sceneTemplate1}
+        """,
         """
-    
-    # Prepare the data for the API request
-    data = {
-        "contents": [
-            {
-                "parts": [
-                    {"text": prompt}
-                ]
-            }
-        ]
-    }
+        Overall Theme:
+        Relaxed, nostalgic, and cozy.
 
-    # API endpoint and headers
-    api_key = "YOUR_API_KEY"  # Replace with your actual API key
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key={api_key}"
-    headers = {"Content-Type": "application/json"}
-    
-    # Make the POST request
-    try:
-        response = requests.post(url, headers=headers, json=data)
-        response.raise_for_status()  # Raise an HTTPError for bad responses
-        print("API Response:")
-        print(json.dumps(response.json(), indent=4))
-    except requests.exceptions.RequestException as e:
-        print(f"An error occurred: {e}")
+        Main Colors:
+        Soft pastels: Dusty pink, muted teal, beige, and brown tones.
+        Contrasting accents: Soft yellow or lavender.
+
+        Style: 
+        Nostalgic, cozy, slightly melancholic.
+
+        Character Illustration:
+        A person (animated or realistic) sitting by a desk or bed with headphones on, studying or doodling.
+        Clothing: Oversized sweater, cozy attire.
+        Environment: Rainy window with streaks of water, a desk lamp casting warm light.
+
+        Background:
+        A small, cluttered room filled with books, plants, and a glowing laptop.
+        Outside the window: Rain, autumn leaves, or a nighttime city view.
+
+        Lighting Effects:
+        Dim ambient lighting with a warm glow from a desk lamp or fairy lights.
+
+        Font Style:
+        Handwritten, script-like fonts for a nostalgic vibe (e.g., "Pacifico").
+
+        Text Ideas:
+        {textStyle} “{topic}”
+
+        Decorative Elements:
+        Vinyl records spinning on a turntable.
+        Animated-style clouds or stars floating subtly in the background.
+        """
+    ]
+
+    # Randomly select a template and format it with the topic and textStyle
+    selected_template = random.choice(scene_templates)
+    formatted_template = selected_template.format(topic=topic, textStyle=textStyle)
+
+    # Generate the final prompt
+    prompt = f"```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\n{formatted_template}```"
+
+    return prompt
+
 
 # Main image generation function
 async def generate_images(positive_prompt, poster_number):
+    
     ws = ws_client.WebSocket()
     ws_url = f"ws://{server_address}/ws?clientId={client_id}"
     ws.connect(ws_url)
@@ -207,9 +231,18 @@ async def generate_images(positive_prompt, poster_number):
 
     workflow = json.loads(workflow_data)
 
-    prompt_string = create_prompt_and_call_api(positive_prompt)
+    workflow["59"]["widgets_values"][0] = "describe \"{positive_prompt}\" as a prompt base on this format prompt. And must have banner title ***{positive_prompt}***:"
+    workflow["59"]["widgets_values"][1] = create_prompt_and_call_api(positive_prompt)
 
-    workflow["6"]["inputs"]["text"] = prompt_string
+    workflow["61"]["widgets_values"][3] = random.choice([
+        "AIzaSyA1Z5slGG7kbIOWinCnuz4OJiJ3a6G0t7Y",
+        "AIzaSyC1KVctwhDdVbIDv2cOZDa1kWyz0gq_jOQ",
+        "AIzaSyA85MP5jctMT9rKVR6gT16tEmsuO4JqpLg",
+        "AIzaSyCzXVTqFDI1a1XV5iLwIAcqY-bjR1Xpz8Y"
+    ])
+    
+    # Number of poster must be betweet 1 and 5
+    workflow["29"]["widgets_values"][2] = poster_number
 
     # Set a random seed for the KSampler node
     seed = random.randint(1, 1000000000000000)
