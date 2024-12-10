@@ -4,6 +4,7 @@ from .models import LLMRequest, PromptRequest
 from .services import generate_images, get_quick_prompts_data, ask_llm_service, authenticate_user
 from PIL import Image
 import io
+from pathlib import Path
 
 router = APIRouter()
 
@@ -58,3 +59,19 @@ async def generate_images_api(request: PromptRequest):
         return image_responses[0]  # Return the first image for simplicity
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Image generation failed: {str(e)}")
+
+
+# Specify the directory where files are stored
+FILE_DIRECTORY = Path("files")  # Update this to your directory path
+
+@router.post("/download-images/")
+async def download_file(file_name: str):
+    file_path = FILE_DIRECTORY / file_name
+    if not file_path.exists() or not file_path.is_file():
+        return {"error": "File not found"}
+    
+    return FileResponse(
+        path=file_path,
+        media_type="application/octet-stream",  # Generic binary file type
+        filename=file_name  # The name for the downloaded file
+    )

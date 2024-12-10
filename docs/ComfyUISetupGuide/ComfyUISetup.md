@@ -23,8 +23,6 @@ cd ComfyUI
 
 Create a `Dockerfile` in the root of your ComfyUI directory with the following content:
 
-
-
 ```Dockerfile
 # Base image with Python 3.11 and CUDA 12.5 support
 FROM nvidia/cuda:12.5.0-runtime-ubuntu22.04
@@ -61,17 +59,15 @@ EXPOSE 8188
 CMD ["python3", "main.py", "--listen", "0.0.0.0"]
 ```
 
-
-
 ### 3. Build the Docker Image
 
 Navigate to the directory where the `Dockerfile` is located and build the Docker image:
 
 ```bash
-docker build -t comfyui-gguf:latest .
+docker build -t ytb_thumbnail_ai:latest .
 ```
 
-This will create a Docker image named `comfyui-gguf:latest` with both **ComfyUI Manager** and **GGUF support** built in.
+This will create a Docker image named `ytb_thumbnail_ai:latest` with both **ComfyUI Manager** and **GGUF support** built in.
 
 ### 4. Run the Docker Container
 
@@ -80,7 +76,7 @@ Once the image is built, you can run the Docker container with volume mapping fo
 ```bash
 docker run --name comfyui -p 8188:8188 --gpus all \
   -v /home/mukul/dev-ai/vison/models:/app/models \
-  -d comfyui-gguf:latest
+  -d ytb_thumbnail_ai:latest
 ```
 
 This command maps your local `models` directory to `/app/models` inside the container and exposes ComfyUI on port `8188`.
@@ -90,16 +86,19 @@ This command maps your local `models` directory to `/app/models` inside the cont
 To use GGUF models or other safetensor models, follow the steps below to download them directly into the `checkpoints` directory.
 
 1. **Navigate to the Checkpoints Directory**:
+
 ```bash
 cd /home/mukul/dev-ai/vison/models/checkpoints
 ```
 
 2. **Download `flux1-schnell-fp8.safetensors`**:
+
 ```bash
 wget https://huggingface.co/Comfy-Org/flux1-schnell/resolve/main/flux1-schnell-fp8.safetensors?download=true -O flux1-schnell-fp8.safetensors
 ```
 
 3. **Download `flux1-dev-fp8.safetensors`**:
+
 ```bash
 wget https://huggingface.co/Comfy-Org/flux1-dev/resolve/main/flux1-dev-fp8.safetensors?download=true -O flux1-dev-fp8.safetensors
 ```
@@ -119,12 +118,14 @@ Replace `<your-server-ip>` with your server's IP address or use `localhost` if y
 ### 7. Using GGUF Models
 
 In the ComfyUI interface:
+
 - Use the **UnetLoaderGGUF** node (found in the `bootleg` category) to load GGUF models.
 - Ensure your GGUF files are correctly named and placed in the `/app/models/checkpoints` directory for detection by the loader node.
 
 ### 8. Managing Nodes with ComfyUI Manager
 
 With **ComfyUI Manager** built into the image:
+
 - **Install** missing nodes as needed when uploading workflows.
 - **Enable/Disable** conflicting nodes from the ComfyUI Manager interface.
 
