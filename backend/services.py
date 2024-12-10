@@ -147,12 +147,6 @@ def authenticate_user(domain, token):
 
 
 def create_prompt_and_call_api(input_string):
-    try:
-        # Extract the topic from the input string
-        topic = input_string.split('"')[1]
-    except IndexError:
-        raise ValueError("Input string must contain a topic enclosed in double quotes.")
-
     # Randomly choose a text style
     textStyle = random.choice(["The handwritten big text", "The title of the movie is"])
 
@@ -163,7 +157,7 @@ def create_prompt_and_call_api(input_string):
             A vibrant and festive Vietnamese Lunar New Year celebration. The scene features a bustling environment with traditional decorations: red lanterns hanging in the air, peach blossoms in full bloom, and kumquat trees adorned with golden fruits. In the foreground, people in colorful áo dài (traditional Vietnamese attire) are smiling and engaging in joyous activities such as giving red envelopes (lì xì) to children and enjoying Tết delicacies.
 
             Banner Title:
-            {textStyle} "{topic}" in top center
+            {textStyle} "{input_string}" in top center
 
             Background Details:
             A lively village or urban setting decorated with banners handwritten big text "Happy New Year" in top center, strings of lights, and fireworks lighting up the evening sky. Market stalls and family gatherings add a sense of community and tradition.
@@ -173,8 +167,7 @@ def create_prompt_and_call_api(input_string):
 
             Composition:
             The layout has a balanced mix of cultural symbols and joyful interactions. Focus on the details of traditional clothing, decorations, and facial expressions to capture the essence of Vietnamese New Year traditions.
-        """
-        ,
+        """,
         """
             Overall Theme:
             Relaxed, nostalgic, and cozy.
@@ -202,7 +195,7 @@ def create_prompt_and_call_api(input_string):
             Handwritten, script-like fonts for a nostalgic vibe (e.g., "Pacifico").
 
             Text Ideas:
-            {textStyle} “{topic}”
+            {textStyle} “{input_string}”
 
             Decorative Elements:
             Vinyl records spinning on a turntable.
@@ -212,7 +205,7 @@ def create_prompt_and_call_api(input_string):
 
     # Randomly select a template and format it with the topic and textStyle
     selected_template = random.choice(scene_templates)
-    formatted_template = selected_template.format(topic=topic, textStyle=textStyle)
+    formatted_template = selected_template.format(input_string=input_string, textStyle=textStyle)
 
     # Generate the final prompt
     prompt = f"```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\n{formatted_template}```"
@@ -230,23 +223,40 @@ async def generate_images(positive_prompt, poster_number = 1):
         workflow_data = f.read()
 
     workflow = json.loads(workflow_data)
-
-    workflow["59"]["widgets_values"][0] = "describe \"{positive_prompt}\" as a prompt base on this format prompt. And must have banner title ***{positive_prompt}***:"
-    workflow["59"]["widgets_values"][1] = create_prompt_and_call_api(positive_prompt)
-
-    workflow["61"]["widgets_values"][3] = random.choice([
-        "AIzaSyA1Z5slGG7kbIOWinCnuz4OJiJ3a6G0t7Y",
-        "AIzaSyC1KVctwhDdVbIDv2cOZDa1kWyz0gq_jOQ",
-        "AIzaSyA85MP5jctMT9rKVR6gT16tEmsuO4JqpLg",
-        "AIzaSyCzXVTqFDI1a1XV5iLwIAcqY-bjR1Xpz8Y"
-    ])
     
-    # Number of poster must be betweet 1 and 5
-    workflow["29"]["widgets_values"][2] = poster_number
+    listNodeInWorkflow = workflow["nodes"]
+    
+    nodeConditionPrompt = next((item for item in listNodeInWorkflow if item["id"] == 59), None)
+        
+    if nodeConditionPrompt and positive_prompt:
+        nodeConditionPrompt.get("widgets_values")[0] = (
+            f'describe "{positive_prompt}" as a prompt base on this format prompt. '
+            f'And must have banner title ***{positive_prompt}***:'
+        )
+        nodeConditionPrompt.get("widgets_values")[1] = create_prompt_and_call_api(positive_prompt)
+    else:
+        raise ValueError("Input string must contain a valid 'positive_prompt' and 'nodeConditionPrompt'.")
 
-    # Set a random seed for the KSampler node
-    seed = random.randint(1, 1000000000000000)
-    workflow["25"]["widgets_values"][0] = seed
+    nodeGemeniAI = next((item for item in listNodeInWorkflow if item["id"] == 61), None)
+    
+    if nodeGemeniAI:
+        nodeGemeniAI.get("widgets_values")[3] = random.choice([
+            "AIzaSyA1Z5slGG7kbIOWinCnuz4OJiJ3a6G0t7Y",
+            "AIzaSyC1KVctwhDdVbIDv2cOZDa1kWyz0gq_jOQ",
+            "AIzaSyA85MP5jctMT9rKVR6gT16tEmsuO4JqpLg",
+            "AIzaSyCzXVTqFDI1a1XV5iLwIAcqY-bjR1Xpz8Y"
+        ])
+        
+
+    nodeBatchImageNumber = next((item for item in listNodeInWorkflow if item["id"] == 29), None)
+    
+    if nodeBatchImageNumber:
+        nodeBatchImageNumber.get("widgets_values")[2] = poster_number
+        
+    nodeRandomNoise = next((item for item in listNodeInWorkflow if item["id"] == 25), None)
+    if nodeRandomNoise:
+        seed = random.randint(1, 1000000000000000)
+        nodeRandomNoise.get("widgets_values")[0] = seed
 
     # Fetch generated images
     images = get_images(ws, workflow)

@@ -31,34 +31,36 @@ async def ask_llm(request: LLMRequest):
         raise HTTPException(status_code=500, detail="Error interacting with LLM: " + str(e))
 
 # Endpoint to generate images
-@router.post("/generate_images/")
+@router.post("/generate_images/thumbnail-youtube")
 async def generate_images_api(request: PromptRequest):
     try:
         # Authenticate if email and password are provided
-        if request.token:
-            status_code, message = authenticate_user(request.domain, request.token)
-            if status_code != 200:
-                raise Exception("Authentication failed")
+        # if request.token:
+        #     status_code, message = authenticate_user(request.domain, request.token)
+        #     if status_code != 200:
+        #         raise Exception("Authentication failed")
 
-            print(f"Authenticated successfully. Response: {message}")
+        #     print(f"Authenticated successfully. Response: {message}")
 
         images, seed = await generate_images(request.positive_prompt, request.poster_number)
+        
+        return images
 
-        # Convert images to a format FastAPI can return
-        image_responses = []
-        for node_id in images:
-            for image_data in images[node_id]:
-                img = Image.open(io.BytesIO(image_data))
-                img_byte_arr = io.BytesIO()
-                img.save(img_byte_arr, format='PNG')
-                img_byte_arr.seek(0)
+        # # Convert images to a format FastAPI can return
+        # image_responses = []
+        # for node_id in images:
+        #     for image_data in images[node_id]:
+        #         img = Image.open(io.BytesIO(image_data))
+        #         img_byte_arr = io.BytesIO()
+        #         img.save(img_byte_arr, format='PNG')
+        #         img_byte_arr.seek(0)
 
-                # Append the image response to a list
-                image_responses.append(StreamingResponse(img_byte_arr, media_type="image/png"))
+        #         # Append the image response to a list
+        #         image_responses.append(StreamingResponse(img_byte_arr, media_type="image/png"))
 
-        return image_responses[0]  # Return the first image for simplicity
+        # return image_responses[0]  # Return the first image for simplicity
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Image generation failed: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Error: {str(e)}")
 
 
 # Specify the directory where files are stored

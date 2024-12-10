@@ -4,8 +4,6 @@ import json
 import urllib.request
 import urllib.parse
 import random
-from PIL import Image
-import io
 from termcolor import colored
 from dotenv import load_dotenv
 import os

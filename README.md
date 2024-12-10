@@ -55,8 +55,8 @@ DreamCanvas is an AI-powered image generator that allows users to create high-qu
     - The project uses a `.env` file for configuring server addresses. Below are custom configuration settings:
 
     ```bash
-     COMFYUI_SERVER_ADDRESS=192.168.1.10:8188
-     OLLAMA_SERVER_ADDRESS=192.168.1.10:11436
+      COMFYUI_SERVER_ADDRESS=192.168.1.10:8188
+      OLLAMA_SERVER_ADDRESS=192.168.1.10:11436
     ```
 
    - Adjust these values to match your environment.
@@ -74,10 +74,10 @@ DreamCanvas is an AI-powered image generator that allows users to create high-qu
 
    Create and activate the Conda environment:
 
-   ```bash
-   conda create --name dreamcanvas python=3.12
-   conda activate dreamcanvas
-   ```
+    ```bash
+      conda create --name dreamcanvas python=3.12
+      conda activate dreamcanvas
+    ```
 
 3. **Install Dependencies**:
 
@@ -91,10 +91,10 @@ DreamCanvas is an AI-powered image generator that allows users to create high-qu
 
    Ensure the `.env` file exists in the project root and contains the correct server addresses for ComfyUI and Ollama.
 
-   ```bash
-   COMFYUI_SERVER_ADDRESS=192.168.1.10:8188
-   OLLAMA_SERVER_ADDRESS=192.168.1.10:11436
-   ```
+    ```bash
+      COMFYUI_SERVER_ADDRESS=192.168.1.10:8188
+      OLLAMA_SERVER_ADDRESS=192.168.1.10:11436
+    ```
 
 ---
 
@@ -105,7 +105,7 @@ DreamCanvas is an AI-powered image generator that allows users to create high-qu
 To run the FastAPI server in your local environment, use the following command:
 
 ```bash
-uvicorn backend.main:app --reload --host 0.0.0.0 --port 8000
+  uvicorn backend.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
 This will start the app on `http://localhost:8000/`.
@@ -123,7 +123,7 @@ If you prefer to run the application inside a Docker container, the following st
 Navigate to the project directory and build the Docker image:
 
 ```bash
-docker build -t dreamcanvas .
+  docker build -t dreamcanvas .
 ```
 
 ### **2. Run the Docker Container**
@@ -131,7 +131,7 @@ docker build -t dreamcanvas .
 Once the Docker image is built, run the container:
 
 ```bash
-docker run -d -p 8000:8000 --env-file .env --name dreamcanvas dreamcanvas
+  docker run -d -p 8000:8000 --env-file .env --name dreamcanvas dreamcanvas
 ```
 
 This command will:
@@ -190,15 +190,15 @@ The backend is powered by **FastAPI** and handles the following operations:
    - **Description**: Generates an AI image using the provided prompts and image settings.
    - **Request Example**:
 
-     ```json
-     {
-       "positive_prompt": "a beautiful sunset",
-       "negative_prompt": "blurry",
-       "steps": 25,
-       "width": 512,
-       "height": 512
-     }
-     ```
+    ```json
+      {
+        "positive_prompt": "a beautiful sunset",
+        "negative_prompt": "blurry",
+        "steps": 25,
+        "width": 512,
+        "height": 512
+      }
+    ```
 
    - **Response**: A binary stream containing the generated image.
 
