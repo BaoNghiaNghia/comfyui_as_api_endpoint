@@ -246,7 +246,7 @@ async def generate_images(positive_prompt, poster_number = 1):
 
     # Set a random seed for the KSampler node
     seed = random.randint(1, 1000000000000000)
-    workflow["25"]["inputs"]["noise_seed"] = seed
+    workflow["25"]["widgets_values"][0] = seed
 
     # Fetch generated images
     images = get_images(ws, workflow)
