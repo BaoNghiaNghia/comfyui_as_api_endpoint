@@ -14,7 +14,7 @@
         46
       ],
       "flags": {},
-      "order": 28,
+      "order": 26,
       "mode": 0,
       "inputs": [
         {
@@ -90,7 +90,7 @@
         126
       ],
       "flags": {},
-      "order": 18,
+      "order": 16,
       "mode": 4,
       "inputs": [
         {
@@ -146,7 +146,7 @@
         126
       ],
       "flags": {},
-      "order": 22,
+      "order": 20,
       "mode": 0,
       "inputs": [
         {
@@ -238,7 +238,7 @@
         126
       ],
       "flags": {},
-      "order": 23,
+      "order": 21,
       "mode": 0,
       "inputs": [
         {
@@ -297,7 +297,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 26,
+      "order": 24,
       "mode": 0,
       "inputs": [
         {
@@ -348,7 +348,7 @@
         82
       ],
       "flags": {},
-      "order": 16,
+      "order": 14,
       "mode": 4,
       "inputs": [
         {
@@ -388,7 +388,7 @@
         106
       ],
       "flags": {},
-      "order": 25,
+      "order": 23,
       "mode": 0,
       "inputs": [
         {
@@ -429,7 +429,7 @@
         58.31459426879883
       ],
       "flags": {},
-      "order": 27,
+      "order": 25,
       "mode": 0,
       "inputs": [
         {
@@ -469,7 +469,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 19,
+      "order": 17,
       "mode": 0,
       "inputs": [
         {
@@ -539,8 +539,8 @@
       "id": 40,
       "type": "UpscaleModelLoader",
       "pos": [
-        2597.088623046875,
-        -148.94171142578125
+        2570.806640625,
+        -1034.18017578125
       ],
       "size": [
         295.739013671875,
@@ -606,56 +606,6 @@
       "bgcolor": "#3f5159"
     },
     {
-      "id": 68,
-      "type": "Stage2_load",
-      "pos": [
-        2592.857177734375,
-        -408.3599548339844
-      ],
-      "size": [
-        315,
-        122
-      ],
-      "flags": {},
-      "order": 5,
-      "mode": 4,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "cldm",
-          "type": "CLDM",
-          "links": [
-            111
-          ]
-        },
-        {
-          "name": "diffusion",
-          "type": "DIFFUSION",
-          "links": [
-            112
-          ],
-          "slot_index": 1
-        },
-        {
-          "name": "infer_type",
-          "type": "INFER_TYPE",
-          "links": [
-            113
-          ],
-          "slot_index": 2
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "Stage2_load"
-      },
-      "widgets_values": [
-        "cuda",
-        "float32"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
       "id": 8,
       "type": "VAEDecode",
       "pos": [
@@ -667,7 +617,7 @@
         46
       ],
       "flags": {},
-      "order": 30,
+      "order": 28,
       "mode": 0,
       "inputs": [
         {
@@ -708,7 +658,7 @@
         102
       ],
       "flags": {},
-      "order": 31,
+      "order": 29,
       "mode": 0,
       "inputs": [
         {
@@ -728,8 +678,7 @@
           "type": "IMAGE",
           "links": [
             95,
-            102,
-            116
+            102
           ],
           "slot_index": 0
         }
@@ -756,7 +705,7 @@
         82.260009765625
       ],
       "flags": {},
-      "order": 6,
+      "order": 5,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -789,7 +738,7 @@
         202
       ],
       "flags": {},
-      "order": 24,
+      "order": 22,
       "mode": 0,
       "inputs": [
         {
@@ -823,80 +772,6 @@
       ]
     },
     {
-      "id": 67,
-      "type": "Stage1_load",
-      "pos": [
-        2592.857177734375,
-        -1018.360107421875
-      ],
-      "size": [
-        315,
-        126
-      ],
-      "flags": {},
-      "order": 7,
-      "mode": 4,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "stage1_model",
-          "type": "STAGE1",
-          "links": [
-            109
-          ]
-        },
-        {
-          "name": "task",
-          "type": "TASK",
-          "links": [
-            110
-          ],
-          "slot_index": 1
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "Stage1_load"
-      },
-      "widgets_values": [
-        "bsr",
-        "cuda",
-        "float32"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 69,
-      "type": "SaveImage",
-      "pos": [
-        3432.857177734375,
-        -1018.360107421875
-      ],
-      "size": [
-        939.8038940429688,
-        727.0061645507812
-      ],
-      "flags": {},
-      "order": 36,
-      "mode": 4,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 115
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "Node name for S&R": "SaveImage"
-      },
-      "widgets_values": [
-        "final_thumbnail"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
       "id": 12,
       "type": "UNETLoader",
       "pos": [
@@ -908,7 +783,7 @@
         82
       ],
       "flags": {},
-      "order": 8,
+      "order": 6,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -942,7 +817,7 @@
         106
       ],
       "flags": {},
-      "order": 9,
+      "order": 7,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -977,7 +852,7 @@
         126
       ],
       "flags": {},
-      "order": 20,
+      "order": 18,
       "mode": 4,
       "inputs": [
         {
@@ -1022,194 +897,6 @@
       ]
     },
     {
-      "id": 66,
-      "type": "DiffBIR_sample_advanced",
-      "pos": [
-        2972.857177734375,
-        -1018.360107421875
-      ],
-      "size": [
-        400,
-        730
-      ],
-      "flags": {},
-      "order": 34,
-      "mode": 4,
-      "inputs": [
-        {
-          "name": "stage1_model",
-          "type": "STAGE1",
-          "link": 109
-        },
-        {
-          "name": "task",
-          "type": "TASK",
-          "link": 110
-        },
-        {
-          "name": "cldm",
-          "type": "CLDM",
-          "link": 111
-        },
-        {
-          "name": "diffusion",
-          "type": "DIFFUSION",
-          "link": 112
-        },
-        {
-          "name": "infer_type",
-          "type": "INFER_TYPE",
-          "link": 113
-        },
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 116
-        }
-      ],
-      "outputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "links": [
-            115
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "DiffBIR_sample_advanced"
-      },
-      "widgets_values": [
-        2,
-        30,
-        4,
-        true,
-        true,
-        512,
-        256,
-        true,
-        true,
-        512,
-        256,
-        "high detailed, high quality",
-        "low detailed, blurry, messy",
-        631348908021993,
-        "randomize",
-        "cuda",
-        false,
-        "w_mse",
-        1,
-        1001,
-        -1,
-        "latent",
-        1
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 71,
-      "type": "Note",
-      "pos": [
-        -430,
-        -2040
-      ],
-      "size": [
-        302.4878845214844,
-        784.4933471679688
-      ],
-      "flags": {},
-      "order": 10,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [],
-      "title": "Template 2",
-      "properties": {},
-      "widgets_values": [
-        "```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\nbo-cpposter, poster of a white girl, A Japanese beautiful girl wear roller skate shoes and pose on great night, dressed in a stylish jacket, inside a jacket is strapless, with a casual denim skirt. she roller skating andadding a retro touch to her outfit. The bright light of city highlights her relaxed and cheerful expression,and the roller skate shoes pops against the clear night sky. The background features a vibrant with a few trees or distant buildings,creating a fresh and joyful atmosphere. Art style: realistic,high detail,vibrant colors,warm and cheerful.,f1.4 50mm,commercial photo style,<lora:flux.1_lora_flyway_T-poster:1>,with text around is 'Roller 186'\n```"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
-      "id": 72,
-      "type": "Note",
-      "pos": [
-        -93.84400177001953,
-        -2040.8975830078125
-      ],
-      "size": [
-        302.4878845214844,
-        784.4933471679688
-      ],
-      "flags": {},
-      "order": 11,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [],
-      "title": "Template 3",
-      "properties": {},
-      "widgets_values": [
-        "```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\nFlat illustration poster design, poster of a white girl, A Japanese beautiful girl wear roller skate shoes and pose on great night, dressed in a stylish jacket, inside a jacket is strapless, with a casual denim skirt. she roller skating andadding a retro touch to her outfit. The bright light of city highlights her relaxed and cheerful expression,and the roller skate shoes pops against the clear night sky. The background features a vibrant with a few trees or distant buildings,creating a fresh and joyful atmosphere. Art style: realistic,high detail,vibrant colors,warm and cheerful.,f1.4 50mm,commercial photo style, with text around is 'Roller 186',\n```"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
-      "id": 59,
-      "type": "TextCombinations",
-      "pos": [
-        -1102.1343994140625,
-        199.1940155029297
-      ],
-      "size": [
-        412.17681884765625,
-        715.5905151367188
-      ],
-      "flags": {},
-      "order": 12,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "output1",
-          "type": "STRING",
-          "links": [
-            104
-          ],
-          "slot_index": 0,
-          "shape": 3
-        },
-        {
-          "name": "output2",
-          "type": "STRING",
-          "links": null,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "TextCombinations",
-        "ttNbgOverride": {
-          "color": "#232",
-          "bgcolor": "#353",
-          "groupcolor": "#8A8"
-        }
-      },
-      "widgets_values": [
-        "describe \"Merry Christmas\" as a prompt base on this format prompt. And must have banner title:",
-        "```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\nScene Description:\nA vibrant and festive Vietnamese Lunar New Year celebration. The scene features a bustling environment with traditional decorations: red lanterns hanging in the air, peach blossoms in full bloom, and kumquat trees adorned with golden fruits. In the foreground, people in colorful áo dài (traditional Vietnamese attire) are smiling and engaging in joyous activities such as giving red envelopes (lì xì) to children and enjoying Tết delicacies.\n\n\nBanner Title:\nThe handwriter big text \"Vietnamese Rice Harvesting\" in top center or center\n\n\nBackground Details:\nA lively village or urban setting decorated with banners handwriter big text \"Happy New Year\" in top center, strings of lights, and fireworks lighting up the evening sky. Market stalls and family gatherings add a sense of community and tradition.\n\n\nColor Palette:\nDominated by auspicious colors like red and gold, symbolizing luck and prosperity, with hints of pink from peach blossoms and green from the kumquat trees. The lighting is warm and inviting, emphasizing the celebratory mood.\n\n\nComposition:\nThe layout has a balanced mix of cultural symbols and joyful interactions. Focus on the details of traditional clothing, decorations, and facial expressions to capture the essence of Vietnamese New Year traditions.\n```",
-        "text1 + text2 to output1, text2 to output2",
-        " ",
-        "false",
-        39613366365805,
-        "randomize"
-      ],
-      "color": "#332922",
-      "bgcolor": "#593930",
-      "shape": 1
-    },
-    {
       "id": 58,
       "type": "ShowText|pysssss",
       "pos": [
@@ -1221,7 +908,7 @@
         741.8711547851562
       ],
       "flags": {},
-      "order": 21,
+      "order": 19,
       "mode": 0,
       "inputs": [
         {
@@ -1269,7 +956,7 @@
         717.33203125
       ],
       "flags": {},
-      "order": 17,
+      "order": 15,
       "mode": 0,
       "inputs": [
         {
@@ -1317,7 +1004,7 @@
         773.589599609375
       ],
       "flags": {},
-      "order": 13,
+      "order": 8,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -1341,7 +1028,7 @@
         784.4933471679688
       ],
       "flags": {},
-      "order": 14,
+      "order": 9,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -1357,15 +1044,15 @@
       "id": 41,
       "type": "ImageUpscaleWithModel",
       "pos": [
-        2597.088623046875,
-        -18.941804885864258
+        2570.806640625,
+        -904.180419921875
       ],
       "size": [
         296.97412109375,
         46
       ],
       "flags": {},
-      "order": 33,
+      "order": 31,
       "mode": 0,
       "inputs": [
         {
@@ -1401,15 +1088,15 @@
       "id": 76,
       "type": "ImageScale",
       "pos": [
-        2597.1923828125,
-        71.53702545166016
+        2570.910400390625,
+        -813.7015991210938
       ],
       "size": [
         297.8346862792969,
         130
       ],
       "flags": {},
-      "order": 35,
+      "order": 32,
       "mode": 0,
       "inputs": [
         {
@@ -1442,15 +1129,15 @@
       "id": 48,
       "type": "ColorCorrect",
       "pos": [
-        2597.962890625,
-        600.1946411132812
+        2571.680908203125,
+        -285.0439147949219
       ],
       "size": [
         294.759765625,
         178
       ],
       "flags": {},
-      "order": 38,
+      "order": 34,
       "mode": 4,
       "inputs": [
         {
@@ -1487,15 +1174,15 @@
       "id": 47,
       "type": "ProPostFilmGrain",
       "pos": [
-        2597.962890625,
-        250.1941680908203
+        2571.680908203125,
+        -635.0445556640625
       ],
       "size": [
         295.24066162109375,
         300.5332336425781
       ],
       "flags": {},
-      "order": 37,
+      "order": 33,
       "mode": 4,
       "inputs": [
         {
@@ -1545,7 +1232,7 @@
         58
       ],
       "flags": {},
-      "order": 15,
+      "order": 10,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1578,7 +1265,7 @@
         106
       ],
       "flags": {},
-      "order": 29,
+      "order": 27,
       "mode": 0,
       "inputs": [
         {
@@ -1646,7 +1333,7 @@
         407.3680114746094
       ],
       "flags": {},
-      "order": 32,
+      "order": 30,
       "mode": 0,
       "inputs": [
         {
@@ -1669,15 +1356,15 @@
       "id": 42,
       "type": "SaveImage",
       "pos": [
-        2921.619384765625,
-        -143.15966796875
+        2895.33740234375,
+        -1028.398193359375
       ],
       "size": [
         1241.6512451171875,
         752.5809326171875
       ],
       "flags": {},
-      "order": 39,
+      "order": 35,
       "mode": 0,
       "inputs": [
         {
@@ -1696,6 +1383,107 @@
       "color": "#432",
       "bgcolor": "#653",
       "shape": 1
+    },
+    {
+      "id": 59,
+      "type": "TextCombinations",
+      "pos": [
+        -1102.1343994140625,
+        199.1940155029297
+      ],
+      "size": [
+        412.17681884765625,
+        715.5905151367188
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "output1",
+          "type": "STRING",
+          "links": [
+            104
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "output2",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "TextCombinations",
+        "ttNbgOverride": {
+          "color": "#232",
+          "bgcolor": "#353",
+          "groupcolor": "#8A8"
+        }
+      },
+      "widgets_values": [
+        "describe \"Merry Christmas\" as a prompt base on this format prompt. And must have banner title:",
+        "```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\nScene Description:\nA vibrant and festive Vietnamese Lunar New Year celebration. The scene features a bustling environment with traditional decorations: red lanterns hanging in the air, peach blossoms in full bloom, and kumquat trees adorned with golden fruits. In the foreground, people in colorful áo dài (traditional Vietnamese attire) are smiling and engaging in joyous activities such as giving red envelopes (lì xì) to children and enjoying Tết delicacies.\n\n\nBanner Title:\nThe handwriter big text \"Vietnamese Rice Harvesting\" in top center or center\n\n\nBackground Details:\nA lively village or urban setting decorated with banners handwriter big text \"Happy New Year\" in top center, strings of lights, and fireworks lighting up the evening sky. Market stalls and family gatherings add a sense of community and tradition.\n\n\nColor Palette:\nDominated by auspicious colors like red and gold, symbolizing luck and prosperity, with hints of pink from peach blossoms and green from the kumquat trees. The lighting is warm and inviting, emphasizing the celebratory mood.\n\n\nComposition:\nThe layout has a balanced mix of cultural symbols and joyful interactions. Focus on the details of traditional clothing, decorations, and facial expressions to capture the essence of Vietnamese New Year traditions.\n```",
+        "text1 + text2 to output1, text2 to output2",
+        " ",
+        "false",
+        39613366365805,
+        "randomize"
+      ],
+      "color": "#332922",
+      "bgcolor": "#593930",
+      "shape": 1
+    },
+    {
+      "id": 71,
+      "type": "Note",
+      "pos": [
+        -430,
+        -2040
+      ],
+      "size": [
+        302.4878845214844,
+        784.4933471679688
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Template 2",
+      "properties": {},
+      "widgets_values": [
+        "```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\nbo-cpposter, poster of a white girl, A Japanese beautiful girl wear roller skate shoes and pose on great night, dressed in a stylish jacket, inside a jacket is strapless, with a casual denim skirt. she roller skating andadding a retro touch to her outfit. The bright light of city highlights her relaxed and cheerful expression,and the roller skate shoes pops against the clear night sky. The background features a vibrant with a few trees or distant buildings,creating a fresh and joyful atmosphere. Art style: realistic,high detail,vibrant colors,warm and cheerful.,f1.4 50mm,commercial photo style,<lora:flux.1_lora_flyway_T-poster:1>,with text around is 'Roller 186'\n```"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 72,
+      "type": "Note",
+      "pos": [
+        -93.84400177001953,
+        -2040.8975830078125
+      ],
+      "size": [
+        302.4878845214844,
+        784.4933471679688
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Template 3",
+      "properties": {},
+      "widgets_values": [
+        "```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\nFlat illustration poster design, poster of a white girl, A Japanese beautiful girl wear roller skate shoes and pose on great night, dressed in a stylish jacket, inside a jacket is strapless, with a casual denim skirt. she roller skating andadding a retro touch to her outfit. The bright light of city highlights her relaxed and cheerful expression,and the roller skate shoes pops against the clear night sky. The background features a vibrant with a few trees or distant buildings,creating a fresh and joyful atmosphere. Art style: realistic,high detail,vibrant colors,warm and cheerful.,f1.4 50mm,commercial photo style, with text around is 'Roller 186',\n```"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
     }
   ],
   "links": [
@@ -1964,62 +1752,6 @@
       "CONDITIONING"
     ],
     [
-      109,
-      67,
-      0,
-      66,
-      0,
-      "STAGE1"
-    ],
-    [
-      110,
-      67,
-      1,
-      66,
-      1,
-      "TASK"
-    ],
-    [
-      111,
-      68,
-      0,
-      66,
-      2,
-      "CLDM"
-    ],
-    [
-      112,
-      68,
-      1,
-      66,
-      3,
-      "DIFFUSION"
-    ],
-    [
-      113,
-      68,
-      2,
-      66,
-      4,
-      "INFER_TYPE"
-    ],
-    [
-      115,
-      66,
-      0,
-      69,
-      0,
-      "IMAGE"
-    ],
-    [
-      116,
-      56,
-      0,
-      66,
-      5,
-      "IMAGE"
-    ],
-    [
       119,
       41,
       0,
@@ -2041,8 +1773,8 @@
       "id": 1,
       "title": "Upscale by Model",
       "bounding": [
-        2577.088623046875,
-        -228.94168090820312,
+        2550.806640625,
+        -1114.1800537109375,
         1658.952392578125,
         1033.6268310546875
       ],
@@ -2058,19 +1790,6 @@
         -445.1617736816406,
         346.00970458984375,
         316.99493408203125
-      ],
-      "color": "#3f789e",
-      "font_size": 24,
-      "flags": {}
-    },
-    {
-      "id": 3,
-      "title": "Upscale by DIFFBIR",
-      "bounding": [
-        2572.857177734375,
-        -1108.360107421875,
-        1819.6151123046875,
-        850.93896484375
       ],
       "color": "#3f789e",
       "font_size": 24,
@@ -2119,10 +1838,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 1.5535220464768995,
+      "scale": 1.1167815779424761,
       "offset": [
-        -2868.744657079158,
-        134.31353052998907
+        1662.2090346623688,
+        -79.22284177400554
       ]
     },
     "ue_links": []

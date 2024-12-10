@@ -149,8 +149,7 @@ def authenticate_user(domain, token):
 def create_prompt_and_call_api(input_string):
     topic = input_string.split('"')[1]
     
-    # Generate the formatted prompt
-    prompt = f"""((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))
+    sceneTemplate1 = """
         Scene Description:
         A vibrant and festive Vietnamese Lunar New Year celebration. The scene features a bustling environment with traditional decorations: red lanterns hanging in the air, peach blossoms in full bloom, and kumquat trees adorned with golden fruits. In the foreground, people in colorful áo dài (traditional Vietnamese attire) are smiling and engaging in joyous activities such as giving red envelopes (lì xì) to children and enjoying Tết delicacies.
 
@@ -164,7 +163,13 @@ def create_prompt_and_call_api(input_string):
         Dominated by auspicious colors like red and gold, symbolizing luck and prosperity, with hints of pink from peach blossoms and green from the kumquat trees. The lighting is warm and inviting, emphasizing the celebratory mood.
 
         Composition:
-        The layout has a balanced mix of cultural symbols and joyful interactions. Focus on the details of traditional clothing, decorations, and facial expressions to capture the essence of Vietnamese New Year traditions."""
+        The layout has a balanced mix of cultural symbols and joyful interactions. Focus on the details of traditional clothing, decorations, and facial expressions to capture the essence of Vietnamese New Year traditions.
+    """
+    
+    # Generate the formatted prompt
+    prompt = f"""((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))
+        {sceneTemplate1}
+        """
     
     # Prepare the data for the API request
     data = {
