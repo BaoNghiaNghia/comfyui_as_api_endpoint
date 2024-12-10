@@ -220,13 +220,13 @@ def create_prompt_and_call_api(input_string):
 
 
 # Main image generation function
-async def generate_images(positive_prompt, poster_number):
+async def generate_images(positive_prompt, poster_number = 1):
     
     ws = ws_client.WebSocket()
     ws_url = f"ws://{server_address}/ws?clientId={client_id}"
     ws.connect(ws_url)
 
-    with open("workflow.json", "r", encoding="utf-8") as f:
+    with open("create-thumbnail-youtube-v3.json", "r", encoding="utf-8") as f:
         workflow_data = f.read()
 
     workflow = json.loads(workflow_data)
