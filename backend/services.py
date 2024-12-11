@@ -2,6 +2,7 @@ import os
 import json
 import logging
 import requests
+import asyncio
 import random
 import uuid
 import websocket as ws_client
@@ -77,6 +78,7 @@ def queue_prompt(prompt):
     p = {"prompt": prompt, "client_id": client_id}
     data = json.dumps(p).encode('utf-8')
     req = Request(f"http://{server_address}/prompt", data=data)
+    return urlopen(req)
     return json.loads(urlopen(req).read())
 
 # Service to get image
@@ -93,6 +95,7 @@ def get_history(prompt_id):
 
 # WebSocket image generation service
 async def get_images(ws, prompt):
+    return queue_prompt(prompt)
     prompt_id = queue_prompt(prompt)['prompt_id']
     output_images = {}
 
@@ -215,51 +218,42 @@ def create_prompt_and_call_api(input_string):
 
 # Main image generation function
 async def generate_images(positive_prompt, poster_number = 1):
-    ws = ws_client.WebSocket()
-    ws_url = f"ws://{server_address}/ws?clientId={client_id}"
-    ws.connect(ws_url)
+    try:
+        ws = ws_client.WebSocket()
+        ws_url = f"ws://{server_address}/ws?clientId={client_id}"
+        ws.connect(ws_url)
 
-    with open("create-thumbnail-youtube-v3.json", "r", encoding="utf-8") as f:
-        workflow_data = f.read()
+        with open("create-thumbnail-youtube-v3-api.json", "r", encoding="utf-8") as f:
+            workflow_data = f.read()
 
-    workflow = json.loads(workflow_data)
-    
-    listNodeInWorkflow = workflow["nodes"]
-    
-    nodeConditionPrompt = next((item for item in listNodeInWorkflow if item["id"] == 59), None)
-        
-    if nodeConditionPrompt and positive_prompt:
-        nodeConditionPrompt.get("widgets_values")[0] = (
+        workflow = json.loads(workflow_data)
+        noise_seed = random.randint(1, 1000000000000000)
+
+        workflow["59"]["inputs"]["text1"] = (
             f'describe "{positive_prompt}" as a prompt base on this format prompt. '
             f'And must have banner title ***{positive_prompt}***:'
         )
-        nodeConditionPrompt.get("widgets_values")[1] = create_prompt_and_call_api(positive_prompt)
-    else:
-        raise ValueError("Input string must contain a valid 'positive_prompt' and 'nodeConditionPrompt'.")
-
-    nodeGemeniAI = next((item for item in listNodeInWorkflow if item["id"] == 61), None)
-    
-    if nodeGemeniAI:
-        nodeGemeniAI.get("widgets_values")[3] = random.choice([
+        
+        workflow["59"]["inputs"]["text2"] = create_prompt_and_call_api(positive_prompt)
+        
+        workflow["61"]["inputs"]["api_key"] = random.choice([
             "AIzaSyA1Z5slGG7kbIOWinCnuz4OJiJ3a6G0t7Y",
             "AIzaSyC1KVctwhDdVbIDv2cOZDa1kWyz0gq_jOQ",
             "AIzaSyA85MP5jctMT9rKVR6gT16tEmsuO4JqpLg",
             "AIzaSyCzXVTqFDI1a1XV5iLwIAcqY-bjR1Xpz8Y"
         ])
         
+        workflow["29"]["inputs"]["batch_size"] = poster_number
+        workflow["25"]["inputs"]["noise_seed"] = noise_seed
 
-    nodeBatchImageNumber = next((item for item in listNodeInWorkflow if item["id"] == 29), None)
-    
-    if nodeBatchImageNumber:
-        nodeBatchImageNumber.get("widgets_values")[2] = poster_number
+        # Fetch generated images
+        images = await get_images(ws, workflow)
+        ws.close()
         
-    nodeRandomNoise = next((item for item in listNodeInWorkflow if item["id"] == 25), None)
-    if nodeRandomNoise:
-        seed = random.randint(1, 1000000000000000)
-        nodeRandomNoise.get("widgets_values")[0] = seed
+        return images, noise_seed
+    except Exception as e:
+        # Handle exceptions and ensure WebSocket is closed if an error occurs
+        if ws:
+            ws.close()
+        raise e
 
-    # Fetch generated images
-    images = get_images(ws, workflow)
-    ws.close()
-
-    return images, seed

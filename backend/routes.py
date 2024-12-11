@@ -38,29 +38,34 @@ async def generate_images_api(request: PromptRequest):
         # if request.token:
         #     status_code, message = authenticate_user(request.domain, request.token)
         #     if status_code != 200:
-        #         raise Exception("Authentication failed")
+        #         raise HTTPException(status_code=401, detail="Authentication failed")
 
         #     print(f"Authenticated successfully. Response: {message}")
 
+        # Validate request fields
+        if not request.positive_prompt:
+            raise HTTPException(status_code=400, detail="Positive prompt is required.")
+        if request.poster_number <= 0:
+            raise HTTPException(status_code=400, detail="Poster number must be greater than 0.")
+
+        # Generate images
         images, seed = await generate_images(request.positive_prompt, request.poster_number)
-        
-        return images
 
-        # # Convert images to a format FastAPI can return
-        # image_responses = []
-        # for node_id in images:
-        #     for image_data in images[node_id]:
-        #         img = Image.open(io.BytesIO(image_data))
-        #         img_byte_arr = io.BytesIO()
-        #         img.save(img_byte_arr, format='PNG')
-        #         img_byte_arr.seek(0)
+        # Check if images are generated successfully
+        if not images:
+            raise HTTPException(status_code=500, detail="Image generation failed.")
 
-        #         # Append the image response to a list
-        #         image_responses.append(StreamingResponse(img_byte_arr, media_type="image/png"))
+        return {"images": images, "seed": seed}
 
-        # return image_responses[0]  # Return the first image for simplicity
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Error: {str(e)}")
+    except HTTPException as http_exc:
+        # Re-raise known HTTP exceptions
+        raise http_exc
+    except ValueError as value_error:
+        # Handle specific errors (e.g., invalid input)
+        raise HTTPException(status_code=400, detail=f"Value error: {str(value_error)}")
+    except Exception as exception:
+        # Handle unexpected exceptions
+        raise HTTPException(status_code=500, detail=f"Unexpected error: {str(exception)}")
 
 
 # Specify the directory where files are stored
