@@ -5,15 +5,11 @@ import requests
 import asyncio
 import random
 import uuid
-import websocket as ws_client
-from dotenv import load_dotenv
+import websocket
 from urllib.request import urlopen, Request
 from urllib.parse import urlencode
 
-# Load environment variables
-load_dotenv()
-
-server_address = os.getenv('COMFYUI_SERVER_ADDRESS', 'localhost:8188')
+server_address = os.getenv('127.0.0.1:8188', 'localhost:8188')
 client_id = str(uuid.uuid4())
 
 
@@ -189,7 +185,7 @@ def create_prompt_and_call_api(input_string):
 # Main image generation function
 async def generate_images(positive_prompt, poster_number = 1):
     try:
-        ws = ws_client.WebSocket()
+        ws = websocket.WebSocket()
         ws_url = f"ws://{server_address}/ws?clientId={client_id}"
         ws.connect(ws_url)
 
