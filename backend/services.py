@@ -65,23 +65,14 @@ async def get_images(ws, prompt):
                 logging.info(f"PromptID: {prompt_id} - Executing: {data}")
                 if data['node'] is None and data['prompt_id'] == prompt_id:
                     break  # Execution is done
-            
-            logging.info(f"Percent: {last_reported_percentage}")
+
         else:
             continue  # Previews are binary data
 
 
     history = get_history(prompt_id)[prompt_id]
-    logging.info(f"History: {history}")
-    for o in history['outputs']:
-        for node_id in history['outputs']:
-            node_output = history['outputs'][node_id]
-            if 'images' in node_output:
-                images_output = []
-                for image in node_output['images']:
-                    image_data = get_image(image['filename'], image['subfolder'], image['type'])
-                    images_output.append(image_data)
-                output_images[node_id] = images_output
+    output_images = history['outputs'][134]['images']
+    logging.info(f"Image Path: {output_images}")
 
     return output_images
 
