@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
-from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
-from .models import LLMRequest, PromptRequest
-from .services import generate_images, get_quick_prompts_data, ask_llm_service, authenticate_user
+from fastapi.responses import FileResponse
+from .models import PromptRequest
+from .services import generate_images, authenticate_user
 from PIL import Image
 import io
 from pathlib import Path
@@ -12,23 +12,6 @@ router = APIRouter()
 async def get_index():
     return FileResponse("ui/index.html")
 
-# Endpoint to serve quick prompts from configuration file
-@router.get("/quick_prompts/")
-async def get_quick_prompts():
-    try:
-        prompts = get_quick_prompts_data()
-        return JSONResponse(content=prompts)
-    except Exception as e:
-        raise HTTPException(status_code=500, detail="Error reading quick prompts file.")
-
-# Endpoint to ask the LLM for creative ideas based on the positive prompt
-@router.post("/ask_llm/")
-async def ask_llm(request: LLMRequest):
-    try:
-        response = ask_llm_service(request.positive_prompt)
-        return JSONResponse(content={"assistant_reply": response})
-    except Exception as e:
-        raise HTTPException(status_code=500, detail="Error interacting with LLM: " + str(e))
 
 # Endpoint to generate images
 @router.post("/generate_images/thumbnail-youtube")

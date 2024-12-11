@@ -51,16 +51,6 @@ YtbThumbnail is an AI-powered image generator that allows users to create high-q
 
    - Ollama LLM server should be installed and accessible.
 
-4. **Configuration via `.env`**:
-    - The project uses a `.env` file for configuring server addresses. Below are custom configuration settings:
-
-    ```bash
-      COMFYUI_SERVER_ADDRESS=192.168.1.10:8188
-      OLLAMA_SERVER_ADDRESS=192.168.1.10:11436
-    ```
-
-   - Adjust these values to match your environment.
-
 ### **Installation**
 
 1. **Clone the Repository**:
@@ -93,7 +83,6 @@ YtbThumbnail is an AI-powered image generator that allows users to create high-q
 
     ```bash
       COMFYUI_SERVER_ADDRESS=192.168.1.10:8188
-      OLLAMA_SERVER_ADDRESS=192.168.1.10:11436
     ```
 
 ---
