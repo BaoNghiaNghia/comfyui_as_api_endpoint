@@ -71,7 +71,7 @@ async def get_images(ws, prompt):
 
 
     history = get_history(prompt_id)[prompt_id]
-    output_images = history['outputs'][134]['images']
+    output_images = history['outputs']["134"]['images']
     logging.info(f"Image Path: {output_images}")
 
     return output_images
