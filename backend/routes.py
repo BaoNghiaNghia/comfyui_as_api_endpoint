@@ -59,7 +59,8 @@ async def download_file(file_name: str):
     file_path = FILE_DIRECTORY / file_name
     if not file_path.exists() or not file_path.is_file():
         return {"error": "File not found"}
-    
+
+
     return FileResponse(
         path=file_path,
         media_type="application/octet-stream",  # Generic binary file type

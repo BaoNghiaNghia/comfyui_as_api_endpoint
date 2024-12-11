@@ -9,6 +9,10 @@ import websocket
 from urllib.request import urlopen, Request
 from urllib.parse import urlencode
 
+# Configure logging
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+
+
 server_address = os.getenv('127.0.0.1:8188', 'localhost:8188')
 client_id = str(uuid.uuid4())
 
@@ -39,19 +43,36 @@ def queue_prompt(prompt):
 async def get_images(ws, prompt):
     prompt_id = queue_prompt(prompt)['prompt_id']
     output_images = {}
+    last_reported_percentage = 0
 
     while True:
         out = ws.recv()
+        
         if isinstance(out, str):
             message = json.loads(out)
-            if message['type'] == 'executing':
+            if message['type'] == 'progress':
                 data = message['data']
+                current_progress = data['value']
+                max_progress = data['max']
+                percentage = int((current_progress / max_progress) * 100)
+
+                # Only update progress every 10%
+                if percentage >= last_reported_percentage + 10:
+                    last_reported_percentage = percentage
+
+            elif message['type'] == 'executing':
+                data = message['data']
+                logging.info(f"PromptID: {prompt_id} - Executing: {data}")
                 if data['node'] is None and data['prompt_id'] == prompt_id:
-                    break
+                    break  # Execution is done
+            
+            logging.info(f"Percent: {last_reported_percentage}")
         else:
-            continue
+            continue  # Previews are binary data
+
 
     history = get_history(prompt_id)[prompt_id]
+    logging.info(f"History: {history}")
     for o in history['outputs']:
         for node_id in history['outputs']:
             node_output = history['outputs'][node_id]
