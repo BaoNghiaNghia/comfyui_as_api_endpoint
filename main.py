@@ -5,13 +5,7 @@ import urllib.request
 import urllib.parse
 import random
 from termcolor import colored
-from dotenv import load_dotenv
 import os
-
-
-load_dotenv()
-
-
 
 # Get server address from environment variable, default to "localhost:8188" if not set
 server_address = os.getenv('COMFYUI_SERVER_ADDRESS', 'localhost:8188')
