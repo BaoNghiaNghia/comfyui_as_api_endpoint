@@ -106,7 +106,7 @@ def generate_images_for_test():
     ws_url = f"ws://{server_address}/ws?clientId={client_id}"
     ws.connect(ws_url)
     
-    with open("workflow.json", "r", encoding="utf-8") as f:
+    with open("create-thumbnail-youtube-v3-api.json", "r", encoding="utf-8") as f:
         workflow_data = f.read()
 
     workflow = json.loads(workflow_data)

@@ -1,9 +1,9 @@
-## JavaScript Methods Documentation for **DreamCanvas**
+## JavaScript Methods Documentation for **YtbThumbnail**
 
 ### Overview
 This documentation provides an overview of the key methods in the JavaScript file responsible for handling user interactions, form submissions, image generation, and dynamic prompt loading. It also explains how these methods are connected to the elements defined in the HTML structure.
 
-These JavaScript methods drive the interactive functionality of the **DreamCanvas** app, handling form submissions, prompt input, and dynamic image generation. They are closely connected to the corresponding HTML elements, enabling a smooth and responsive user experience.
+These JavaScript methods drive the interactive functionality of the **YtbThumbnail** app, handling form submissions, prompt input, and dynamic image generation. They are closely connected to the corresponding HTML elements, enabling a smooth and responsive user experience.
 ---
 
 ### **1. `startTimer()`**

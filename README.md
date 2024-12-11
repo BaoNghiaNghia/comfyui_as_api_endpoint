@@ -1,12 +1,12 @@
-# **DreamCanvas - AI-Powered Creativity**
+# **YtbThumbnail - AI-Powered Creativity**
 
-DreamCanvas is an AI-powered image generator that allows users to create high-quality, creative images using ComfyUI and integrates with a local Large Language Model (LLM) via Ollama. This project includes a FastAPI backend, a dynamic web interface, and support for user-configurable models and servers.
+YtbThumbnail is an AI-powered image generator that allows users to create high-quality, creative images using ComfyUI and integrates with a local Large Language Model (LLM) via Ollama. This project includes a FastAPI backend, a dynamic web interface, and support for user-configurable models and servers.
 
 ---
 
 ## **Table of Contents**
 
-- [**DreamCanvas - AI-Powered Creativity**](#dreamcanvas---ai-powered-creativity)
+- [**YtbThumbnail - AI-Powered Creativity**](#ytbthumbnail---ai-powered-creativity)
   - [**Table of Contents**](#table-of-contents)
   - [**Setup**](#setup)
     - [**Requirements**](#requirements)
@@ -66,8 +66,8 @@ DreamCanvas is an AI-powered image generator that allows users to create high-qu
 1. **Clone the Repository**:
 
    ```bash
-    git clone https://github.com/Teachings/DreamCanvas.git
-    cd DreamCanvas
+    git clone https://github.com/Teachings/YtbThumbnail.git
+    cd YtbThumbnail
    ```
 
 2. **Set Up Conda Environment**:
@@ -75,8 +75,8 @@ DreamCanvas is an AI-powered image generator that allows users to create high-qu
    Create and activate the Conda environment:
 
     ```bash
-      conda create --name dreamcanvas python=3.12
-      conda activate dreamcanvas
+      conda create --name ytbthumbnailssc python=3.12
+      conda activate ytbthumbnailssc
     ```
 
 3. **Install Dependencies**:
@@ -123,7 +123,7 @@ If you prefer to run the application inside a Docker container, the following st
 Navigate to the project directory and build the Docker image:
 
 ```bash
-  docker build -t dreamcanvas .
+  docker build -t ytbthumbnailssc .
 ```
 
 ### **2. Run the Docker Container**
@@ -131,7 +131,7 @@ Navigate to the project directory and build the Docker image:
 Once the Docker image is built, run the container:
 
 ```bash
-  docker run -d -p 8000:8000 --env-file .env --name dreamcanvas dreamcanvas
+  docker run -d -p 8000:8000 --env-file .env --name ytbthumbnailssc ytbthumbnailssc
 ```
 
 This command will:

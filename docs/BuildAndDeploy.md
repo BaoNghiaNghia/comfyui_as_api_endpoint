@@ -1,6 +1,6 @@
 ## **Running the Application with and without Docker**
 
-This guide explains how to run the application both locally and via Docker, using the command `docker run -d -p 8000:8000 --name dreamcanvas dreamcanvas`. It also covers how to test the application via a web browser and cURL.
+This guide explains how to run the application both locally and via Docker, using the command `docker run -d -p 8000:8000 --name ytbthumbnailssc ytbthumbnailssc`. It also covers how to test the application via a web browser and cURL.
 
 ---
 
@@ -46,21 +46,21 @@ You can also run the application inside a Docker container, which ensures a cons
 First, ensure you have Docker installed. Navigate to your project root directory (where the `Dockerfile` is located), and run the following command to build the Docker image:
 
 ```bash
-docker build -t dreamcanvas .
+docker build -t ytbthumbnailssc .
 ```
 
-This command will create a Docker image named `dreamcanvas`.
+This command will create a Docker image named `ytbthumbnailssc`.
 
 #### **2. Run the Docker Container**
 Once the image is built, you can start the application in detached mode using this command:
 
 ```bash
-docker run -d -p 8000:8000 --name dreamcanvas dreamcanvas
+docker run -d -p 8000:8000 --name ytbthumbnailssc ytbthumbnailssc
 ```
 
 - `-d` runs the container in detached mode (in the background).
 - `-p 8000:8000` maps port 8000 on your host machine to port 8000 inside the Docker container, making the application accessible via `http://localhost:8000`.
-- `--name dreamcanvas` assigns a name to the running container, making it easier to manage.
+- `--name ytbthumbnailssc` assigns a name to the running container, making it easier to manage.
 
 #### **3. Test the Application in Browser**
 Open your web browser and navigate to `http://localhost:8000/docs` to access **Swagger UI**. This interface allows you to interact with all the available API endpoints.
@@ -89,21 +89,21 @@ curl 'http://localhost:8000/generate_images/' \
 If you need to stop the container, you can run:
 
 ```bash
-docker stop dreamcanvas
+docker stop ytbthumbnailssc
 ```
 
 #### **Restart the Container**
 To restart the stopped container, use:
 
 ```bash
-docker start dreamcanvas
+docker start ytbthumbnailssc
 ```
 
 #### **Remove the Container**
 To remove the container when you're done testing, run:
 
 ```bash
-docker rm -f dreamcanvas
+docker rm -f ytbthumbnailssc
 ```
 
 This will stop and remove the container completely.
