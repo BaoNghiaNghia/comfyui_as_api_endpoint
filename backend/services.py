@@ -73,14 +73,6 @@ def ask_llm_service(positive_prompt: str):
     response_data = response.json()
     return response_data["choices"][0]["message"]["content"]
 
-# Service to queue a prompt
-def queue_prompt(prompt):
-    p = {"prompt": prompt, "client_id": client_id}
-    data = json.dumps(p).encode('utf-8')
-    req = Request(f"http://{server_address}/prompt", data=data)
-    return urlopen(req)
-    return json.loads(urlopen(req).read())
-
 # Service to get image
 def get_image(filename, subfolder, folder_type):
     data = {"filename": filename, "subfolder": subfolder, "type": folder_type}
@@ -92,10 +84,17 @@ def get_image(filename, subfolder, folder_type):
 def get_history(prompt_id):
     with urlopen(f"http://{server_address}/history/{prompt_id}") as response:
         return json.loads(response.read())
+    
+# Service to queue a prompt
+def queue_prompt(prompt):
+    p = {"prompt": prompt, "client_id": client_id}
+    data = json.dumps(p).encode('utf-8')
+    req = Request(f"http://{server_address}/prompt", data=data)
+    return json.loads(urlopen(req).read())
+
 
 # WebSocket image generation service
 async def get_images(ws, prompt):
-    return queue_prompt(prompt)
     prompt_id = queue_prompt(prompt)['prompt_id']
     output_images = {}
 
