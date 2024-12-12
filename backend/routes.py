@@ -11,6 +11,7 @@ router = APIRouter()
 
 FILE_DIRECTORY = Path(os.getenv('OUTPUT_IMAGE_FOLDER', 'D:\Post-production tools - SSC Render\ComfyUI_windows_portable\ComfyUI\output'))
 
+
 @router.get("/")
 async def get_index():
     return FileResponse("ui/index.html")
