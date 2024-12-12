@@ -1,5 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import FileResponse
+import os
 from .models import PromptRequest
 from .services import generate_images, authenticate_user
 from PIL import Image
@@ -7,6 +8,8 @@ import io
 from pathlib import Path
 
 router = APIRouter()
+
+FILE_DIRECTORY = Path(os.getenv('OUTPUT_IMAGE_FOLDER', 'D:\Post-production tools - SSC Render\ComfyUI_windows_portable\ComfyUI\output'))
 
 @router.get("/")
 async def get_index():
@@ -43,23 +46,21 @@ async def generate_images_api(request: PromptRequest):
     except HTTPException as http_exc:
         # Re-raise known HTTP exceptions
         raise http_exc
+
     except ValueError as value_error:
         # Handle specific errors (e.g., invalid input)
         raise HTTPException(status_code=400, detail=f"Value error: {str(value_error)}")
+
     except Exception as exception:
         # Handle unexpected exceptions
         raise HTTPException(status_code=500, detail=f"Unexpected error: {str(exception)}")
 
 
-# Specify the directory where files are stored
-FILE_DIRECTORY = Path("files")  # Update this to your directory path
-
-@router.post("/download-images/")
+@router.get("/download-images/")
 async def download_file(file_name: str):
     file_path = FILE_DIRECTORY / file_name
     if not file_path.exists() or not file_path.is_file():
         return {"error": "File not found"}
-
 
     return FileResponse(
         path=file_path,

@@ -2,7 +2,6 @@ import os
 import json
 import logging
 import requests
-import asyncio
 import random
 import uuid
 import websocket
@@ -73,6 +72,9 @@ async def get_images(ws, prompt):
     history = get_history(prompt_id)[prompt_id]
     output_images = history['outputs']["134"]['images']
     logging.info(f"Image Path: {output_images}")
+    
+    for output_image in output_images:
+        output_image['file_path'] = f"http://{server_address}/download-images?file_name={output_image['filename']}"
 
     return output_images
 
