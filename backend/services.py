@@ -14,7 +14,7 @@ logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %
 
 server_address = os.getenv('127.0.0.1:8188', 'localhost:8188')
 client_id = str(uuid.uuid4())
-main_server_address = os.getenv('MAIN_SERVER_ADDRESS', 'localhost:8000')
+main_server_address = os.getenv('MAIN_SERVER_ADDRESS', 'sscrender.ddns.net:8000')
 
 
 # Service to get image
