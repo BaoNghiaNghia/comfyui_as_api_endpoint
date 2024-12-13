@@ -33,8 +33,8 @@ YtbThumbnail is an AI-powered image generator that allows users to create high-q
   - [**Kill Server**](#kill-server)
   - [API Request: Generate YouTube Thumbnail](#api-request-generate-youtube-thumbnail)
     - [Câu lệnh `curl`](#câu-lệnh-curl)
-    - [Các tham số:](#các-tham-số)
-    - [Ví dụ kết quả trả về:](#ví-dụ-kết-quả-trả-về)
+    - [Các tham số](#các-tham-số)
+    - [Ví dụ kết quả trả về](#ví-dụ-kết-quả-trả-về)
 
 ---
 
@@ -304,72 +304,72 @@ curl --location 'http://sscrender.ddns.net:8000/generate_images/thumbnail-youtub
     "domain": "http://claim-api.simplesolution.co/api/v2",
     "token": "1087|KpWpSfAu15jBSqHJKrpIglrX9CzVp8iViIhohqfH"
 }'
+```
 
+### Các tham số
 
-### Các tham số:
 - **positive_prompt**: Mô tả tiêu đề và chủ đề của thumbnail (ví dụ: "Merry Christmas").
 - **thumb_style**: Mô tả phong cách ảnh thumbnail. Các kiểu phong cách có thể bao gồm:
-    - realistic photo (ảnh chụp)
-    - illustration (minh họa)
-    - 3d (3D)
-    - cartoon fun (hoạt hình vui nhộn)
-    - comic (truyện tranh)
-    - dark (tối)
-    - water color (sơn nước)
-    - pixel art (nghệ thuật pixel)
-    - surreal (siêu thực)
-    - oil painting (sơn dầu)
-    - nature (thiên nhiên)
-    - ink print (in mực)
-    - pencil (bút chì)
-    - retrowave (retro sóng)
-    - vintage japanese (nhật bản cổ điển)
-    - lifestyle (lối sống)
-    - collage (ghép ảnh)
-    - glitchart (nghệ thuật lỗi)
-    - retroglow (ánh sáng cổ điển)
-    - lowkey cinematic (điện ảnh nhẹ nhàng)
-    - analog memories (kỷ niệm analog)
-    - trippy illustration (minh họa kỳ ảo)
-    - fantasy cartoon (hoạt hình giả tưởng)
-    - pastel paint (sơn pastel)
-    - arcadebits (bit arcade)
-    - squishy 3d (3D nở ra)
-    - product photography (chụp ảnh sản phẩm)
-    - historical (lịch sử)
-    - felted (dệt)
-    - podium (bục)
-    - redveil (màn đỏ)
-    - darklight dreamscaped (ánh sáng tối, cảnh mơ)
-    - dreamlandscapes (cảnh mơ)
-    - linework (làm việc với đường nét)
-    - sonny anime (anime Sonny)
-    - soft pasty (mềm mại, nhạt màu)
-    - soft retro (retro nhẹ nhàng)
-    - plushy world (thế giới nhồi bông)
-    - film effect (hiệu ứng phim)
-    - anime (anime)
-    - warnand cold (ấm và lạnh)
-    - sparking (tỏa sáng)
-    - blurry long exposure (phơi sáng mờ)
-    - flutted glass (kính gợn sóng)
-    - glimmerish (lấp lánh)
-    - 40s influence (ảnh hưởng thập niên 40)
-    - dadapop (dadapop)
-    - 80smovie (phim thập niên 80)
-    - renaissance fashion (thời trang phục hưng)
-    - fineart (nghệ thuật tinh tế)
-    - neo classicart (nghệ thuật cổ điển mới)
-    - highend light (ánh sáng cao cấp)
-    - fantasy anime (anime giả tưởng)
-    - 3d colorful (3D đầy màu sắc)
-    - illustrator photo (ảnh họa sĩ minh họa)
-
+      - realistic photo (ảnh chụp)
+      - illustration (minh họa)
+      - 3d (3D)
+      - cartoon fun (hoạt hình vui nhộn)
+      - comic (truyện tranh)
+      - dark (tối)
+      - water color (sơn nước)
+      - pixel art (nghệ thuật pixel)
+      - surreal (siêu thực)
+      - oil painting (sơn dầu)
+      - nature (thiên nhiên)
+      - ink print (in mực)
+      - pencil (bút chì)
+      - retrowave (retro sóng)
+      - vintage japanese (nhật bản cổ điển)
+      - lifestyle (lối sống)
+      - collage (ghép ảnh)
+      - glitchart (nghệ thuật lỗi)
+      - retroglow (ánh sáng cổ điển)
+      - lowkey cinematic (điện ảnh nhẹ nhàng)
+      - analog memories (kỷ niệm analog)
+      - trippy illustration (minh họa kỳ ảo)
+      - fantasy cartoon (hoạt hình giả tưởng)
+      - pastel paint (sơn pastel)
+      - arcadebits (bit arcade)
+      - squishy 3d (3D nở ra)
+      - product photography (chụp ảnh sản phẩm)
+      - historical (lịch sử)
+      - felted (dệt)
+      - podium (bục)
+      - redveil (màn đỏ)
+      - darklight dreamscaped (ánh sáng tối, cảnh mơ)
+      - dreamlandscapes (cảnh mơ)
+      - linework (làm việc với đường nét)
+      - sonny anime (anime Sonny)
+      - soft pasty (mềm mại, nhạt màu)
+      - soft retro (retro nhẹ nhàng)
+      - plushy world (thế giới nhồi bông)
+      - film effect (hiệu ứng phim)
+      - anime (anime)
+      - warnand cold (ấm và lạnh)
+      - sparking (tỏa sáng)
+      - blurry long exposure (phơi sáng mờ)
+      - flutted glass (kính gợn sóng)
+      - glimmerish (lấp lánh)
+      - 40s influence (ảnh hưởng thập niên 40)
+      - dadapop (dadapop)
+      - 80smovie (phim thập niên 80)
+      - renaissance fashion (thời trang phục hưng)
+      - fineart (nghệ thuật tinh tế)
+      - neo classicart (nghệ thuật cổ điển mới)
+      - highend light (ánh sáng cao cấp)
+      - fantasy anime (anime giả tưởng)
+      - 3d colorful (3D đầy màu sắc)
+      - illustrator photo (ảnh họa sĩ minh họa)
 - **poster_number**: Số lượng thumbnail tối đa có thể tạo trong một lần. (Tối đa 5 thumbnail hiện tại).
 - **domain** và **token**: Dùng cho xác thực (hiện tại chưa sử dụng).
 
+### Ví dụ kết quả trả về
 
-### Ví dụ kết quả trả về:
 ```json
 {
     "images": [
@@ -382,6 +382,6 @@ curl --location 'http://sscrender.ddns.net:8000/generate_images/thumbnail-youtub
     ],
     "seed": 786172516883911
 }
-
+```
 
 Với `file_path` là đường dẫn để download thumbnail
