@@ -9,7 +9,7 @@ from pathlib import Path
 
 router = APIRouter()
 
-FILE_DIRECTORY = Path(os.getenv('OUTPUT_IMAGE_FOLDER', 'D:\Post-production tools - SSC Render\ComfyUI_windows_portable\ComfyUI\output'))
+FILE_DIRECTORY = Path(os.getenv('OUTPUT_IMAGE_FOLDER', 'C:\Ytb Thumbnail AI\ComfyUI\output'))
 
 
 @router.get("/")
@@ -34,9 +34,11 @@ async def generate_images_api(request: PromptRequest):
             raise HTTPException(status_code=400, detail="Positive prompt is required.")
         if request.poster_number <= 0:
             raise HTTPException(status_code=400, detail="Poster number must be greater than 0.")
+        if not request.thumb_style:
+            raise HTTPException(status_code=400, detail="Must be select style of thumbnail.")
 
         # Generate images
-        images, seed = await generate_images(request.positive_prompt, request.poster_number)
+        images, seed = await generate_images(request.positive_prompt, request.poster_number, request.thumb_style)
 
         # Check if images are generated successfully
         if not images:

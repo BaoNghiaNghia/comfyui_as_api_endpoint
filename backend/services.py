@@ -198,7 +198,7 @@ def create_prompt_and_call_api(input_string):
 
 
 # Main image generation function
-async def generate_images(positive_prompt, poster_number = 1):
+async def generate_images(positive_prompt, poster_number = 1, thumb_style = 'realistic photo'):
     try:
         ws = websocket.WebSocket()
         ws_url = f"ws://{server_address}/ws?clientId={client_id}"
@@ -211,7 +211,7 @@ async def generate_images(positive_prompt, poster_number = 1):
         noise_seed = random.randint(1, 1000000000000000)
 
         workflow["59"]["inputs"]["text1"] = (
-            f'describe "{positive_prompt}" as a prompt base on this format prompt. '
+            f'describe "{positive_prompt}" with {thumb_style} style as a prompt base on this format prompt. '
             f'And must have banner title ***{positive_prompt}***:'
         )
         

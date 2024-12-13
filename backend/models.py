@@ -8,5 +8,6 @@ class LLMRequest(BaseModel):
 class PromptRequest(BaseModel):
     positive_prompt: str
     poster_number: int = 5
+    thumb_style: str
     domain: str
     token: str
