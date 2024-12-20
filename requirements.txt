@@ -7,3 +7,7 @@ websocket-client
 termcolor
 requests
 python-dotenv
+celery
+redis
+flower
+django-celery-beat

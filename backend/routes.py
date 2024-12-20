@@ -6,6 +6,7 @@ from .services import generate_images, authenticate_user
 from PIL import Image
 import io
 from pathlib import Path
+from .tasks import check_and_generate_images
 
 router = APIRouter()
 
@@ -70,3 +71,8 @@ async def download_file(file_name: str):
         media_type="application/octet-stream",  # Generic binary file type
         filename=file_name  # The name for the downloaded file
     )
+
+@router.post("/check-and-generate/")
+async def trigger_check_and_generate():
+    task = check_and_generate_images.delay()  # Enqueue task
+    return {"task_id": task.id, "status": "Task enqueued"}
