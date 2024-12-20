@@ -1,6 +1,7 @@
 import os
 from .celery_app import celery_app
 
+
 def generate_images_api():
     """Simulate generating images by creating dummy files."""
     output_dir = "outputs"

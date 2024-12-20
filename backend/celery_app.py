@@ -13,12 +13,13 @@ celery_app.conf.update(
     result_serializer="json",
     timezone="UTC",
     enable_utc=True,
+    broker_connection_retry_on_startup=True,  # Ensure retry on startup
 )
 
-# Add periodic task to run at 2 AM daily
+# Add periodic task to run every 5 minutes
 celery_app.conf.beat_schedule = {
     "check-and-generate-images": {
         "task": "app.tasks.check_and_generate_images",
-        "schedule": crontab(hour=2, minute=0),  # 2 AM UTC
+        "schedule": crontab(minute="*/1"),  # Every 5 minutes
     },
 }
