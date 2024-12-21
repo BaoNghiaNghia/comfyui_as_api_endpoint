@@ -38,26 +38,21 @@ async def generate_images_api(request: PromptRequest):
         if not request.thumb_style:
             raise HTTPException(status_code=400, detail="Must be select style of thumbnail.")
 
-        # Generate images
         images, seed = await generate_images(request.positive_prompt, request.poster_number, request.thumb_style)
 
-        # Check if images are generated successfully
         if not images:
             raise HTTPException(status_code=500, detail="Image generation failed.")
 
         return {"images": images, "seed": seed}
 
     except HTTPException as http_exc:
-        # Re-raise known HTTP exceptions
         raise http_exc
 
     except ValueError as value_error:
-        # Handle specific errors (e.g., invalid input)
         raise HTTPException(status_code=400, detail=f"Value error: {str(value_error)}")
 
     except Exception as exception:
-        # Handle unexpected exceptions
-        raise HTTPException(status_code=500, detail=f"Unexpected error: {str(exception)}")
+        raise HTTPException(status_code=500, detail=f"{str(exception)}")
 
 
 @router.get("/download-images/")

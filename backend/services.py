@@ -7,6 +7,7 @@ import uuid
 import websocket
 import urllib.error
 from urllib.request import urlopen, Request
+from urllib.error import URLError, HTTPError
 from urllib.parse import urlencode
 
 # Configure logging
@@ -54,27 +55,38 @@ def queue_prompt(prompt):
             print("Reason:", e.reason)
         if hasattr(e, 'code'):
             print("HTTP Error Code:", e.code)
-        return {"error": "Failed to connect to the server"}
+        return {"error": "Comfy UI error: Failed to connect to the server"}
 
     except OSError as e:
         # Handle network errors
         print("OS Error:", e)
-        return {"error": "Network issue: Failed to reach the server"}
+        return {"error": "Comfy UI error: Failed to reach the server"}
 
     except Exception as e:
-        # Handle unexpected errors
-        print("Unexpected Error:", e)
-        return {"error": f"An unexpected error occurred: {e}"}
+        return {"error": f"Comfy UI error: {e}"}
 
     return json.loads(urlopen(req).read())
 
 
 def check_current_queue():
-    req = Request(f"http://{server_address}/queue", data={})
-    
-    with urlopen(req) as response:
-        res_body = response.read().decode('utf-8')
-        return json.loads(res_body)
+    try:
+        req = Request(f"http://{server_address}/queue")
+        
+        # Make the HTTP request
+        with urlopen(req) as response:
+            # Read and decode the response
+            response_data = response.read().decode('utf-8')
+            return json.loads(response_data)  # Assuming the API returns JSON
+    except HTTPError as e:
+        # Handle HTTP errors (e.g., 404, 500)
+        print(f"HTTPError: {e.code} - {e.reason}")
+    except URLError as e:
+        # Handle URL errors (e.g., connection issues)
+        print(f"URLError: {e.reason}")
+    except Exception as e:
+        # Handle any other exceptions
+        print(f"Unexpected error: {str(e)}")
+    return None  # Return None in case of an error
 
 # WebSocket image generation service
 async def get_images(ws, prompt):
@@ -82,9 +94,9 @@ async def get_images(ws, prompt):
     output_images = {}
     last_reported_percentage = 0
 
+
     while True:
         out = ws.recv()
-
         if isinstance(out, str):
             message = json.loads(out)
             if message['type'] == 'progress':
@@ -237,12 +249,25 @@ def create_prompt_and_call_api(input_string):
 
 
 # Main image generation function
-async def generate_images(positive_prompt, poster_number = 1, thumb_style = 'realistic photo'):
+async def generate_images(positive_prompt, poster_number=1, thumb_style='realistic photo'):
+    ws = None  # Declare ws at the top to ensure it's accessible in the finally block
     try:
         ws = websocket.WebSocket()
         ws_url = f"ws://{server_address}/ws?clientId={client_id}"
-        ws.connect(ws_url)
-
+        
+        try:
+            ws.connect(ws_url)
+        except websocket.WebSocketConnectionClosedException as e:
+            raise ConnectionError(f"Could not establish WebSocket connection: {e}")
+        except Exception as e:
+            raise Exception(f"Model AI Stopped: {e}")
+        
+        # Check if AI model is running queue
+        queue_count = check_current_queue()
+        
+        if len(queue_count["queue_running"]) > 0 or len(queue_count["queue_pending"]) > 0:
+            raise Exception("AI model is running another thumbnail images generation. Please try again later.")
+        
         with open("create-thumbnail-youtube-v3-api.json", "r", encoding="utf-8") as f:
             workflow_data = f.read()
 
@@ -268,11 +293,18 @@ async def generate_images(positive_prompt, poster_number = 1, thumb_style = 'rea
 
         # Fetch generated images
         images = await get_images(ws, workflow)
-        ws.close()
-
         return images, noise_seed
+    
+    except ConnectionError as ce:
+        raise ce
+    except FileNotFoundError as fnfe:
+        raise fnfe
     except Exception as e:
-        # Handle exceptions and ensure WebSocket is closed if an error occurs
-        if ws:
-            ws.close()
         raise e
+    finally:
+        if ws:
+            try:
+                ws.close()
+            except Exception as e:
+                raise "Network error"
+            
