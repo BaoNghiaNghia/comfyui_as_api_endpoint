@@ -7,8 +7,8 @@ import random
 from termcolor import colored
 import os
 
-# Get server address from environment variable, default to "localhost:8188" if not set
-server_address = os.getenv('COMFYUI_SERVER_ADDRESS', 'localhost:8188')
+# Get server address from environment variable, default to "host.docker.internal:8188" if not set
+server_address = os.getenv('COMFYUI_SERVER_ADDRESS', 'host.docker.internal:8188')
 client_id = str(uuid.uuid4())
 
 

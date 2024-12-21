@@ -2,6 +2,7 @@ import uvicorn
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from .routes import router as api_router
+from backend.celery_app import celery_app
 
 app = FastAPI()
 
@@ -13,3 +14,4 @@ app.include_router(api_router)
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
+    

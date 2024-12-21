@@ -10,7 +10,7 @@ from .tasks import check_and_generate_images
 
 router = APIRouter()
 
-FILE_DIRECTORY = Path(os.getenv('OUTPUT_IMAGE_FOLDER', 'C:\Ytb Thumbnail AI\ComfyUI\output'))
+FILE_DIRECTORY = Path(os.getenv('OUTPUT_IMAGE_FOLDER', "/thumbnail_img"))
 
 
 @router.get("/")
@@ -22,7 +22,7 @@ async def get_index():
 @router.post("/generate_images/thumbnail-youtube")
 async def generate_images_api(request: PromptRequest):
     try:
-        # Authenticate if email and password are provided
+        # # Authenticate if email and password are provided
         # if request.token:
         #     status_code, message = authenticate_user(request.domain, request.token)
         #     if status_code != 200:

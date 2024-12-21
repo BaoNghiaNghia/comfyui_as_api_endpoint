@@ -49,3 +49,5 @@ vendor/
 # **/.env
 
 outputs/
+
+celerybeat-schedule

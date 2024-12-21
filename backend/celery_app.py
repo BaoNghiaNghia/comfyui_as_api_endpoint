@@ -2,7 +2,7 @@ from celery import Celery
 from celery.schedules import crontab
 
 celery_app = Celery(
-    "app",
+    "backend",
     broker="redis://localhost:6379/0",
     backend="redis://localhost:6379/0"
 )
@@ -19,7 +19,9 @@ celery_app.conf.update(
 # Add periodic task to run every 5 minutes
 celery_app.conf.beat_schedule = {
     "check-and-generate-images": {
-        "task": "app.tasks.check_and_generate_images",
+        "task": "backend.tasks.check_and_generate_images",
         "schedule": crontab(minute="*/1"),  # Every 5 minutes
     },
 }
+
+celery_app.autodiscover_tasks(["backend"])

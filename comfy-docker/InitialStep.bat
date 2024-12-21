@@ -33,7 +33,7 @@ pause
 echo Continuing, please wait...
 
 :: Construct the Docker command, mount the folder this is in so it will be accessible.
-set dockerCommand=docker run -it --gpus all -p 127.0.0.1:8189:8189 ^
+set dockerCommand=docker run -it --gpus all -p host.docker.internal:8189:8189 ^
   --hostname %hostname%-ComfyUI ^
   --mount source=ComfyUIDocker,target=/ComfyUIDocker ^
   --name comfyui_initial_container comfyui_initial
@@ -51,7 +51,7 @@ echo Committing initial container to installed image
 docker commit comfyui_initial_container comfyui_installed
 
 :: Construct the Docker command for the installed version, so we will have a container we can use going forward
-set dockerCommand=docker run -d --gpus all -p 127.0.0.1:8189:8189 ^
+set dockerCommand=docker run -d --gpus all -p host.docker.internal:8189:8189 ^
   --hostname %hostname%-ComfyUI ^
   --mount source=ComfyUIDocker,target=/ComfyUIDocker ^
   --name comfyui_installed_container comfyui_installed tail -f /dev/null

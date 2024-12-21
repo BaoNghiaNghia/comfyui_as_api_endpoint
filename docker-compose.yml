@@ -1,14 +1,21 @@
 version: '3.9'
 
+x-service-base:
+  &service-base
+  build:
+    context: .
+    dockerfile: Dockerfile
+  volumes:
+    - .:/app
+    - "${OUTPUT_PATH:-/tmp/output}:/thumbnail_img"
+  networks:
+    - external_network
+
 services:
   web:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    <<: *service-base
     ports:
       - "8000:8000"
-    volumes:
-      - .:/app
     environment:
       - PYTHONUNBUFFERED=1
       - PYTHONDONTWRITEBYTECODE=1
@@ -18,11 +25,11 @@ services:
     image: redis:alpine
     ports:
       - "6379:6379"
+    networks:
+      - external_network
 
   celery_worker:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    <<: *service-base
     depends_on:
       - redis
     environment:
@@ -31,9 +38,7 @@ services:
     command: ["celery", "-A", "backend.celery_app", "worker", "--loglevel=info"]
 
   celery_beat:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    <<: *service-base
     depends_on:
       - redis
     environment:
@@ -42,9 +47,7 @@ services:
     command: ["celery", "-A", "backend.celery_app", "beat", "--loglevel=info"]
 
   flower:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    <<: *service-base
     depends_on:
       - redis
     environment:
@@ -55,4 +58,4 @@ services:
 
 networks:
   external_network:
-    external: true
+    driver: bridge

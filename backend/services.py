@@ -5,6 +5,7 @@ import requests
 import random
 import uuid
 import websocket
+import urllib.error
 from urllib.request import urlopen, Request
 from urllib.parse import urlencode
 
@@ -12,7 +13,7 @@ from urllib.parse import urlencode
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 
-server_address = os.getenv('127.0.0.1:8188', 'localhost:8188')
+server_address = os.getenv('host.docker.internal:8188', 'host.docker.internal:8188')
 client_id = str(uuid.uuid4())
 main_server_address = os.getenv('MAIN_SERVER_ADDRESS', 'sscrender.ddns.net:8000')
 
@@ -29,15 +30,51 @@ def get_image(filename, subfolder, folder_type):
 def get_history(prompt_id):
     with urlopen(f"http://{server_address}/history/{prompt_id}") as response:
         return json.loads(response.read())
-    
-    
+
 # Service to queue a prompt
 def queue_prompt(prompt):
-    p = {"prompt": prompt, "client_id": client_id}
-    data = json.dumps(p).encode('utf-8')
-    req = Request(f"http://{server_address}/prompt", data=data)
+    try:
+        # Prepare the data payload
+        init_prompt = {"prompt": prompt, "client_id": client_id}
+        data = json.dumps(init_prompt).encode('utf-8')
+
+        # Create the request
+        req = Request(f"http://{server_address}/prompt", data=data)
+
+        # Send the request
+        with urlopen(req) as response:
+            result = response.read().decode('utf-8')
+            print("Response:", result)
+            return result
+
+    except urllib.error.URLError as e:
+        # Log connection issues
+        print("URL Error:", e)
+        if hasattr(e, 'reason'):
+            print("Reason:", e.reason)
+        if hasattr(e, 'code'):
+            print("HTTP Error Code:", e.code)
+        return {"error": "Failed to connect to the server"}
+
+    except OSError as e:
+        # Handle network errors
+        print("OS Error:", e)
+        return {"error": "Network issue: Failed to reach the server"}
+
+    except Exception as e:
+        # Handle unexpected errors
+        print("Unexpected Error:", e)
+        return {"error": f"An unexpected error occurred: {e}"}
+
     return json.loads(urlopen(req).read())
 
+
+def check_current_queue():
+    req = Request(f"http://{server_address}/queue", data={})
+    
+    with urlopen(req) as response:
+        res_body = response.read().decode('utf-8')
+        return json.loads(res_body)
 
 # WebSocket image generation service
 async def get_images(ws, prompt):
@@ -64,10 +101,10 @@ async def get_images(ws, prompt):
                 data = message['data']
                 logging.info(f"PromptID: {prompt_id} - Executing: {data}")
                 if data['node'] is None and data['prompt_id'] == prompt_id:
-                    break  # Execution is done
+                    break
 
         else:
-            continue  # Previews are binary data
+            continue
 
 
     history = get_history(prompt_id)[prompt_id]
