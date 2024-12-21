@@ -12,8 +12,9 @@ logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %
 def check_and_generate_images():
     try:
         # Log the current folder path
-        current_folder = check_current_queue()
-        print(f"----- Current folder path: {current_folder}")
+        queue_count = check_current_queue()
+        if len(queue_count["queue_running"]) > 0 or len(queue_count["queue_pending"]) > 0:
+            print(f"AI model is running another thumbnail images generation. Please try again later.")
 
         min_files_threshold = 500  # Skip processing if file count exceeds this number
 
