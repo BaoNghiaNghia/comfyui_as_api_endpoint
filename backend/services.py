@@ -98,8 +98,9 @@ async def get_images(ws, prompt, noise_seed):
 
 
     history = get_history(prompt_id)[prompt_id]
-    output_images = history['outputs']["134"]['images']
-    
+    logging.info(f"History: {history}")
+
+    output_images = history['outputs']["178"]['images']
     for output_image in output_images:
         output_image['file_path'] = f"http://{main_server_address}/download-images?file_name={output_image['filename']}"
         output_image['seed'] = noise_seed
@@ -265,6 +266,7 @@ async def generate_images(positive_prompt, thumbnail_number=1, thumb_style='real
             "AIzaSyA85MP5jctMT9rKVR6gT16tEmsuO4JqpLg",
             "AIzaSyCzXVTqFDI1a1XV5iLwIAcqY-bjR1Xpz8Y"
         ])
+        
 
         workflow["29"]["inputs"]["batch_size"] = thumbnail_number
         workflow["25"]["inputs"]["noise_seed"] = noise_seed

@@ -68,6 +68,7 @@ async def generate_images_logic():
             print(f"----- Folder '{FILE_DIRECTORY}' does not exist or is not a directory. Skipping.")
             return
 
+
         # Count files in the directory
         file_count = sum(1 for file in os.listdir(FILE_DIRECTORY) if os.path.isfile(os.path.join(FILE_DIRECTORY, file)))
 

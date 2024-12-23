@@ -115,7 +115,7 @@
   },
   "25": {
     "inputs": {
-      "noise_seed": 484534226867495
+      "noise_seed": 406108435984683
     },
     "class_type": "RandomNoise",
     "_meta": {
@@ -124,7 +124,7 @@
   },
   "26": {
     "inputs": {
-      "lora_name": "aidmaImageUprader-FLUX-v0.3.safetensors",
+      "lora_name": "flux.1_lora_flyway_Epic-detail_v2.safetensors",
       "strength_model": 0.7000000000000001,
       "strength_clip": 0.4,
       "model": [
@@ -234,7 +234,7 @@
         "61",
         0
       ],
-      "text2": "((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\nScene Description:\nA cozy and warm Christmas morning scene.  A decorated Christmas tree with twinkling lights and colorful ornaments stands prominently. Presents wrapped in festive paper are piled beneath the tree. Stockings hang from the fireplace mantel, which is adorned with garland and candles.  In the foreground, family members in warm, comfortable pajamas are gathered around the tree, opening gifts and sharing joyful moments. A steaming mug of hot chocolate sits on a nearby table, next to a plate of freshly baked Christmas cookies.  A gentle snowfall can be seen through the window, adding to the magical atmosphere.\n\nBanner Title:\nThe handwriter big text \"Merry Christmas\" in top center or center\n\n\nBackground Details:\nA snow-covered landscape visible through the window, with a warm, inviting fireplace and decorated mantelpiece inside.  Soft lighting from the Christmas tree lights and fireplace creates a cozy ambiance.  Subtle Christmas music playing in the background.\n\n\nColor Palette:\nPredominantly red, green, and gold, with touches of white from the snow and warm browns from the wooden furniture and fireplace. The lighting is warm and inviting, creating a sense of comfort and joy.\n\n\nComposition:\nThe layout should focus on the warmth and intimacy of the Christmas morning scene. Close-ups on the expressions of joy and excitement on the faces of the family members, combined with wider shots of the decorated room, will capture the spirit of Christmas.  The composition should convey a sense of togetherness and celebration.\n```\n"
+      "text2": "((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\nScene Description:\nA cozy and warm Christmas Eve celebration. The scene features a decorated Christmas tree with twinkling lights, ornaments, and a star on top. Presents wrapped in colorful paper are placed beneath the tree.  A fireplace with a crackling fire adds to the warmth of the scene.  Family members gathered around, some wearing festive sweaters, are smiling and exchanging gifts.  Stockings hang from the mantelpiece. A table laden with Christmas dinner, including a roasted turkey or ham, is visible in the background.  Perhaps a gentle snowfall is visible through a window.\n\nBanner Title:\nThe handwriter big text \"Merry Christmas\" in top center or center\n\n\nBackground Details:\nA comfortable living room or dining room decorated with garlands, wreaths, and Christmas lights.  Soft lighting from lamps and the fireplace creates a warm and inviting ambiance. Snow falling outside adds a touch of winter magic.\n\n\nColor Palette:\nDominated by traditional Christmas colors like red, green, and gold, with hints of white and silver.  The lighting is warm and inviting, emphasizing the cozy and festive atmosphere.\n\n\nComposition:\nThe layout has a balanced mix of Christmas symbols and joyful interactions. Focus on the details of decorations, facial expressions, and the warm glow of the firelight to capture the essence of Christmas Eve traditions.\n```"
     },
     "class_type": "ShowText|pysssss",
     "_meta": {
@@ -248,7 +248,7 @@
       "operation": "text1 + text2 to output1, text2 to output2",
       "delimiter": " ",
       "use_seed": "false",
-      "seed": 292653731753617
+      "seed": 525188195264157
     },
     "class_type": "TextCombinations",
     "_meta": {
@@ -315,17 +315,46 @@
       "title": "Upscale Image"
     }
   },
-  "134": {
+  "178": {
     "inputs": {
-      "filename_prefix": "ytb_thumbnail_img",
+      "filename_prefix": "ytbthumb",
+      "filename_keys": "steps, noise_seed",
+      "foldername_prefix": "tool_render",
+      "foldername_keys": "",
+      "delimiter": "underscore",
+      "save_job_data": "disabled",
+      "job_data_per_image": "disabled",
+      "job_custom_text": "",
+      "save_metadata": "enabled",
+      "counter_digits": 5,
+      "counter_position": "last",
+      "one_counter_per_folder": "disabled",
+      "image_preview": "disabled",
+      "positive_text_opt": [
+        "58",
+        0
+      ],
+      "negative_text_opt": [
+        "179",
+        0
+      ],
       "images": [
         "76",
         0
       ]
     },
-    "class_type": "SaveImage",
+    "class_type": "SaveImageExtended",
     "_meta": {
-      "title": "Save Image"
+      "title": "Save Image Extended"
+    }
+  },
+  "179": {
+    "inputs": {
+      "text": "blur, distortion, text, watermark"
+    },
+    "class_type": "ttN text",
+    "_meta": {
+      "title": "Positive text"
     }
   }
 }
