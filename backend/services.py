@@ -261,15 +261,17 @@ async def generate_images(positive_prompt, poster_number=1, thumb_style='realist
             raise ConnectionError(f"Could not establish WebSocket connection: {e}")
         except Exception as e:
             raise Exception(f"Model AI Stopped: {e}")
-        
+
         # Check if AI model is running queue
         queue_count = check_current_queue()
-        
+
+
         if len(queue_count["queue_running"]) > 0 or len(queue_count["queue_pending"]) > 0:
-            raise Exception("AI model is running another thumbnail images generation. Please try again later.")
-        
+            raise Exception(f'AI model is running another thumbnail images generation (Running: {len(queue_count["queue_running"])}, Pending: {len(queue_count["queue_pending"])}). Please try again later.')
+
         with open("create-thumbnail-youtube-v3-api.json", "r", encoding="utf-8") as f:
             workflow_data = f.read()
+
 
         workflow = json.loads(workflow_data)
         noise_seed = random.randint(1, 1000000000000000)

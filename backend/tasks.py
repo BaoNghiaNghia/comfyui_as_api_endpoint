@@ -15,7 +15,7 @@ def check_and_generate_images():
 
         # Handle the case where the queue_count is None
         if queue_count is None:
-            print("----- Error: Could not fetch the current queue in Model AI. Skipping task execution.")
+            print("----- Error: Could not fetch the current queue in AI Model. Skipping task execution.")
             return
 
         # Proceed if queue_count is valid
