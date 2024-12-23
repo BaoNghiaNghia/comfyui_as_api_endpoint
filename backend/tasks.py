@@ -1,7 +1,8 @@
 import os
+import json
 from pathlib import Path
 from celery import shared_task
-from .services import check_current_queue
+from .services import check_current_queue, generate_images
 
 
 FILE_DIRECTORY = Path(os.getenv('OUTPUT_IMAGE_FOLDER', "/thumbnail_img"))
@@ -9,13 +10,21 @@ MAX_IMAGES_THRESHOLD = 500
 IMAGES_TO_DELETE = 5
 
 
-def generate_images_api():
-    print("Generating images...")
+async def generate_images_api():
+    init_request = {
+        "positive_prompt": "Happy New Year",
+        "thumbnail_number": 5,
+        "thumb_style": "realistic photo",
+    }
 
+    await generate_images(init_request["positive_prompt"], init_request["thumbnail_number"], init_request["thumb_style"])
+
+    # Convert the response into a JSON serializable format if needed
+    # return json.dumps(images)  # Assuming `images` is a JSON-serializable object
 
 
 @shared_task(name="backend.tasks.check_and_generate_images")
-def check_and_generate_images():
+async def check_and_generate_images():
     try:
         # Call the queue checking function
         queue_count = check_current_queue()
@@ -47,10 +56,10 @@ def check_and_generate_images():
             print(f"--------------------------------- START GENEREATING ------------------------------------")
             print(f"----- Folder has {file_count} files. Run generate image thumbnail AI Model until {MAX_IMAGES_THRESHOLD} files.")
 
-            try:
-                generate_images_api()
-            except Exception as e:
-                print(f"----- Error generating images: {e}")
+            # try:
+            #     await generate_images_api()
+            # except Exception as e:
+            #     print(f"----- Error generating images: {e}")
         else:
             print(f"----- Folder has {file_count} files, skipping generation.")
 
@@ -74,6 +83,8 @@ def delete_oldest_images():
             for i in range(min(IMAGES_TO_DELETE, len(images))):
                 oldest_image = images[i]  # Get the i-th oldest image
                 os.remove(oldest_image)
+
+                print(f"--------------------------------- DELETE OLDEST IMAGES ------------------------------------")
                 print(f"Deleted image: {oldest_image}")
             
             # Update the list of images after deletion

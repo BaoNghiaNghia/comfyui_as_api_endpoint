@@ -20,11 +20,13 @@ celery_app.conf.update(
 celery_app.conf.beat_schedule = {
     "check-and-generate-images": {
         "task": "backend.tasks.check_and_generate_images",
-        "schedule": crontab(minute="*/1"),  # Every 5 minutes
+        # "schedule": crontab(minute="*/4", hour="20-23,0-5"),  # Every 4 minutes from 8 PM to 6 AM
+        "schedule": crontab(minute="*/1"),  # Every 1 minutes
     },
     "delete-oldest-images": {
         "task": "backend.tasks.delete_oldest_images",
-        "schedule": crontab(hour=1, minute=0),  # Every day at 1:00 AM
+        # "schedule": crontab(hour=1, minute="*/5", day_of_week="*"),  # Every 5 minutes between 1:00 AM and 2:00 AM
+        "schedule": crontab(minute="*/2"),  # Every 2 minutes
     },
 }
 
