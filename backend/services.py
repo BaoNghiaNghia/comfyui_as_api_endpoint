@@ -16,7 +16,7 @@ logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %
 
 server_address = os.getenv('host.docker.internal:8188', 'host.docker.internal:8188')
 client_id = str(uuid.uuid4())
-main_server_address = os.getenv('MAIN_SERVER_ADDRESS', 'sscrender.ddns.net:8000')
+main_server_address = os.getenv('MAIN_SERVER_ADDRESS', 'host.docker.internal:8000')
 
 
 # Service to get image
@@ -33,39 +33,12 @@ def get_history(prompt_id):
     with urlopen(f"http://{server_address}/history/{prompt_id}") as response:
         return json.loads(response.read())
 
+
 # Service to queue a prompt
 def queue_prompt(prompt):
-    try:
-        # Prepare the data payload
-        init_prompt = {"prompt": prompt, "client_id": client_id}
-        data = json.dumps(init_prompt).encode('utf-8')
-
-        # Create the request
-        req = Request(f"http://{server_address}/prompt", data=data)
-
-        # Send the request
-        with urlopen(req) as response:
-            result = response.read().decode('utf-8')
-            print("Response:", result)
-            return result
-
-    except urllib.error.URLError as e:
-        # Log connection issues
-        print("URL Error:", e)
-        if hasattr(e, 'reason'):
-            print("Reason:", e.reason)
-        if hasattr(e, 'code'):
-            print("HTTP Error Code:", e.code)
-        return {"error": "Comfy UI error: Failed to connect to the server"}
-
-    except OSError as e:
-        # Handle network errors
-        print("OS Error:", e)
-        return {"error": "Comfy UI error: Failed to reach the server"}
-
-    except Exception as e:
-        return {"error": f"Comfy UI error: {e}"}
-
+    p = {"prompt": prompt, "client_id": client_id}
+    data = json.dumps(p).encode('utf-8')
+    req = Request(f"http://{server_address}/prompt", data=data)
     return json.loads(urlopen(req).read())
 
 
