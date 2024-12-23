@@ -67,7 +67,7 @@ def check_current_queue():
     return None  # Return None in case of an error
 
 # WebSocket image generation service
-async def get_images(ws, prompt):
+async def get_images(ws, prompt, noise_seed):
     prompt_id = queue_prompt(prompt)['prompt_id']
     output_images = {}
     last_reported_percentage = 0
@@ -86,10 +86,11 @@ async def get_images(ws, prompt):
                 # Only update progress every 10%
                 if percentage >= last_reported_percentage + 10:
                     last_reported_percentage = percentage
+                    logging.info(f"PromptID: {prompt_id} - Process: {percentage} %")
 
             elif message['type'] == 'executing':
                 data = message['data']
-                logging.info(f"PromptID: {prompt_id} - Executing: {data}")
+                # logging.info(f"PromptID: {prompt_id} - Executing: {data}")
                 if data['node'] is None and data['prompt_id'] == prompt_id:
                     break
 
@@ -99,10 +100,10 @@ async def get_images(ws, prompt):
 
     history = get_history(prompt_id)[prompt_id]
     output_images = history['outputs']["134"]['images']
-    logging.info(f"Image Path: {output_images}")
     
     for output_image in output_images:
         output_image['file_path'] = f"http://{main_server_address}/download-images?file_name={output_image['filename']}"
+        output_image['seed'] = noise_seed
 
     return output_images
 
@@ -195,12 +196,12 @@ def create_prompt_and_call_api(input_string):
 
 
             Lighting Effects:
-            
+
             Dim ambient lighting with a warm glow from a desk lamp or fairy lights.
 
 
             Font Style:
-            
+
             Handwritten, script-like fonts for a nostalgic vibe (e.g., "Pacifico").
 
 
@@ -272,8 +273,8 @@ async def generate_images(positive_prompt, poster_number=1, thumb_style='realist
         workflow["25"]["inputs"]["noise_seed"] = noise_seed
 
         # Fetch generated images
-        images = await get_images(ws, workflow)
-        return images, noise_seed
+        images = await get_images(ws, workflow, noise_seed)
+        return images
 
     except ConnectionError as ce:
         raise ce
@@ -287,4 +288,3 @@ async def generate_images(positive_prompt, poster_number=1, thumb_style='realist
                 ws.close()
             except Exception as e:
                 raise "Network error"
-            

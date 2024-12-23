@@ -38,12 +38,12 @@ async def generate_images_api(request: PromptRequest):
         if not request.thumb_style:
             raise HTTPException(status_code=400, detail="Must be select style of thumbnail.")
 
-        images, seed = await generate_images(request.positive_prompt, request.poster_number, request.thumb_style)
+        images = await generate_images(request.positive_prompt, request.poster_number, request.thumb_style)
 
         if not images:
             raise HTTPException(status_code=500, detail="Image generation failed.")
 
-        return {"images": images, "seed": seed}
+        return {"images": images, "poster_number": request.poster_number}
 
     except HTTPException as http_exc:
         raise http_exc
