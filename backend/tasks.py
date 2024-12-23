@@ -75,22 +75,26 @@ def delete_oldest_images():
         ]
         images.sort(key=os.path.getmtime)
 
-        # Delete images until the number of images does not exceed the MAX_IMAGES_THRESHOLD
-        while len(images) > MAX_IMAGES_THRESHOLD:
-            # Delete the oldest 10 images if the total count exceeds MAX_IMAGES_THRESHOLD
-            for i in range(min(IMAGES_TO_DELETE, len(images))):
-                oldest_image = images[i]  # Get the i-th oldest image
-                os.remove(oldest_image)
+        # Check if the number of images exceeds the threshold
+        if len(images) > MAX_IMAGES_THRESHOLD:
+            # Delete images until the number of images does not exceed the MAX_IMAGES_THRESHOLD
+            while len(images) > MAX_IMAGES_THRESHOLD:
+                # Delete the oldest 10 images if the total count exceeds MAX_IMAGES_THRESHOLD
+                for i in range(min(IMAGES_TO_DELETE, len(images))):
+                    oldest_image = images[i]  # Get the i-th oldest image
+                    os.remove(oldest_image)
 
-                print(f"--------------------------------- DELETE OLDEST IMAGES ------------------------------------")
-                print(f"Deleted image: {oldest_image}")
-            
-            # Update the list of images after deletion
-            images = [
-                os.path.join(FILE_DIRECTORY, f) for f in os.listdir(FILE_DIRECTORY)
-                if os.path.isfile(os.path.join(FILE_DIRECTORY, f))
-            ]
-            images.sort(key=os.path.getmtime)
+                    print(f"--------------------------------- DELETE OLDEST IMAGES ------------------------------------")
+                    print(f"Deleted image: {oldest_image}")
+
+                # Update the list of images after deletion
+                images = [
+                    os.path.join(FILE_DIRECTORY, f) for f in os.listdir(FILE_DIRECTORY)
+                    if os.path.isfile(os.path.join(FILE_DIRECTORY, f))
+                ]
+                images.sort(key=os.path.getmtime)
+        else:
+            print(f"----- No need to delete images. Current number of images ({len(images)}) is below the threshold ({MAX_IMAGES_THRESHOLD}).")
 
     except Exception as e:
         print(f"Error during image cleanup: {e}")
