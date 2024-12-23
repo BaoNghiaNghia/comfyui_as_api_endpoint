@@ -33,17 +33,17 @@ async def generate_images_api(request: PromptRequest):
         # Validate request fields
         if not request.positive_prompt:
             raise HTTPException(status_code=400, detail="Positive prompt is required.")
-        if request.poster_number <= 0:
-            raise HTTPException(status_code=400, detail="Poster number must be greater than 0.")
+        if request.thumbnail_number <= 0:
+            raise HTTPException(status_code=400, detail="Thumbnail number must be greater than 0.")
         if not request.thumb_style:
             raise HTTPException(status_code=400, detail="Must be select style of thumbnail.")
 
-        images = await generate_images(request.positive_prompt, request.poster_number, request.thumb_style)
+        images = await generate_images(request.positive_prompt, request.thumbnail_number, request.thumb_style)
 
         if not images:
             raise HTTPException(status_code=500, detail="Image generation failed.")
 
-        return {"images": images, "poster_number": request.poster_number}
+        return {"images": images, "thumbnail_number": request.thumbnail_number}
 
     except HTTPException as http_exc:
         raise http_exc

@@ -228,7 +228,7 @@ def create_prompt_and_call_api(input_string):
 
 
 # Main image generation function
-async def generate_images(positive_prompt, poster_number=1, thumb_style='realistic photo'):
+async def generate_images(positive_prompt, thumbnail_number=1, thumb_style='realistic photo'):
     ws = None  # Declare ws at the top to ensure it's accessible in the finally block
     try:
         ws = websocket.WebSocket()
@@ -269,7 +269,7 @@ async def generate_images(positive_prompt, poster_number=1, thumb_style='realist
             "AIzaSyCzXVTqFDI1a1XV5iLwIAcqY-bjR1Xpz8Y"
         ])
 
-        workflow["29"]["inputs"]["batch_size"] = poster_number
+        workflow["29"]["inputs"]["batch_size"] = thumbnail_number
         workflow["25"]["inputs"]["noise_seed"] = noise_seed
 
         # Fetch generated images

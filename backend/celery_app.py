@@ -16,11 +16,15 @@ celery_app.conf.update(
     broker_connection_retry_on_startup=True,  # Ensure retry on startup
 )
 
-# Add periodic task to run every 5 minutes
+# Add periodic tasks
 celery_app.conf.beat_schedule = {
     "check-and-generate-images": {
         "task": "backend.tasks.check_and_generate_images",
         "schedule": crontab(minute="*/1"),  # Every 5 minutes
+    },
+    "delete-oldest-images": {
+        "task": "backend.tasks.delete_oldest_images",
+        "schedule": crontab(hour=1, minute=0),  # Every day at 1:00 AM
     },
 }
 

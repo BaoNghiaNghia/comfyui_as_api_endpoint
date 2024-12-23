@@ -300,7 +300,7 @@ curl --location 'http://sscrender.ddns.net:8000/generate_images/thumbnail-youtub
 --data '{
     "positive_prompt": "Merry Christmas",
     "thumb_style": "realistic photo",
-    "poster_number": 1,
+    "thumbnail_number": 1,
     "domain": "http://claim-api.simplesolution.co/api/v2",
     "token": "1087|KpWpSfAu15jBSqHJKrpIglrX9CzVp8iViIhohqfH"
 }'
@@ -365,7 +365,7 @@ curl --location 'http://sscrender.ddns.net:8000/generate_images/thumbnail-youtub
       - fantasy anime (anime giả tưởng)
       - 3d colorful (3D đầy màu sắc)
       - illustrator photo (ảnh họa sĩ minh họa)
-- **poster_number**: Số lượng thumbnail tối đa có thể tạo trong một lần. (Tối đa 5 thumbnail hiện tại).
+- **thumbnail_number**: Số lượng thumbnail tối đa có thể tạo trong một lần. (Tối đa 5 thumbnail hiện tại).
 - **domain** và **token**: Dùng cho xác thực (hiện tại chưa sử dụng).
 
 ### Ví dụ kết quả trả về

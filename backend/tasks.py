@@ -5,6 +5,13 @@ from .services import check_current_queue
 
 
 FILE_DIRECTORY = Path(os.getenv('OUTPUT_IMAGE_FOLDER', "/thumbnail_img"))
+MAX_IMAGES_THRESHOLD = 500
+IMAGES_TO_DELETE = 5
+
+
+def generate_images_api():
+    print("Generating images...")
+
 
 
 @shared_task(name="backend.tasks.check_and_generate_images")
@@ -23,9 +30,6 @@ def check_and_generate_images():
             print(f"AI model is running another thumbnail images generation (Running: {len(queue_count.get('queue_running', []))}, Pending: {len(queue_count.get('queue_pending', []))}). Please try again later.")
             return
 
-
-        min_files_threshold = 500
-
         # Check if the directory exists and is valid
         if not FILE_DIRECTORY.exists() or not FILE_DIRECTORY.is_dir():
             print(f"----- Folder '{FILE_DIRECTORY}' does not exist or is not a directory. Skipping.")
@@ -39,9 +43,9 @@ def check_and_generate_images():
             return
 
         # Check file count against the threshold
-        if file_count < min_files_threshold:
+        if file_count < MAX_IMAGES_THRESHOLD:
             print(f"--------------------------------- START GENEREATING ------------------------------------")
-            print(f"----- Folder has {file_count} files. Run generate image thumbnail AI.")
+            print(f"----- Folder has {file_count} files. Run generate image thumbnail AI Model until {MAX_IMAGES_THRESHOLD} files.")
 
             try:
                 generate_images_api()
@@ -52,7 +56,32 @@ def check_and_generate_images():
 
     except Exception as e:
         print(f"----- Error in worker `Generate images`: {e}")
+        
+# Define the task to delete the oldest images
+@shared_task(name="backend.tasks.delete_oldest_images")
+def delete_oldest_images():
+    try:
+        # Get list of all image files in the folder sorted by modification time
+        images = [
+            os.path.join(FILE_DIRECTORY, f) for f in os.listdir(FILE_DIRECTORY)
+            if os.path.isfile(os.path.join(FILE_DIRECTORY, f))
+        ]
+        images.sort(key=os.path.getmtime)
 
+        # Delete images until the number of images does not exceed the MAX_IMAGES_THRESHOLD
+        while len(images) > MAX_IMAGES_THRESHOLD:
+            # Delete the oldest 10 images if the total count exceeds MAX_IMAGES_THRESHOLD
+            for i in range(min(IMAGES_TO_DELETE, len(images))):
+                oldest_image = images[i]  # Get the i-th oldest image
+                os.remove(oldest_image)
+                print(f"Deleted image: {oldest_image}")
+            
+            # Update the list of images after deletion
+            images = [
+                os.path.join(FILE_DIRECTORY, f) for f in os.listdir(FILE_DIRECTORY)
+                if os.path.isfile(os.path.join(FILE_DIRECTORY, f))
+            ]
+            images.sort(key=os.path.getmtime)
 
-def generate_images_api():
-    print("Generating images...")
+    except Exception as e:
+        print(f"Error during image cleanup: {e}")
