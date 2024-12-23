@@ -1418,6 +1418,47 @@
       "bgcolor": "#653"
     },
     {
+      "id": 17,
+      "type": "BasicScheduler",
+      "pos": [
+        690.3746948242188,
+        -566.23388671875
+      ],
+      "size": [
+        464.12835693359375,
+        106
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 89,
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            20
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BasicScheduler"
+      },
+      "widgets_values": [
+        "ddim_uniform",
+        20,
+        1
+      ]
+    },
+    {
       "id": 178,
       "type": "SaveImageExtended",
       "pos": [
@@ -1473,50 +1514,9 @@
         5,
         "last",
         "disabled",
-        "disabled",
+        "enabled",
         "",
         ""
-      ]
-    },
-    {
-      "id": 17,
-      "type": "BasicScheduler",
-      "pos": [
-        690.3746948242188,
-        -566.23388671875
-      ],
-      "size": [
-        464.12835693359375,
-        106
-      ],
-      "flags": {},
-      "order": 24,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 89,
-          "slot_index": 0
-        }
-      ],
-      "outputs": [
-        {
-          "name": "SIGMAS",
-          "type": "SIGMAS",
-          "links": [
-            20
-          ],
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "BasicScheduler"
-      },
-      "widgets_values": [
-        "ddim_uniform",
-        20,
-        1
       ]
     }
   ],
@@ -1880,10 +1880,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.6588450000000053,
+      "scale": 1.9194342495775096,
       "offset": [
-        480.12379649763074,
-        1603.507140429957
+        -2471.154024583476,
+        986.5003111457438
       ]
     },
     "ue_links": []

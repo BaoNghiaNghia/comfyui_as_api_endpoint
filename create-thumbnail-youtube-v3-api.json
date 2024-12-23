@@ -329,7 +329,7 @@
       "counter_digits": 5,
       "counter_position": "last",
       "one_counter_per_folder": "disabled",
-      "image_preview": "disabled",
+      "image_preview": "enabled",
       "positive_text_opt": [
         "58",
         0

@@ -38,7 +38,7 @@ async def generate_images_api(request: PromptRequest):
         if not request.thumb_style:
             raise HTTPException(status_code=400, detail="Must be select style of thumbnail.")
 
-        images = await generate_images(request.positive_prompt, request.thumbnail_number, request.thumb_style)
+        images = await generate_images(request.positive_prompt, request.thumbnail_number, request.thumb_style, "tool_render")
 
         if not images:
             raise HTTPException(status_code=500, detail="Image generation failed.")
@@ -56,8 +56,8 @@ async def generate_images_api(request: PromptRequest):
 
 
 @router.get("/download-images/")
-async def download_file(file_name: str):
-    file_path = FILE_DIRECTORY / file_name
+async def download_file(file_name: str, subfolder: str):
+    file_path = FILE_DIRECTORY / subfolder / file_name
     if not file_path.exists() or not file_path.is_file():
         return {"error": "File not found"}
 

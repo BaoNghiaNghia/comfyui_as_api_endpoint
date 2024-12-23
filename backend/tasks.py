@@ -3,7 +3,7 @@ import asyncio
 from pathlib import Path
 from celery import shared_task
 from .services import check_current_queue, generate_images
-
+import random
 
 FILE_DIRECTORY = Path(os.getenv('OUTPUT_IMAGE_FOLDER', "/thumbnail_img"))
 MAX_IMAGES_THRESHOLD = 500
@@ -34,10 +34,16 @@ async def generate_images_api():
         }
     ]
 
-    # Process each request sequentially
-    for request in init_requests:
-        await generate_images(request["positive_prompt"], request["thumbnail_number"], request["thumb_style"])
+    # Randomly select a request
+    random_request = random.choice(init_requests)
 
+    # Process the selected request
+    await generate_images(
+        random_request["positive_prompt"],
+        random_request["thumbnail_number"],
+        random_request["thumb_style"],
+        "team_automation"
+    )
 
 @shared_task(name="backend.tasks.check_and_generate_images")
 def check_and_generate_images():
