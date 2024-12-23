@@ -17,7 +17,32 @@ async def generate_images_api():
         "thumb_style": "realistic photo",
     }
 
+    init_request_1 = {
+        "positive_prompt": "Deep Focus",
+        "thumbnail_number": 1,
+        "thumb_style": "realistic photo",
+    }
+
+    init_request_2 = {
+        "positive_prompt": "Morning Coffee",
+        "thumbnail_number": 1,
+        "thumb_style": "realistic photo",
+    }
+
+    init_request_3 = {
+        "positive_prompt": "Lofi Music",
+        "thumbnail_number": 1,
+        "thumb_style": "realistic photo",
+    }
+
+    init_request_4 = {
+        "positive_prompt": "Merry christmas",
+        "thumbnail_number": 1,
+        "thumb_style": "realistic photo",
+    }
+
     await generate_images(init_request["positive_prompt"], init_request["thumbnail_number"], init_request["thumb_style"])
+
 
 @shared_task(name="backend.tasks.check_and_generate_images")
 def check_and_generate_images():
@@ -63,7 +88,8 @@ async def generate_images_logic():
 
     except Exception as e:
         print(f"----- Error generating images: {e}")
-        
+
+
 # Define the task to delete the oldest images
 @shared_task(name="backend.tasks.delete_oldest_images")
 def delete_oldest_images():
