@@ -2,52 +2,55 @@ import os
 from pathlib import Path
 from celery import shared_task
 from .services import check_current_queue
-import logging
+
 
 FILE_DIRECTORY = Path(os.getenv('OUTPUT_IMAGE_FOLDER', "/thumbnail_img"))
 
-logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 @shared_task(name="backend.tasks.check_and_generate_images")
 def check_and_generate_images():
     try:
-        # Log the current folder path
+        # Call the queue checking function
         queue_count = check_current_queue()
-        if len(queue_count["queue_running"]) > 0 or len(queue_count["queue_pending"]) > 0:
+
+        # Handle the case where the queue_count is None
+        if queue_count is None:
+            print("----- Error: Could not fetch the current queue. Skipping task execution.")
+            return
+
+        # Proceed if queue_count is valid
+        if len(queue_count.get("queue_running", [])) > 0 or len(queue_count.get("queue_pending", [])) > 0:
             print(f"AI model is running another thumbnail images generation. Please try again later.")
+            return
 
-        min_files_threshold = 500  # Skip processing if file count exceeds this number
+        min_files_threshold = 500
 
-        # Ensure folder exists
+        # Check if the directory exists and is valid
         if not FILE_DIRECTORY.exists() or not FILE_DIRECTORY.is_dir():
             print(f"----- Folder '{FILE_DIRECTORY}' does not exist or is not a directory. Skipping.")
             return
 
-        # Count files in the folder (excluding directories)
         try:
+            # Count files in the directory
             file_count = sum(1 for file in FILE_DIRECTORY.iterdir() if file.is_file())
         except Exception as e:
             print(f"----- Error counting files in folder '{FILE_DIRECTORY}': {e}")
-            logging.error(f"Error counting files in folder '{FILE_DIRECTORY}': {e}")
             return
 
+        # Check file count against the threshold
         if file_count < min_files_threshold:
             print(f"----- Folder has {file_count} files. Run generate image thumbnail AI.")
             try:
                 generate_images_api()
             except Exception as e:
                 print(f"----- Error generating images: {e}")
-                logging.error(f"Error generating images: {e}")
         else:
             print(f"----- Folder has {file_count} files, skipping generation.")
 
     except Exception as e:
-        print(f"----- Err in worker: {e}")
-        logging.error(f"Unexpected error in check_and_generate_images: {e}")
+        print(f"----- Error in worker `Generate images`: {e}")
 
 
 
 def generate_images_api():
-    # Simulated image generation logic
     print("Generating images...")
-    # Add your custom image generation logic here
