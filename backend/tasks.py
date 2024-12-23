@@ -20,8 +20,9 @@ def check_and_generate_images():
 
         # Proceed if queue_count is valid
         if len(queue_count.get("queue_running", [])) > 0 or len(queue_count.get("queue_pending", [])) > 0:
-            print(f"AI model is running another thumbnail images generation. Please try again later.")
+            print(f"AI model is running another thumbnail images generation (Running: {len(queue_count.get('queue_running', []))}, Pending: {len(queue_count.get('queue_pending', []))}). Please try again later.")
             return
+
 
         min_files_threshold = 500
 
@@ -39,7 +40,9 @@ def check_and_generate_images():
 
         # Check file count against the threshold
         if file_count < min_files_threshold:
+            print(f"--------------------------------- START GENEREATING ------------------------------------")
             print(f"----- Folder has {file_count} files. Run generate image thumbnail AI.")
+
             try:
                 generate_images_api()
             except Exception as e:
@@ -49,7 +52,6 @@ def check_and_generate_images():
 
     except Exception as e:
         print(f"----- Error in worker `Generate images`: {e}")
-
 
 
 def generate_images_api():

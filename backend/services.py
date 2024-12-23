@@ -23,6 +23,7 @@ main_server_address = os.getenv('MAIN_SERVER_ADDRESS', 'sscrender.ddns.net:8000'
 def get_image(filename, subfolder, folder_type):
     data = {"filename": filename, "subfolder": subfolder, "type": folder_type}
     url_values = urlencode(data)
+
     with urlopen(f"http://{server_address}/view?{url_values}") as response:
         return response.read()
 
@@ -77,15 +78,19 @@ def check_current_queue():
             # Read and decode the response
             response_data = response.read().decode('utf-8')
             return json.loads(response_data)  # Assuming the API returns JSON
+
     except HTTPError as e:
         # Handle HTTP errors (e.g., 404, 500)
         print(f"HTTPError: {e.code} - {e.reason}")
+
     except URLError as e:
         # Handle URL errors (e.g., connection issues)
         print(f"URLError: {e.reason}")
+
     except Exception as e:
         # Handle any other exceptions
         print(f"Unexpected error: {str(e)}")
+
     return None  # Return None in case of an error
 
 # WebSocket image generation service
@@ -254,7 +259,7 @@ async def generate_images(positive_prompt, poster_number=1, thumb_style='realist
     try:
         ws = websocket.WebSocket()
         ws_url = f"ws://{server_address}/ws?clientId={client_id}"
-        
+
         try:
             ws.connect(ws_url)
         except websocket.WebSocketConnectionClosedException as e:
@@ -296,7 +301,7 @@ async def generate_images(positive_prompt, poster_number=1, thumb_style='realist
         # Fetch generated images
         images = await get_images(ws, workflow)
         return images, noise_seed
-    
+
     except ConnectionError as ce:
         raise ce
     except FileNotFoundError as fnfe:

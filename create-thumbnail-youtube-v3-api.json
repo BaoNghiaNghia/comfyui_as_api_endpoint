@@ -115,7 +115,7 @@
   },
   "25": {
     "inputs": {
-      "noise_seed": 1123339218843277
+      "noise_seed": 484534226867495
     },
     "class_type": "RandomNoise",
     "_meta": {
@@ -206,7 +206,7 @@
         0
       ],
       "image": [
-        "56",
+        "8",
         0
       ]
     },
@@ -228,40 +228,13 @@
       "title": "FluxGuidance"
     }
   },
-  "56": {
-    "inputs": {
-      "facedetection": "YOLOv5l",
-      "codeformer_fidelity": 0.5,
-      "facerestore_model": [
-        "57",
-        0
-      ],
-      "image": [
-        "8",
-        0
-      ]
-    },
-    "class_type": "FaceRestoreCFWithModel",
-    "_meta": {
-      "title": "FaceRestoreCFWithModel"
-    }
-  },
-  "57": {
-    "inputs": {
-      "model_name": "GFPGANv1.4.pth"
-    },
-    "class_type": "FaceRestoreModelLoader",
-    "_meta": {
-      "title": "FaceRestoreModelLoader"
-    }
-  },
   "58": {
     "inputs": {
       "text": [
         "61",
         0
       ],
-      "text2": "((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\nScene Description:\nA cozy and warm Christmas Eve celebration. The scene features a decorated living room with a brightly lit Christmas tree adorned with ornaments, tinsel, and a star on top. Presents wrapped in colorful paper are piled beneath the tree.  A fireplace crackles merrily, casting a warm glow on the scene.  Family members, wearing festive sweaters and pajamas, are gathered around, some opening gifts, others sharing stories and laughter.  Stockings hang from the mantelpiece, overflowing with small treats and gifts. A table laden with Christmas delicacies like roast turkey, cookies, and hot cocoa completes the scene.  Falling snow is visible through the window, adding to the magical atmosphere.\n\n\nBanner Title:\nThe handwriter big text \"Merry Christmas\" in top center or center\n\n\nBackground Details:\nA snow-covered landscape visible through the window, possibly with a church or houses in the distance. The interior of the room is decorated with garlands, Christmas lights, and festive decorations.  Soft Christmas music plays in the background.\n\n\nColor Palette:\nDominated by traditional Christmas colors like red, green, and gold, with the warm glow of firelight and the white of the snow. The overall lighting is warm and inviting, enhancing the festive mood.\n\n\nComposition:\nThe layout should be balanced and inviting, capturing the warmth and joy of a family Christmas gathering. Focus on the details of the decorations, the expressions of joy on people's faces, and the cozy atmosphere to convey the essence of Christmas spirit.\n```\n"
+      "text2": "((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\nScene Description:\nA cozy and warm Christmas morning scene.  A decorated Christmas tree with twinkling lights and colorful ornaments stands prominently. Presents wrapped in festive paper are piled beneath the tree. Stockings hang from the fireplace mantel, which is adorned with garland and candles.  In the foreground, family members in warm, comfortable pajamas are gathered around the tree, opening gifts and sharing joyful moments. A steaming mug of hot chocolate sits on a nearby table, next to a plate of freshly baked Christmas cookies.  A gentle snowfall can be seen through the window, adding to the magical atmosphere.\n\nBanner Title:\nThe handwriter big text \"Merry Christmas\" in top center or center\n\n\nBackground Details:\nA snow-covered landscape visible through the window, with a warm, inviting fireplace and decorated mantelpiece inside.  Soft lighting from the Christmas tree lights and fireplace creates a cozy ambiance.  Subtle Christmas music playing in the background.\n\n\nColor Palette:\nPredominantly red, green, and gold, with touches of white from the snow and warm browns from the wooden furniture and fireplace. The lighting is warm and inviting, creating a sense of comfort and joy.\n\n\nComposition:\nThe layout should focus on the warmth and intimacy of the Christmas morning scene. Close-ups on the expressions of joy and excitement on the faces of the family members, combined with wider shots of the decorated room, will capture the spirit of Christmas.  The composition should convey a sense of togetherness and celebration.\n```\n"
     },
     "class_type": "ShowText|pysssss",
     "_meta": {
@@ -275,7 +248,7 @@
       "operation": "text1 + text2 to output1, text2 to output2",
       "delimiter": " ",
       "use_seed": "false",
-      "seed": 956457750722256
+      "seed": 292653731753617
     },
     "class_type": "TextCombinations",
     "_meta": {
