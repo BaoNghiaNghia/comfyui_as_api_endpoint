@@ -12,8 +12,8 @@ IMAGES_TO_DELETE = 5
 
 async def generate_images_api():
     init_request = {
-        "positive_prompt": "Happy New Year",
-        "thumbnail_number": 2,
+        "positive_prompt": "Happy Lunar New Year",
+        "thumbnail_number": 1,
         "thumb_style": "realistic photo",
     }
 
@@ -88,10 +88,7 @@ def delete_oldest_images():
                     print(f"Deleted image: {oldest_image}")
 
                 # Update the list of images after deletion
-                images = [
-                    os.path.join(FILE_DIRECTORY, f) for f in os.listdir(FILE_DIRECTORY)
-                    if os.path.isfile(os.path.join(FILE_DIRECTORY, f))
-                ]
+                images = [os.path.join(FILE_DIRECTORY, f) for f in os.listdir(FILE_DIRECTORY) if os.path.isfile(os.path.join(FILE_DIRECTORY, f))]
                 images.sort(key=os.path.getmtime)
         else:
             print(f"----- No need to delete images. Current number of images ({len(images)}) is below the threshold ({MAX_IMAGES_THRESHOLD}).")
