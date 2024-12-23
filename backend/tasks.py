@@ -1,5 +1,5 @@
 import os
-import json
+import asyncio
 from pathlib import Path
 from celery import shared_task
 from .services import check_current_queue, generate_images
@@ -13,18 +13,22 @@ IMAGES_TO_DELETE = 5
 async def generate_images_api():
     init_request = {
         "positive_prompt": "Happy New Year",
-        "thumbnail_number": 5,
+        "thumbnail_number": 2,
         "thumb_style": "realistic photo",
     }
 
     await generate_images(init_request["positive_prompt"], init_request["thumbnail_number"], init_request["thumb_style"])
 
-    # Convert the response into a JSON serializable format if needed
-    # return json.dumps(images)  # Assuming `images` is a JSON-serializable object
-
-
 @shared_task(name="backend.tasks.check_and_generate_images")
-async def check_and_generate_images():
+def check_and_generate_images():
+    try:
+        # Run async function inside Celery task using asyncio.run
+        asyncio.run(generate_images_logic())
+
+    except Exception as e:
+        print(f"----- Error in worker `Generate images`: {e}")
+
+async def generate_images_logic():
     try:
         # Call the queue checking function
         queue_count = check_current_queue()
@@ -40,31 +44,25 @@ async def check_and_generate_images():
             return
 
         # Check if the directory exists and is valid
-        if not FILE_DIRECTORY.exists() or not FILE_DIRECTORY.is_dir():
+        if not os.path.isdir(FILE_DIRECTORY):
             print(f"----- Folder '{FILE_DIRECTORY}' does not exist or is not a directory. Skipping.")
             return
 
-        try:
-            # Count files in the directory
-            file_count = sum(1 for file in FILE_DIRECTORY.iterdir() if file.is_file())
-        except Exception as e:
-            print(f"----- Error counting files in folder '{FILE_DIRECTORY}': {e}")
-            return
+        # Count files in the directory
+        file_count = sum(1 for file in os.listdir(FILE_DIRECTORY) if os.path.isfile(os.path.join(FILE_DIRECTORY, file)))
 
         # Check file count against the threshold
         if file_count < MAX_IMAGES_THRESHOLD:
             print(f"--------------------------------- START GENEREATING ------------------------------------")
             print(f"----- Folder has {file_count} files. Run generate image thumbnail AI Model until {MAX_IMAGES_THRESHOLD} files.")
 
-            # try:
-            #     await generate_images_api()
-            # except Exception as e:
-            #     print(f"----- Error generating images: {e}")
+            # Generate images asynchronously
+            await generate_images_api()
         else:
             print(f"----- Folder has {file_count} files, skipping generation.")
 
     except Exception as e:
-        print(f"----- Error in worker `Generate images`: {e}")
+        print(f"----- Error generating images: {e}")
         
 # Define the task to delete the oldest images
 @shared_task(name="backend.tasks.delete_oldest_images")
