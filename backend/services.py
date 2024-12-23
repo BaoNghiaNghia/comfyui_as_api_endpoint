@@ -15,7 +15,7 @@ logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %
 
 COMFY_UI_SERVER_ADDRESS = os.getenv('host.docker.internal:8188', 'host.docker.internal:8188')
 CLIENT_ID = str(uuid.uuid4())
-BACKEND_SERVER_ADDRESS = os.getenv('MAIN_SERVER_ADDRESS', 'host.docker.internal:8000')
+BACKEND_SERVER_ADDRESS = os.getenv('BACKEND_SERVER_ADDRESS', 'host.docker.internal:8000')
 
 
 # Service to get image
@@ -94,7 +94,6 @@ async def get_images(ws, prompt, noise_seed):
 
         else:
             continue
-
 
     history = get_history(prompt_id)[prompt_id]
     logging.info(f"History: {history}")
