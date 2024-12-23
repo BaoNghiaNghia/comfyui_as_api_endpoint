@@ -244,19 +244,17 @@ async def generate_images(positive_prompt, thumbnail_number=1, thumb_style='real
         # Check if AI model is running queue
         queue_count = check_current_queue()
 
-
         if len(queue_count["queue_running"]) > 0 or len(queue_count["queue_pending"]) > 0:
             raise Exception(f'AI model is running another thumbnail images generation (Running: {len(queue_count["queue_running"])}, Pending: {len(queue_count["queue_pending"])}). Please try again later.')
 
         with open("create-thumbnail-youtube-v3-api.json", "r", encoding="utf-8") as f:
             workflow_data = f.read()
 
-
         workflow = json.loads(workflow_data)
         noise_seed = random.randint(1, 1000000000000000)
 
         workflow["59"]["inputs"]["text1"] = (
-            f'describe "{positive_prompt}" with {thumb_style} style as a prompt base on this format prompt. '
+            f'describe "{positive_prompt}" with {thumb_style} style as a prompt base on this format prompt.'
             f'And must have banner title ***{positive_prompt}***:'
         )
 

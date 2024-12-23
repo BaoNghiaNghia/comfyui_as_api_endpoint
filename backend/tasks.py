@@ -11,37 +11,32 @@ IMAGES_TO_DELETE = 5
 
 
 async def generate_images_api():
-    init_request = {
-        "positive_prompt": "Happy Lunar New Year",
-        "thumbnail_number": 1,
-        "thumb_style": "realistic photo",
-    }
+    init_requests = [
+        {
+            "positive_prompt": "Deep Focus",
+            "thumbnail_number": 1,
+            "thumb_style": "realistic photo",
+        },
+        {
+            "positive_prompt": "Morning Coffee",
+            "thumbnail_number": 1,
+            "thumb_style": "realistic photo",
+        },
+        {
+            "positive_prompt": "Lofi Music",
+            "thumbnail_number": 1,
+            "thumb_style": "realistic photo",
+        },
+        {
+            "positive_prompt": "Merry Christmas",
+            "thumbnail_number": 1,
+            "thumb_style": "realistic photo",
+        }
+    ]
 
-    init_request_1 = {
-        "positive_prompt": "Deep Focus",
-        "thumbnail_number": 1,
-        "thumb_style": "realistic photo",
-    }
-
-    init_request_2 = {
-        "positive_prompt": "Morning Coffee",
-        "thumbnail_number": 1,
-        "thumb_style": "realistic photo",
-    }
-
-    init_request_3 = {
-        "positive_prompt": "Lofi Music",
-        "thumbnail_number": 1,
-        "thumb_style": "realistic photo",
-    }
-
-    init_request_4 = {
-        "positive_prompt": "Merry christmas",
-        "thumbnail_number": 1,
-        "thumb_style": "realistic photo",
-    }
-
-    await generate_images(init_request["positive_prompt"], init_request["thumbnail_number"], init_request["thumb_style"])
+    # Process each request sequentially
+    for request in init_requests:
+        await generate_images(request["positive_prompt"], request["thumbnail_number"], request["thumb_style"])
 
 
 @shared_task(name="backend.tasks.check_and_generate_images")
