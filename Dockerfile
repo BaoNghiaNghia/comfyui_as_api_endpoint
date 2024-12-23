@@ -1,5 +1,5 @@
 # Step 1: Use an official Python runtime as a base image
-FROM python:3.12-slim
+FROM python:3.9-slim
 
 # Step 2: Set environment variables for optimal container behavior
 ENV PYTHONUNBUFFERED=1 \
