@@ -5,7 +5,6 @@ import requests
 import random
 import uuid
 import websocket
-import urllib.error
 from urllib.request import urlopen, Request
 from urllib.error import URLError, HTTPError
 from urllib.parse import urlencode
@@ -45,7 +44,7 @@ def queue_prompt(prompt):
 def check_current_queue():
     try:
         req = Request(f"http://{server_address}/queue")
-        
+
         # Make the HTTP request
         with urlopen(req) as response:
             # Read and decode the response
@@ -280,6 +279,7 @@ async def generate_images(positive_prompt, thumbnail_number=1, thumb_style='real
         raise fnfe
     except Exception as e:
         raise e
+
     finally:
         if ws:
             try:
