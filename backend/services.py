@@ -13,9 +13,9 @@ from urllib.parse import urlencode
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 
-server_address = os.getenv('host.docker.internal:8188', 'host.docker.internal:8188')
-client_id = str(uuid.uuid4())
-main_server_address = os.getenv('MAIN_SERVER_ADDRESS', 'host.docker.internal:8000')
+COMFY_UI_SERVER_ADDRESS = os.getenv('host.docker.internal:8188', 'host.docker.internal:8188')
+CLIENT_ID = str(uuid.uuid4())
+BACKEND_SERVER_ADDRESS = os.getenv('MAIN_SERVER_ADDRESS', 'host.docker.internal:8000')
 
 
 # Service to get image
@@ -23,33 +23,33 @@ def get_image(filename, subfolder, folder_type):
     data = {"filename": filename, "subfolder": subfolder, "type": folder_type}
     url_values = urlencode(data)
 
-    with urlopen(f"http://{server_address}/view?{url_values}") as response:
+    with urlopen(f"http://{COMFY_UI_SERVER_ADDRESS}/view?{url_values}") as response:
         return response.read()
 
 
 # Service to get history
 def get_history(prompt_id):
-    with urlopen(f"http://{server_address}/history/{prompt_id}") as response:
+    with urlopen(f"http://{COMFY_UI_SERVER_ADDRESS}/history/{prompt_id}") as response:
         return json.loads(response.read())
 
 
 # Service to queue a prompt
 def queue_prompt(prompt):
-    p = {"prompt": prompt, "client_id": client_id}
+    p = {"prompt": prompt, "client_id": CLIENT_ID}
     data = json.dumps(p).encode('utf-8')
-    req = Request(f"http://{server_address}/prompt", data=data)
+    req = Request(f"http://{COMFY_UI_SERVER_ADDRESS}/prompt", data=data)
     return json.loads(urlopen(req).read())
 
 
 def check_current_queue():
     try:
-        req = Request(f"http://{server_address}/queue")
+        req = Request(f"http://{COMFY_UI_SERVER_ADDRESS}/queue")
 
         # Make the HTTP request
         with urlopen(req) as response:
             # Read and decode the response
             response_data = response.read().decode('utf-8')
-            return json.loads(response_data)  # Assuming the API returns JSON
+            return json.loads(response_data)
 
     except HTTPError as e:
         # Handle HTTP errors (e.g., 404, 500)
@@ -70,7 +70,6 @@ async def get_images(ws, prompt, noise_seed):
     prompt_id = queue_prompt(prompt)['prompt_id']
     output_images = {}
     last_reported_percentage = 0
-
 
     while True:
         out = ws.recv()
@@ -102,7 +101,7 @@ async def get_images(ws, prompt, noise_seed):
 
     output_images = history['outputs']["178"]['images']
     for output_image in output_images:
-        output_image['file_path'] = f"http://{main_server_address}/download-images?file_name={output_image['filename']}&subfolder={output_image['subfolder']}"
+        output_image['file_path'] = f"http://{BACKEND_SERVER_ADDRESS}/download-images?file_name={output_image['filename']}&subfolder={output_image['subfolder']}"
         output_image['seed'] = noise_seed
 
     return output_images
@@ -232,7 +231,7 @@ async def generate_images(positive_prompt, thumbnail_number=1, thumb_style='real
     ws = None  # Declare ws at the top to ensure it's accessible in the finally block
     try:
         ws = websocket.WebSocket()
-        ws_url = f"ws://{server_address}/ws?clientId={client_id}"
+        ws_url = f"ws://{COMFY_UI_SERVER_ADDRESS}/ws?clientId={CLIENT_ID}"
 
         try:
             ws.connect(ws_url)
