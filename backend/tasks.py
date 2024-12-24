@@ -4,7 +4,7 @@ from pathlib import Path
 from celery import shared_task
 from .services import check_current_queue, generate_images
 import random
-from .constants import STYLES_KEYS_LIST
+from .constants import THUMBNAIL_STYLE_LIST
 
 FILE_DIRECTORY = Path(os.getenv('OUTPUT_IMAGE_FOLDER', "/thumbnail_img"))
 TEAM_AUTOMATION_FOLDER = Path("/thumbnail_img/team_automation")
@@ -21,22 +21,22 @@ async def generate_images_api():
         {
             "positive_prompt": "Deep Focus",
             "thumbnail_number": 1,
-            "thumb_style": random.choice(STYLES_KEYS_LIST),
+            "thumb_style": random.choice(THUMBNAIL_STYLE_LIST),
         },
         {
             "positive_prompt": "Morning Coffee",
             "thumbnail_number": 1,
-            "thumb_style": random.choice(STYLES_KEYS_LIST),
+            "thumb_style": random.choice(THUMBNAIL_STYLE_LIST),
         },
         {
             "positive_prompt": "Lofi Music",
             "thumbnail_number": 1,
-            "thumb_style": random.choice(STYLES_KEYS_LIST),
+            "thumb_style": random.choice(THUMBNAIL_STYLE_LIST),
         },
         {
             "positive_prompt": "Merry Christmas",
             "thumbnail_number": 1,
-            "thumb_style": random.choice(STYLES_KEYS_LIST),
+            "thumb_style": random.choice(THUMBNAIL_STYLE_LIST),
         }
     ]
 
@@ -118,7 +118,7 @@ def delete_oldest_images():
                     oldest_image = images[i]
                     os.remove(oldest_image)
 
-                    print(f"--------------------------------- DELETE OLDEST IMAGES ------------------------------------")
+                    print(f"--------------------------------- DELETE OLDEST IMAGES [TEAM AUTOMATION] ------------------------------------")
                     print(f"Deleted image: {oldest_image}")
 
                 # Update the list of images after deletion
@@ -148,7 +148,7 @@ def delete_oldest_images():
                     oldest_image = images[i]
                     os.remove(oldest_image)
 
-                    print(f"--------------------------------- DELETE OLDEST IMAGES ------------------------------------")
+                    print(f"--------------------------------- DELETE OLDEST IMAGES [TOOL RENDER] ------------------------------------")
                     print(f"Deleted image: {oldest_image}")
 
                 # Update the list of images after deletion
