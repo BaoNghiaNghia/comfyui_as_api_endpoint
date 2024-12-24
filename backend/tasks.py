@@ -112,6 +112,7 @@ def delete_oldest_images_team_automation():
             os.path.join(TEAM_AUTOMATION_FOLDER, f) for f in os.listdir(TEAM_AUTOMATION_FOLDER)
             if os.path.isfile(os.path.join(TEAM_AUTOMATION_FOLDER, f))
         ]
+
         images.sort(key=os.path.getmtime)
 
         # Check if the number of images exceeds the threshold
@@ -145,6 +146,7 @@ def delete_oldest_images_tool_render():
             os.path.join(TOOL_RENDER_FOLDER, f) for f in os.listdir(TOOL_RENDER_FOLDER)
             if os.path.isfile(os.path.join(TOOL_RENDER_FOLDER, f))
         ]
+
         images.sort(key=os.path.getmtime)
 
         if len(images) > MAX_IMAGES_THRESHOLD:
