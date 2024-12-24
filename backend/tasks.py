@@ -4,10 +4,16 @@ from pathlib import Path
 from celery import shared_task
 from .services import check_current_queue, generate_images
 import random
+from .constants import STYLES_KEYS_LIST
 
 FILE_DIRECTORY = Path(os.getenv('OUTPUT_IMAGE_FOLDER', "/thumbnail_img"))
+TEAM_AUTOMATION_FOLDER = Path("/thumbnail_img/team_automation")
+TOOL_RENDER_FOLDER = Path("/thumbnail_img/tool_render")
+
 MAX_IMAGES_THRESHOLD = 500
 IMAGES_TO_DELETE = 5
+
+
 
 
 async def generate_images_api():
@@ -15,22 +21,22 @@ async def generate_images_api():
         {
             "positive_prompt": "Deep Focus",
             "thumbnail_number": 1,
-            "thumb_style": "realistic photo",
+            "thumb_style": random.choice(STYLES_KEYS_LIST),
         },
         {
             "positive_prompt": "Morning Coffee",
             "thumbnail_number": 1,
-            "thumb_style": "realistic photo",
+            "thumb_style": random.choice(STYLES_KEYS_LIST),
         },
         {
             "positive_prompt": "Lofi Music",
             "thumbnail_number": 1,
-            "thumb_style": "realistic photo",
+            "thumb_style": random.choice(STYLES_KEYS_LIST),
         },
         {
             "positive_prompt": "Merry Christmas",
             "thumbnail_number": 1,
-            "thumb_style": "realistic photo",
+            "thumb_style": random.choice(STYLES_KEYS_LIST),
         }
     ]
 
@@ -45,14 +51,15 @@ async def generate_images_api():
         "team_automation"
     )
 
+
 @shared_task(name="backend.tasks.check_and_generate_images")
 def check_and_generate_images():
     try:
-        # Run async function inside Celery task using asyncio.run
         asyncio.run(generate_images_logic())
 
     except Exception as e:
         print(f"----- Error in worker `Generate images`: {e}")
+
 
 async def generate_images_logic():
     try:
@@ -70,13 +77,12 @@ async def generate_images_logic():
             return
 
         # Check if the directory exists and is valid
-        if not os.path.isdir(FILE_DIRECTORY):
-            print(f"----- Folder '{FILE_DIRECTORY}' does not exist or is not a directory. Skipping.")
+        if not os.path.isdir(TEAM_AUTOMATION_FOLDER):
+            print(f"----- Folder '{TEAM_AUTOMATION_FOLDER}' does not exist or is not a directory. Skipping.")
             return
 
-
         # Count files in the directory
-        file_count = sum(1 for file in os.listdir(FILE_DIRECTORY) if os.path.isfile(os.path.join(FILE_DIRECTORY, file)))
+        file_count = sum(1 for file in os.listdir(TEAM_AUTOMATION_FOLDER) if os.path.isfile(os.path.join(TEAM_AUTOMATION_FOLDER, file)))
 
         # Check file count against the threshold
         if file_count < MAX_IMAGES_THRESHOLD:
@@ -93,13 +99,13 @@ async def generate_images_logic():
 
 
 # Define the task to delete the oldest images
-@shared_task(name="backend.tasks.delete_oldest_images")
+@shared_task(name="backend.tasks.delete_oldest_images_team_automation")
 def delete_oldest_images():
     try:
         # Get list of all image files in the folder sorted by modification time
         images = [
-            os.path.join(FILE_DIRECTORY, f) for f in os.listdir(FILE_DIRECTORY)
-            if os.path.isfile(os.path.join(FILE_DIRECTORY, f))
+            os.path.join(TEAM_AUTOMATION_FOLDER, f) for f in os.listdir(TEAM_AUTOMATION_FOLDER)
+            if os.path.isfile(os.path.join(TEAM_AUTOMATION_FOLDER, f))
         ]
         images.sort(key=os.path.getmtime)
 
@@ -109,14 +115,44 @@ def delete_oldest_images():
             while len(images) > MAX_IMAGES_THRESHOLD:
                 # Delete the oldest 10 images if the total count exceeds MAX_IMAGES_THRESHOLD
                 for i in range(min(IMAGES_TO_DELETE, len(images))):
-                    oldest_image = images[i]  # Get the i-th oldest image
+                    oldest_image = images[i]
                     os.remove(oldest_image)
 
                     print(f"--------------------------------- DELETE OLDEST IMAGES ------------------------------------")
                     print(f"Deleted image: {oldest_image}")
 
                 # Update the list of images after deletion
-                images = [os.path.join(FILE_DIRECTORY, f) for f in os.listdir(FILE_DIRECTORY) if os.path.isfile(os.path.join(FILE_DIRECTORY, f))]
+                images = [os.path.join(TEAM_AUTOMATION_FOLDER, f) for f in os.listdir(TEAM_AUTOMATION_FOLDER) if os.path.isfile(os.path.join(TEAM_AUTOMATION_FOLDER, f))]
+                images.sort(key=os.path.getmtime)
+        else:
+            print(f"----- No need to delete images. Current number of images ({len(images)}) is below the threshold ({MAX_IMAGES_THRESHOLD}).")
+
+    except Exception as e:
+        print(f"Error during image cleanup: {e}")
+
+
+# Define the task to delete the oldest images
+@shared_task(name="backend.tasks.delete_oldest_images_tool_render")
+def delete_oldest_images():
+    try:
+        # Get list of all image files in the folder sorted by modification time
+        images = [
+            os.path.join(TOOL_RENDER_FOLDER, f) for f in os.listdir(TOOL_RENDER_FOLDER)
+            if os.path.isfile(os.path.join(TOOL_RENDER_FOLDER, f))
+        ]
+        images.sort(key=os.path.getmtime)
+
+        if len(images) > MAX_IMAGES_THRESHOLD:
+            while len(images) > MAX_IMAGES_THRESHOLD:
+                for i in range(min(IMAGES_TO_DELETE, len(images))):
+                    oldest_image = images[i]
+                    os.remove(oldest_image)
+
+                    print(f"--------------------------------- DELETE OLDEST IMAGES ------------------------------------")
+                    print(f"Deleted image: {oldest_image}")
+
+                # Update the list of images after deletion
+                images = [os.path.join(TOOL_RENDER_FOLDER, f) for f in os.listdir(TOOL_RENDER_FOLDER) if os.path.isfile(os.path.join(TOOL_RENDER_FOLDER, f))]
                 images.sort(key=os.path.getmtime)
         else:
             print(f"----- No need to delete images. Current number of images ({len(images)}) is below the threshold ({MAX_IMAGES_THRESHOLD}).")
