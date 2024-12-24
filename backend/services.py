@@ -89,7 +89,6 @@ async def get_images(ws, prompt, noise_seed):
             continue
 
     history = get_history(prompt_id)[prompt_id]
-    logging.info(f"History: {history}")
 
     output_images = history['outputs']["178"]['images']
     for output_image in output_images:
