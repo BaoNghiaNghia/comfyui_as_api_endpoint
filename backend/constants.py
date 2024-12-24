@@ -1,7 +1,6 @@
 THUMBNAIL_STYLE_LIST = [
     "realistic photo",
     "illustration",
-    "three d",
     "cartoon fun",
     "comic",
     "dark",
@@ -24,7 +23,7 @@ THUMBNAIL_STYLE_LIST = [
     "fantasy cartoon",
     "pastel paint",
     "arcadebits",
-    "squishy three d",
+    "squishy 3d",
     "product photography",
     "historical",
     "felted",
@@ -52,6 +51,5 @@ THUMBNAIL_STYLE_LIST = [
     "neo classicart",
     "highend light",
     "fantasy anime",
-    "three d colorful",
-    "illustrator photo"
+    "3d colorful"
 ]

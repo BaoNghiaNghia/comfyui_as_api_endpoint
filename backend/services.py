@@ -117,9 +117,11 @@ def authenticate_user(domain, token):
     except ValueError as ve:
         logging.error(f"Authentication failed: {ve}")
         return None
+
     except requests.exceptions.RequestException as re:
         logging.error(f"Request error during authentication: {re}")
         return None
+
     except Exception as e:
         logging.error(f"An unexpected error occurred during authentication: {e}")
         return None
@@ -210,9 +212,7 @@ def create_prompt_and_call_api(input_string):
     selected_template = random.choice(scene_templates)
     formatted_template = selected_template.format(input_string=input_string, textStyle=textStyle)
 
-    prompt = f"```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\n{formatted_template}```"
-
-    return prompt
+    return f"```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\n{formatted_template}```"
 
 
 async def generate_images(positive_prompt, thumbnail_number=1, thumb_style='realistic photo', subfolder='tool_render', filename_prefix='ytbthumb'):
