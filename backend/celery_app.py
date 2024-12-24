@@ -23,10 +23,15 @@ celery_app.conf.beat_schedule = {
         # "schedule": crontab(minute="*/2", hour="20-23,0-5"),  # Every 2 minutes from 8 PM to 6 AM
         "schedule": crontab(minute="*/1"),  # Every 1 minutes
     },
-    "delete-oldest-images": {
-        "task": "backend.tasks.delete_oldest_images",
+    "delete-oldest-images-tool-render": {
+        "task": "backend.tasks.delete_oldest_images_tool_render",
         # "schedule": crontab(hour=1, minute="*/5", day_of_week="*"),  # Every 5 minutes between 1:00 AM and 2:00 AM
         "schedule": crontab(minute="*/2"),  # Every 2 minutes
+    },
+    "delete-oldest-images-team-automation": {
+        "task": "backend.tasks.delete_oldest_images_team_automation",
+        # "schedule": crontab(hour=1, minute="*/5", day_of_week="*"),  # Every 5 minutes between 1:00 AM and 2:00 AM
+        "schedule": crontab(minute="*/3"),  # Every 2 minutes
     },
 }
 

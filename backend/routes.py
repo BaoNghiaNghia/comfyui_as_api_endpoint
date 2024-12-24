@@ -37,8 +37,10 @@ async def generate_images_api(request: PromptRequest):
             raise HTTPException(status_code=400, detail="Thumbnail number must be greater than 0.")
         if not request.thumb_style:
             raise HTTPException(status_code=400, detail="Must be select style of thumbnail.")
+        
+        default_filename_prefix = 'ytbthumb'
 
-        images = await generate_images(request.positive_prompt, request.thumbnail_number, request.thumb_style, "tool_render")
+        images = await generate_images(request.positive_prompt, request.thumbnail_number, request.thumb_style, "tool_render", default_filename_prefix)
 
         if not images:
             raise HTTPException(status_code=500, detail="Image generation failed.")

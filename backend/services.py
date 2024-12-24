@@ -226,7 +226,7 @@ def create_prompt_and_call_api(input_string):
 
 
 # Main image generation function
-async def generate_images(positive_prompt, thumbnail_number=1, thumb_style='realistic photo', subfolder='tool_render'):
+async def generate_images(positive_prompt, thumbnail_number=1, thumb_style='realistic photo', subfolder='tool_render', filename_prefix='ytbthumb'):
     ws = None  # Declare ws at the top to ensure it's accessible in the finally block
     try:
         ws = websocket.WebSocket()
@@ -250,8 +250,9 @@ async def generate_images(positive_prompt, thumbnail_number=1, thumb_style='real
 
         workflow = json.loads(workflow_data)
         noise_seed = random.randint(1, 1000000000000000)
-        
+
         workflow["178"]["inputs"]["foldername_prefix"] = subfolder
+        workflow["178"]["inputs"]["filename_prefix"] = filename_prefix
 
         workflow["59"]["inputs"]["text1"] = (
             f'describe "{positive_prompt}" with {thumb_style} style as a prompt base on this format prompt.'

@@ -14,41 +14,46 @@ MAX_IMAGES_THRESHOLD = 500
 IMAGES_TO_DELETE = 5
 
 
-
-
 async def generate_images_api():
     init_requests = [
         {
             "positive_prompt": "Deep Focus",
             "thumbnail_number": 1,
             "thumb_style": random.choice(THUMBNAIL_STYLE_LIST),
+            "file_name": "deep_focus",
+            "subfolder": "team_automation"
         },
         {
             "positive_prompt": "Morning Coffee",
             "thumbnail_number": 1,
             "thumb_style": random.choice(THUMBNAIL_STYLE_LIST),
+            "file_name": "morning_coffee",
+            "subfolder": "team_automation"
         },
         {
             "positive_prompt": "Lofi Music",
             "thumbnail_number": 1,
             "thumb_style": random.choice(THUMBNAIL_STYLE_LIST),
+            "file_name": "lofi_music",
+            "subfolder": "team_automation"
         },
         {
             "positive_prompt": "Merry Christmas",
             "thumbnail_number": 1,
             "thumb_style": random.choice(THUMBNAIL_STYLE_LIST),
+            "file_name": "merry_christmas",
+            "subfolder": "team_automation"
         }
     ]
 
-    # Randomly select a request
     random_request = random.choice(init_requests)
 
-    # Process the selected request
     await generate_images(
         random_request["positive_prompt"],
         random_request["thumbnail_number"],
         random_request["thumb_style"],
-        "team_automation"
+        random_request["subfolder"],
+        random_request["file_name"]
     )
 
 
@@ -125,7 +130,7 @@ def delete_oldest_images():
                 images = [os.path.join(TEAM_AUTOMATION_FOLDER, f) for f in os.listdir(TEAM_AUTOMATION_FOLDER) if os.path.isfile(os.path.join(TEAM_AUTOMATION_FOLDER, f))]
                 images.sort(key=os.path.getmtime)
         else:
-            print(f"----- No need to delete images. Current number of images ({len(images)}) is below the threshold ({MAX_IMAGES_THRESHOLD}).")
+            print(f"----- No need to delete images [Team Automation]. Current number of images ({len(images)}) is below the threshold ({MAX_IMAGES_THRESHOLD}).")
 
     except Exception as e:
         print(f"Error during image cleanup: {e}")
@@ -155,7 +160,7 @@ def delete_oldest_images():
                 images = [os.path.join(TOOL_RENDER_FOLDER, f) for f in os.listdir(TOOL_RENDER_FOLDER) if os.path.isfile(os.path.join(TOOL_RENDER_FOLDER, f))]
                 images.sort(key=os.path.getmtime)
         else:
-            print(f"----- No need to delete images. Current number of images ({len(images)}) is below the threshold ({MAX_IMAGES_THRESHOLD}).")
+            print(f"----- No need to delete images [Tool Render]. Current number of images ({len(images)}) is below the threshold ({MAX_IMAGES_THRESHOLD}).")
 
     except Exception as e:
         print(f"Error during image cleanup: {e}")
