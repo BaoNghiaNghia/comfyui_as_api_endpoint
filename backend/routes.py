@@ -59,15 +59,28 @@ async def generate_images_api(request: PromptRequest):
 
 @router.get("/download-images/")
 async def download_file(file_name: str, subfolder: str):
-    file_path = FILE_DIRECTORY / subfolder / file_name
-    if not file_path.exists() or not file_path.is_file():
-        return {"error": "File not found"}
+    try:
+        if not file_name or not subfolder:
+            raise HTTPException(status_code=400, detail="Invalid file name or subfolder")
+        
+        file_path = FILE_DIRECTORY / subfolder / file_name
+        if not file_path.resolve().is_relative_to(FILE_DIRECTORY.resolve()):
+            raise HTTPException(status_code=400, detail="Invalid file path")
 
-    return FileResponse(
-        path=file_path,
-        media_type="application/octet-stream",  # Generic binary file type
-        filename=file_name  # The name for the downloaded file
-    )
+        if not file_path.exists() or not file_path.is_file():
+            raise HTTPException(status_code=404, detail="File not found")
+
+        return FileResponse(
+            path=file_path,
+            media_type="application/octet-stream",
+            filename=file_name
+        )
+
+    except HTTPException as e:
+        raise e
+
+    except Exception as e:
+        raise HTTPException(status_code=500, detail="An unexpected error occurred")
 
 @router.post("/check-and-generate/")
 async def trigger_check_and_generate():
