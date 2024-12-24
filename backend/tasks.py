@@ -105,7 +105,7 @@ async def generate_images_logic():
 
 # Define the task to delete the oldest images
 @shared_task(name="backend.tasks.delete_oldest_images_team_automation")
-def delete_oldest_images():
+def delete_oldest_images_team_automation():
     try:
         # Get list of all image files in the folder sorted by modification time
         images = [
@@ -138,7 +138,7 @@ def delete_oldest_images():
 
 # Define the task to delete the oldest images
 @shared_task(name="backend.tasks.delete_oldest_images_tool_render")
-def delete_oldest_images():
+def delete_oldest_images_tool_render():
     try:
         # Get list of all image files in the folder sorted by modification time
         images = [

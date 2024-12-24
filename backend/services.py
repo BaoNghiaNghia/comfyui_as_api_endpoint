@@ -9,7 +9,7 @@ from urllib.request import urlopen, Request
 from urllib.error import URLError, HTTPError
 from urllib.parse import urlencode
 
-# Configure logging
+
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 
@@ -17,8 +17,8 @@ COMFY_UI_SERVER_ADDRESS = os.getenv('host.docker.internal:8188', 'host.docker.in
 CLIENT_ID = str(uuid.uuid4())
 BACKEND_SERVER_ADDRESS = os.getenv('BACKEND_SERVER_ADDRESS', 'host.docker.internal:8000')
 
+REMOTE_SERVER_ADDRESS = os.getenv('REMOTE_SERVER_ADDRESS', 'host.docker.internal:8188')
 
-# Service to get image
 def get_image(filename, subfolder, folder_type):
     data = {"filename": filename, "subfolder": subfolder, "type": folder_type}
     url_values = urlencode(data)
@@ -45,27 +45,22 @@ def check_current_queue():
     try:
         req = Request(f"http://{COMFY_UI_SERVER_ADDRESS}/queue")
 
-        # Make the HTTP request
         with urlopen(req) as response:
-            # Read and decode the response
             response_data = response.read().decode('utf-8')
             return json.loads(response_data)
 
     except HTTPError as e:
-        # Handle HTTP errors (e.g., 404, 500)
         print(f"HTTPError: {e.code} - {e.reason}")
 
     except URLError as e:
-        # Handle URL errors (e.g., connection issues)
         print(f"URLError: {e.reason}")
 
     except Exception as e:
-        # Handle any other exceptions
         print(f"Unexpected error: {str(e)}")
 
-    return None  # Return None in case of an error
+    return None
 
-# WebSocket image generation service
+
 async def get_images(ws, prompt, noise_seed):
     prompt_id = queue_prompt(prompt)['prompt_id']
     output_images = {}
@@ -81,14 +76,12 @@ async def get_images(ws, prompt, noise_seed):
                 max_progress = data['max']
                 percentage = int((current_progress / max_progress) * 100)
 
-                # Only update progress every 10%
                 if percentage >= last_reported_percentage + 10:
                     last_reported_percentage = percentage
                     logging.info(f"PromptID: {prompt_id} - Process: {percentage} %")
 
             elif message['type'] == 'executing':
                 data = message['data']
-                # logging.info(f"PromptID: {prompt_id} - Executing: {data}")
                 if data['node'] is None and data['prompt_id'] == prompt_id:
                     break
 
@@ -100,7 +93,7 @@ async def get_images(ws, prompt, noise_seed):
 
     output_images = history['outputs']["178"]['images']
     for output_image in output_images:
-        output_image['file_path'] = f"http://{BACKEND_SERVER_ADDRESS}/download-images?file_name={output_image['filename']}&subfolder={output_image['subfolder']}"
+        output_image['file_path'] = f"http://{REMOTE_SERVER_ADDRESS}/download-images?file_name={output_image['filename']}&subfolder={output_image['subfolder']}"
         output_image['seed'] = noise_seed
 
     return output_images
@@ -117,7 +110,7 @@ def authenticate_user(domain, token):
         }
 
         response = requests.get(domain, headers=headers)
-        response.raise_for_status()  # Raise HTTPError for bad response codes
+        response.raise_for_status()
 
         logging.info(f"Authentication successful with domain {domain}")
         return response.status_code, response.reason
@@ -215,19 +208,16 @@ def create_prompt_and_call_api(input_string):
         """
     ]
 
-    # Randomly select a template and format it with the topic and textStyle
     selected_template = random.choice(scene_templates)
     formatted_template = selected_template.format(input_string=input_string, textStyle=textStyle)
 
-    # Generate the final prompt
     prompt = f"```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\n{formatted_template}```"
 
     return prompt
 
 
-# Main image generation function
 async def generate_images(positive_prompt, thumbnail_number=1, thumb_style='realistic photo', subfolder='tool_render', filename_prefix='ytbthumb'):
-    ws = None  # Declare ws at the top to ensure it's accessible in the finally block
+    ws = None
     try:
         ws = websocket.WebSocket()
         ws_url = f"ws://{COMFY_UI_SERVER_ADDRESS}/ws?clientId={CLIENT_ID}"
