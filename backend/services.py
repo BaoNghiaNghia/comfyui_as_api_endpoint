@@ -129,92 +129,71 @@ def authenticate_user(domain, token):
         return None
 
 
+def scene_template_1(textStyle, input_string):
+    return f"""
+        Scene Description:
+
+        A vibrant and festive Vietnamese Lunar New Year celebration. The scene features a bustling environment with traditional decorations: red lanterns hanging in the air, peach blossoms in full bloom, and kumquat trees adorned with golden fruits. In the foreground, people in colorful áo dài (traditional Vietnamese attire) are smiling and engaging in joyous activities such as giving red envelopes to children and enjoying Tết delicacies.
+
+
+        Banner Title:
+
+        {textStyle} "{input_string}" in top center
+
+
+        Background Details:
+
+        A lively village or urban setting decorated with banners handwritten big text "Happy New Year" in top center, strings of lights, and fireworks lighting up the evening sky. Market stalls and family gatherings add a sense of community and tradition.
+
+
+        Color Palette:
+
+        Dominated by auspicious colors like red and gold, symbolizing luck and prosperity, with hints of pink from peach blossoms and green from the kumquat trees. The lighting is warm and inviting, emphasizing the celebratory mood.
+
+
+        Composition:
+
+        The layout has a balanced mix of cultural symbols and joyful interactions. Focus on the details of traditional clothing, decorations, and facial expressions to capture the essence of Vietnamese New Year traditions.
+    """
+
+
+def scene_template_2(textStyle, input_string):
+    return f"""
+        ...
+    """
+
+
+def scene_template_3(textStyle, input_string):
+    return f"""
+        ...
+    """
+
+
+def scene_template_4(textStyle, input_string):
+    return f"""
+        ...
+    """
+
+
 def create_prompt_and_call_api(input_string):
+    # Mapping of scene templates
+    scene_templates = {
+        1: scene_template_1,
+        2: scene_template_2,
+        3: scene_template_3,
+        4: scene_template_4
+    }
+
     # Randomly choose a text style
     textStyle = random.choice(["The handwritten big text", "The title of the movie is"])
 
-    # Scene templates
-    scene_templates = [
-        """
-            Scene Description:
+    # Randomly choose a scene template
+    template_choice = random.choice([1, 2, 3, 4])
+    scene_template = scene_templates[template_choice](textStyle, input_string)
 
-            A vibrant and festive Vietnamese Lunar New Year celebration. The scene features a bustling environment with traditional decorations: red lanterns hanging in the air, peach blossoms in full bloom, and kumquat trees adorned with golden fruits. In the foreground, people in colorful áo dài (traditional Vietnamese attire) are smiling and engaging in joyous activities such as giving red envelopes (lì xì) to children and enjoying Tết delicacies.
+    # Construct and return the full API call prompt
+    return f"```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\n{scene_template}```"
 
-
-            Banner Title:
-
-            {textStyle} "{input_string}" in top center
-
-
-            Background Details:
-
-            A lively village or urban setting decorated with banners handwritten big text "Happy New Year" in top center, strings of lights, and fireworks lighting up the evening sky. Market stalls and family gatherings add a sense of community and tradition.
-
-            Color Palette:
-
-            Dominated by auspicious colors like red and gold, symbolizing luck and prosperity, with hints of pink from peach blossoms and green from the kumquat trees. The lighting is warm and inviting, emphasizing the celebratory mood.
-
-
-            Composition:
-
-            The layout has a balanced mix of cultural symbols and joyful interactions. Focus on the details of traditional clothing, decorations, and facial expressions to capture the essence of Vietnamese New Year traditions.
-        """,
-        """
-            Overall Theme:
-
-            Relaxed, nostalgic, and cozy.
-
-
-            Main Colors:
-
-            Soft pastels: Dusty pink, muted teal, beige, and brown tones.
-            Contrasting accents: Soft yellow or lavender.
-
-
-            Style: 
-
-            Nostalgic, cozy, slightly melancholic.
-
-
-            Character Illustration:
-
-            A person (animated or realistic) sitting by a desk or bed with headphones on, studying or doodling.
-            Clothing: Oversized sweater, cozy attire.
-            Environment: Rainy window with streaks of water, a desk lamp casting warm light.
-
-
-            Background:
-
-            A small, cluttered room filled with books, plants, and a glowing laptop.
-            Outside the window: Rain, autumn leaves, or a nighttime city view.
-
-
-            Lighting Effects:
-
-            Dim ambient lighting with a warm glow from a desk lamp or fairy lights.
-
-
-            Font Style:
-
-            Handwritten, script-like fonts for a nostalgic vibe (e.g., "Pacifico").
-
-
-            Text Ideas:
-
-            {textStyle} “{input_string}”
-
-
-            Decorative Elements:
-
-            Vinyl records spinning on a turntable.
-            Animated-style clouds or stars floating subtly in the background.
-        """
-    ]
-
-    selected_template = random.choice(scene_templates)
-    formatted_template = selected_template.format(input_string=input_string, textStyle=textStyle)
-
-    return f"```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\n{formatted_template}```"
 
 
 async def generate_images(positive_prompt, thumbnail_number=1, thumb_style='realistic photo', subfolder='tool_render', filename_prefix='ytbthumb'):

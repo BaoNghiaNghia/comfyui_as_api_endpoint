@@ -115,7 +115,7 @@
   },
   "25": {
     "inputs": {
-      "noise_seed": 406108435984683
+      "noise_seed": 1088612403131918
     },
     "class_type": "RandomNoise",
     "_meta": {
@@ -128,12 +128,12 @@
       "strength_model": 0.7000000000000001,
       "strength_clip": 0.4,
       "model": [
-        "12",
+        "49",
         0
       ],
       "clip": [
-        "11",
-        0
+        "49",
+        1
       ]
     },
     "class_type": "LoraLoader",
@@ -228,13 +228,32 @@
       "title": "FluxGuidance"
     }
   },
+  "49": {
+    "inputs": {
+      "lora_name": "Textimprover-FLUX-V0.4.safetensors",
+      "strength_model": 1,
+      "strength_clip": 0.4,
+      "model": [
+        "12",
+        0
+      ],
+      "clip": [
+        "11",
+        0
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "Load LoRA (Fix hand)"
+    }
+  },
   "58": {
     "inputs": {
       "text": [
         "61",
         0
       ],
-      "text2": "((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\nScene Description:\nA cozy and warm Christmas Eve celebration. The scene features a decorated Christmas tree with twinkling lights, ornaments, and a star on top. Presents wrapped in colorful paper are placed beneath the tree.  A fireplace with a crackling fire adds to the warmth of the scene.  Family members gathered around, some wearing festive sweaters, are smiling and exchanging gifts.  Stockings hang from the mantelpiece. A table laden with Christmas dinner, including a roasted turkey or ham, is visible in the background.  Perhaps a gentle snowfall is visible through a window.\n\nBanner Title:\nThe handwriter big text \"Merry Christmas\" in top center or center\n\n\nBackground Details:\nA comfortable living room or dining room decorated with garlands, wreaths, and Christmas lights.  Soft lighting from lamps and the fireplace creates a warm and inviting ambiance. Snow falling outside adds a touch of winter magic.\n\n\nColor Palette:\nDominated by traditional Christmas colors like red, green, and gold, with hints of white and silver.  The lighting is warm and inviting, emphasizing the cozy and festive atmosphere.\n\n\nComposition:\nThe layout has a balanced mix of Christmas symbols and joyful interactions. Focus on the details of decorations, facial expressions, and the warm glow of the firelight to capture the essence of Christmas Eve traditions.\n```"
+      "text2": "***Lofi Music***\n\n((Realistic photo)), ((detailed)), ((best quality)), ((atmospheric lighting)), ((grainy texture))\n\nScene Description:\nA cozy and intimate room bathed in the warm glow of a setting sun.  Rain gently streaks a windowpane, blurring the city lights outside.  Headphones rest on an open notebook filled with sketches or musical notations. A steaming mug sits beside it, perhaps coffee or tea. A cat curls up asleep on a nearby armchair or blanket.  Elements of technology might be present, such as a vintage computer displaying code, a synthesizer, or a record player.\n\nBanner Title:\n***Lofi Music*** in a simple, sans-serif font, subtly integrated into the scene, perhaps as a sticker on a laptop or a poster on the wall.\n\nBackground Details:\nThe room should have a lived-in feel, with bookshelves, plants, and personal items scattered around. The city lights outside the window contribute to the overall mood of peaceful contemplation.\n\nColor Palette:\nWarm, muted tones dominate, like oranges, browns, deep blues, and purples, evoking a sense of calm and relaxation.  The lighting is soft and diffused, mimicking the golden hour or late evening.\n\nComposition:\nThe image should evoke a sense of quiet focus and creativity. The focus is on the details of the room and the interplay of light and shadow, creating a calming and introspective atmosphere.  The composition should feel natural and unposed, like a glimpse into a moment of peaceful productivity or relaxation.\n"
     },
     "class_type": "ShowText|pysssss",
     "_meta": {
@@ -243,12 +262,12 @@
   },
   "59": {
     "inputs": {
-      "text1": "describe \"Merry Christmas\" as a prompt base on this format prompt. And must have banner title:",
+      "text1": "describe \"Lofi Music\" as a prompt base on this format prompt. And must have banner title ***Lofi Music***:",
       "text2": "```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\nScene Description:\nA vibrant and festive Vietnamese Lunar New Year celebration. The scene features a bustling environment with traditional decorations: red lanterns hanging in the air, peach blossoms in full bloom, and kumquat trees adorned with golden fruits. In the foreground, people in colorful áo dài (traditional Vietnamese attire) are smiling and engaging in joyous activities such as giving red envelopes (lì xì) to children and enjoying Tết delicacies.\n\n\nBanner Title:\nThe handwriter big text \"Happy New Year\" in top center or center\n\n\nBackground Details:\nA lively village or urban setting decorated with banners handwriter big text \"Happy New Year\" in top center, strings of lights, and fireworks lighting up the evening sky. Market stalls and family gatherings add a sense of community and tradition.\n\n\nColor Palette:\nDominated by auspicious colors like red and gold, symbolizing luck and prosperity, with hints of pink from peach blossoms and green from the kumquat trees. The lighting is warm and inviting, emphasizing the celebratory mood.\n\n\nComposition:\nThe layout has a balanced mix of cultural symbols and joyful interactions. Focus on the details of traditional clothing, decorations, and facial expressions to capture the essence of Vietnamese New Year traditions.\n```",
       "operation": "text1 + text2 to output1, text2 to output2",
       "delimiter": " ",
       "use_seed": "false",
-      "seed": 525188195264157
+      "seed": 305061881740649
     },
     "class_type": "TextCombinations",
     "_meta": {
@@ -261,7 +280,7 @@
         "59",
         0
       ],
-      "text2": "describe \"Merry Christmas\" as a prompt base on this format prompt. And must have banner title: ```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\nScene Description:\nA vibrant and festive Vietnamese Lunar New Year celebration. The scene features a bustling environment with traditional decorations: red lanterns hanging in the air, peach blossoms in full bloom, and kumquat trees adorned with golden fruits. In the foreground, people in colorful áo dài (traditional Vietnamese attire) are smiling and engaging in joyous activities such as giving red envelopes (lì xì) to children and enjoying Tết delicacies.\n\n\nBanner Title:\nThe handwriter big text \"Happy New Year\" in top center or center\n\n\nBackground Details:\nA lively village or urban setting decorated with banners handwriter big text \"Happy New Year\" in top center, strings of lights, and fireworks lighting up the evening sky. Market stalls and family gatherings add a sense of community and tradition.\n\n\nColor Palette:\nDominated by auspicious colors like red and gold, symbolizing luck and prosperity, with hints of pink from peach blossoms and green from the kumquat trees. The lighting is warm and inviting, emphasizing the celebratory mood.\n\n\nComposition:\nThe layout has a balanced mix of cultural symbols and joyful interactions. Focus on the details of traditional clothing, decorations, and facial expressions to capture the essence of Vietnamese New Year traditions.\n```"
+      "text2": "describe \"Lofi Music\" as a prompt base on this format prompt. And must have banner title ***Lofi Music***: ```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\nScene Description:\nA vibrant and festive Vietnamese Lunar New Year celebration. The scene features a bustling environment with traditional decorations: red lanterns hanging in the air, peach blossoms in full bloom, and kumquat trees adorned with golden fruits. In the foreground, people in colorful áo dài (traditional Vietnamese attire) are smiling and engaging in joyous activities such as giving red envelopes (lì xì) to children and enjoying Tết delicacies.\n\n\nBanner Title:\nThe handwriter big text \"Happy New Year\" in top center or center\n\n\nBackground Details:\nA lively village or urban setting decorated with banners handwriter big text \"Happy New Year\" in top center, strings of lights, and fireworks lighting up the evening sky. Market stalls and family gatherings add a sense of community and tradition.\n\n\nColor Palette:\nDominated by auspicious colors like red and gold, symbolizing luck and prosperity, with hints of pink from peach blossoms and green from the kumquat trees. The lighting is warm and inviting, emphasizing the celebratory mood.\n\n\nComposition:\nThe layout has a balanced mix of cultural symbols and joyful interactions. Focus on the details of traditional clothing, decorations, and facial expressions to capture the essence of Vietnamese New Year traditions.\n```"
     },
     "class_type": "ShowText|pysssss",
     "_meta": {
@@ -276,7 +295,7 @@
       ],
       "model_name": "gemini-1.5-pro-latest",
       "stream": false,
-      "api_key": "AIzaSyCzXVTqFDI1a1XV5iLwIAcqY-bjR1Xpz8Y"
+      "api_key": "AIzaSyAO5XPik3WO225cp5vQXagi-BOmhjNkTzc"
     },
     "class_type": "Gemini_API_Zho",
     "_meta": {
