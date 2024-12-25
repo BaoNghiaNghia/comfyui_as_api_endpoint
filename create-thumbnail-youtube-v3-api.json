@@ -232,7 +232,7 @@
     "inputs": {
       "lora_name": "Textimprover-FLUX-V0.4.safetensors",
       "strength_model": 1,
-      "strength_clip": 0.4,
+      "strength_clip": 0.5,
       "model": [
         "12",
         0
