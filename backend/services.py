@@ -7,7 +7,7 @@ import websocket
 from pathlib import Path
 from urllib.request import urlopen, Request
 from urllib.error import URLError, HTTPError
-from fastapi import APIRouter, HTTPException
+from fastapi import HTTPException
 from urllib.parse import urlencode
 from .constants import GEMINI_KEY_TOOL_RENDER, GEMINI_KEY_TEAM_AUTOMATION, SUBFOLDER_TEAM_AUTOMATION, SUBFOLDER_TOOL_RENDER, CLIENT_ID
 
@@ -219,6 +219,7 @@ def create_prompt_and_call_api(input_string):
 
 async def generate_images(positive_prompt, thumbnail_number=1, thumb_style='realistic photo', subfolder='tool_render', filename_prefix='ytbthumb'):
     ws = None
+
     try:
         ws = websocket.WebSocket()
         ws_url = f"ws://{COMFY_UI_SERVER_ADDRESS}/ws?clientId={CLIENT_ID}"
