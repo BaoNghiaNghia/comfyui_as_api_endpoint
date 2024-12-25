@@ -3,26 +3,25 @@ import json
 import logging
 import requests
 import random
-import uuid
 import websocket
 from pathlib import Path
 from urllib.request import urlopen, Request
 from urllib.error import URLError, HTTPError
 from fastapi import APIRouter, HTTPException
 from urllib.parse import urlencode
-from .constants import GEMINI_KEY_TOOL_RENDER, GEMINI_KEY_TEAM_AUTOMATION, SUBFOLDER_TEAM_AUTOMATION, SUBFOLDER_TOOL_RENDER
+from .constants import GEMINI_KEY_TOOL_RENDER, GEMINI_KEY_TEAM_AUTOMATION, SUBFOLDER_TEAM_AUTOMATION, SUBFOLDER_TOOL_RENDER, CLIENT_ID
 
 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 
 COMFY_UI_SERVER_ADDRESS = os.getenv('host.docker.internal:8188', 'host.docker.internal:8188')
-CLIENT_ID = str(uuid.uuid4())
 BACKEND_SERVER_ADDRESS = os.getenv('BACKEND_SERVER_ADDRESS', 'host.docker.internal:8000')
 
 REMOTE_SERVER_ADDRESS = os.getenv('REMOTE_SERVER_ADDRESS', 'host.docker.internal:8188')
 
 FILE_DIRECTORY = Path(os.getenv('OUTPUT_IMAGE_FOLDER', "/thumbnail_img"))
+
 
 def get_image(filename, subfolder, folder_type):
     data = {"filename": filename, "subfolder": subfolder, "type": folder_type}
@@ -32,13 +31,11 @@ def get_image(filename, subfolder, folder_type):
         return response.read()
 
 
-# Service to get history
 def get_history(prompt_id):
     with urlopen(f"http://{COMFY_UI_SERVER_ADDRESS}/history/{prompt_id}") as response:
         return json.loads(response.read())
 
 
-# Service to queue a prompt
 def queue_prompt(prompt):
     p = {"prompt": prompt, "client_id": CLIENT_ID}
     data = json.dumps(p).encode('utf-8')
@@ -255,7 +252,6 @@ async def generate_images(positive_prompt, thumbnail_number=1, thumb_style='real
 
         workflow["59"]["inputs"]["text2"] = create_prompt_and_call_api(positive_prompt)
 
-        # Select the appropriate API key based on the subfolder
         if subfolder == SUBFOLDER_TOOL_RENDER:
             api_key_list = GEMINI_KEY_TOOL_RENDER
         elif subfolder == SUBFOLDER_TEAM_AUTOMATION:
@@ -268,7 +264,6 @@ async def generate_images(positive_prompt, thumbnail_number=1, thumb_style='real
         workflow["29"]["inputs"]["batch_size"] = thumbnail_number
         workflow["25"]["inputs"]["noise_seed"] = noise_seed
 
-        # Fetch generated images
         images = await get_images(ws, workflow, noise_seed)
         return images
 

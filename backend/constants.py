@@ -1,3 +1,5 @@
+import uuid
+
 # "realistic photo",
 # "illustration",
 # "cartoon",
@@ -99,3 +101,5 @@ MAX_IMAGES_THRESHOLD = 1000
 IMAGES_TO_DELETE = 5
 
 DEFAULT_FILENAME_PREFIX = 'ytbthumb'
+
+CLIENT_ID = str(uuid.uuid4())
