@@ -1,4 +1,6 @@
 import uuid
+import os
+from pathlib import Path
 
 # "realistic photo",
 # "illustration",
@@ -102,3 +104,5 @@ IMAGES_TO_DELETE = 5
 DEFAULT_FILENAME_PREFIX = 'ytbthumb'
 
 CLIENT_ID = str(uuid.uuid4())
+
+FILE_DIRECTORY = Path(os.getenv('OUTPUT_IMAGE_FOLDER', "/thumbnail_img"))

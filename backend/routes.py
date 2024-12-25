@@ -7,11 +7,9 @@ from PIL import Image
 import io
 from pathlib import Path
 from .tasks import check_and_generate_images
-from .constants import DEFAULT_FILENAME_PREFIX, SUBFOLDER_TOOL_RENDER
+from .constants import DEFAULT_FILENAME_PREFIX, SUBFOLDER_TOOL_RENDER, FILE_DIRECTORY
 
 router = APIRouter()
-
-FILE_DIRECTORY = Path(os.getenv('OUTPUT_IMAGE_FOLDER', "/thumbnail_img"))
 
 
 @router.get("/")
