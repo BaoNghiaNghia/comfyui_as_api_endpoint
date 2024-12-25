@@ -1,12 +1,14 @@
-## JavaScript Methods Documentation for **YtbThumbnail**
+# JavaScript Methods Documentation for **YtbThumbnail**
 
-### Overview
+## Overview
+
 This documentation provides an overview of the key methods in the JavaScript file responsible for handling user interactions, form submissions, image generation, and dynamic prompt loading. It also explains how these methods are connected to the elements defined in the HTML structure.
 
-These JavaScript methods drive the interactive functionality of the **YtbThumbnail** app, handling form submissions, prompt input, and dynamic image generation. They are closely connected to the corresponding HTML elements, enabling a smooth and responsive user experience.
+These JavaScript methods drive the interactive functionality of the **YtbThumbnail** app, handling form submissions, prompt input, and dynamic image generation. They are closely connected to the corresponding HTML elements, enabling a smooth and responsive user experience
 ---
 
 ### **1. `startTimer()`**
+
 **Description:**  
 Starts a timer that displays the elapsed time since the image generation process started.
 
@@ -21,6 +23,7 @@ Starts a timer that displays the elapsed time since the image generation process
 ---
 
 ### **2. `stopTimer()`**
+
 **Description:**  
 Stops the timer once the image generation process is complete.
 
@@ -34,6 +37,7 @@ Stops the timer once the image generation process is complete.
 ---
 
 ### **3. `showNotification(message, type)`**
+
 **Description:**  
 Displays a notification to the user with a custom message and type (success or error).
 
@@ -51,6 +55,7 @@ Displays a notification to the user with a custom message and type (success or e
 ---
 
 ### **4. `resetBtn.addEventListener("click", function () { ... })`**
+
 **Description:**  
 Handles the form reset action.
 
@@ -70,6 +75,7 @@ Handles the form reset action.
 ---
 
 ### **5. `loadQuickPrompts()`**
+
 **Description:**  
 Loads quick prompts from the server and populates the respective buttons dynamically.
 
@@ -85,6 +91,7 @@ Loads quick prompts from the server and populates the respective buttons dynamic
 ---
 
 ### **6. `addPositiveKeyword(button, keyword)`**
+
 **Description:**  
 Appends a positive keyword to the `positivePrompt` input field when a quick prompt button is clicked.
 
@@ -98,6 +105,7 @@ Appends a positive keyword to the `positivePrompt` input field when a quick prom
 ---
 
 ### **7. `askLLMButton.addEventListener("click", function () { ... })`**
+
 **Description:**  
 Handles the action of asking the LLM (Language Learning Model) for a creative idea based on the current positive prompt.
 
@@ -116,6 +124,7 @@ Handles the action of asking the LLM (Language Learning Model) for a creative id
 ---
 
 ### **8. `useLLMResponseButton.addEventListener("click", function () { ... })`**
+
 **Description:**  
 Uses the LLM's generated creative prompt as the positive prompt.
 
@@ -129,7 +138,8 @@ Uses the LLM's generated creative prompt as the positive prompt.
 
 ---
 
-### **9. `form.addEventListener("submit", function (event) { ... })`**
+### **9. `form.addEventListener("submit", function (event) { ... })**
+
 **Description:**  
 Handles the image generation process when the form is submitted.
 
@@ -150,6 +160,7 @@ Handles the image generation process when the form is submitted.
 ---
 
 ### **10. `updateImageNavigation()`**
+
 **Description:**  
 Updates the state of the previous and next buttons based on the current position in the image history.
 
@@ -163,6 +174,7 @@ Updates the state of the previous and next buttons based on the current position
 ---
 
 ### **11. `prevImageBtn.addEventListener("click", function () { ... })`**
+
 **Description:**  
 Navigates to the previous image in the image history when the "Previous" button is clicked.
 
@@ -175,6 +187,7 @@ Navigates to the previous image in the image history when the "Previous" button 
 ---
 
 ### **12. `nextImageBtn.addEventListener("click", function () { ... })`**
+
 **Description:**  
 Navigates to the next image in the image history when the "Next" button is clicked.
 
@@ -183,4 +196,3 @@ Navigates to the next image in the image history when the "Next" button is click
 
 - **Connected HTML Elements:**
   - `generatedImage`: Displays the next image.
-

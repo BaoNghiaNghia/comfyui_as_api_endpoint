@@ -4,14 +4,11 @@ from pathlib import Path
 from celery import shared_task
 from .services import check_current_queue, generate_images
 import random
-from .constants import THUMBNAIL_STYLE_LIST
+from .constants import THUMBNAIL_STYLE_LIST, SUBFOLDER_TOOL_RENDER, SUBFOLDER_TEAM_AUTOMATION, MAX_IMAGES_THRESHOLD, IMAGES_TO_DELETE
 
 FILE_DIRECTORY = Path(os.getenv('OUTPUT_IMAGE_FOLDER', "/thumbnail_img"))
-TEAM_AUTOMATION_FOLDER = Path("/thumbnail_img/team_automation")
-TOOL_RENDER_FOLDER = Path("/thumbnail_img/tool_render")
-
-MAX_IMAGES_THRESHOLD = 500
-IMAGES_TO_DELETE = 5
+TEAM_AUTOMATION_FOLDER = Path(f"/thumbnail_img/{SUBFOLDER_TEAM_AUTOMATION}")
+TOOL_RENDER_FOLDER = Path(f"/thumbnail_img/{SUBFOLDER_TOOL_RENDER}")
 
 
 async def generate_images_api():
@@ -21,32 +18,41 @@ async def generate_images_api():
             "thumbnail_number": 1,
             "thumb_style": random.choice(THUMBNAIL_STYLE_LIST),
             "file_name": "deep_focus",
-            "subfolder": "team_automation"
+            "subfolder": SUBFOLDER_TEAM_AUTOMATION
         },
         {
             "positive_prompt": "Morning Coffee",
             "thumbnail_number": 1,
             "thumb_style": random.choice(THUMBNAIL_STYLE_LIST),
             "file_name": "morning_coffee",
-            "subfolder": "team_automation"
+            "subfolder": SUBFOLDER_TEAM_AUTOMATION
         },
         {
             "positive_prompt": "Lofi Music",
             "thumbnail_number": 1,
             "thumb_style": random.choice(THUMBNAIL_STYLE_LIST),
             "file_name": "lofi_music",
-            "subfolder": "team_automation"
-        },
-        {
-            "positive_prompt": "Merry Christmas",
-            "thumbnail_number": 1,
-            "thumb_style": random.choice(THUMBNAIL_STYLE_LIST),
-            "file_name": "merry_christmas",
-            "subfolder": "team_automation"
+            "subfolder": SUBFOLDER_TEAM_AUTOMATION
         }
     ]
 
-    random_request = random.choice(init_requests)
+    prefixes = list({request["file_name"] for request in init_requests})
+
+    counts = {prefix: 0 for prefix in prefixes}
+    for request in init_requests:
+        for prefix in prefixes:
+            if request["file_name"].startswith(prefix):
+                counts[prefix] += 1
+
+    smallest_count = min(counts.values())
+    smallest_prefixes = [prefix for prefix, count in counts.items() if count == smallest_count]
+
+    matching_objects = [
+        request for request in init_requests 
+        if request["file_name"] in smallest_prefixes
+    ]
+
+    random_request = random.choice(matching_objects)
 
     await generate_images(
         random_request["positive_prompt"],

@@ -5,9 +5,12 @@ import requests
 import random
 import uuid
 import websocket
+from pathlib import Path
 from urllib.request import urlopen, Request
 from urllib.error import URLError, HTTPError
+from fastapi import APIRouter, HTTPException
 from urllib.parse import urlencode
+from .constants import GEMINI_KEY_TOOL_RENDER, GEMINI_KEY_TEAM_AUTOMATION, SUBFOLDER_TEAM_AUTOMATION, SUBFOLDER_TOOL_RENDER
 
 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -18,6 +21,8 @@ CLIENT_ID = str(uuid.uuid4())
 BACKEND_SERVER_ADDRESS = os.getenv('BACKEND_SERVER_ADDRESS', 'host.docker.internal:8000')
 
 REMOTE_SERVER_ADDRESS = os.getenv('REMOTE_SERVER_ADDRESS', 'host.docker.internal:8188')
+
+FILE_DIRECTORY = Path(os.getenv('OUTPUT_IMAGE_FOLDER', "/thumbnail_img"))
 
 def get_image(filename, subfolder, folder_type):
     data = {"filename": filename, "subfolder": subfolder, "type": folder_type}
@@ -250,13 +255,15 @@ async def generate_images(positive_prompt, thumbnail_number=1, thumb_style='real
 
         workflow["59"]["inputs"]["text2"] = create_prompt_and_call_api(positive_prompt)
 
-        workflow["61"]["inputs"]["api_key"] = random.choice([
-            "AIzaSyA1Z5slGG7kbIOWinCnuz4OJiJ3a6G0t7Y",
-            "AIzaSyC1KVctwhDdVbIDv2cOZDa1kWyz0gq_jOQ",
-            "AIzaSyA85MP5jctMT9rKVR6gT16tEmsuO4JqpLg",
-            "AIzaSyCzXVTqFDI1a1XV5iLwIAcqY-bjR1Xpz8Y"
-        ])
-        
+        # Select the appropriate API key based on the subfolder
+        if subfolder == SUBFOLDER_TOOL_RENDER:
+            api_key_list = GEMINI_KEY_TOOL_RENDER
+        elif subfolder == SUBFOLDER_TEAM_AUTOMATION:
+            api_key_list = GEMINI_KEY_TEAM_AUTOMATION
+        else:
+            raise ValueError(f"Unsupported subfolder: {subfolder}")
+
+        workflow["61"]["inputs"]["api_key"] = random.choice(api_key_list)
 
         workflow["29"]["inputs"]["batch_size"] = thumbnail_number
         workflow["25"]["inputs"]["noise_seed"] = noise_seed
@@ -278,3 +285,28 @@ async def generate_images(positive_prompt, thumbnail_number=1, thumb_style='real
                 ws.close()
             except Exception as e:
                 raise "Network error"
+
+
+def download_single_image(file_name: str, subfolder: str):
+    try:
+        if not file_name or not subfolder:
+            raise HTTPException(status_code=400, detail="Invalid file name or subfolder")
+        
+        file_path = FILE_DIRECTORY / subfolder / file_name
+        
+        if not file_path.resolve().is_relative_to(FILE_DIRECTORY.resolve()):
+            raise HTTPException(status_code=400, detail="Invalid file path")
+        
+        if not file_path.exists() or not file_path.is_file():
+            raise HTTPException(status_code=404, detail="File not found")
+        
+        return file_path
+
+    except PermissionError:
+        raise HTTPException(status_code=403, detail="Permission denied to access the file")
+    
+    except FileNotFoundError:
+        raise HTTPException(status_code=404, detail="File or directory not found")
+    
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Unexpected error occurred: {str(e)}")
