@@ -129,7 +129,7 @@ def authenticate_user(domain, token):
         return None
 
 
-def scene_template_1(textStyle, input_string):
+def scene_template_1(textStyle, input_string, title):
     return f"""
         Scene Description:
 
@@ -138,7 +138,7 @@ def scene_template_1(textStyle, input_string):
 
         Banner Title:
 
-        {textStyle} "{input_string}" in top center
+        {textStyle} "{title}" in top center
 
 
         Background Details:
@@ -157,31 +157,31 @@ def scene_template_1(textStyle, input_string):
     """
 
 
-def scene_template_2(textStyle, input_string):
+def scene_template_2(textStyle, input_string, title):
     return f"""
         ...
     """
 
 
-def scene_template_3(textStyle, input_string):
+def scene_template_3(textStyle, input_string, title):
     return f"""
         ...
     """
 
 
-def scene_template_4(textStyle, input_string):
+def scene_template_4(textStyle, input_string, title):
     return f"""
         ...
     """
 
 
-def create_prompt_and_call_api(input_string):
+def create_prompt_and_call_api(input_string, title):
     # Mapping of scene templates
     scene_templates = {
         1: scene_template_1,
-        2: scene_template_2,
-        3: scene_template_3,
-        4: scene_template_4
+        2: scene_template_1,
+        3: scene_template_1,
+        4: scene_template_1
     }
 
     # Randomly choose a text style
@@ -189,14 +189,14 @@ def create_prompt_and_call_api(input_string):
 
     # Randomly choose a scene template
     template_choice = random.choice([1, 2, 3, 4])
-    scene_template = scene_templates[template_choice](textStyle, input_string)
+    scene_template = scene_templates[template_choice](textStyle, input_string, title)
 
     # Construct and return the full API call prompt
     return f"```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\n{scene_template}```"
 
 
 
-async def generate_images(positive_prompt, thumbnail_number=1, thumb_style='realistic photo', subfolder='tool_render', filename_prefix='ytbthumb'):
+async def generate_images(short_description, title, thumbnail_number=1, thumb_style='realistic photo', subfolder='tool_render', filename_prefix='ytbthumb'):
     ws = None
 
     try:
@@ -226,11 +226,11 @@ async def generate_images(positive_prompt, thumbnail_number=1, thumb_style='real
         workflow["178"]["inputs"]["filename_prefix"] = filename_prefix
 
         workflow["59"]["inputs"]["text1"] = (
-            f'describe "{positive_prompt}" with {thumb_style} style as a prompt base on this format prompt.'
-            f'And must have banner title ***{positive_prompt}***:'
+            f'describe "{short_description}" with {thumb_style} style as a prompt base on this format prompt.'
+            f'And must have banner title ***{title}***:'
         )
 
-        workflow["59"]["inputs"]["text2"] = create_prompt_and_call_api(positive_prompt)
+        workflow["59"]["inputs"]["text2"] = create_prompt_and_call_api(short_description, title)
 
         if subfolder == SUBFOLDER_TOOL_RENDER:
             api_key_list = GEMINI_KEY_TOOL_RENDER

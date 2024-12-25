@@ -30,22 +30,24 @@ async def generate_images_api(request: PromptRequest):
         #         raise HTTPException(status_code=401, detail="Authentication failed")
         #     print(f"Authenticated successfully. Response: {message}")
 
-        if not request.positive_prompt:
-            raise HTTPException(status_code=400, detail="Positive prompt is required.")
+        if not request.short_description:
+            raise HTTPException(status_code=400, detail="Short description is required.")
+        if not request.title:
+            raise HTTPException(status_code=400, detail="Title is required.")
         if request.thumbnail_number <= 0:
             raise HTTPException(status_code=400, detail="Thumbnail number must be greater than 0.")
         if not request.thumb_style:
             raise HTTPException(status_code=400, detail="Must be select style of thumbnail.")
 
-        images = await generate_images(request.positive_prompt, request.thumbnail_number, request.thumb_style, SUBFOLDER_TOOL_RENDER, DEFAULT_FILENAME_PREFIX)
+        images = await generate_images(request.short_description, request.title, request.thumbnail_number, request.thumb_style, SUBFOLDER_TOOL_RENDER, DEFAULT_FILENAME_PREFIX)
 
         if not images:
             raise HTTPException(status_code=500, detail="Image generation failed.")
 
         return {"images": images, "thumbnail_number": request.thumbnail_number}
 
-    except HTTPException as http_exc:
-        raise http_exc
+    except HTTPException as http_exception:
+        raise http_exception
 
     except ValueError as value_error:
         raise HTTPException(status_code=400, detail=f"Value error: {str(value_error)}")

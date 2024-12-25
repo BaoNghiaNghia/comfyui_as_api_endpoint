@@ -6,7 +6,8 @@ class LLMRequest(BaseModel):
 
 # Request model for image generation
 class PromptRequest(BaseModel):
-    positive_prompt: str
+    short_description: str
+    title: str
     thumbnail_number: int = 5
     thumb_style: str
     domain: str

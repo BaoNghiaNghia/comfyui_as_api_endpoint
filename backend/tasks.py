@@ -14,24 +14,27 @@ TOOL_RENDER_FOLDER = Path(f"/thumbnail_img/{SUBFOLDER_TOOL_RENDER}")
 async def generate_images_api():
     init_requests = [
         {
-            "positive_prompt": "Deep Focus",
-            "thumbnail_number": 1,
-            "thumb_style": random.choice(THUMBNAIL_STYLE_LIST),
+            "short_description": "Music for deep focus in the Morning",
+            "title": "Deep Focus",
             "file_name": "deep_focus",
+            "thumbnail_number": 1,
+            "thumb_style": random.choice(THUMBNAIL_STYLE_LIST),
             "subfolder": SUBFOLDER_TEAM_AUTOMATION
         },
         {
-            "positive_prompt": "Morning Coffee",
-            "thumbnail_number": 1,
-            "thumb_style": random.choice(THUMBNAIL_STYLE_LIST),
+            "short_description": "Morning Coffee Music",
+            "title": "Morning Coffee",
             "file_name": "morning_coffee",
+            "thumbnail_number": 1,
+            "thumb_style": random.choice(THUMBNAIL_STYLE_LIST),
             "subfolder": SUBFOLDER_TEAM_AUTOMATION
         },
         {
-            "positive_prompt": "Lofi Music",
+            "short_description": "Lofi Music",
+            "title": "Lofi Music",
+            "file_name": "lofi_music",
             "thumbnail_number": 1,
             "thumb_style": random.choice(THUMBNAIL_STYLE_LIST),
-            "file_name": "lofi_music",
             "subfolder": SUBFOLDER_TEAM_AUTOMATION
         }
     ]
@@ -55,7 +58,8 @@ async def generate_images_api():
     random_request = random.choice(matching_objects)
 
     await generate_images(
-        random_request["positive_prompt"],
+        random_request["short_description"],
+        random_request["title"],
         random_request["thumbnail_number"],
         random_request["thumb_style"],
         random_request["subfolder"],
