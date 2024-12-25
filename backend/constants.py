@@ -59,8 +59,7 @@ import uuid
 THUMBNAIL_STYLE_LIST = [
     "realistic photo",
     "3d realistic",
-    "3d colorful",
-    "anime"
+    "3d colorful"
 ]
 
 GEMINI_KEY_TOOL_RENDER = [
