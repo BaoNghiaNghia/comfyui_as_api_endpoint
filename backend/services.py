@@ -257,7 +257,7 @@ async def generate_images(short_description, title, thumbnail_number=1, thumb_st
             workflow_data = f.read()
 
         workflow = json.loads(workflow_data)
-        noise_seed = random.randint(1, 1000000000000000)
+        noise_seed = random.randint(100000000000000, 1000000000000000)
 
         workflow["178"]["inputs"]["foldername_prefix"] = subfolder
         workflow["178"]["inputs"]["filename_prefix"] = filename_prefix
