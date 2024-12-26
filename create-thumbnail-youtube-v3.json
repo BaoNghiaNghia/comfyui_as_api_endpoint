@@ -1,6 +1,6 @@
 {
-  "last_node_id": 185,
-  "last_link_id": 215,
+  "last_node_id": 186,
+  "last_link_id": 216,
   "nodes": [
     {
       "id": 47,
@@ -1116,67 +1116,6 @@
       ]
     },
     {
-      "id": 178,
-      "type": "SaveImageExtended",
-      "pos": [
-        2889.33642578125,
-        -922.77685546875
-      ],
-      "size": [
-        317.1272277832031,
-        598
-      ],
-      "flags": {},
-      "order": 35,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 206
-        },
-        {
-          "name": "positive_text_opt",
-          "type": "STRING",
-          "link": 207,
-          "widget": {
-            "name": "positive_text_opt"
-          },
-          "shape": 7
-        },
-        {
-          "name": "negative_text_opt",
-          "type": "STRING",
-          "link": 208,
-          "widget": {
-            "name": "negative_text_opt"
-          },
-          "shape": 7
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "Node name for S&R": "SaveImageExtended"
-      },
-      "widgets_values": [
-        "ytbthumb",
-        "steps, noise_seed",
-        "tool_render",
-        "",
-        "underscore",
-        "disabled",
-        "disabled",
-        "",
-        "enabled",
-        5,
-        "last",
-        "disabled",
-        "enabled",
-        "",
-        ""
-      ]
-    },
-    {
       "id": 65,
       "type": "Note",
       "pos": [
@@ -1255,51 +1194,6 @@
       "color": "#232",
       "bgcolor": "#353",
       "shape": 2
-    },
-    {
-      "id": 48,
-      "type": "ColorCorrect",
-      "pos": [
-        2562.557861328125,
-        -185.31593322753906
-      ],
-      "size": [
-        295.36468505859375,
-        178
-      ],
-      "flags": {},
-      "order": 34,
-      "mode": 4,
-      "inputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 66
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            206
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ColorCorrect"
-      },
-      "widgets_values": [
-        0,
-        0,
-        0,
-        2,
-        2,
-        1
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
     },
     {
       "id": 13,
@@ -1517,6 +1411,146 @@
         "Textimprover-FLUX-V0.4.safetensors",
         0.5,
         0.2
+      ]
+    },
+    {
+      "id": 186,
+      "type": "easy cleanGpuUsed",
+      "pos": [
+        2934.43994140625,
+        -64.2611083984375
+      ],
+      "size": [
+        210,
+        26
+      ],
+      "flags": {},
+      "order": 36,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 216
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy cleanGpuUsed"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 48,
+      "type": "ColorCorrect",
+      "pos": [
+        2562.557861328125,
+        -185.31593322753906
+      ],
+      "size": [
+        295.36468505859375,
+        178
+      ],
+      "flags": {},
+      "order": 34,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 66
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            206,
+            216
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ColorCorrect"
+      },
+      "widgets_values": [
+        0,
+        0,
+        0,
+        2,
+        2,
+        1
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 178,
+      "type": "SaveImageExtended",
+      "pos": [
+        2889.33642578125,
+        -922.77685546875
+      ],
+      "size": [
+        317.1272277832031,
+        598
+      ],
+      "flags": {},
+      "order": 35,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 206
+        },
+        {
+          "name": "positive_text_opt",
+          "type": "STRING",
+          "link": 207,
+          "widget": {
+            "name": "positive_text_opt"
+          },
+          "shape": 7
+        },
+        {
+          "name": "negative_text_opt",
+          "type": "STRING",
+          "link": 208,
+          "widget": {
+            "name": "negative_text_opt"
+          },
+          "shape": 7
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImageExtended"
+      },
+      "widgets_values": [
+        "ytbthumb",
+        "steps, noise_seed",
+        "tool_render",
+        "",
+        "underscore",
+        "disabled",
+        "disabled",
+        "",
+        "enabled",
+        5,
+        "last",
+        "disabled",
+        "enabled",
+        "",
+        ""
       ]
     }
   ],
@@ -1808,6 +1842,14 @@
       178,
       2,
       "STRING"
+    ],
+    [
+      216,
+      48,
+      0,
+      186,
+      0,
+      "*"
     ]
   ],
   "groups": [
@@ -1880,13 +1922,15 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 1.412292769524454,
+      "scale": 0.7972024500000005,
       "offset": [
-        695.4196244087677,
-        1054.1343388803243
+        -800.9860726390962,
+        1085.061989380731
       ]
     },
-    "ue_links": []
+    "ue_links": [],
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0
   },
   "version": 0.4
 }

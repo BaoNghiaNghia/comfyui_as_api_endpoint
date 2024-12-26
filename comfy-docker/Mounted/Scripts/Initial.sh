@@ -44,5 +44,3 @@ echo "====== Installing ComfyUI Manager Requirements ======="
 pip3 install -r /ComfyUIDocker/ComfyUI/custom_nodes/ComfyUI-Manager/requirements.txt
 
 exit
-
-

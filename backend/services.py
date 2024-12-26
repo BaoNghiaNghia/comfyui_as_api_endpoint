@@ -124,7 +124,7 @@ def authenticate_user(domain, token):
     except Exception as e:
         logging.error(f"An unexpected error occurred during authentication: {e}")
         return None
-    
+
 
 def scene_description_template(textStyle, input_string, title):
     list_scene = [

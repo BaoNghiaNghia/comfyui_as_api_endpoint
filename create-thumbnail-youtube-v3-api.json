@@ -375,5 +375,12 @@
     "_meta": {
       "title": "Positive text"
     }
+  },
+  "186": {
+    "inputs": {},
+    "class_type": "easy cleanGpuUsed",
+    "_meta": {
+      "title": "Clean VRAM Used"
+    }
   }
 }

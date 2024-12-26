@@ -24,7 +24,7 @@ Starts a timer that displays the elapsed time since the image generation process
 
 ### **2. `stopTimer()`**
 
-**Description:**  
+**Description:**
 Stops the timer once the image generation process is complete.
 
 - **How it works:**

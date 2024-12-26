@@ -3,7 +3,7 @@ from fastapi.responses import FileResponse
 from .models import PromptRequest
 from .services import generate_images, authenticate_user, download_single_image
 from .tasks import check_and_generate_images
-from .constants import DEFAULT_FILENAME_PREFIX, SUBFOLDER_TOOL_RENDER, FILE_DIRECTORY
+from .constants import DEFAULT_FILENAME_PREFIX, SUBFOLDER_TOOL_RENDER
 
 router = APIRouter()
 

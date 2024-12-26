@@ -4,7 +4,7 @@ from pathlib import Path
 from celery import shared_task
 from .services import check_current_queue, generate_images
 import random
-from .constants import THUMBNAIL_STYLE_LIST, SUBFOLDER_TOOL_RENDER, SUBFOLDER_TEAM_AUTOMATION, MAX_IMAGES_THRESHOLD, IMAGES_TO_DELETE, FILE_DIRECTORY
+from .constants import THUMBNAIL_STYLE_LIST, SUBFOLDER_TOOL_RENDER, SUBFOLDER_TEAM_AUTOMATION, MAX_IMAGES_THRESHOLD, IMAGES_TO_DELETE
 
 TEAM_AUTOMATION_FOLDER = Path(f"/thumbnail_img/{SUBFOLDER_TEAM_AUTOMATION}")
 TOOL_RENDER_FOLDER = Path(f"/thumbnail_img/{SUBFOLDER_TOOL_RENDER}")
@@ -158,8 +158,8 @@ def delete_oldest_images_tool_render():
 
         images.sort(key=os.path.getmtime)
 
-        if len(images) > MAX_IMAGES_THRESHOLD:
-            while len(images) > MAX_IMAGES_THRESHOLD:
+        if len(images) > MAX_IMAGES_THRESHOLD/2:
+            while len(images) > MAX_IMAGES_THRESHOLD/2:
                 for i in range(min(IMAGES_TO_DELETE, len(images))):
                     oldest_image = images[i]
                     os.remove(oldest_image)
@@ -171,7 +171,7 @@ def delete_oldest_images_tool_render():
                 images = [os.path.join(TOOL_RENDER_FOLDER, f) for f in os.listdir(TOOL_RENDER_FOLDER) if os.path.isfile(os.path.join(TOOL_RENDER_FOLDER, f))]
                 images.sort(key=os.path.getmtime)
         else:
-            print(f"----- No need to delete images [Tool Render]. Current number of images ({len(images)}) is below the threshold ({MAX_IMAGES_THRESHOLD}).")
+            print(f"----- No need to delete images [Tool Render]. Current number of images ({len(images)}) is below the threshold ({MAX_IMAGES_THRESHOLD/2}).")
 
     except Exception as e:
         print(f"Error during image cleanup: {e}")
