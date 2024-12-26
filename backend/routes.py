@@ -1,11 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import FileResponse
-import os
 from .models import PromptRequest
 from .services import generate_images, authenticate_user, download_single_image
-from PIL import Image
-import io
-from pathlib import Path
 from .tasks import check_and_generate_images
 from .constants import DEFAULT_FILENAME_PREFIX, SUBFOLDER_TOOL_RENDER, FILE_DIRECTORY
 

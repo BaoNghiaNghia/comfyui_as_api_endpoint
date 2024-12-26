@@ -4,7 +4,6 @@ import logging
 import requests
 import random
 import websocket
-from pathlib import Path
 from urllib.request import urlopen, Request
 from urllib.error import URLError, HTTPError
 from fastapi import HTTPException
@@ -125,13 +124,53 @@ def authenticate_user(domain, token):
     except Exception as e:
         logging.error(f"An unexpected error occurred during authentication: {e}")
         return None
+    
+
+def scene_description_template(textStyle, input_string, title):
+    list_scene = [
+        """
+            A breathtaking forest valley at sunrise, the scene filled with layers of lush greenery stretching into the distance, creating a sense of immense depth. The foreground features a narrow, winding trail lined with moss-covered stones and vibrant wildflowers in shades of yellow, blue, and white. Towering trees with textured bark and sprawling roots frame the edges of the trail, their leaves glowing in the soft golden light filtering through the canopy. Midground, a serene river winds through the valley, its surface glistening with reflections of the sky above, while a small wooden bridge arches gracefully over the water. In the background, rolling hills covered in dense forest rise into the mist, fading into subtle shades of blue and green. Overhead, the sky transitions from warm hues of orange and pink near the horizon to a crisp, pale blue, with a few fluffy clouds floating lazily. Birds soar in the distance, adding a sense of movement and life to the tranquil scene
+        """,
+        """
+            A grand canyon landscape at sunrise, showcasing towering cliffs with intricate layers of red, orange, and brown rock. In the foreground, a rugged dirt trail winds along the edge of the canyon, dotted with desert shrubs and small cacti. Midground, the canyon descends into shadow, revealing a glimmering river far below that snakes through the valley, reflecting the soft golden light of the morning sun. The background features distant cliffs fading into pale hues of blue and purple, partially shrouded by mist. Overhead, the sky is painted in warm orange and pink tones, with streaks of soft clouds illuminated by the rising sun.
+        """,
+        """
+            A pristine alpine lake surrounded by majestic snow-capped mountains under a clear morning sky. In the foreground, smooth pebbles line the crystal-clear water's edge, reflecting the sky and surrounding peaks. A wooden dock extends into the lake, with a small rowboat tied to it, creating a sense of stillness. Midground, the water mirrors the towering pine trees along the shoreline, their deep green contrasting with the icy blue of the lake. In the background, the rugged mountains rise sharply, their snow-covered peaks glowing softly in the early sunlight. Wisps of clouds cling to the highest ridges, adding texture to the sky.
+        """,
+        """
+            A dramatic coastal cliffside at sunset, with jagged rocks plunging into the crashing waves of a deep blue ocean below. In the foreground, wild grasses and bright orange flowers cling to the rocky terrain, swaying in the salty breeze. Midground, a narrow dirt path winds along the cliff edge, leading to an old stone lighthouse perched at the highest point, its windows glowing faintly with warm light. In the background, the horizon stretches endlessly, with the ocean meeting the sky painted in gradients of pink, orange, and deep purple. Seagulls soar above, adding a sense of movement and life to the vast and serene scene.
+        """,
+        """
+            A mystical forest scene at twilight, with towering trees forming a natural cathedral, their dense branches and leaves creating intricate patterns against the fading light. In the foreground, a moss-covered log lies across a bubbling creek, surrounded by glowing bioluminescent mushrooms and ferns. The midground reveals a clearing filled with wildflowers, their petals glowing faintly in shades of blue and white, while fireflies dance in the air. In the background, the forest stretches into darkness, with tall trees fading into the misty blue shadows. Rays of soft purple and golden light pierce through gaps in the canopy, adding an ethereal quality to the scene.
+        """,
+        """
+            A serene meadow at dawn, bathed in the cool, soft light of sunrise. The meadow is alive with vibrant flowers in full bloom, featuring shades of lavender, blue, yellow, and white scattered across the lush, dew-covered grass. The sunlight filters through scattered trees at the edge of the meadow, casting gentle bluish shadows and illuminating the petals, making them glisten with morning dew. The sky is a tranquil gradient of light blue and teal, with thin, wispy clouds glowing faintly in the early morning light. In the foreground, tall wildflowers sway gently in the breeze, adding motion and life to the scene. A narrow dirt path winds through the field, leading toward a rustic wooden fence in the distance that separates the meadow from a grove of trees shrouded in a faint morning mist. The atmosphere is peaceful, refreshing, and bursting with natural beauty.
+        """,
+        """
+            A serene meadow at dawn, bathed in the cool, soft light of sunrise. The sunlight filters through scattered trees at the edge of the meadow, casting gentle bluish shadows across the lush, dew-covered grass. Wildflowers in shades of pale blue, white, and soft lavender dot the meadow, adding subtle bursts of color. The sky is a tranquil gradient of light blue and teal, with thin, wispy clouds glowing faintly in the early morning light. In the foreground, tall grass sways gently in the breeze, with dew droplets sparkling like tiny crystals. A wooden bench sits at the edge of the meadow, inviting quiet reflection. In the distance, a rustic wooden fence separates the meadow from a grove of trees shrouded in a faint morning mist, completing the peaceful, cool-toned scene.
+        """,
+        """
+            A serene meadow at dawn, bathed in the cool, soft light of sunrise. The sunlight filters through scattered trees at the edge of the meadow, casting gentle bluish shadows across the lush, dew-covered grass. Wildflowers in shades of pale blue, white, and soft lavender dot the meadow, adding subtle bursts of color. The sky is a tranquil gradient of light blue and teal, with thin, wispy clouds glowing faintly in the early morning light. In the foreground, tall grass sways gently in the breeze, with dew droplets sparkling like tiny crystals. A wooden bench sits at the edge of the meadow, where a person is seated, wrapped in a cozy sweater, holding a steaming cup of coffee. They appear calm and contemplative, gazing at the horizon as they enjoy the peaceful ambiance. In the distance, a rustic wooden fence separates the meadow from a grove of trees shrouded in a faint morning mist, completing the tranquil scene.
+        """,
+        """
+            A serene meadow at dawn, bathed in the cool, soft light of sunrise. The sunlight filters through scattered trees at the edge of the meadow, casting gentle bluish shadows across the lush, dew-covered grass. Wildflowers in shades of pale blue, white, and soft lavender dot the meadow, adding subtle bursts of color. The sky is a tranquil gradient of light blue and teal, with thin, wispy clouds glowing faintly in the early morning light. In the foreground, a lone jogger is running along a dirt path that winds through the meadow, dressed in a lightweight hoodie and running shoes. Their breath forms faint clouds in the crisp air as they move with focus and energy. Tall grass sways gently in the breeze, and droplets of dew sparkle like tiny crystals. In the distance, a rustic wooden fence separates the meadow from a grove of trees shrouded in a faint morning mist, completing the peaceful yet invigorating scene.
+        """,
+        """
+            A quiet alleyway at dawn, bathed in the soft, cool light of early morning. The sunlight streams gently into the alley from one side, casting long, soft shadows on the cobblestone path. The walls of the alley are adorned with faded pastel colors and ivy climbing up old brick buildings, with small windows reflecting the pale blue and golden hues of the morning sky. A lone bicycle leans against one wall, and a small wooden table with a potted plant sits near a doorway. The air feels fresh and tranquil, with a faint mist hovering close to the ground. In the distance, the alley opens up to reveal a glimpse of a city street just waking up, with a silhouette of a passerby carrying a bag. The scene captures the peaceful stillness of a city morning before the bustle begins.
+        """,
+        """
+            A vibrant and festive Vietnamese Lunar New Year celebration. The scene features a bustling environment with traditional decorations: red lanterns hanging in the air, peach blossoms in full bloom, and kumquat trees adorned with golden fruits. In the foreground, people in colorful áo dài (traditional Vietnamese attire) are smiling and engaging in joyous activities such as giving red envelopes to children and enjoying Tết delicacies.
+        """
+    ]
+
+    return random.choice(list_scene)
 
 
 def scene_template_1(textStyle, input_string, title):
     return f"""
         Scene Description:
 
-        A vibrant and festive Vietnamese Lunar New Year celebration. The scene features a bustling environment with traditional decorations: red lanterns hanging in the air, peach blossoms in full bloom, and kumquat trees adorned with golden fruits. In the foreground, people in colorful áo dài (traditional Vietnamese attire) are smiling and engaging in joyous activities such as giving red envelopes to children and enjoying Tết delicacies.
+        {scene_description_template(textStyle, input_string, title)}
 
 
         Banner Title:
@@ -141,7 +180,7 @@ def scene_template_1(textStyle, input_string, title):
 
         Background Details:
 
-        A lively village or urban setting decorated with banners handwritten big text "Happy New Year" in top center, strings of lights, and fireworks lighting up the evening sky. Market stalls and family gatherings add a sense of community and tradition.
+        A lively village or urban setting decorated with banners {textStyle} "{title}" in top center, strings of lights, and fireworks lighting up the evening sky. Market stalls and family gatherings add a sense of community and tradition.
 
 
         Color Palette:
@@ -157,7 +196,7 @@ def scene_template_1(textStyle, input_string, title):
 
 def scene_template_2(textStyle, input_string, title):
     return f"""
-        ...
+        A moody lo-fi cityscape at night, bathed in shades of deep purple and black. The scene features a quiet urban alley with rain-slicked cobblestone streets reflecting the neon glow of purple and magenta signs mounted on old brick buildings. A single streetlamp casts a dim, cool light, creating long shadows and an air of mystery. In the foreground, a young person in a hoodie is leaning against a wall, headphones on, holding a steaming cup of coffee, their face softly illuminated by the glow of a nearby neon sign. A black cat with glowing purple eyes sits at their feet, adding an enigmatic vibe. In the background, silhouettes of distant skyscrapers with flickering purple windows fade into the night sky, where faint stars peek through. A soft rain falls, creating a rhythmic, tranquil atmosphere, with puddles scattered across the street glistening in the neon light. The entire scene exudes a chill, introspective lo-fi vibe.
     """
 
 

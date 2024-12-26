@@ -85,7 +85,7 @@
   "17": {
     "inputs": {
       "scheduler": "ddim_uniform",
-      "steps": 20,
+      "steps": 25,
       "denoise": 1,
       "model": [
         "27",
@@ -115,7 +115,7 @@
   },
   "25": {
     "inputs": {
-      "noise_seed": 1088612403131918
+      "noise_seed": 89672930483677
     },
     "class_type": "RandomNoise",
     "_meta": {
@@ -231,8 +231,8 @@
   "49": {
     "inputs": {
       "lora_name": "Textimprover-FLUX-V0.4.safetensors",
-      "strength_model": 1,
-      "strength_clip": 0.5,
+      "strength_model": 0.5,
+      "strength_clip": 0.2,
       "model": [
         "12",
         0
@@ -253,7 +253,7 @@
         "61",
         0
       ],
-      "text2": "***Lofi Music***\n\n((Realistic photo)), ((detailed)), ((best quality)), ((atmospheric lighting)), ((grainy texture))\n\nScene Description:\nA cozy and intimate room bathed in the warm glow of a setting sun.  Rain gently streaks a windowpane, blurring the city lights outside.  Headphones rest on an open notebook filled with sketches or musical notations. A steaming mug sits beside it, perhaps coffee or tea. A cat curls up asleep on a nearby armchair or blanket.  Elements of technology might be present, such as a vintage computer displaying code, a synthesizer, or a record player.\n\nBanner Title:\n***Lofi Music*** in a simple, sans-serif font, subtly integrated into the scene, perhaps as a sticker on a laptop or a poster on the wall.\n\nBackground Details:\nThe room should have a lived-in feel, with bookshelves, plants, and personal items scattered around. The city lights outside the window contribute to the overall mood of peaceful contemplation.\n\nColor Palette:\nWarm, muted tones dominate, like oranges, browns, deep blues, and purples, evoking a sense of calm and relaxation.  The lighting is soft and diffused, mimicking the golden hour or late evening.\n\nComposition:\nThe image should evoke a sense of quiet focus and creativity. The focus is on the details of the room and the interplay of light and shadow, creating a calming and introspective atmosphere.  The composition should feel natural and unposed, like a glimpse into a moment of peaceful productivity or relaxation.\n"
+      "text2": "((Realistic photo)), ((detailed)), ((best quality)), ((perfect reflection)), ((smooth water)), ((misty atmosphere))\n\nScene Description:\nA serene and tranquil lake at dawn.  A grand piano sits partially submerged in the shallows, its polished wood gleaming in the soft light.  Sheets of music rest on the music stand, gently rippling in a slight breeze. The keys appear untouched, as if waiting to be played. Mist clings to the surface of the water, adding a touch of mystery and ethereal beauty.\n\n***Deep Focus Music***\n\nBackground Details:\nTall, misty mountains rise in the background, their peaks partially obscured by clouds. The surrounding landscape is lush and green, with trees and vegetation reflected in the still water.  A gentle light filters through the mist, creating a dreamy and peaceful atmosphere.  No signs of human life are visible, emphasizing the solitude and tranquility of the scene.\n\n\nColor Palette:\nCool blues and greens dominate the palette, reflecting the water and surrounding foliage.  Warm golden hues from the sunrise peek through the mist, adding a touch of contrast and magic. The overall mood is calm and contemplative.\n\n\nComposition:\nThe piano should be the central focus, with the mountains and misty lake creating a stunning backdrop. The reflection of the piano in the water adds a sense of symmetry and depth. The overall image should evoke a sense of peace, mystery, and the beauty of nature.\n"
     },
     "class_type": "ShowText|pysssss",
     "_meta": {
@@ -262,12 +262,12 @@
   },
   "59": {
     "inputs": {
-      "text1": "describe \"Lofi Music\" as a prompt base on this format prompt. And must have banner title ***Lofi Music***:",
+      "text1": "describe \"Lake Music In The Lake\" as a prompt base on this format prompt. And must have banner title ***Deep Focus Music***:",
       "text2": "```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\nScene Description:\nA vibrant and festive Vietnamese Lunar New Year celebration. The scene features a bustling environment with traditional decorations: red lanterns hanging in the air, peach blossoms in full bloom, and kumquat trees adorned with golden fruits. In the foreground, people in colorful áo dài (traditional Vietnamese attire) are smiling and engaging in joyous activities such as giving red envelopes (lì xì) to children and enjoying Tết delicacies.\n\n\nBanner Title:\nThe handwriter big text \"Happy New Year\" in top center or center\n\n\nBackground Details:\nA lively village or urban setting decorated with banners handwriter big text \"Happy New Year\" in top center, strings of lights, and fireworks lighting up the evening sky. Market stalls and family gatherings add a sense of community and tradition.\n\n\nColor Palette:\nDominated by auspicious colors like red and gold, symbolizing luck and prosperity, with hints of pink from peach blossoms and green from the kumquat trees. The lighting is warm and inviting, emphasizing the celebratory mood.\n\n\nComposition:\nThe layout has a balanced mix of cultural symbols and joyful interactions. Focus on the details of traditional clothing, decorations, and facial expressions to capture the essence of Vietnamese New Year traditions.\n```",
       "operation": "text1 + text2 to output1, text2 to output2",
       "delimiter": " ",
       "use_seed": "false",
-      "seed": 305061881740649
+      "seed": 829377521033555
     },
     "class_type": "TextCombinations",
     "_meta": {
@@ -280,7 +280,7 @@
         "59",
         0
       ],
-      "text2": "describe \"Lofi Music\" as a prompt base on this format prompt. And must have banner title ***Lofi Music***: ```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\nScene Description:\nA vibrant and festive Vietnamese Lunar New Year celebration. The scene features a bustling environment with traditional decorations: red lanterns hanging in the air, peach blossoms in full bloom, and kumquat trees adorned with golden fruits. In the foreground, people in colorful áo dài (traditional Vietnamese attire) are smiling and engaging in joyous activities such as giving red envelopes (lì xì) to children and enjoying Tết delicacies.\n\n\nBanner Title:\nThe handwriter big text \"Happy New Year\" in top center or center\n\n\nBackground Details:\nA lively village or urban setting decorated with banners handwriter big text \"Happy New Year\" in top center, strings of lights, and fireworks lighting up the evening sky. Market stalls and family gatherings add a sense of community and tradition.\n\n\nColor Palette:\nDominated by auspicious colors like red and gold, symbolizing luck and prosperity, with hints of pink from peach blossoms and green from the kumquat trees. The lighting is warm and inviting, emphasizing the celebratory mood.\n\n\nComposition:\nThe layout has a balanced mix of cultural symbols and joyful interactions. Focus on the details of traditional clothing, decorations, and facial expressions to capture the essence of Vietnamese New Year traditions.\n```"
+      "text2": "describe \"Lake Music In The Lake\" as a prompt base on this format prompt. And must have banner title ***Deep Focus Music***: ```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\nScene Description:\nA vibrant and festive Vietnamese Lunar New Year celebration. The scene features a bustling environment with traditional decorations: red lanterns hanging in the air, peach blossoms in full bloom, and kumquat trees adorned with golden fruits. In the foreground, people in colorful áo dài (traditional Vietnamese attire) are smiling and engaging in joyous activities such as giving red envelopes (lì xì) to children and enjoying Tết delicacies.\n\n\nBanner Title:\nThe handwriter big text \"Happy New Year\" in top center or center\n\n\nBackground Details:\nA lively village or urban setting decorated with banners handwriter big text \"Happy New Year\" in top center, strings of lights, and fireworks lighting up the evening sky. Market stalls and family gatherings add a sense of community and tradition.\n\n\nColor Palette:\nDominated by auspicious colors like red and gold, symbolizing luck and prosperity, with hints of pink from peach blossoms and green from the kumquat trees. The lighting is warm and inviting, emphasizing the celebratory mood.\n\n\nComposition:\nThe layout has a balanced mix of cultural symbols and joyful interactions. Focus on the details of traditional clothing, decorations, and facial expressions to capture the essence of Vietnamese New Year traditions.\n```"
     },
     "class_type": "ShowText|pysssss",
     "_meta": {
