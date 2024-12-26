@@ -60,8 +60,8 @@ from pathlib import Path
 
 THUMBNAIL_STYLE_LIST = [
     "realistic photo",
-    "3d realistic",
-    "3d colorful"
+    # "3d realistic",
+    # "3d colorful"
 ]
 
 GEMINI_KEY_TOOL_RENDER = [
