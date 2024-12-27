@@ -375,37 +375,5 @@
     "_meta": {
       "title": "Positive text"
     }
-  },
-  "187": {
-    "inputs": {
-      "PowerLoraLoaderHeaderWidget": {
-        "type": "PowerLoraLoaderHeaderWidget"
-      },
-      "lora_1": {
-        "on": true,
-        "lora": "flux.1_lora_flyway_doodle-poster.safetensors",
-        "strength": 1
-      },
-      "lora_2": {
-        "on": true,
-        "lora": "flux.1_lora_flyway_Epic-detail_v2.safetensors",
-        "strength": 0.7
-      },
-      "lora_3": {
-        "on": true,
-        "lora": "Textimprover-FLUX-V0.4.safetensors",
-        "strength": 0.3
-      },
-      "lora_4": {
-        "on": true,
-        "lora": "perfection style v2d.safetensors",
-        "strength": 0.3
-      },
-      "➕ Add Lora": ""
-    },
-    "class_type": "Power Lora Loader (rgthree)",
-    "_meta": {
-      "title": "Power Lora Loader (rgthree)"
-    }
   }
 }

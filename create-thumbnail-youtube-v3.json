@@ -110,7 +110,7 @@
         46
       ],
       "flags": {},
-      "order": 29,
+      "order": 28,
       "mode": 0,
       "inputs": [
         {
@@ -186,7 +186,7 @@
         102
       ],
       "flags": {},
-      "order": 30,
+      "order": 29,
       "mode": 4,
       "inputs": [
         {
@@ -299,7 +299,7 @@
         46
       ],
       "flags": {},
-      "order": 27,
+      "order": 26,
       "mode": 0,
       "inputs": [
         {
@@ -343,7 +343,7 @@
         106
       ],
       "flags": {},
-      "order": 23,
+      "order": 22,
       "mode": 0,
       "inputs": [
         {
@@ -384,7 +384,7 @@
         202
       ],
       "flags": {},
-      "order": 24,
+      "order": 23,
       "mode": 0,
       "inputs": [
         {
@@ -429,7 +429,7 @@
         126
       ],
       "flags": {},
-      "order": 16,
+      "order": 15,
       "mode": 4,
       "inputs": [
         {
@@ -485,7 +485,7 @@
         130
       ],
       "flags": {},
-      "order": 32,
+      "order": 31,
       "mode": 0,
       "inputs": [
         {
@@ -526,7 +526,7 @@
         178
       ],
       "flags": {},
-      "order": 34,
+      "order": 33,
       "mode": 4,
       "inputs": [
         {
@@ -597,7 +597,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 25,
+      "order": 24,
       "mode": 0,
       "inputs": [
         {
@@ -717,7 +717,7 @@
         106
       ],
       "flags": {},
-      "order": 28,
+      "order": 27,
       "mode": 0,
       "inputs": [
         {
@@ -785,7 +785,7 @@
         126
       ],
       "flags": {},
-      "order": 20,
+      "order": 19,
       "mode": 0,
       "inputs": [
         {
@@ -841,7 +841,7 @@
         717.33203125
       ],
       "flags": {},
-      "order": 17,
+      "order": 16,
       "mode": 0,
       "inputs": [
         {
@@ -891,7 +891,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 19,
+      "order": 18,
       "mode": 0,
       "inputs": [
         {
@@ -945,7 +945,7 @@
         58.31459426879883
       ],
       "flags": {},
-      "order": 26,
+      "order": 25,
       "mode": 0,
       "inputs": [
         {
@@ -1018,7 +1018,7 @@
         46
       ],
       "flags": {},
-      "order": 31,
+      "order": 30,
       "mode": 0,
       "inputs": [
         {
@@ -1062,7 +1062,7 @@
         300.5332336425781
       ],
       "flags": {},
-      "order": 33,
+      "order": 32,
       "mode": 4,
       "inputs": [
         {
@@ -1112,7 +1112,7 @@
         598
       ],
       "flags": {},
-      "order": 35,
+      "order": 34,
       "mode": 0,
       "inputs": [
         {
@@ -1162,88 +1162,6 @@
       ]
     },
     {
-      "id": 187,
-      "type": "Power Lora Loader (rgthree)",
-      "pos": [
-        -349.7333068847656,
-        -1268.5057373046875
-      ],
-      "size": [
-        701.0195922851562,
-        214
-      ],
-      "flags": {},
-      "order": 11,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": null,
-          "dir": 3
-        },
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": null,
-          "dir": 3
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [],
-          "shape": 3,
-          "dir": 4,
-          "slot_index": 0
-        },
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [],
-          "shape": 3,
-          "dir": 4,
-          "slot_index": 1
-        }
-      ],
-      "properties": {
-        "Show Strengths": "Single Strength"
-      },
-      "widgets_values": [
-        null,
-        {
-          "type": "PowerLoraLoaderHeaderWidget"
-        },
-        {
-          "on": true,
-          "lora": "flux.1_lora_flyway_doodle-poster.safetensors",
-          "strength": 1,
-          "strengthTwo": null
-        },
-        {
-          "on": true,
-          "lora": "flux.1_lora_flyway_Epic-detail_v2.safetensors",
-          "strength": 0.7,
-          "strengthTwo": null
-        },
-        {
-          "on": true,
-          "lora": "Textimprover-FLUX-V0.4.safetensors",
-          "strength": 0.3,
-          "strengthTwo": null
-        },
-        {
-          "on": true,
-          "lora": "perfection style v2d.safetensors",
-          "strength": 0.3,
-          "strengthTwo": null
-        },
-        null,
-        ""
-      ]
-    },
-    {
       "id": 12,
       "type": "UNETLoader",
       "pos": [
@@ -1255,7 +1173,7 @@
         82
       ],
       "flags": {},
-      "order": 12,
+      "order": 11,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1289,7 +1207,7 @@
         106
       ],
       "flags": {},
-      "order": 13,
+      "order": 12,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1324,7 +1242,7 @@
         126
       ],
       "flags": {},
-      "order": 22,
+      "order": 21,
       "mode": 0,
       "inputs": [
         {
@@ -1381,7 +1299,7 @@
         717.5866088867188
       ],
       "flags": {},
-      "order": 21,
+      "order": 20,
       "mode": 0,
       "inputs": [
         {
@@ -1430,7 +1348,7 @@
         225.26007080078125
       ],
       "flags": {},
-      "order": 14,
+      "order": 13,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1453,59 +1371,6 @@
       ]
     },
     {
-      "id": 59,
-      "type": "TextCombinations",
-      "pos": [
-        -830.8667602539062,
-        -216.21243286132812
-      ],
-      "size": [
-        407.96759033203125,
-        787.0101928710938
-      ],
-      "flags": {},
-      "order": 15,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "output1",
-          "type": "STRING",
-          "links": [
-            104
-          ],
-          "slot_index": 0,
-          "shape": 3
-        },
-        {
-          "name": "output2",
-          "type": "STRING",
-          "links": null,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "TextCombinations",
-        "ttNbgOverride": {
-          "color": "#232",
-          "bgcolor": "#353",
-          "groupcolor": "#8A8"
-        }
-      },
-      "widgets_values": [
-        "describe \"Play Music In The City\" as a prompt based on this exact format. Banner title: A gracefully hand-drawn **\"Deep Focus Music\"** in large, elegant lettering, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.",
-        "```\nScene Description:  \nA vibrant and festive Vietnamese Lunar New Year celebration captured in the Flux Lora art style, known for its fluid, luminous, and dynamic visuals. The scene showcases a bustling environment enriched with intricate details: traditional red lanterns suspended in mid-air, delicate peach blossoms in full bloom, and kumquat trees adorned with glistening golden fruits. In the foreground, people dressed in flowing, vividly colored áo dài (traditional Vietnamese attire) engage in heartwarming activities like presenting lì xì (red envelopes) to cheerful children and sharing traditional Tết delicacies.  \n\nBanner Title:  \nA gracefully hand-drawn **\"Happy New Year\"** in large, elegant lettering, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.  \n\nBackground Details:  \nA lively village or urban setting, glowing with strings of festive lights, banners, and colorful decorations. Fireworks illuminate the twilight sky, adding a sense of wonder. Vibrant market stalls and close-knit family gatherings underscore the themes of community and tradition.  \n\nColor Palette:  \nA harmonious blend of auspicious colors like radiant reds and gleaming golds, symbolizing luck and prosperity. These tones are complemented by soft pinks from peach blossoms, verdant greens of kumquat trees, and an ethereal glow from the lighting. The overall lighting is soft and immersive, exuding warmth and joy.  \n\nComposition:  \nThe scene features a dynamic and balanced arrangement of cultural elements and animated interactions. Attention is given to the detailed textures of traditional clothing, the vibrant energy of decorations, and the genuine expressions of happiness, perfectly encapsulating the spirit of Vietnamese New Year celebrations.  \n\n```",
-        "text1 + text2 to output1, text2 to output2",
-        " ",
-        "false",
-        235955470652648,
-        "randomize"
-      ],
-      "color": "#332922",
-      "bgcolor": "#593930",
-      "shape": 1
-    },
-    {
       "id": 49,
       "type": "LoraLoader",
       "pos": [
@@ -1517,7 +1382,7 @@
         126
       ],
       "flags": {},
-      "order": 18,
+      "order": 17,
       "mode": 0,
       "inputs": [
         {
@@ -1560,6 +1425,59 @@
         0.5,
         0.2
       ]
+    },
+    {
+      "id": 59,
+      "type": "TextCombinations",
+      "pos": [
+        -830.8667602539062,
+        -216.21243286132812
+      ],
+      "size": [
+        407.96759033203125,
+        787.0101928710938
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "output1",
+          "type": "STRING",
+          "links": [
+            104
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "output2",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "TextCombinations",
+        "ttNbgOverride": {
+          "color": "#232",
+          "bgcolor": "#353",
+          "groupcolor": "#8A8"
+        }
+      },
+      "widgets_values": [
+        "describe \"Play Music In The City\" as a prompt based on this exact format. Banner title: A gracefully hand-drawn **\"Deep Focus Music\"** in large, elegant lettering, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.",
+        "```\nScene Description:  \nA vibrant and festive Vietnamese Lunar New Year celebration captured in the Flux Lora art style, known for its fluid, luminous, and dynamic visuals. The scene showcases a bustling environment enriched with intricate details: traditional red lanterns suspended in mid-air, delicate peach blossoms in full bloom, and kumquat trees adorned with glistening golden fruits. In the foreground, people dressed in flowing, vividly colored áo dài (traditional Vietnamese attire) engage in heartwarming activities like presenting lì xì (red envelopes) to cheerful children and sharing traditional Tết delicacies.  \n\nBanner Title:  \nA gracefully hand-drawn **\"Happy New Year\"** in large, elegant lettering, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.  \n\nBackground Details:  \nA lively village or urban setting, glowing with strings of festive lights, banners, and colorful decorations. Fireworks illuminate the twilight sky, adding a sense of wonder. Vibrant market stalls and close-knit family gatherings underscore the themes of community and tradition.  \n\nColor Palette:  \nA harmonious blend of auspicious colors like radiant reds and gleaming golds, symbolizing luck and prosperity. These tones are complemented by soft pinks from peach blossoms, verdant greens of kumquat trees, and an ethereal glow from the lighting. The overall lighting is soft and immersive, exuding warmth and joy.  \n\nComposition:  \nThe scene features a dynamic and balanced arrangement of cultural elements and animated interactions. Attention is given to the detailed textures of traditional clothing, the vibrant energy of decorations, and the genuine expressions of happiness, perfectly encapsulating the spirit of Vietnamese New Year celebrations.  \n\n```",
+        "text1 + text2 to output1, text2 to output2",
+        " ",
+        "false",
+        235955470652648,
+        "randomize"
+      ],
+      "color": "#332922",
+      "bgcolor": "#593930",
+      "shape": 1
     }
   ],
   "links": [
@@ -1914,10 +1832,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 1.2284597357367348,
+      "scale": 1.0152559799477159,
       "offset": [
-        -1140.2273020796367,
-        -151.1804960406959
+        955.9294515599188,
+        1621.2145976612203
       ]
     },
     "ue_links": [],
