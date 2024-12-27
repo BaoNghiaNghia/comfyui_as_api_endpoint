@@ -11,31 +11,38 @@ TOOL_RENDER_FOLDER = Path(f"/thumbnail_img/{SUBFOLDER_TOOL_RENDER}")
 
 
 async def generate_images_api():
+    list_short_description = [
+        "Young woman in wheat field at sunrise glow",
+        "Young woman on sunlit beach, breeze flowing gently",
+        "Young woman jogging in park under bright sunlight",
+        "Young woman standing on cliff, ocean sunrise beauty",
+        "Young woman smiling in tulip field, holding bouquet",
+        "Young woman dancing joyfully in village, morning glow",
+        "Young woman sipping coffee on cozy café windowsill",
+        "Young woman picking apples in sunny orchard, smiling",
+        "Young woman stretching arms freely on hilltop sunrise",
+        "Young woman relaxing in hammock, lush tropical garden",
+        "Young woman reflecting calmly by serene lake, sunlight",
+        "Young woman skipping along forest path, vibrant morning",
+        "Young woman laughing on grass with picnic in park",
+        "Young woman dancing under waterfall, glowing jungle sunrise",
+        "Young woman reading peacefully in café, bathed sunlight",
+        "Young woman embracing lavender field, glowing morning sun",
+        "Young woman smiling by farmhouse, holding wildflowers brightly",
+        "Young woman walking in autumn forest, golden sunlight glow",
+        "Young woman relaxed on balcony overlooking lively sunny city",
+        "Young woman standing near river, soft morning breeze flows",
+    ]
+
     init_requests = [
         {
-            "short_description": "Music for deep focus in the Morning",
-            "title": "Deep Focus",
-            "file_name": "deep_focus",
+            "short_description": random.choice(list_short_description),
+            "title": "Morning Music",
+            "file_name": "morning_music",
             "thumbnail_number": 1,
             "thumb_style": random.choice(THUMBNAIL_STYLE_LIST),
             "subfolder": SUBFOLDER_TEAM_AUTOMATION
         },
-        {
-            "short_description": "Morning Coffee Music",
-            "title": "Morning Coffee",
-            "file_name": "morning_coffee",
-            "thumbnail_number": 1,
-            "thumb_style": random.choice(THUMBNAIL_STYLE_LIST),
-            "subfolder": SUBFOLDER_TEAM_AUTOMATION
-        },
-        {
-            "short_description": "Lofi Music",
-            "title": "Lofi Music",
-            "file_name": "lofi_music",
-            "thumbnail_number": 1,
-            "thumb_style": random.choice(THUMBNAIL_STYLE_LIST),
-            "subfolder": SUBFOLDER_TEAM_AUTOMATION
-        }
     ]
 
     prefixes = list({request["file_name"] for request in init_requests})
