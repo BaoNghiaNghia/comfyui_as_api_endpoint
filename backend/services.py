@@ -169,13 +169,13 @@ def scene_description_template(textStyle, input_string, title):
     return random.choice(list_scene)
 
 
-def scene_template_1(textStyle, input_string, title):
+def scene_template_1(textStyle, input_string, title, thumb_style):
     return f"""
         Scene Description:  
         {scene_description_template(textStyle, input_string, title)}
 
         Banner Title:  
-        {textStyle} **"{title}"** in large, elegant lettering, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.  
+        {textStyle} **"{title}"** in large, elegant lettering, {thumb_style}, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.  
 
         Background Details:
         A lively village or urban setting, glowing with strings of festive lights, banners, and colorful decorations. Fireworks illuminate the twilight sky, adding a sense of wonder. Vibrant market stalls and close-knit family gatherings underscore the themes of community and tradition.  
@@ -206,7 +206,7 @@ def scene_template_4(textStyle, input_string, title):
     """
 
 
-def create_prompt_and_call_api(input_string, title):
+def create_prompt_and_call_api(input_string, title, thumb_style):
     # Mapping of scene templates
     scene_templates = {
         1: scene_template_1,
@@ -217,7 +217,7 @@ def create_prompt_and_call_api(input_string, title):
 
     # Randomly choose a scene template
     template_choice = random.choice([1, 2, 3, 4])
-    scene_template = scene_templates[template_choice](TEXT_STYLE, input_string, title)
+    scene_template = scene_templates[template_choice](TEXT_STYLE, input_string, title, thumb_style)
 
     # Construct and return the full API call prompt
     return f"```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\n{scene_template}```"
@@ -255,10 +255,10 @@ async def generate_images(short_description, title, thumbnail_number=1, thumb_st
 
         workflow["59"]["inputs"]["text1"] = (
             f'describe "{short_description}" with {thumb_style} style as a prompt based on this exact format.'
-            f'Banner title: {TEXT_STYLE} **"{title}"** in large, elegant lettering, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.'
+            f'Banner title: {TEXT_STYLE} **"{title}"** in large, {thumb_style}, elegant lettering, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.'
         )
 
-        workflow["59"]["inputs"]["text2"] = create_prompt_and_call_api(short_description, title)
+        workflow["59"]["inputs"]["text2"] = create_prompt_and_call_api(short_description, title, thumb_style)
 
         if subfolder == SUBFOLDER_TOOL_RENDER:
             api_key_list = GEMINI_KEY_TOOL_RENDER
