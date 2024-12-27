@@ -19,6 +19,9 @@ BACKEND_SERVER_ADDRESS = os.getenv('BACKEND_SERVER_ADDRESS', 'host.docker.intern
 
 REMOTE_SERVER_ADDRESS = os.getenv('REMOTE_SERVER_ADDRESS', 'host.docker.internal:8188')
 
+# Randomly choose a text style
+textStyle = random.choice(["The handwritten big text", "The title of the movie is", "A gracefully hand-drawn"])
+
 
 def get_image(filename, subfolder, folder_type):
     data = {"filename": filename, "subfolder": subfolder, "type": folder_type}
@@ -172,16 +175,16 @@ def scene_template_1(textStyle, input_string, title):
         {scene_description_template(textStyle, input_string, title)}
 
         Banner Title:  
-        A gracefully hand-drawn **"{title}"** in large, {textStyle}, elegant lettering, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.  
+        {textStyle} **"{title}"** in large, elegant lettering, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.  
 
-        Background Details:  
+        Background Details:
         A lively village or urban setting, glowing with strings of festive lights, banners, and colorful decorations. Fireworks illuminate the twilight sky, adding a sense of wonder. Vibrant market stalls and close-knit family gatherings underscore the themes of community and tradition.  
 
-        Color Palette:  
+        Color Palette:
         A harmonious blend of auspicious colors like radiant reds and gleaming golds, symbolizing luck and prosperity. These tones are complemented by soft pinks from peach blossoms, verdant greens of kumquat trees, and an ethereal glow from the lighting. The overall lighting is soft and immersive, exuding warmth and joy.  
 
         Composition:  
-        The scene features a dynamic and balanced arrangement of cultural elements and animated interactions. Attention is given to the detailed textures of traditional clothing, the vibrant energy of decorations, and the genuine expressions of happiness, perfectly encapsulating the spirit of Vietnamese New Year celebrations.  
+        The scene features a dynamic and balanced arrangement of cultural elements and animated interactions. Attention is given to the detailed textures of traditional clothing, the vibrant energy of decorations, and the genuine expressions of happiness, perfectly encapsulating the spirit of Vietnamese New Year celebrations. 
     """
 
 
@@ -211,9 +214,6 @@ def create_prompt_and_call_api(input_string, title):
         3: scene_template_1,
         4: scene_template_1
     }
-
-    # Randomly choose a text style
-    textStyle = random.choice(["The handwritten big text", "The title of the movie is"])
 
     # Randomly choose a scene template
     template_choice = random.choice([1, 2, 3, 4])
@@ -254,8 +254,8 @@ async def generate_images(short_description, title, thumbnail_number=1, thumb_st
         workflow["178"]["inputs"]["filename_prefix"] = filename_prefix
 
         workflow["59"]["inputs"]["text1"] = (
-            f'describe "{short_description}" with {thumb_style} style as a prompt base on this format prompt.'
-            f'And must have banner title ***{title}***:'
+            f'describe "{short_description}" with {thumb_style} style as a prompt based on this exact format.'
+            f'Banner title: {textStyle} **"{title}"** in large, elegant lettering, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.'
         )
 
         workflow["59"]["inputs"]["text2"] = create_prompt_and_call_api(short_description, title)

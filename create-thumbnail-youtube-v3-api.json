@@ -115,7 +115,7 @@
   },
   "25": {
     "inputs": {
-      "noise_seed": 89672930483677
+      "noise_seed": 267851898303235
     },
     "class_type": "RandomNoise",
     "_meta": {
@@ -125,7 +125,7 @@
   "26": {
     "inputs": {
       "lora_name": "flux.1_lora_flyway_Epic-detail_v2.safetensors",
-      "strength_model": 0.7000000000000001,
+      "strength_model": 0.5,
       "strength_clip": 0.4,
       "model": [
         "49",
@@ -217,7 +217,7 @@
   },
   "43": {
     "inputs": {
-      "guidance": 4.5,
+      "guidance": 3.5,
       "conditioning": [
         "62",
         0
@@ -253,7 +253,7 @@
         "61",
         0
       ],
-      "text2": "((Realistic photo)), ((detailed)), ((best quality)), ((perfect reflection)), ((smooth water)), ((misty atmosphere))\n\nScene Description:\nA serene and tranquil lake at dawn.  A grand piano sits partially submerged in the shallows, its polished wood gleaming in the soft light.  Sheets of music rest on the music stand, gently rippling in a slight breeze. The keys appear untouched, as if waiting to be played. Mist clings to the surface of the water, adding a touch of mystery and ethereal beauty.\n\n***Deep Focus Music***\n\nBackground Details:\nTall, misty mountains rise in the background, their peaks partially obscured by clouds. The surrounding landscape is lush and green, with trees and vegetation reflected in the still water.  A gentle light filters through the mist, creating a dreamy and peaceful atmosphere.  No signs of human life are visible, emphasizing the solitude and tranquility of the scene.\n\n\nColor Palette:\nCool blues and greens dominate the palette, reflecting the water and surrounding foliage.  Warm golden hues from the sunrise peek through the mist, adding a touch of contrast and magic. The overall mood is calm and contemplative.\n\n\nComposition:\nThe piano should be the central focus, with the mountains and misty lake creating a stunning backdrop. The reflection of the piano in the water adds a sense of symmetry and depth. The overall image should evoke a sense of peace, mystery, and the beauty of nature.\n"
+      "text2": "Banner title: A gracefully hand-drawn **\"Deep Focus Music\"** in large, elegant lettering, positioned prominently at the top center of the image, blending seamlessly with the urban soundscape.\n\nScene Description:\nA vibrant and bustling city scene at night, rendered in the Flux Lora art style, with its characteristic fluid, luminous, and dynamic visuals. Street musicians perform amidst a backdrop of towering skyscrapers, glowing neon signs, and the soft hum of traffic. People stroll along sidewalks, some stopping to listen to the music, others continuing on their way. Food vendors offer delicious street food, adding to the rich tapestry of urban life.  Intricate details capture the energy of the city: reflections in puddles, the steam rising from food stalls, and the movement of people in the crowd.\n\nBackground Details:\nA lively urban setting with glowing storefronts, streetlights casting dramatic shadows, and a sense of movement and activity. Cars, buses, and bicycles navigate the streets, adding to the urban rhythm.  Architectural elements, like fire escapes and balconies, add depth and complexity to the scene.\n\nColor Palette:\nA blend of cool blues and purples dominate the night scene, punctuated by warm yellows and oranges from streetlights and neon signs. The overall lighting creates a moody yet vibrant atmosphere, capturing the energy of a city at night. Hints of greens and reds from street signs and vendor stalls add pops of color.\n\nComposition:\nThe scene features a dynamic and balanced arrangement of urban elements and human interactions. Attention is given to the textures of the urban environment, the flow of movement, and the interplay of light and shadow. The scene evokes a sense of immersion and energy, perfectly encapsulating the spirit of city life at night.\n"
     },
     "class_type": "ShowText|pysssss",
     "_meta": {
@@ -262,12 +262,12 @@
   },
   "59": {
     "inputs": {
-      "text1": "describe \"Lake Music In The Lake\" as a prompt base on this format prompt. And must have banner title ***Deep Focus Music***:",
-      "text2": "```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\nScene Description:\nA vibrant and festive Vietnamese Lunar New Year celebration. The scene features a bustling environment with traditional decorations: red lanterns hanging in the air, peach blossoms in full bloom, and kumquat trees adorned with golden fruits. In the foreground, people in colorful áo dài (traditional Vietnamese attire) are smiling and engaging in joyous activities such as giving red envelopes (lì xì) to children and enjoying Tết delicacies.\n\n\nBanner Title:\nThe handwriter big text \"Happy New Year\" in top center or center\n\n\nBackground Details:\nA lively village or urban setting decorated with banners handwriter big text \"Happy New Year\" in top center, strings of lights, and fireworks lighting up the evening sky. Market stalls and family gatherings add a sense of community and tradition.\n\n\nColor Palette:\nDominated by auspicious colors like red and gold, symbolizing luck and prosperity, with hints of pink from peach blossoms and green from the kumquat trees. The lighting is warm and inviting, emphasizing the celebratory mood.\n\n\nComposition:\nThe layout has a balanced mix of cultural symbols and joyful interactions. Focus on the details of traditional clothing, decorations, and facial expressions to capture the essence of Vietnamese New Year traditions.\n```",
+      "text1": "describe \"Play Music In The City\" as a prompt based on this exact format. Banner title: A gracefully hand-drawn **\"Deep Focus Music\"** in large, elegant lettering, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.",
+      "text2": "```\nScene Description:  \nA vibrant and festive Vietnamese Lunar New Year celebration captured in the Flux Lora art style, known for its fluid, luminous, and dynamic visuals. The scene showcases a bustling environment enriched with intricate details: traditional red lanterns suspended in mid-air, delicate peach blossoms in full bloom, and kumquat trees adorned with glistening golden fruits. In the foreground, people dressed in flowing, vividly colored áo dài (traditional Vietnamese attire) engage in heartwarming activities like presenting lì xì (red envelopes) to cheerful children and sharing traditional Tết delicacies.  \n\nBanner Title:  \nA gracefully hand-drawn **\"Happy New Year\"** in large, elegant lettering, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.  \n\nBackground Details:  \nA lively village or urban setting, glowing with strings of festive lights, banners, and colorful decorations. Fireworks illuminate the twilight sky, adding a sense of wonder. Vibrant market stalls and close-knit family gatherings underscore the themes of community and tradition.  \n\nColor Palette:  \nA harmonious blend of auspicious colors like radiant reds and gleaming golds, symbolizing luck and prosperity. These tones are complemented by soft pinks from peach blossoms, verdant greens of kumquat trees, and an ethereal glow from the lighting. The overall lighting is soft and immersive, exuding warmth and joy.  \n\nComposition:  \nThe scene features a dynamic and balanced arrangement of cultural elements and animated interactions. Attention is given to the detailed textures of traditional clothing, the vibrant energy of decorations, and the genuine expressions of happiness, perfectly encapsulating the spirit of Vietnamese New Year celebrations.  \n\n```",
       "operation": "text1 + text2 to output1, text2 to output2",
       "delimiter": " ",
       "use_seed": "false",
-      "seed": 829377521033555
+      "seed": 235955470652648
     },
     "class_type": "TextCombinations",
     "_meta": {
@@ -280,7 +280,7 @@
         "59",
         0
       ],
-      "text2": "describe \"Lake Music In The Lake\" as a prompt base on this format prompt. And must have banner title ***Deep Focus Music***: ```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\nScene Description:\nA vibrant and festive Vietnamese Lunar New Year celebration. The scene features a bustling environment with traditional decorations: red lanterns hanging in the air, peach blossoms in full bloom, and kumquat trees adorned with golden fruits. In the foreground, people in colorful áo dài (traditional Vietnamese attire) are smiling and engaging in joyous activities such as giving red envelopes (lì xì) to children and enjoying Tết delicacies.\n\n\nBanner Title:\nThe handwriter big text \"Happy New Year\" in top center or center\n\n\nBackground Details:\nA lively village or urban setting decorated with banners handwriter big text \"Happy New Year\" in top center, strings of lights, and fireworks lighting up the evening sky. Market stalls and family gatherings add a sense of community and tradition.\n\n\nColor Palette:\nDominated by auspicious colors like red and gold, symbolizing luck and prosperity, with hints of pink from peach blossoms and green from the kumquat trees. The lighting is warm and inviting, emphasizing the celebratory mood.\n\n\nComposition:\nThe layout has a balanced mix of cultural symbols and joyful interactions. Focus on the details of traditional clothing, decorations, and facial expressions to capture the essence of Vietnamese New Year traditions.\n```"
+      "text2": "describe \"Play Music In The City\" as a prompt based on this exact format. Banner title: A gracefully hand-drawn **\"Deep Focus Music\"** in large, elegant lettering, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere. ```\nScene Description:  \nA vibrant and festive Vietnamese Lunar New Year celebration captured in the Flux Lora art style, known for its fluid, luminous, and dynamic visuals. The scene showcases a bustling environment enriched with intricate details: traditional red lanterns suspended in mid-air, delicate peach blossoms in full bloom, and kumquat trees adorned with glistening golden fruits. In the foreground, people dressed in flowing, vividly colored áo dài (traditional Vietnamese attire) engage in heartwarming activities like presenting lì xì (red envelopes) to cheerful children and sharing traditional Tết delicacies.  \n\nBanner Title:  \nA gracefully hand-drawn **\"Happy New Year\"** in large, elegant lettering, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.  \n\nBackground Details:  \nA lively village or urban setting, glowing with strings of festive lights, banners, and colorful decorations. Fireworks illuminate the twilight sky, adding a sense of wonder. Vibrant market stalls and close-knit family gatherings underscore the themes of community and tradition.  \n\nColor Palette:  \nA harmonious blend of auspicious colors like radiant reds and gleaming golds, symbolizing luck and prosperity. These tones are complemented by soft pinks from peach blossoms, verdant greens of kumquat trees, and an ethereal glow from the lighting. The overall lighting is soft and immersive, exuding warmth and joy.  \n\nComposition:  \nThe scene features a dynamic and balanced arrangement of cultural elements and animated interactions. Attention is given to the detailed textures of traditional clothing, the vibrant energy of decorations, and the genuine expressions of happiness, perfectly encapsulating the spirit of Vietnamese New Year celebrations.  \n\n```"
     },
     "class_type": "ShowText|pysssss",
     "_meta": {
@@ -345,7 +345,7 @@
       "job_data_per_image": "disabled",
       "job_custom_text": "",
       "save_metadata": "enabled",
-      "counter_digits": 5,
+      "counter_digits": 2,
       "counter_position": "last",
       "one_counter_per_folder": "disabled",
       "image_preview": "enabled",
@@ -369,11 +369,43 @@
   },
   "179": {
     "inputs": {
-      "text": "blur, distortion, text, watermark"
+      "text": "((Realisian-Neg, bad_pictures, bad_prompt_version2, BadDream, BadNegAnatomyV1-neg, easynegative, FastNegativeV2, fcNeg-neg, negative_hand-neg, NegfeetV2, ng_deepnegative_v1_75t, UnrealisticDream, verybadimagenegative_v1.3, aid291, bad-hands-5, NEGS Bad Hands, NEGS Bad Image v4, NEGS Bad Prompt v2)):1.16,\njpeg artifacts, ((monochrome, watermark, white letters, worst quality ,low quality, normal quality, signature, username, ((logo ,text, font)))):2,\nskin spots, acnes, skin blemishes, age spot, glans, ((bad anatomy, extra limbs, ugly)):1.3, ((multi people)), mutated(hands, arms, fingers), (interlocked fingers:1.2), tattoo"
     },
     "class_type": "ttN text",
     "_meta": {
       "title": "Positive text"
+    }
+  },
+  "187": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "lora_1": {
+        "on": true,
+        "lora": "flux.1_lora_flyway_doodle-poster.safetensors",
+        "strength": 1
+      },
+      "lora_2": {
+        "on": true,
+        "lora": "flux.1_lora_flyway_Epic-detail_v2.safetensors",
+        "strength": 0.7
+      },
+      "lora_3": {
+        "on": true,
+        "lora": "Textimprover-FLUX-V0.4.safetensors",
+        "strength": 0.3
+      },
+      "lora_4": {
+        "on": true,
+        "lora": "perfection style v2d.safetensors",
+        "strength": 0.3
+      },
+      "➕ Add Lora": ""
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "Power Lora Loader (rgthree)"
     }
   }
 }
