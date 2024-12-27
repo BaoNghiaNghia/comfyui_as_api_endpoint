@@ -20,7 +20,7 @@ BACKEND_SERVER_ADDRESS = os.getenv('BACKEND_SERVER_ADDRESS', 'host.docker.intern
 REMOTE_SERVER_ADDRESS = os.getenv('REMOTE_SERVER_ADDRESS', 'host.docker.internal:8188')
 
 # Randomly choose a text style
-TEXT_STYLE = random.choice(["The handwritten big text", "The title of the movie is", "A gracefully hand-drawn"])
+TEXT_STYLE = random.choice(["The handwritten big text", "A clean and modern sans-serif "])
 
 
 def get_image(filename, subfolder, folder_type):
