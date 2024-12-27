@@ -20,7 +20,7 @@ BACKEND_SERVER_ADDRESS = os.getenv('BACKEND_SERVER_ADDRESS', 'host.docker.intern
 REMOTE_SERVER_ADDRESS = os.getenv('REMOTE_SERVER_ADDRESS', 'host.docker.internal:8188')
 
 # Randomly choose a text style
-textStyle = random.choice(["The handwritten big text", "The title of the movie is", "A gracefully hand-drawn"])
+TEXT_STYLE = random.choice(["The handwritten big text", "The title of the movie is", "A gracefully hand-drawn"])
 
 
 def get_image(filename, subfolder, folder_type):
@@ -217,7 +217,7 @@ def create_prompt_and_call_api(input_string, title):
 
     # Randomly choose a scene template
     template_choice = random.choice([1, 2, 3, 4])
-    scene_template = scene_templates[template_choice](textStyle, input_string, title)
+    scene_template = scene_templates[template_choice](TEXT_STYLE, input_string, title)
 
     # Construct and return the full API call prompt
     return f"```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\n{scene_template}```"
@@ -255,7 +255,7 @@ async def generate_images(short_description, title, thumbnail_number=1, thumb_st
 
         workflow["59"]["inputs"]["text1"] = (
             f'describe "{short_description}" with {thumb_style} style as a prompt based on this exact format.'
-            f'Banner title: {textStyle} **"{title}"** in large, elegant lettering, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.'
+            f'Banner title: {TEXT_STYLE} **"{title}"** in large, elegant lettering, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.'
         )
 
         workflow["59"]["inputs"]["text2"] = create_prompt_and_call_api(short_description, title)
