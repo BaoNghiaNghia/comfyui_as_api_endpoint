@@ -14,6 +14,7 @@ x-service-base:
 services:
   web:
     <<: *service-base
+    container_name: web_container
     ports:
       - "8000:8000"
     environment:
@@ -23,6 +24,7 @@ services:
 
   redis:
     image: redis:alpine
+    container_name: redis_container
     ports:
       - "6379:6379"
     networks:
@@ -30,6 +32,7 @@ services:
 
   celery_worker:
     <<: *service-base
+    container_name: celery_worker_container
     depends_on:
       - redis
     environment:
@@ -39,6 +42,7 @@ services:
 
   celery_beat:
     <<: *service-base
+    container_name: celery_beat_container
     depends_on:
       - redis
     environment:
@@ -48,6 +52,7 @@ services:
 
   flower:
     <<: *service-base
+    container_name: flower_container
     depends_on:
       - redis
     environment:
