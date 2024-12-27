@@ -159,7 +159,7 @@ def scene_description_template(textStyle, input_string, title):
             A quiet alleyway at dawn, bathed in the soft, cool light of early morning. The sunlight streams gently into the alley from one side, casting long, soft shadows on the cobblestone path. The walls of the alley are adorned with faded pastel colors and ivy climbing up old brick buildings, with small windows reflecting the pale blue and golden hues of the morning sky. A lone bicycle leans against one wall, and a small wooden table with a potted plant sits near a doorway. The air feels fresh and tranquil, with a faint mist hovering close to the ground. In the distance, the alley opens up to reveal a glimpse of a city street just waking up, with a silhouette of a passerby carrying a bag. The scene captures the peaceful stillness of a city morning before the bustle begins.
         """,
         """
-            A vibrant and festive Vietnamese Lunar New Year celebration. The scene features a bustling environment with traditional decorations: red lanterns hanging in the air, peach blossoms in full bloom, and kumquat trees adorned with golden fruits. In the foreground, people in colorful áo dài (traditional Vietnamese attire) are smiling and engaging in joyous activities such as giving red envelopes to children and enjoying Tết delicacies.
+            A vibrant and festive Vietnamese Lunar New Year celebration captured in the Flux Lora art style, known for its fluid, luminous, and dynamic visuals. The scene showcases a bustling environment enriched with intricate details: traditional red lanterns suspended in mid-air, delicate peach blossoms in full bloom, and kumquat trees adorned with glistening golden fruits. In the foreground, people dressed in flowing, vividly colored áo dài (traditional Vietnamese attire) engage in heartwarming activities like presenting lì xì (red envelopes) to cheerful children and sharing traditional Tết delicacies.
         """
     ]
 
@@ -168,29 +168,20 @@ def scene_description_template(textStyle, input_string, title):
 
 def scene_template_1(textStyle, input_string, title):
     return f"""
-        Scene Description:
-
+        Scene Description:  
         {scene_description_template(textStyle, input_string, title)}
 
+        Banner Title:  
+        A gracefully hand-drawn **"{title}"** in large, {textStyle}, elegant lettering, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.  
 
-        Banner Title:
+        Background Details:  
+        A lively village or urban setting, glowing with strings of festive lights, banners, and colorful decorations. Fireworks illuminate the twilight sky, adding a sense of wonder. Vibrant market stalls and close-knit family gatherings underscore the themes of community and tradition.  
 
-        {textStyle} "{title}" in top center
+        Color Palette:  
+        A harmonious blend of auspicious colors like radiant reds and gleaming golds, symbolizing luck and prosperity. These tones are complemented by soft pinks from peach blossoms, verdant greens of kumquat trees, and an ethereal glow from the lighting. The overall lighting is soft and immersive, exuding warmth and joy.  
 
-
-        Background Details:
-
-        A lively village or urban setting decorated with banners {textStyle} "{title}" in top center, strings of lights, and fireworks lighting up the evening sky. Market stalls and family gatherings add a sense of community and tradition.
-
-
-        Color Palette:
-
-        Dominated by auspicious colors like red and gold, symbolizing luck and prosperity, with hints of pink from peach blossoms and green from the kumquat trees. The lighting is warm and inviting, emphasizing the celebratory mood.
-
-
-        Composition:
-
-        The layout has a balanced mix of cultural symbols and joyful interactions. Focus on the details of traditional clothing, decorations, and facial expressions to capture the essence of Vietnamese New Year traditions.
+        Composition:  
+        The scene features a dynamic and balanced arrangement of cultural elements and animated interactions. Attention is given to the detailed textures of traditional clothing, the vibrant energy of decorations, and the genuine expressions of happiness, perfectly encapsulating the spirit of Vietnamese New Year celebrations.  
     """
 
 
