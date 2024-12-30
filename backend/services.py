@@ -65,7 +65,7 @@ def check_current_queue():
 
 async def get_images(ws, prompt, noise_seed):
     prompt_id = queue_prompt(prompt)['prompt_id']
-    output_images = {}
+    output_images = []
     last_reported_percentage = 0
 
     while True:
@@ -86,18 +86,31 @@ async def get_images(ws, prompt, noise_seed):
                 data = message['data']
                 if data['node'] is None and data['prompt_id'] == prompt_id:
                     break
-
         else:
             continue
 
-    history = get_history(prompt_id)[prompt_id]
+    # Fetch history and validate structure
+    history = get_history(prompt_id).get(prompt_id, {})
+    try:
+        output_data = history['outputs'].get("178", {})
+        images = output_data.get('images', [])
+    except KeyError as e:
+        logging.error(f"Missing key in history structure: {e}")
+        return []
 
-    output_images = history['outputs']["178"]['images']
-    for output_image in output_images:
-        output_image['file_path'] = f"http://{REMOTE_SERVER_ADDRESS}/download-images?file_name={output_image['filename']}&subfolder={output_image['subfolder']}"
-        output_image['seed'] = noise_seed
+    # Process images
+    for output_image in images:
+        try:
+            filename = output_image['filename']
+            subfolder = output_image['subfolder']
+            output_image['file_path'] = f"http://{REMOTE_SERVER_ADDRESS}/download-images?file_name={filename}&subfolder={subfolder}"
+            output_image['seed'] = noise_seed
+        except KeyError as e:
+            logging.warning(f"Missing key in image data: {e}")
+            continue
 
-    return output_images
+    return images
+
 
 
 def authenticate_user(domain, token):
