@@ -11,6 +11,7 @@ venv/
 env/
 .env/
 .env
+*.env
 
 # IDE configuration files (if you use a specific one like VSCode, PyCharm, etc.)
 .idea/
