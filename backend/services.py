@@ -1,129 +1,148 @@
 import os
 import json
 import logging
-import requests
 import random
+import asyncio
+import requests
 import websocket
+from urllib.parse import urlencode
 from urllib.request import urlopen, Request
 from urllib.error import URLError, HTTPError
 from fastapi import HTTPException
-from urllib.parse import urlencode
 from .constants import GEMINI_KEY_TOOL_RENDER, GEMINI_KEY_TEAM_AUTOMATION, SUBFOLDER_TEAM_AUTOMATION, SUBFOLDER_TOOL_RENDER, CLIENT_ID, FILE_DIRECTORY
+from pathlib import Path
 
 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 
-COMFY_UI_SERVER_ADDRESS = os.getenv('host.docker.internal:8188', 'host.docker.internal:8188')
+COMFY_UI_SERVER_ADDRESS = os.getenv('COMFY_UI_SERVER_ADDRESS', 'host.docker.internal:8188')
 BACKEND_SERVER_ADDRESS = os.getenv('BACKEND_SERVER_ADDRESS', 'host.docker.internal:8000')
-
 REMOTE_SERVER_ADDRESS = os.getenv('REMOTE_SERVER_ADDRESS', 'host.docker.internal:8188')
 
-# Randomly choose a text style
-TEXT_STYLE = random.choice(["The handwritten big text", "A clean and modern sans-serif "])
+# Choose a text style (consider making this configurable or less random)
+TEXT_STYLE = "A clean and modern sans-serif " # Consider: random.choice(["The handwritten big text", "A clean and modern sans-serif "])
+
+# Use a session for connection pooling
+session = requests.Session()
 
 
 def get_image(filename, subfolder, folder_type):
+    """Retrieves an image from the ComfyUI server."""
     data = {"filename": filename, "subfolder": subfolder, "type": folder_type}
     url_values = urlencode(data)
-
-    with urlopen(f"http://{COMFY_UI_SERVER_ADDRESS}/view?{url_values}") as response:
-        return response.read()
-
+    url = f"http://{COMFY_UI_SERVER_ADDRESS}/view?{url_values}"
+    try:
+        with session.get(url, stream=True) as response:
+            response.raise_for_status()
+            return response.content
+    except requests.exceptions.RequestException as e:
+        logging.error(f"Error fetching image: {e}")
+        raise
 
 def get_history(prompt_id):
-    with urlopen(f"http://{COMFY_UI_SERVER_ADDRESS}/history/{prompt_id}") as response:
-        return json.loads(response.read())
-
+    """Retrieves the history for a given prompt ID from the ComfyUI server."""
+    url = f"http://{COMFY_UI_SERVER_ADDRESS}/history/{prompt_id}"
+    try:
+        with session.get(url) as response:
+            response.raise_for_status()
+            return response.json()
+    except requests.exceptions.RequestException as e:
+        logging.error(f"Error fetching history: {e}")
+        raise
 
 def queue_prompt(prompt):
+    """Queues a prompt on the ComfyUI server."""
     p = {"prompt": prompt, "client_id": CLIENT_ID}
     data = json.dumps(p).encode('utf-8')
-    req = Request(f"http://{COMFY_UI_SERVER_ADDRESS}/prompt", data=data)
-    return json.loads(urlopen(req).read())
-
+    url = f"http://{COMFY_UI_SERVER_ADDRESS}/prompt"
+    try:
+        with session.post(url, data=data) as response:
+            response.raise_for_status()
+            return response.json()
+    except requests.exceptions.RequestException as e:
+        logging.error(f"Error queuing prompt: {e}")
+        raise
 
 def check_current_queue():
+    """Checks the current queue on the ComfyUI server."""
+    url = f"http://{COMFY_UI_SERVER_ADDRESS}/queue"
     try:
-        req = Request(f"http://{COMFY_UI_SERVER_ADDRESS}/queue")
-
-        with urlopen(req) as response:
-            response_data = response.read().decode('utf-8')
-            return json.loads(response_data)
-
-    except HTTPError as e:
-        print(f"HTTPError: {e.code} - {e.reason}")
-
-    except URLError as e:
-        print(f"URLError: {e.reason}")
-
+        with session.get(url) as response:
+            response.raise_for_status()
+            return response.json()
+    except requests.exceptions.RequestException as e:
+        logging.error(f"Error checking queue: {e}")
+        return None
     except Exception as e:
-        print(f"Unexpected error: {str(e)}")
-
-    return None
-
+        logging.error(f"Unexpected error checking queue: {str(e)}")
+        return None
 
 async def get_images(ws, prompt, noise_seed):
+    """Retrieves images generated from a prompt, handling WebSocket communication."""
     prompt_id = queue_prompt(prompt)['prompt_id']
     output_images = []
     last_reported_percentage = 0
 
-    while True:
-        out = ws.recv()
-        if isinstance(out, str):
-            message = json.loads(out)
-            if message['type'] == 'progress':
-                data = message['data']
-                current_progress = data['value']
-                max_progress = data['max']
-                percentage = int((current_progress / max_progress) * 100)
-
-                if percentage >= last_reported_percentage + 10:
-                    last_reported_percentage = percentage
-                    logging.info(f"PromptID: {prompt_id} - Process: {percentage} %")
-
-            elif message['type'] == 'executing':
-                data = message['data']
-                if data['node'] is None and data['prompt_id'] == prompt_id:
-                    break
-        else:
-            continue
-
-    # Fetch history and validate structure
-    history = get_history(prompt_id).get(prompt_id, {})
     try:
-        output_data = history['outputs'].get("178", {})
+        while True:
+            out = await asyncio.wait_for(ws.recv(), timeout=600)  # Timeout after 10 minutes
+            if isinstance(out, str):
+                message = json.loads(out)
+                if message['type'] == 'progress':
+                    data = message['data']
+                    current_progress = data['value']
+                    max_progress = data['max']
+                    percentage = int((current_progress / max_progress) * 100)
+
+                    if percentage >= last_reported_percentage + 10:
+                        last_reported_percentage = percentage
+                        logging.info(f"PromptID: {prompt_id} - Process: {percentage} %")
+
+                elif message['type'] == 'executing':
+                    data = message['data']
+                    if data['node'] is None and data['prompt_id'] == prompt_id:
+                        break
+            else:
+                continue
+
+        # Fetch history and validate structure
+        history = get_history(prompt_id).get(prompt_id, {})
+        output_data = history.get('outputs', {}).get("178", {}) # Access 'outputs' safely
         images = output_data.get('images', [])
-    except KeyError as e:
-        logging.error(f"Missing key in history structure: {e}")
-        return []
 
-    # Process images
-    for output_image in images:
-        try:
-            filename = output_image['filename']
-            subfolder = output_image['subfolder']
-            output_image['file_path'] = f"http://{REMOTE_SERVER_ADDRESS}/download-images?file_name={filename}&subfolder={subfolder}"
-            output_image['seed'] = noise_seed
-        except KeyError as e:
-            logging.warning(f"Missing key in image data: {e}")
-            continue
+        # Process images
+        for output_image in images:
+            try:
+                filename = output_image['filename']
+                subfolder = output_image['subfolder']
+                output_image['file_path'] = f"http://{REMOTE_SERVER_ADDRESS}/download-images?file_name={filename}&subfolder={subfolder}"
+                output_image['seed'] = noise_seed
+            except KeyError as e:
+                logging.warning(f"Missing key in image data: {e}")
 
-    return images
+        return images
+    
+    except asyncio.TimeoutError:
+        logging.error(f"Timeout while waiting for prompt {prompt_id} to complete.")
+        raise
 
-
+    except Exception as e:
+        logging.error(f"An unexpected error occurred while getting images for prompt {prompt_id}: {e}")
+        raise
 
 def authenticate_user(domain, token):
+    """Authenticates a user with a given domain and token."""
     try:
         if not domain or not token:
-            raise ValueError("Domain, token must be provided for authentication")
+            raise ValueError("Domain and token must be provided for authentication")
 
         headers = {
             'Content-Type': 'application/json',
-            'Authorization' : 'Bearer ' + token
+            'Authorization': 'Bearer ' + token
         }
 
-        response = requests.get(domain, headers=headers)
+        response = session.get(domain, headers=headers)
         response.raise_for_status()
 
         logging.info(f"Authentication successful with domain {domain}")
@@ -131,18 +150,17 @@ def authenticate_user(domain, token):
 
     except ValueError as ve:
         logging.error(f"Authentication failed: {ve}")
-        return None
-
+        raise
     except requests.exceptions.RequestException as re:
         logging.error(f"Request error during authentication: {re}")
-        return None
-
+        raise
     except Exception as e:
         logging.error(f"An unexpected error occurred during authentication: {e}")
-        return None
+        raise
 
 
 def scene_description_template(textStyle, input_string, title):
+    """Returns a random scene description from a predefined list."""
     list_scene = [
         """
             A breathtaking forest valley at sunrise, the scene filled with layers of lush greenery stretching into the distance, creating a sense of immense depth. The foreground features a narrow, winding trail lined with moss-covered stones and vibrant wildflowers in shades of yellow, blue, and white. Towering trees with textured bark and sprawling roots frame the edges of the trail, their leaves glowing in the soft golden light filtering through the canopy. Midground, a serene river winds through the valley, its surface glistening with reflections of the sky above, while a small wooden bridge arches gracefully over the water. In the background, rolling hills covered in dense forest rise into the mist, fading into subtle shades of blue and green. Overhead, the sky transitions from warm hues of orange and pink near the horizon to a crisp, pale blue, with a few fluffy clouds floating lazily. Birds soar in the distance, adding a sense of movement and life to the tranquil scene
@@ -220,6 +238,7 @@ def scene_template_4(textStyle, input_string, title):
 
 
 def create_prompt_and_call_api(input_string, title, thumb_style):
+    """Creates a prompt and constructs the full API call prompt."""
     # Mapping of scene templates
     scene_templates = {
         1: scene_template_1,
@@ -238,8 +257,9 @@ def create_prompt_and_call_api(input_string, title, thumb_style):
 
 
 async def generate_images(short_description, title, thumbnail_number=1, thumb_style='realistic photo', subfolder='tool_render', filename_prefix='ytbthumb'):
-    ws = None
+    """Generates images using the ComfyUI workflow via WebSocket."""
 
+    ws = None
     try:
         ws = websocket.WebSocket()
         ws_url = f"ws://{COMFY_UI_SERVER_ADDRESS}/ws?clientId={CLIENT_ID}"
@@ -254,7 +274,7 @@ async def generate_images(short_description, title, thumbnail_number=1, thumb_st
         # Check if AI model is running queue
         queue_count = check_current_queue()
 
-        if len(queue_count["queue_running"]) > 0 or len(queue_count["queue_pending"]) > 0:
+        if queue_count and (len(queue_count["queue_running"]) > 0 or len(queue_count["queue_pending"]) > 0):
             raise Exception(f'AI model is running another thumbnail images generation (Running: {len(queue_count["queue_running"])}, Pending: {len(queue_count["queue_pending"])}). Please try again later.')
 
         with open("create-thumbnail-youtube-v3-api.json", "r", encoding="utf-8") as f:
@@ -265,12 +285,12 @@ async def generate_images(short_description, title, thumbnail_number=1, thumb_st
 
         workflow["178"]["inputs"]["foldername_prefix"] = subfolder
         workflow["178"]["inputs"]["filename_prefix"] = filename_prefix
-
+        
+        # Simplify prompt construction
         workflow["59"]["inputs"]["text1"] = (
-            f'describe "{short_description}" with {thumb_style} style as a prompt based on this exact format.'
+            f'describe "{short_description}" with {thumb_style} style as a prompt based on this exact format. '
             f'Banner title: {TEXT_STYLE} **"{title}"** in large, {thumb_style}, elegant lettering, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.'
         )
-
         workflow["59"]["inputs"]["text2"] = create_prompt_and_call_api(short_description, title, thumb_style)
 
         if subfolder == SUBFOLDER_TOOL_RENDER:
@@ -284,45 +304,46 @@ async def generate_images(short_description, title, thumbnail_number=1, thumb_st
 
         workflow["29"]["inputs"]["batch_size"] = thumbnail_number
         workflow["25"]["inputs"]["noise_seed"] = noise_seed
-
+        
         images = await get_images(ws, workflow, noise_seed)
         return images
 
-    except ConnectionError as ce:
-        raise ce
-    except FileNotFoundError as fnfe:
-        raise fnfe
-    except Exception as e:
+    except (ConnectionError, FileNotFoundError, ValueError) as e:
         raise e
 
+    except Exception as e:
+        logging.error(f"Unexpected error in generate_images: {e}")
+        raise
     finally:
         if ws:
             try:
                 ws.close()
             except Exception as e:
-                raise "Network error"
-
+                logging.error(f"Error closing WebSocket: {e}")
 
 def download_single_image(file_name: str, subfolder: str):
+    """Downloads a single image from the server."""
     try:
         if not file_name or not subfolder:
             raise HTTPException(status_code=400, detail="Invalid file name or subfolder")
-        
+
         file_path = FILE_DIRECTORY / subfolder / file_name
-        
+
         if not file_path.resolve().is_relative_to(FILE_DIRECTORY.resolve()):
             raise HTTPException(status_code=400, detail="Invalid file path")
-        
+
         if not file_path.exists() or not file_path.is_file():
             raise HTTPException(status_code=404, detail="File not found")
         
-        return file_path
+        # Use send_file to send the file as a response
+        from fastapi.responses import FileResponse
+        return FileResponse(str(file_path), filename=file_name)
 
     except PermissionError:
         raise HTTPException(status_code=403, detail="Permission denied to access the file")
-    
+
     except FileNotFoundError:
         raise HTTPException(status_code=404, detail="File or directory not found")
-    
+
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Unexpected error occurred: {str(e)}")
