@@ -1,6 +1,7 @@
 import uuid
 import os
 from pathlib import Path
+import random
 
 # "realistic photo",
 # "illustration",
@@ -102,10 +103,74 @@ SUBFOLDER_TOOL_RENDER = 'tool_render'
 SUBFOLDER_TEAM_AUTOMATION = 'team_automation'
 
 MAX_IMAGES_THRESHOLD = 500
-IMAGES_TO_DELETE = 5
+COUNT_IMAGES_TO_DELETE = 5
 
 DEFAULT_FILENAME_PREFIX = 'ytbthumb'
 
 CLIENT_ID = str(uuid.uuid4())
 
 FILE_DIRECTORY = Path(os.getenv('OUTPUT_IMAGE_FOLDER', "/thumbnail_img"))
+
+
+INIT_REQUEST = [
+    {
+        "short_description": random.choice([
+            "Young woman in wheat field at sunrise glow",
+            "Young woman on sunlit beach, breeze flowing gently",
+            "Young woman jogging in park under bright sunlight",
+            "Young woman standing on cliff, ocean sunrise beauty",
+            "Young woman smiling in tulip field, holding bouquet",
+            "Young woman dancing joyfully in village, morning glow",
+            "Young woman sipping coffee on cozy café windowsill"-
+            "Young woman picking apples in sunny orchard, smiling",
+            "Young woman stretching arms freely on hilltop sunrise",
+            "Young woman relaxing in hammock, lush tropical garden",
+            "Young woman reflecting calmly by serene lake, sunlight",
+            "Young woman skipping along forest path, vibrant morning",
+            "Young woman laughing on grass with picnic in park",
+            "Young woman dancing under waterfall, glowing jungle sunrise",
+            "Young woman reading peacefully in café, bathed sunlight",
+            "Young woman embracing lavender field, glowing morning sun",
+            "Young woman smiling by farmhouse, holding wildflowers brightly",
+            "Young woman walking in autumn forest, golden sunlight glow",
+            "Young woman relaxed on balcony overlooking lively sunny city",
+            "Young woman standing near river, soft morning breeze flows",
+        ]),
+        "title": "Morning Music",
+        "file_name": "morning_music",
+        "thumbnail_number": 1,
+        "thumb_style": random.choice(THUMBNAIL_STYLE_LIST),
+        "subfolder": SUBFOLDER_TEAM_AUTOMATION,
+        "day_of_week": "1,2",
+    },
+    {
+        "short_description": random.choice([
+            "Young woman in wheat field at sunrise glow",
+            "Young woman on sunlit beach, breeze flowing gently",
+            "Young woman jogging in park under bright sunlight",
+            "Young woman standing on cliff, ocean sunrise beauty",
+            "Young woman smiling in tulip field, holding bouquet",
+            "Young woman dancing joyfully in village, morning glow",
+            "Young woman sipping coffee on cozy café windowsill"-
+            "Young woman picking apples in sunny orchard, smiling",
+            "Young woman stretching arms freely on hilltop sunrise",
+            "Young woman relaxing in hammock, lush tropical garden",
+            "Young woman reflecting calmly by serene lake, sunlight",
+            "Young woman skipping along forest path, vibrant morning",
+            "Young woman laughing on grass with picnic in park",
+            "Young woman dancing under waterfall, glowing jungle sunrise",
+            "Young woman reading peacefully in café, bathed sunlight",
+            "Young woman embracing lavender field, glowing morning sun",
+            "Young woman smiling by farmhouse, holding wildflowers brightly",
+            "Young woman walking in autumn forest, golden sunlight glow",
+            "Young woman relaxed on balcony overlooking lively sunny city",
+            "Young woman standing near river, soft morning breeze flows",
+        ]),
+        "title": "Morning Music",
+        "file_name": "morning_music",
+        "thumbnail_number": 1,
+        "thumb_style": random.choice(THUMBNAIL_STYLE_LIST),
+        "subfolder": SUBFOLDER_TEAM_AUTOMATION,
+        "day_of_week": "3,4",
+    }
+]

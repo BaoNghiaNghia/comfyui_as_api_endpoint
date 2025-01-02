@@ -47,7 +47,7 @@ The **modular architecture** breaks the code into components based on functional
 ## **Flow of the Application**
 
 1. **Application Entry Point** (`main.py`)
-   - The **FastAPI** application is initialized in `main.py`. It serves as the entry point for the entire backend, mounting the `routes.py` via the `include_router()` function. 
+   - The **FastAPI** application is initialized in `main.py`. It serves as the entry point for the entire backend, mounting the `routes.py` via the `include_router()` function.
    - Static files (like HTML, CSS, and JS) are mounted to serve the front-end resources.
 
    ```python
@@ -65,10 +65,10 @@ The **modular architecture** breaks the code into components based on functional
 
 3. **Business Logic and External Services** (`services.py`)
    - **Core Logic**: This file handles the interactions with external services (LLM, WebSocket server) and encapsulates the complex operations.
-   
+
    - **Why separate business logic?**: The logic of sending requests to the LLM, generating images, and fetching results from WebSocket is often intricate and should not be mixed with routing. By isolating this functionality in `services.py`, the code becomes more maintainable and reusable.
 
-   - **LLM Interaction**: 
+   - **LLM Interaction**:
      - The `ask_llm_service` function interacts with the Ollama server to send a prompt and retrieve a creative response. This is done by making a POST request to the LLM service's API and processing the response.
      - The separation of this logic means you can easily change the external LLM service in the future without altering the core routing code.
 
@@ -106,33 +106,35 @@ The **modular architecture** breaks the code into components based on functional
 ## **Request-Response Flow**
 
 ### 1. **Frontend Request**
-   - A request comes from the front-end (served from `ui/index.html`).
-   - Examples:
-     - When the user submits a text prompt for LLM: `POST /ask_llm/`
-     - When the user requests image generation: `POST /generate_images/`
+
+- A request comes from the front-end (served from `ui/index.html`).
+- Examples:
+  - When the user submits a text prompt for LLM: `POST /ask_llm/`
+  - When the user requests image generation: `POST /generate_images/`
 
 ### 2. **Routing Layer** (`routes.py`)
-   - The incoming HTTP request is routed by FastAPI, which directs it to the appropriate endpoint handler in `routes.py`.
-   - **Example**: A request to `POST /ask_llm/` is handled by the `ask_llm` function, which parses the request data and then calls the corresponding function in `services.py`.
+
+- The incoming HTTP request is routed by FastAPI, which directs it to the appropriate endpoint handler in `routes.py`.
+- **Example**: A request to `POST /ask_llm/` is handled by the `ask_llm` function, which parses the request data and then calls the corresponding function in `services.py`.
 
 ### 3. **Business Logic Layer** (`services.py`)
-   - The service layer handles the core operations:
-     - If the request involves an LLM, `ask_llm_service()` sends a POST request to the LLM API.
-     - If the request is for image generation, `generate_images()` opens a WebSocket connection, interacts with the image generation service, and processes the result.
+
+- The service layer handles the core operations:
+  - If the request involves an LLM, `ask_llm_service()` sends a POST request to the LLM API.
+  - If the request is for image generation, `generate_images()` opens a WebSocket connection, interacts with the image generation service, and processes the result.
 
 ### 4. **Response Generation**
-   - After processing in the service layer, the results (e.g., LLM response, images) are returned to `routes.py`.
-   - The route function wraps the results in a suitable response object (e.g., `JSONResponse`, `StreamingResponse`) and returns it to the frontend.
-   - The front-end then updates based on the server's response.
+
+- After processing in the service layer, the results (e.g., LLM response, images) are returned to `routes.py`.
+- The route function wraps the results in a suitable response object (e.g., `JSONResponse`, `StreamingResponse`) and returns it to the frontend.
+- The front-end then updates based on the server's response.
 
 ---
 
-
-This architecture and folder structure prioritize **clarity, scalability, and maintainability**. By separating the application into layers, each responsible for a single aspect of the program's functionality, we can easily add new features, modify existing functionality, and debug any issues. 
+This architecture and folder structure prioritize **clarity, scalability, and maintainability**. By separating the application into layers, each responsible for a single aspect of the program's functionality, we can easily add new features, modify existing functionality, and debug any issues.
 
 - **Routes** handle request dispatching and control the API's behavior.
 - **Services** handle all the business logic and complex operations.
 - **Models** ensure data consistency and validation, leading to fewer errors.
   
 This modular structure also enables easier testing and deployment since each module can be tested individually without breaking the overall flow of the application.
-

@@ -30,6 +30,7 @@ def get_image(filename, subfolder, folder_type):
     data = {"filename": filename, "subfolder": subfolder, "type": folder_type}
     url_values = urlencode(data)
     url = f"http://{COMFY_UI_SERVER_ADDRESS}/view?{url_values}"
+
     try:
         with session.get(url, stream=True) as response:
             response.raise_for_status()
@@ -54,6 +55,7 @@ def queue_prompt(prompt):
     p = {"prompt": prompt, "client_id": CLIENT_ID}
     data = json.dumps(p).encode('utf-8')
     url = f"http://{COMFY_UI_SERVER_ADDRESS}/prompt"
+
     try:
         with session.post(url, data=data) as response:
             response.raise_for_status()
@@ -65,6 +67,7 @@ def queue_prompt(prompt):
 def check_current_queue():
     """Checks the current queue on the ComfyUI server."""
     url = f"http://{COMFY_UI_SERVER_ADDRESS}/queue"
+
     try:
         with session.get(url) as response:
             response.raise_for_status()
@@ -79,7 +82,6 @@ def check_current_queue():
 async def get_images(ws, prompt, noise_seed):
     """Retrieves images generated from a prompt, handling WebSocket communication."""
     prompt_id = queue_prompt(prompt)['prompt_id']
-    output_images = []
     last_reported_percentage = 0
 
     try:

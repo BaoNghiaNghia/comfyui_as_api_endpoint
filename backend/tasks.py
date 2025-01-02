@@ -4,49 +4,27 @@ from pathlib import Path
 from celery import shared_task
 from .services import check_current_queue, generate_images
 import random
-from .constants import THUMBNAIL_STYLE_LIST, SUBFOLDER_TOOL_RENDER, SUBFOLDER_TEAM_AUTOMATION, MAX_IMAGES_THRESHOLD, IMAGES_TO_DELETE
+from .constants import THUMBNAIL_STYLE_LIST, SUBFOLDER_TOOL_RENDER, SUBFOLDER_TEAM_AUTOMATION, MAX_IMAGES_THRESHOLD, COUNT_IMAGES_TO_DELETE, INIT_REQUEST
 
 TEAM_AUTOMATION_FOLDER = Path(f"/thumbnail_img/{SUBFOLDER_TEAM_AUTOMATION}")
 TOOL_RENDER_FOLDER = Path(f"/thumbnail_img/{SUBFOLDER_TOOL_RENDER}")
 
 
 async def generate_images_api():
-    init_requests = [
-        {
-            "short_description": random.choice([
-                "Young woman in wheat field at sunrise glow",
-                "Young woman on sunlit beach, breeze flowing gently",
-                "Young woman jogging in park under bright sunlight",
-                "Young woman standing on cliff, ocean sunrise beauty",
-                "Young woman smiling in tulip field, holding bouquet",
-                "Young woman dancing joyfully in village, morning glow",
-                "Young woman sipping coffee on cozy café windowsill",
-                "Young woman picking apples in sunny orchard, smiling",
-                "Young woman stretching arms freely on hilltop sunrise",
-                "Young woman relaxing in hammock, lush tropical garden",
-                "Young woman reflecting calmly by serene lake, sunlight",
-                "Young woman skipping along forest path, vibrant morning",
-                "Young woman laughing on grass with picnic in park",
-                "Young woman dancing under waterfall, glowing jungle sunrise",
-                "Young woman reading peacefully in café, bathed sunlight",
-                "Young woman embracing lavender field, glowing morning sun",
-                "Young woman smiling by farmhouse, holding wildflowers brightly",
-                "Young woman walking in autumn forest, golden sunlight glow",
-                "Young woman relaxed on balcony overlooking lively sunny city",
-                "Young woman standing near river, soft morning breeze flows",
-            ]),
-            "title": "Morning Music",
-            "file_name": "morning_music",
-            "thumbnail_number": 1,
-            "thumb_style": random.choice(THUMBNAIL_STYLE_LIST),
-            "subfolder": SUBFOLDER_TEAM_AUTOMATION
-        },
-    ]
+    """_summary_
+        Asynchronous worker function to generate images based on API requests.
+        This function processes a list of initial requests (INIT_REQUEST), determines the prefixes of file names,
+        counts the occurrences of each prefix, and selects the prefix with the smallest count. It then randomly
+        chooses a request with the selected prefix and calls the generate_images function with the details from
+        the chosen request.
+        Returns:
+            None
+    """
 
-    prefixes = list({request["file_name"] for request in init_requests})
+    prefixes = list({request["file_name"] for request in INIT_REQUEST})
 
     counts = {prefix: 0 for prefix in prefixes}
-    for request in init_requests:
+    for request in INIT_REQUEST:
         for prefix in prefixes:
             if request["file_name"].startswith(prefix):
                 counts[prefix] += 1
@@ -55,7 +33,7 @@ async def generate_images_api():
     smallest_prefixes = [prefix for prefix, count in counts.items() if count == smallest_count]
 
     matching_objects = [
-        request for request in init_requests 
+        request for request in INIT_REQUEST 
         if request["file_name"] in smallest_prefixes
     ]
 
@@ -134,7 +112,7 @@ def delete_oldest_images_team_automation():
             # Delete images until the number of images does not exceed the MAX_IMAGES_THRESHOLD
             while len(images) > MAX_IMAGES_THRESHOLD:
                 # Delete the oldest 10 images if the total count exceeds MAX_IMAGES_THRESHOLD
-                for i in range(min(IMAGES_TO_DELETE, len(images))):
+                for i in range(min(COUNT_IMAGES_TO_DELETE, len(images))):
                     oldest_image = images[i]
                     os.remove(oldest_image)
 
@@ -165,7 +143,7 @@ def delete_oldest_images_tool_render():
 
         if len(images) > MAX_IMAGES_THRESHOLD/2:
             while len(images) > MAX_IMAGES_THRESHOLD/2:
-                for i in range(min(IMAGES_TO_DELETE, len(images))):
+                for i in range(min(COUNT_IMAGES_TO_DELETE, len(images))):
                     oldest_image = images[i]
                     os.remove(oldest_image)
 
