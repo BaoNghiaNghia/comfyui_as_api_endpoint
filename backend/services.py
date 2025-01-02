@@ -39,6 +39,7 @@ def get_image(filename, subfolder, folder_type):
         logging.error(f"Error fetching image: {e}")
         raise
 
+
 def get_history(prompt_id):
     """Retrieves the history for a given prompt ID from the ComfyUI server."""
     url = f"http://{COMFY_UI_SERVER_ADDRESS}/history/{prompt_id}"
@@ -49,6 +50,7 @@ def get_history(prompt_id):
     except requests.exceptions.RequestException as e:
         logging.error(f"Error fetching history: {e}")
         raise
+
 
 def queue_prompt(prompt):
     """Queues a prompt on the ComfyUI server."""
@@ -64,6 +66,7 @@ def queue_prompt(prompt):
         logging.error(f"Error queuing prompt: {e}")
         raise
 
+
 def check_current_queue():
     """Checks the current queue on the ComfyUI server."""
     url = f"http://{COMFY_UI_SERVER_ADDRESS}/queue"
@@ -78,6 +81,7 @@ def check_current_queue():
     except Exception as e:
         logging.error(f"Unexpected error checking queue: {str(e)}")
         return None
+
 
 async def get_images(ws, prompt, noise_seed):
     """Retrieves images generated from a prompt, handling WebSocket communication."""
@@ -130,6 +134,7 @@ async def get_images(ws, prompt, noise_seed):
     except Exception as e:
         logging.error(f"An unexpected error occurred while getting images for prompt {prompt_id}: {e}")
         raise
+
 
 def authenticate_user(domain, token):
     """Authenticates a user with a given domain and token."""

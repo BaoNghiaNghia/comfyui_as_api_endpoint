@@ -1,9 +1,10 @@
 import os
+import random
 import asyncio
+import datetime
 from pathlib import Path
 from celery import shared_task
 from .services import check_current_queue, generate_images
-import random
 from .constants import THUMBNAIL_STYLE_LIST, SUBFOLDER_TOOL_RENDER, SUBFOLDER_TEAM_AUTOMATION, MAX_IMAGES_THRESHOLD, COUNT_IMAGES_TO_DELETE, INIT_REQUEST
 
 TEAM_AUTOMATION_FOLDER = Path(f"/thumbnail_img/{SUBFOLDER_TEAM_AUTOMATION}")
@@ -32,21 +33,32 @@ async def generate_images_api():
     smallest_count = min(counts.values())
     smallest_prefixes = [prefix for prefix, count in counts.items() if count == smallest_count]
 
+    today = datetime.datetime.now()
+    day_of_week_number = today.weekday()  # Monday is 0, Sunday is 6
+    print("Today is day number:", day_of_week_number)
+
+    # Filter requests that match both the smallest prefixes and the current day of the week
     matching_objects = [
-        request for request in INIT_REQUEST 
-        if request["file_name"] in smallest_prefixes
+        request for request in INIT_REQUEST
+        if request["file_name"] in smallest_prefixes and day_of_week_number in request["day_of_week"]
     ]
+
+    # Ensure there's a valid request to process for today
+    if not matching_objects:
+        print("No matching objects for today's day of the week.")
+        return
 
     random_request = random.choice(matching_objects)
 
     await generate_images(
-        random_request["short_description"],
-        random_request["title"],
-        random_request["thumbnail_number"],
-        random_request["thumb_style"],
-        random_request["subfolder"],
-        random_request["file_name"]
+        random_request["short_description"],        # short_description
+        random_request["title"],                    # title
+        1,                                          # thumbnail_number
+        random.choice(THUMBNAIL_STYLE_LIST),        # thumb_style
+        SUBFOLDER_TEAM_AUTOMATION,                  # subfolder
+        random_request["file_name"]                 # filename_prefix
     )
+
 
 
 @shared_task(name="backend.tasks.check_and_generate_images")
