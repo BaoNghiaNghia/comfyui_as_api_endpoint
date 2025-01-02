@@ -6,15 +6,12 @@ import asyncio
 import requests
 import websocket
 from urllib.parse import urlencode
-from urllib.request import urlopen, Request
-from urllib.error import URLError, HTTPError
 from fastapi import HTTPException
 from .constants import GEMINI_KEY_TOOL_RENDER, GEMINI_KEY_TEAM_AUTOMATION, SUBFOLDER_TEAM_AUTOMATION, SUBFOLDER_TOOL_RENDER, CLIENT_ID, FILE_DIRECTORY
-from pathlib import Path
+
 
 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
-
 
 COMFY_UI_SERVER_ADDRESS = os.getenv('COMFY_UI_SERVER_ADDRESS', 'host.docker.internal:8188')
 BACKEND_SERVER_ADDRESS = os.getenv('BACKEND_SERVER_ADDRESS', 'host.docker.internal:8000')
@@ -25,6 +22,7 @@ TEXT_STYLE = "A clean and modern sans-serif " # Consider: random.choice(["The ha
 
 # Use a session for connection pooling
 session = requests.Session()
+
 
 
 def get_image(filename, subfolder, folder_type):
