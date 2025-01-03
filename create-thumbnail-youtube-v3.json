@@ -3,56 +3,6 @@
   "last_link_id": 215,
   "nodes": [
     {
-      "id": 47,
-      "type": "ProPostFilmGrain",
-      "pos": [
-        1823.8575439453125,
-        235.4403076171875
-      ],
-      "size": [
-        295.24066162109375,
-        300.5332336425781
-      ],
-      "flags": {},
-      "order": 32,
-      "mode": 4,
-      "inputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 120
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            66
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ProPostFilmGrain"
-      },
-      "widgets_values": [
-        false,
-        "Fine",
-        0.5,
-        0.4,
-        0.2,
-        0.1,
-        1,
-        0,
-        1,
-        1099522091888377,
-        "randomize"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
       "id": 70,
       "type": "Note",
       "pos": [
@@ -147,41 +97,6 @@
       ],
       "color": "#232",
       "bgcolor": "#353"
-    },
-    {
-      "id": 40,
-      "type": "UpscaleModelLoader",
-      "pos": [
-        1823.1785888671875,
-        -159.59344482421875
-      ],
-      "size": [
-        295.739013671875,
-        58
-      ],
-      "flags": {},
-      "order": 4,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "UPSCALE_MODEL",
-          "type": "UPSCALE_MODEL",
-          "links": [
-            59
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "UpscaleModelLoader"
-      },
-      "widgets_values": [
-        "4x-UltraSharp.pth"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
     },
     {
       "id": 13,
@@ -304,7 +219,7 @@
         58
       ],
       "flags": {},
-      "order": 5,
+      "order": 4,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -339,7 +254,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 6,
+      "order": 5,
       "mode": 4,
       "inputs": [],
       "outputs": [
@@ -407,136 +322,6 @@
       "bgcolor": "#3f5159"
     },
     {
-      "id": 32,
-      "type": "PatchModelAddDownscale",
-      "pos": [
-        688.6187133789062,
-        -899.4456787109375
-      ],
-      "size": [
-        465.2356262207031,
-        202
-      ],
-      "flags": {},
-      "order": 22,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 54
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            55
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "PatchModelAddDownscale"
-      },
-      "widgets_values": [
-        3,
-        2,
-        0,
-        0.35,
-        true,
-        "bicubic",
-        "bicubic"
-      ]
-    },
-    {
-      "id": 41,
-      "type": "ImageUpscaleWithModel",
-      "pos": [
-        1823.3638916015625,
-        -44.35458755493164
-      ],
-      "size": [
-        296.97412109375,
-        46
-      ],
-      "flags": {},
-      "order": 30,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "upscale_model",
-          "type": "UPSCALE_MODEL",
-          "link": 59
-        },
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 102
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            119
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ImageUpscaleWithModel"
-      },
-      "widgets_values": [],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
-      "id": 76,
-      "type": "ImageScale",
-      "pos": [
-        1823.0870361328125,
-        56.78324508666992
-      ],
-      "size": [
-        297.8346862792969,
-        130
-      ],
-      "flags": {},
-      "order": 31,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 119
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            120
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ImageScale"
-      },
-      "widgets_values": [
-        "nearest-exact",
-        1920,
-        1080,
-        "disabled"
-      ]
-    },
-    {
       "id": 29,
       "type": "EmptyLatentImage",
       "pos": [
@@ -548,7 +333,7 @@
         106
       ],
       "flags": {},
-      "order": 7,
+      "order": 6,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -571,41 +356,6 @@
         1
       ],
       "shape": 2
-    },
-    {
-      "id": 11,
-      "type": "DualCLIPLoader",
-      "pos": [
-        -794.9777221679688,
-        -690.557373046875
-      ],
-      "size": [
-        311.8746032714844,
-        106
-      ],
-      "flags": {},
-      "order": 8,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            73
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "DualCLIPLoader"
-      },
-      "widgets_values": [
-        "t5xxl_fp8_e4m3fn.safetensors",
-        "clip_l.safetensors",
-        "flux"
-      ]
     },
     {
       "id": 27,
@@ -676,7 +426,7 @@
         82.260009765625
       ],
       "flags": {},
-      "order": 9,
+      "order": 7,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -694,7 +444,7 @@
         "Node name for S&R": "RandomNoise"
       },
       "widgets_values": [
-        856840933078750,
+        259213107388438,
         "randomize"
       ]
     },
@@ -710,7 +460,7 @@
         58
       ],
       "flags": {},
-      "order": 10,
+      "order": 8,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -776,67 +526,6 @@
       "widgets_values": []
     },
     {
-      "id": 178,
-      "type": "SaveImageExtended",
-      "pos": [
-        2150.77587890625,
-        -156.94064331054688
-      ],
-      "size": [
-        317.1272277832031,
-        598
-      ],
-      "flags": {},
-      "order": 34,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 206
-        },
-        {
-          "name": "positive_text_opt",
-          "type": "STRING",
-          "link": 207,
-          "widget": {
-            "name": "positive_text_opt"
-          },
-          "shape": 7
-        },
-        {
-          "name": "negative_text_opt",
-          "type": "STRING",
-          "link": 208,
-          "widget": {
-            "name": "negative_text_opt"
-          },
-          "shape": 7
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "Node name for S&R": "SaveImageExtended"
-      },
-      "widgets_values": [
-        "ytbthumb",
-        "steps, noise_seed",
-        "tool_render",
-        "",
-        "underscore",
-        "disabled",
-        "disabled",
-        "",
-        "enabled",
-        5,
-        "last",
-        "disabled",
-        "enabled",
-        "",
-        ""
-      ]
-    },
-    {
       "id": 49,
       "type": "LoraLoader",
       "pos": [
@@ -891,51 +580,6 @@
         1,
         0.4
       ]
-    },
-    {
-      "id": 48,
-      "type": "ColorCorrect",
-      "pos": [
-        2151.261962890625,
-        505.266357421875
-      ],
-      "size": [
-        317.4425048828125,
-        178.61305236816406
-      ],
-      "flags": {},
-      "order": 33,
-      "mode": 4,
-      "inputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 66
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            206
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ColorCorrect"
-      },
-      "widgets_values": [
-        0,
-        0,
-        0,
-        2,
-        2,
-        1
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
     },
     {
       "id": 61,
@@ -1038,7 +682,7 @@
         [
           "chuyển câu sau thành 1 câu tiếng Anh đơn giản dành cho Stable Diffusion và loại bỏ chữ tiếng việt: ảnh toàn cảnh, 1 con tàu hình dáng thuyền buồm bay ngoài vũ trụ, người ngoài hành tinh, phong cách phim viễn tưởng, siêu thực, phim ,chất lượng cao, chi tiết, ánh sáng phim , 4k"
         ],
-        "describe \"Lofi Music\" with realistic photo style as a prompt based on this exact format. Banner title: realistic photo **\"Lofi Music\"** in large, realistic photo, elegant lettering, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere. ```\n((Realistic photo)), ((detailed)), ((best quality)), ((realistic photo))\n\nScene Description:\nA vibrant and festive Vietnamese Lunar New Year celebration. The scene features a bustling environment with traditional decorations: red lanterns hanging in the air, peach blossoms in full bloom, and kumquat trees adorned with golden fruits. In the foreground, people in colorful áo dài (traditional Vietnamese attire) are smiling and engaging in joyous activities such as giving red envelopes (lì xì) to children and enjoying Tết delicacies.\n\nBanner Title:  \n{textStyle} **\"{title}\"** in large, elegant lettering, {thumb_style}, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.  \n\nBackground Details:\nA lively village or urban setting, glowing with strings of festive lights, banners, and colorful decorations. Fireworks illuminate the twilight sky, adding a sense of wonder. Vibrant market stalls and close-knit family gatherings underscore the themes of community and tradition.  \n\nColor Palette:\nA harmonious blend of auspicious colors like radiant reds and gleaming golds, symbolizing luck and prosperity. These tones are complemented by soft pinks from peach blossoms, verdant greens of kumquat trees, and an ethereal glow from the lighting. The overall lighting is soft and immersive, exuding warmth and joy.  \n\nComposition:  \nThe scene features a dynamic and balanced arrangement of cultural elements and animated interactions. Attention is given to the detailed textures of traditional clothing, the vibrant energy of decorations, and the genuine expressions of happiness, perfectly encapsulating the spirit of Vietnamese New Year celebrations. \n```"
+        "describe \"Young woman warming hands by fireplace, cozy winter vibes\" with realistic photo style as a prompt based on this exact format. Banner title: realistic photo **\"Lofi Music\"** in large, realistic photo, elegant lettering, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere. ```\n((Realistic photo)), ((detailed)), ((best quality)), ((realistic photo))\n\nScene Description:\nA vibrant and festive Vietnamese Lunar New Year celebration. The scene features a bustling environment with traditional decorations: red lanterns hanging in the air, peach blossoms in full bloom, and kumquat trees adorned with golden fruits. In the foreground, people in colorful áo dài (traditional Vietnamese attire) are smiling and engaging in joyous activities such as giving red envelopes (lì xì) to children and enjoying Tết delicacies.\n\nBanner Title:  \n{textStyle} **\"{title}\"** in large, elegant lettering, {thumb_style}, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.  \n\nBackground Details:\nA lively village or urban setting, glowing with strings of festive lights, banners, and colorful decorations. Fireworks illuminate the twilight sky, adding a sense of wonder. Vibrant market stalls and close-knit family gatherings underscore the themes of community and tradition.  \n\nColor Palette:\nA harmonious blend of auspicious colors like radiant reds and gleaming golds, symbolizing luck and prosperity. These tones are complemented by soft pinks from peach blossoms, verdant greens of kumquat trees, and an ethereal glow from the lighting. The overall lighting is soft and immersive, exuding warmth and joy.  \n\nComposition:  \nThe scene features a dynamic and balanced arrangement of cultural elements and animated interactions. Attention is given to the detailed textures of traditional clothing, the vibrant energy of decorations, and the genuine expressions of happiness, perfectly encapsulating the spirit of Vietnamese New Year celebrations. \n```"
       ],
       "color": "#232",
       "bgcolor": "#353",
@@ -1056,7 +700,7 @@
         82
       ],
       "flags": {},
-      "order": 11,
+      "order": 9,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1124,7 +768,7 @@
         [
           "A highly detailed and cinematic 4k image of a sailing ship spaceship flying through space, surrounded by aliens, in a surreal and cinematic sci-fi style, with movie lighting. \n"
         ],
-        "((Realistic photo)), ((detailed)), ((best quality)), ((realistic photo))\n\nScene Description:\nA cozy, dimly lit room bathed in the warm glow of a late afternoon sun.  Dust motes dance in the golden light filtering through a half-drawn curtain.  On a cluttered desk sits an open laptop displaying a music production software interface with a waveform visible. Headphones rest beside the laptop, and scattered around are notebooks filled with musical notations, sketches, and scribbled lyrics.  A steaming mug of coffee or tea sits next to a small, potted succulent.  Outside the window, a blurred cityscape suggests a bustling urban environment, contrasting with the peaceful atmosphere of the room.\n\nBanner Title:  \nrealistic photo **\"Lofi Music\"** in large, realistic photo, elegant lettering, positioned prominently at the top center of the image, blending seamlessly with the calm and contemplative atmosphere.\n\nBackground Details:\nThe room should have a lived-in, slightly cluttered feel, suggesting a creative space.  Bookshelves overflowing with books, vinyl records stacked against a wall, and perhaps a vintage record player contribute to the ambiance. The lighting is key, emphasizing the warm, golden hues of the late afternoon sun.\n\nColor Palette:\nA muted palette of warm browns, oranges, and yellows dominates the scene, creating a sense of calm and comfort. The light from the window provides a warm, golden glow.  Subtle accents of green from the plant and perhaps a cool blue from the laptop screen offer subtle contrasts.\n\nComposition:  \nThe composition should be balanced and inviting, drawing the viewer into the peaceful and creative atmosphere. The focus should be on the desk and its contents, with the background details adding to the overall sense of calm and contemplation. The lighting should create a sense of depth and warmth.\n"
+        "((Realistic photo)), ((detailed)), ((best quality)), ((realistic photo))\n\nScene Description:\nA young woman with long, flowing hair sits on a plush, sheepskin rug in front of a crackling fireplace. She holds her hands outstretched towards the flames, warming them in the soft glow.  Her attire is cozy and comfortable – perhaps a thick cable-knit sweater and wool socks. The room is dimly lit, the only prominent light source being the flickering fire.\n\nBanner Title:  \n{realistic photo, elegant lettering} **\"Lofi Music\"** in large, {blending seamlessly}, positioned prominently at the top center of the image, blending seamlessly with the cozy atmosphere.  \n\nBackground Details:\nA comfortable and inviting living room setting.  A warm, glowing fireplace with a stone or brick hearth. Perhaps a stack of books or a mug of hot cocoa rests on a nearby side table. Soft furnishings like throw blankets and pillows add to the sense of comfort and relaxation.  The room is bathed in the warm, orange glow of the firelight, creating a peaceful and intimate ambiance.\n\nColor Palette:\nWarm and inviting tones dominate the scene. The orange and yellow hues of the firelight cast a warm glow on the surroundings. Browns, creams, and beiges from the furniture and rug create a cozy and neutral backdrop. The woman's clothing might incorporate soft, muted colors like grey, cream, or a deep burgundy.\n\nComposition:  \nA close-up shot of the woman warming her hands, with the fireplace as the main focal point.  The composition should evoke feelings of warmth, comfort, and tranquility.  The soft lighting and gentle shadows contribute to the overall sense of coziness.  The image should feel intimate and inviting, capturing the essence of a quiet winter evening.\n"
       ],
       "color": "#232",
       "bgcolor": "#353",
@@ -1280,44 +924,6 @@
       "shape": 2
     },
     {
-      "id": 179,
-      "type": "ttN text",
-      "pos": [
-        1170.453125,
-        95.517333984375
-      ],
-      "size": [
-        316.5268249511719,
-        149.73654174804688
-      ],
-      "flags": {
-        "collapsed": false
-      },
-      "order": 12,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "text",
-          "type": "STRING",
-          "links": [
-            208
-          ],
-          "slot_index": 0
-        }
-      ],
-      "title": "Negative Text",
-      "properties": {
-        "Node name for S&R": "ttN text",
-        "ttNnodeVersion": "1.0.0"
-      },
-      "widgets_values": [
-        "blur, distortion, text, watermark"
-      ],
-      "color": "#223",
-      "bgcolor": "#335"
-    },
-    {
       "id": 50,
       "type": "LoraLoader",
       "pos": [
@@ -1374,47 +980,6 @@
       ]
     },
     {
-      "id": 17,
-      "type": "BasicScheduler",
-      "pos": [
-        690.765380859375,
-        -569.7496337890625
-      ],
-      "size": [
-        464.12835693359375,
-        106
-      ],
-      "flags": {},
-      "order": 23,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 89,
-          "slot_index": 0
-        }
-      ],
-      "outputs": [
-        {
-          "name": "SIGMAS",
-          "type": "SIGMAS",
-          "links": [
-            20
-          ],
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "BasicScheduler"
-      },
-      "widgets_values": [
-        "ddim_uniform",
-        15,
-        1
-      ]
-    },
-    {
       "id": 43,
       "type": "FluxGuidance",
       "pos": [
@@ -1464,7 +1029,7 @@
         787.0101928710938
       ],
       "flags": {},
-      "order": 13,
+      "order": 10,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1498,12 +1063,447 @@
         "text1 + text2 to output1, text2 to output2",
         " ",
         "false",
-        750592453754946,
+        725621921880137,
         "randomize"
       ],
       "color": "#332922",
       "bgcolor": "#593930",
       "shape": 1
+    },
+    {
+      "id": 17,
+      "type": "BasicScheduler",
+      "pos": [
+        690.765380859375,
+        -569.7496337890625
+      ],
+      "size": [
+        464.12835693359375,
+        106
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 89,
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            20
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BasicScheduler"
+      },
+      "widgets_values": [
+        "ddim_uniform",
+        19,
+        1
+      ]
+    },
+    {
+      "id": 11,
+      "type": "DualCLIPLoader",
+      "pos": [
+        -794.9777221679688,
+        -690.557373046875
+      ],
+      "size": [
+        311.8746032714844,
+        106
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            73
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DualCLIPLoader"
+      },
+      "widgets_values": [
+        "t5xxl_fp16.safetensors",
+        "clip_l.safetensors",
+        "flux"
+      ]
+    },
+    {
+      "id": 47,
+      "type": "ProPostFilmGrain",
+      "pos": [
+        2174.381103515625,
+        -165.3293914794922
+      ],
+      "size": [
+        295.24066162109375,
+        300.5332336425781
+      ],
+      "flags": {},
+      "order": 32,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 120
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            66
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ProPostFilmGrain"
+      },
+      "widgets_values": [
+        false,
+        "Fine",
+        0.5,
+        0.4,
+        0.2,
+        0.1,
+        1,
+        0,
+        1,
+        1012843143117861,
+        "randomize"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 41,
+      "type": "ImageUpscaleWithModel",
+      "pos": [
+        2126.28662109375,
+        -382.90826416015625
+      ],
+      "size": [
+        296.97412109375,
+        46
+      ],
+      "flags": {},
+      "order": 30,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "upscale_model",
+          "type": "UPSCALE_MODEL",
+          "link": 59
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 102
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            119
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageUpscaleWithModel"
+      },
+      "widgets_values": [],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 40,
+      "type": "UpscaleModelLoader",
+      "pos": [
+        1713.287841796875,
+        -383.4124450683594
+      ],
+      "size": [
+        295.739013671875,
+        58
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "UPSCALE_MODEL",
+          "type": "UPSCALE_MODEL",
+          "links": [
+            59
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UpscaleModelLoader"
+      },
+      "widgets_values": [
+        "4x-UltraSharp.pth"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 32,
+      "type": "PatchModelAddDownscale",
+      "pos": [
+        688.6187133789062,
+        -899.4456787109375
+      ],
+      "size": [
+        465.2356262207031,
+        202
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 54
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            55
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PatchModelAddDownscale"
+      },
+      "widgets_values": [
+        3,
+        2,
+        0,
+        0.35,
+        true,
+        "nearest-exact",
+        "nearest-exact"
+      ]
+    },
+    {
+      "id": 76,
+      "type": "ImageScale",
+      "pos": [
+        1834.3968505859375,
+        -164.41119384765625
+      ],
+      "size": [
+        297.8346862792969,
+        130
+      ],
+      "flags": {},
+      "order": 31,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 119
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            120
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageScale"
+      },
+      "widgets_values": [
+        "nearest-exact",
+        1920,
+        1080,
+        "disabled"
+      ]
+    },
+    {
+      "id": 48,
+      "type": "ColorCorrect",
+      "pos": [
+        1834.1986083984375,
+        24.44462013244629
+      ],
+      "size": [
+        298.55828857421875,
+        178
+      ],
+      "flags": {},
+      "order": 33,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 66
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            206
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ColorCorrect"
+      },
+      "widgets_values": [
+        0,
+        0,
+        0,
+        2,
+        2,
+        1
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 178,
+      "type": "SaveImageExtended",
+      "pos": [
+        2175.294189453125,
+        191.6320037841797
+      ],
+      "size": [
+        295.0576171875,
+        594.3218383789062
+      ],
+      "flags": {},
+      "order": 34,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 206
+        },
+        {
+          "name": "positive_text_opt",
+          "type": "STRING",
+          "link": 207,
+          "widget": {
+            "name": "positive_text_opt"
+          },
+          "shape": 7
+        },
+        {
+          "name": "negative_text_opt",
+          "type": "STRING",
+          "link": 208,
+          "widget": {
+            "name": "negative_text_opt"
+          },
+          "shape": 7
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImageExtended"
+      },
+      "widgets_values": [
+        "ytbthumb",
+        "steps, noise_seed",
+        "tool_render",
+        "",
+        "underscore",
+        "disabled",
+        "disabled",
+        "",
+        "enabled",
+        5,
+        "last",
+        "disabled",
+        "enabled",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 179,
+      "type": "ttN text",
+      "pos": [
+        1837.46923828125,
+        325.3147277832031
+      ],
+      "size": [
+        295.6632080078125,
+        144.54531860351562
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 13,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [
+            208
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Negative Text",
+      "properties": {
+        "Node name for S&R": "ttN text",
+        "ttNnodeVersion": "1.0.0"
+      },
+      "widgets_values": [
+        "blur, distortion, text, watermark"
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
     }
   ],
   "links": [
@@ -1814,10 +1814,10 @@
       "id": 1,
       "title": "Upscale by Model",
       "bounding": [
-        1802.9832763671875,
-        -243.69540405273438,
-        697.3741455078125,
-        964.0995483398438
+        1815.1768798828125,
+        -249.34719848632812,
+        675.3701171875,
+        1058.2266845703125
       ],
       "color": "#3f789e",
       "font_size": 24,
@@ -1866,10 +1866,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 1.5535220464769017,
+      "scale": 0.5989500000000012,
       "offset": [
-        1629.1477876661993,
-        469.32175164809354
+        1522.9623719898557,
+        1126.8530573579928
       ]
     },
     "ue_links": [],
