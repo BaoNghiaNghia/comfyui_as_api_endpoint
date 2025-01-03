@@ -206,6 +206,10 @@ def scene_description_template(textStyle, input_string, title):
 
 
 def scene_template_1(textStyle, input_string, title, thumb_style):
+    """_summary
+        Function describe: This function is used to generate a scene template 2.
+    """
+    
     return f"""
         Scene Description:  
         {scene_description_template(textStyle, input_string, title)}
@@ -225,25 +229,38 @@ def scene_template_1(textStyle, input_string, title, thumb_style):
 
 
 def scene_template_2(textStyle, input_string, title):
+    """_summary
+        Function describe: This function is used to generate a scene template 2.
+    """
     return f"""
         A moody lo-fi cityscape at night, bathed in shades of deep purple and black. The scene features a quiet urban alley with rain-slicked cobblestone streets reflecting the neon glow of purple and magenta signs mounted on old brick buildings. A single streetlamp casts a dim, cool light, creating long shadows and an air of mystery. In the foreground, a young person in a hoodie is leaning against a wall, headphones on, holding a steaming cup of coffee, their face softly illuminated by the glow of a nearby neon sign. A black cat with glowing purple eyes sits at their feet, adding an enigmatic vibe. In the background, silhouettes of distant skyscrapers with flickering purple windows fade into the night sky, where faint stars peek through. A soft rain falls, creating a rhythmic, tranquil atmosphere, with puddles scattered across the street glistening in the neon light. The entire scene exudes a chill, introspective lo-fi vibe.
     """
 
 
 def scene_template_3(textStyle, input_string, title):
+    """_summary
+        Function describe: This function is used to generate a scene template 2.
+    """
+
     return f"""
         ...
     """
 
 
 def scene_template_4(textStyle, input_string, title):
+    """_summary
+        Function describe: This function is used to generate a scene template 2.
+    """
+
     return f"""
         ...
     """
 
 
 def create_prompt_and_call_api(input_string, title, thumb_style):
-    """Creates a prompt and constructs the full API call prompt."""
+    """
+        Creates a prompt and constructs the full API call prompt.
+    """
     # Mapping of scene templates
     scene_templates = {
         1: scene_template_1,
@@ -257,12 +274,14 @@ def create_prompt_and_call_api(input_string, title, thumb_style):
     scene_template = scene_templates[template_choice](TEXT_STYLE, input_string, title, thumb_style)
 
     # Construct and return the full API call prompt
-    return f"```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\n{scene_template}```"
+    return f"```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), (({thumb_style}))\n\n{scene_template}```"
 
 
 
 async def generate_images(short_description, title, thumbnail_number=1, thumb_style='realistic photo', subfolder='tool_render', filename_prefix='ytbthumb'):
-    """Generates images using the ComfyUI workflow via WebSocket."""
+    """
+        Generates images using the ComfyUI workflow via WebSocket.
+    """
 
     ws = None
     try:
@@ -327,7 +346,9 @@ async def generate_images(short_description, title, thumbnail_number=1, thumb_st
                 logging.error(f"Error closing WebSocket: {e}")
 
 def download_single_image(file_name: str, subfolder: str):
-    """Downloads a single image from the server."""
+    """
+        Downloads a single image from the server.
+    """
     try:
         if not file_name or not subfolder:
             raise HTTPException(status_code=400, detail="Invalid file name or subfolder")

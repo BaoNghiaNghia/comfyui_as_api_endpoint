@@ -71,6 +71,10 @@ def check_and_generate_images():
 
 
 async def generate_images_logic():
+    """_summary
+        Function describe: This function is used to generate images based on the current queue status and the number of images in the folder.
+    """
+
     try:
         # Call the queue checking function
         queue_count = check_current_queue()
@@ -110,6 +114,9 @@ async def generate_images_logic():
 # Define the task to delete the oldest images
 @shared_task(name="backend.tasks.delete_oldest_images_team_automation")
 def delete_oldest_images_team_automation():
+    """_summary
+        Function describe: This function is used to delete the oldest images in the Team Automation folder.
+    """
     try:
         # Get list of all image files in the folder sorted by modification time
         images = [
@@ -144,6 +151,10 @@ def delete_oldest_images_team_automation():
 # Define the task to delete the oldest images
 @shared_task(name="backend.tasks.delete_oldest_images_tool_render")
 def delete_oldest_images_tool_render():
+    """_summary
+        Function describe: This function is used to delete the oldest images in the Tool Render folder.
+    """
+
     try:
         # Get list of all image files in the folder sorted by modification time
         images = [

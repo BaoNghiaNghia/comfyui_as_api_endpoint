@@ -10,12 +10,20 @@ router = APIRouter()
 
 @router.get("/")
 async def get_index():
+    """_summary
+        Function describe: This function is used to generate a scene template 2.
+    """
+    
     return FileResponse("ui/index.html")
 
 
 # Endpoint to generate images
 @router.post("/generate_images/thumbnail-youtube")
 async def generate_images_api(request: PromptRequest):
+    """_summary
+        Function describe: This function is used to generate a scene template 2.
+    """
+    
     try:
         # # Authenticate if email and password are provided
         # if request.token:
@@ -52,6 +60,10 @@ async def generate_images_api(request: PromptRequest):
 
 @router.get("/download-images/")
 async def download_file(file_name: str, subfolder: str):
+    """_summary
+        Function describe: This function is used to generate a scene template 2.
+    """
+    
     try:
         file_path = download_single_image(file_name, subfolder)
 
@@ -70,5 +82,9 @@ async def download_file(file_name: str, subfolder: str):
 
 @router.post("/check-and-generate/")
 async def trigger_check_and_generate():
+    """_summary
+        Function describe: This function is used to generate a scene template 2.
+    """
+
     task = check_and_generate_images.delay()  # Enqueue task
     return {"task_id": task.id, "status": "Task enqueued"}
