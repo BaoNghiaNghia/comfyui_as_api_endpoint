@@ -73,7 +73,7 @@ GEMINI_KEY_TOOL_RENDER = [
     # "AIzaSyDetmj90xmAkybYuuMM4DXUc4Tc0hIRj-M",
     # "AIzaSyDP91xrK7B6zjnf0jKeRudguSUO-GHyhmQ",
     # "AIzaSyB8xGKrZBVfosfMIYnddX68hypfwZSY6dA",
-    "AIzaSyDIGoELRQWvYEgn--Xv7GZq-8uwvy0PYDg"
+    "AIzaSyDPNa--yBNIRGOkNKuNYU4tnVeDQsOVMSs"
 ]
 
 GEMINI_KEY_TEAM_AUTOMATION = [
@@ -96,7 +96,7 @@ GEMINI_KEY_TEAM_AUTOMATION = [
     # "AIzaSyCDzXlBfi5lRt2iLY5PT3NSodB-uVbcDuY",
     # "AIzaSyDJ2tjhP0xxDv7EJkJZwe0_g50qULOTDno",
     # "AIzaSyAV0LDFJk_ANuVW6ZHteJAUzF5U0Mq9BBE",
-    "AIzaSyDIGoELRQWvYEgn--Xv7GZq-8uwvy0PYDg"
+    "AIzaSyDPNa--yBNIRGOkNKuNYU4tnVeDQsOVMSs"
 ]
 
 SUBFOLDER_TOOL_RENDER = 'tool_render'
