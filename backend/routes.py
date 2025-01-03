@@ -5,6 +5,7 @@ from .services import generate_images, authenticate_user, download_single_image
 from .tasks import check_and_generate_images
 from .constants import DEFAULT_FILENAME_PREFIX, SUBFOLDER_TOOL_RENDER
 
+
 router = APIRouter()
 
 
@@ -78,6 +79,15 @@ async def download_file(file_name: str, subfolder: str):
 
     except Exception as e:
         raise HTTPException(status_code=500, detail="An unexpected error occurred")
+
+
+@router.get("/generate-prompt/")
+async def generate_prompt():
+    """_summary
+        Function describe: Another solution for Gemini AI model, but limit token when using with alot of request. 
+    """
+
+    return 
 
 
 @router.post("/check-and-generate/")

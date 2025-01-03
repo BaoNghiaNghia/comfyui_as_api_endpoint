@@ -1,13 +1,13 @@
 {
-  "last_node_id": 179,
-  "last_link_id": 215,
+  "last_node_id": 233,
+  "last_link_id": 300,
   "nodes": [
     {
       "id": 70,
       "type": "Note",
       "pos": [
-        -2401.457763671875,
-        -1043.6785888671875
+        -1905.1199951171875,
+        -926.12158203125
       ],
       "size": [
         299.2298278808594,
@@ -30,8 +30,8 @@
       "id": 71,
       "type": "Note",
       "pos": [
-        -2070.599609375,
-        -1043.1163330078125
+        -1574.2626953125,
+        -925.559326171875
       ],
       "size": [
         298.1436462402344,
@@ -54,8 +54,8 @@
       "id": 72,
       "type": "Note",
       "pos": [
-        -1734.7303466796875,
-        -1042.8699951171875
+        -1238.3934326171875,
+        -925.31298828125
       ],
       "size": [
         291.6274108886719,
@@ -78,8 +78,8 @@
       "id": 44,
       "type": "Note",
       "pos": [
-        -2718.22216796875,
-        -1044.0721435546875
+        -2221.886962890625,
+        -926.51513671875
       ],
       "size": [
         210,
@@ -110,7 +110,7 @@
         106
       ],
       "flags": {},
-      "order": 27,
+      "order": 28,
       "mode": 0,
       "inputs": [
         {
@@ -178,7 +178,7 @@
         46
       ],
       "flags": {},
-      "order": 28,
+      "order": 29,
       "mode": 0,
       "inputs": [
         {
@@ -287,7 +287,7 @@
         102
       ],
       "flags": {},
-      "order": 29,
+      "order": 30,
       "mode": 4,
       "inputs": [
         {
@@ -369,7 +369,7 @@
         126
       ],
       "flags": {},
-      "order": 21,
+      "order": 22,
       "mode": 0,
       "inputs": [
         {
@@ -444,7 +444,7 @@
         "Node name for S&R": "RandomNoise"
       },
       "widgets_values": [
-        259213107388438,
+        839259575274706,
         "randomize"
       ]
     },
@@ -493,7 +493,7 @@
         46
       ],
       "flags": {},
-      "order": 26,
+      "order": 27,
       "mode": 0,
       "inputs": [
         {
@@ -537,7 +537,7 @@
         126
       ],
       "flags": {},
-      "order": 18,
+      "order": 19,
       "mode": 0,
       "inputs": [
         {
@@ -585,8 +585,8 @@
       "id": 61,
       "type": "Gemini_API_Zho",
       "pos": [
-        -351.2983093261719,
-        -105.0274658203125
+        -353.0472106933594,
+        -87.53656005859375
       ],
       "size": [
         382.7574768066406,
@@ -595,7 +595,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 17,
+      "order": 18,
       "mode": 0,
       "inputs": [
         {
@@ -641,8 +641,8 @@
       "id": 60,
       "type": "ShowText|pysssss",
       "pos": [
-        -351.18719482421875,
-        -169.12977600097656
+        -352.93609619140625,
+        -151.6388702392578
       ],
       "size": [
         384.9148254394531,
@@ -651,7 +651,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 15,
+      "order": 16,
       "mode": 0,
       "inputs": [
         {
@@ -726,8 +726,8 @@
       "id": 58,
       "type": "ShowText|pysssss",
       "pos": [
-        -350.8097229003906,
-        82.07434844970703
+        -352.5586242675781,
+        99.56525421142578
       ],
       "size": [
         382.5568542480469,
@@ -736,7 +736,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 19,
+      "order": 20,
       "mode": 0,
       "inputs": [
         {
@@ -768,7 +768,7 @@
         [
           "A highly detailed and cinematic 4k image of a sailing ship spaceship flying through space, surrounded by aliens, in a surreal and cinematic sci-fi style, with movie lighting. \n"
         ],
-        "((Realistic photo)), ((detailed)), ((best quality)), ((realistic photo))\n\nScene Description:\nA young woman with long, flowing hair sits on a plush, sheepskin rug in front of a crackling fireplace. She holds her hands outstretched towards the flames, warming them in the soft glow.  Her attire is cozy and comfortable – perhaps a thick cable-knit sweater and wool socks. The room is dimly lit, the only prominent light source being the flickering fire.\n\nBanner Title:  \n{realistic photo, elegant lettering} **\"Lofi Music\"** in large, {blending seamlessly}, positioned prominently at the top center of the image, blending seamlessly with the cozy atmosphere.  \n\nBackground Details:\nA comfortable and inviting living room setting.  A warm, glowing fireplace with a stone or brick hearth. Perhaps a stack of books or a mug of hot cocoa rests on a nearby side table. Soft furnishings like throw blankets and pillows add to the sense of comfort and relaxation.  The room is bathed in the warm, orange glow of the firelight, creating a peaceful and intimate ambiance.\n\nColor Palette:\nWarm and inviting tones dominate the scene. The orange and yellow hues of the firelight cast a warm glow on the surroundings. Browns, creams, and beiges from the furniture and rug create a cozy and neutral backdrop. The woman's clothing might incorporate soft, muted colors like grey, cream, or a deep burgundy.\n\nComposition:  \nA close-up shot of the woman warming her hands, with the fireplace as the main focal point.  The composition should evoke feelings of warmth, comfort, and tranquility.  The soft lighting and gentle shadows contribute to the overall sense of coziness.  The image should feel intimate and inviting, capturing the essence of a quiet winter evening.\n"
+        "((Realistic photo)), ((detailed)), ((best quality)), ((realistic photo))\n\nScene Description:\nA young woman with long, flowing hair sits on a plush, comfortable rug in front of a crackling fireplace. She holds her hands out towards the flames, warming them.  Her expression is relaxed and peaceful. She wears a thick, cozy sweater and soft woolen socks.  A steaming mug sits beside her on the rug.\n\nBanner Title:  \nrealistic photo, elegant lettering **\"Lofi Music\"** in large, realistic photo, elegant lettering, positioned prominently at the top center of the image, blending seamlessly with the cozy atmosphere.  \n\nBackground Details:\nA dimly lit, inviting living room with warm, earthy tones.  Bookshelves filled with books line the walls, and a soft throw blanket is draped over the arm of a nearby armchair.  A window, slightly frosted from the cold outside, hints at a snowy landscape.\n\nColor Palette:\nWarm and inviting tones of orange and yellow from the firelight dominate the scene.  These are complemented by the soft browns and creams of the rug, sweater, and surrounding furniture.  Touches of cool blue and grey from the window and shadows add depth. The overall lighting is soft and dim, creating a sense of intimacy and relaxation.\n\nComposition:  \nThe focus is on the woman and the warm glow of the fireplace, creating a sense of peace and tranquility.  The composition is balanced and inviting, drawing the viewer into the cozy scene. Attention is given to the realistic textures of the sweater, rug, and the flickering flames, enhancing the overall sense of warmth and comfort.\n```\n"
       ],
       "color": "#232",
       "bgcolor": "#353",
@@ -786,7 +786,7 @@
         126
       ],
       "flags": {},
-      "order": 20,
+      "order": 21,
       "mode": 0,
       "inputs": [
         {
@@ -842,7 +842,7 @@
         82
       ],
       "flags": {},
-      "order": 14,
+      "order": 15,
       "mode": 4,
       "inputs": [
         {
@@ -884,7 +884,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 24,
+      "order": 25,
       "mode": 0,
       "inputs": [
         {
@@ -935,7 +935,7 @@
         126
       ],
       "flags": {},
-      "order": 16,
+      "order": 17,
       "mode": 4,
       "inputs": [
         {
@@ -991,7 +991,7 @@
         58.31459426879883
       ],
       "flags": {},
-      "order": 25,
+      "order": 26,
       "mode": 0,
       "inputs": [
         {
@@ -1021,8 +1021,8 @@
       "id": 59,
       "type": "TextCombinations",
       "pos": [
-        -814.538818359375,
-        -169.9390411376953
+        -816.2877197265625,
+        -152.44813537597656
       ],
       "size": [
         407.96759033203125,
@@ -1063,7 +1063,7 @@
         "text1 + text2 to output1, text2 to output2",
         " ",
         "false",
-        725621921880137,
+        1026113407571497,
         "randomize"
       ],
       "color": "#332922",
@@ -1082,7 +1082,7 @@
         106
       ],
       "flags": {},
-      "order": 23,
+      "order": 24,
       "mode": 0,
       "inputs": [
         {
@@ -1150,15 +1150,15 @@
       "id": 47,
       "type": "ProPostFilmGrain",
       "pos": [
-        2174.381103515625,
-        -165.3293914794922
+        2184.189453125,
+        -165.9424591064453
       ],
       "size": [
         295.24066162109375,
         300.5332336425781
       ],
       "flags": {},
-      "order": 32,
+      "order": 33,
       "mode": 4,
       "inputs": [
         {
@@ -1190,7 +1190,7 @@
         1,
         0,
         1,
-        1012843143117861,
+        208294971311172,
         "randomize"
       ],
       "color": "#432",
@@ -1208,7 +1208,7 @@
         46
       ],
       "flags": {},
-      "order": 30,
+      "order": 31,
       "mode": 0,
       "inputs": [
         {
@@ -1287,7 +1287,7 @@
         202
       ],
       "flags": {},
-      "order": 22,
+      "order": 23,
       "mode": 0,
       "inputs": [
         {
@@ -1324,15 +1324,15 @@
       "id": 76,
       "type": "ImageScale",
       "pos": [
-        1834.3968505859375,
-        -164.41119384765625
+        1844.2052001953125,
+        -165.02426147460938
       ],
       "size": [
         297.8346862792969,
         130
       ],
       "flags": {},
-      "order": 31,
+      "order": 32,
       "mode": 0,
       "inputs": [
         {
@@ -1365,15 +1365,15 @@
       "id": 48,
       "type": "ColorCorrect",
       "pos": [
-        1834.1986083984375,
-        24.44462013244629
+        1844.0069580078125,
+        23.831546783447266
       ],
       "size": [
         298.55828857421875,
         178
       ],
       "flags": {},
-      "order": 33,
+      "order": 34,
       "mode": 4,
       "inputs": [
         {
@@ -1410,15 +1410,15 @@
       "id": 178,
       "type": "SaveImageExtended",
       "pos": [
-        2175.294189453125,
-        191.6320037841797
+        2185.1025390625,
+        191.01893615722656
       ],
       "size": [
         295.0576171875,
         594.3218383789062
       ],
       "flags": {},
-      "order": 34,
+      "order": 35,
       "mode": 0,
       "inputs": [
         {
@@ -1471,8 +1471,8 @@
       "id": 179,
       "type": "ttN text",
       "pos": [
-        1837.46923828125,
-        325.3147277832031
+        1847.277587890625,
+        324.70166015625
       ],
       "size": [
         295.6632080078125,
@@ -1504,6 +1504,35 @@
       ],
       "color": "#223",
       "bgcolor": "#335"
+    },
+    {
+      "id": 180,
+      "type": "easy string",
+      "pos": [
+        -807.6901245117188,
+        801.9707641601562
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy string"
+      },
+      "widgets_values": [
+        ""
+      ]
     }
   ],
   "links": [
@@ -1801,8 +1830,8 @@
       "id": 6,
       "title": "Template Prompt",
       "bounding": [
-        -2744.24951171875,
-        -1126.27783203125,
+        -2247.914306640625,
+        -1008.7208251953125,
         1330.6903076171875,
         892.5576171875
       ],
@@ -1814,8 +1843,8 @@
       "id": 1,
       "title": "Upscale by Model",
       "bounding": [
-        1815.1768798828125,
-        -249.34719848632812,
+        1824.9852294921875,
+        -249.96026611328125,
         675.3701171875,
         1058.2266845703125
       ],
@@ -1853,10 +1882,23 @@
       "id": 5,
       "title": "LLM - Gemini AI",
       "bounding": [
-        -830.1754150390625,
-        -251.27940368652344,
+        -831.92431640625,
+        -233.7884979248047,
         898.0881958007812,
         891.2529907226562
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 7,
+      "title": "LLM",
+      "bounding": [
+        -830.6566162109375,
+        717.1118774414062,
+        898.3623657226562,
+        900.0799560546875
       ],
       "color": "#3f789e",
       "font_size": 24,
@@ -1866,10 +1908,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.5989500000000012,
+      "scale": 0.5445000000000025,
       "offset": [
-        1522.9623719898557,
-        1126.8530573579928
+        1003.5462237179581,
+        974.4196360527952
       ]
     },
     "ue_links": [],
