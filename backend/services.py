@@ -274,7 +274,7 @@ def create_prompt_and_call_api(input_string, title, thumb_style):
     scene_template = scene_templates[template_choice](TEXT_STYLE, input_string, title, thumb_style)
 
     # Construct and return the full API call prompt
-    return f"```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), (({thumb_style}))\n\n{scene_template}```"
+    return f"```\n(({thumb_style})), ((detailed)), ((best quality))\n\n{scene_template}```"
 
 
 
