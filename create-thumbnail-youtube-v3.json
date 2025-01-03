@@ -46,7 +46,7 @@
         1,
         0,
         1,
-        911499722329767,
+        1099522091888377,
         "randomize"
       ],
       "color": "#432",
@@ -694,7 +694,7 @@
         "Node name for S&R": "RandomNoise"
       },
       "widgets_values": [
-        119490036084691,
+        856840933078750,
         "randomize"
       ]
     },
@@ -848,7 +848,7 @@
         126
       ],
       "flags": {},
-      "order": 19,
+      "order": 18,
       "mode": 0,
       "inputs": [
         {
@@ -891,59 +891,6 @@
         1,
         0.4
       ]
-    },
-    {
-      "id": 59,
-      "type": "TextCombinations",
-      "pos": [
-        -814.538818359375,
-        -169.9390411376953
-      ],
-      "size": [
-        407.96759033203125,
-        787.0101928710938
-      ],
-      "flags": {},
-      "order": 11,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "output1",
-          "type": "STRING",
-          "links": [
-            104
-          ],
-          "slot_index": 0,
-          "shape": 3
-        },
-        {
-          "name": "output2",
-          "type": "STRING",
-          "links": null,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "TextCombinations",
-        "ttNbgOverride": {
-          "color": "#232",
-          "bgcolor": "#353",
-          "groupcolor": "#8A8"
-        }
-      },
-      "widgets_values": [
-        "describe \"Lofi Music\" as a prompt base on this format prompt. And must have banner title ***Lofi Music***:",
-        "```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\nScene Description:\nA vibrant and festive Vietnamese Lunar New Year celebration. The scene features a bustling environment with traditional decorations: red lanterns hanging in the air, peach blossoms in full bloom, and kumquat trees adorned with golden fruits. In the foreground, people in colorful áo dài (traditional Vietnamese attire) are smiling and engaging in joyous activities such as giving red envelopes (lì xì) to children and enjoying Tết delicacies.\n\n\nBanner Title:\nThe handwriter big text \"Happy New Year\" in top center or center\n\n\nBackground Details:\nA lively village or urban setting decorated with banners handwriter big text \"Happy New Year\" in top center, strings of lights, and fireworks lighting up the evening sky. Market stalls and family gatherings add a sense of community and tradition.\n\n\nColor Palette:\nDominated by auspicious colors like red and gold, symbolizing luck and prosperity, with hints of pink from peach blossoms and green from the kumquat trees. The lighting is warm and inviting, emphasizing the celebratory mood.\n\n\nComposition:\nThe layout has a balanced mix of cultural symbols and joyful interactions. Focus on the details of traditional clothing, decorations, and facial expressions to capture the essence of Vietnamese New Year traditions.\n```",
-        "text1 + text2 to output1, text2 to output2",
-        " ",
-        "false",
-        352309123186729,
-        "randomize"
-      ],
-      "color": "#332922",
-      "bgcolor": "#593930",
-      "shape": 1
     },
     {
       "id": 48,
@@ -1004,7 +951,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 16,
+      "order": 17,
       "mode": 0,
       "inputs": [
         {
@@ -1060,7 +1007,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 14,
+      "order": 15,
       "mode": 0,
       "inputs": [
         {
@@ -1091,7 +1038,7 @@
         [
           "chuyển câu sau thành 1 câu tiếng Anh đơn giản dành cho Stable Diffusion và loại bỏ chữ tiếng việt: ảnh toàn cảnh, 1 con tàu hình dáng thuyền buồm bay ngoài vũ trụ, người ngoài hành tinh, phong cách phim viễn tưởng, siêu thực, phim ,chất lượng cao, chi tiết, ánh sáng phim , 4k"
         ],
-        "describe \"Lofi Music\" as a prompt base on this format prompt. And must have banner title ***Lofi Music***: ```\n((Realistic photo)), ((perfect hand)), ((detailed)), ((best quality)), ((perfect tooth)), ((perfect eye))\n\nScene Description:\nA vibrant and festive Vietnamese Lunar New Year celebration. The scene features a bustling environment with traditional decorations: red lanterns hanging in the air, peach blossoms in full bloom, and kumquat trees adorned with golden fruits. In the foreground, people in colorful áo dài (traditional Vietnamese attire) are smiling and engaging in joyous activities such as giving red envelopes (lì xì) to children and enjoying Tết delicacies.\n\n\nBanner Title:\nThe handwriter big text \"Happy New Year\" in top center or center\n\n\nBackground Details:\nA lively village or urban setting decorated with banners handwriter big text \"Happy New Year\" in top center, strings of lights, and fireworks lighting up the evening sky. Market stalls and family gatherings add a sense of community and tradition.\n\n\nColor Palette:\nDominated by auspicious colors like red and gold, symbolizing luck and prosperity, with hints of pink from peach blossoms and green from the kumquat trees. The lighting is warm and inviting, emphasizing the celebratory mood.\n\n\nComposition:\nThe layout has a balanced mix of cultural symbols and joyful interactions. Focus on the details of traditional clothing, decorations, and facial expressions to capture the essence of Vietnamese New Year traditions.\n```"
+        "describe \"Lofi Music\" with realistic photo style as a prompt based on this exact format. Banner title: realistic photo **\"Lofi Music\"** in large, realistic photo, elegant lettering, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere. ```\n((Realistic photo)), ((detailed)), ((best quality)), ((realistic photo))\n\nScene Description:\nA vibrant and festive Vietnamese Lunar New Year celebration. The scene features a bustling environment with traditional decorations: red lanterns hanging in the air, peach blossoms in full bloom, and kumquat trees adorned with golden fruits. In the foreground, people in colorful áo dài (traditional Vietnamese attire) are smiling and engaging in joyous activities such as giving red envelopes (lì xì) to children and enjoying Tết delicacies.\n\nBanner Title:  \n{textStyle} **\"{title}\"** in large, elegant lettering, {thumb_style}, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.  \n\nBackground Details:\nA lively village or urban setting, glowing with strings of festive lights, banners, and colorful decorations. Fireworks illuminate the twilight sky, adding a sense of wonder. Vibrant market stalls and close-knit family gatherings underscore the themes of community and tradition.  \n\nColor Palette:\nA harmonious blend of auspicious colors like radiant reds and gleaming golds, symbolizing luck and prosperity. These tones are complemented by soft pinks from peach blossoms, verdant greens of kumquat trees, and an ethereal glow from the lighting. The overall lighting is soft and immersive, exuding warmth and joy.  \n\nComposition:  \nThe scene features a dynamic and balanced arrangement of cultural elements and animated interactions. Attention is given to the detailed textures of traditional clothing, the vibrant energy of decorations, and the genuine expressions of happiness, perfectly encapsulating the spirit of Vietnamese New Year celebrations. \n```"
       ],
       "color": "#232",
       "bgcolor": "#353",
@@ -1109,7 +1056,7 @@
         82
       ],
       "flags": {},
-      "order": 12,
+      "order": 11,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1145,7 +1092,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 18,
+      "order": 19,
       "mode": 0,
       "inputs": [
         {
@@ -1177,7 +1124,7 @@
         [
           "A highly detailed and cinematic 4k image of a sailing ship spaceship flying through space, surrounded by aliens, in a surreal and cinematic sci-fi style, with movie lighting. \n"
         ],
-        "***Lofi Music***\n\n((Realistic photo)), ((detailed)), ((best quality)), ((atmospheric)), ((Moody Lighting))\n\nScene Description:\nA dimly lit room bathed in the warm glow of a setting sun.  Rain streaks down a windowpane, reflecting the city lights outside.  On a desk sits an open notebook, a steaming mug, and headphones connected to a vintage cassette player or laptop.  Scattered around are other elements suggesting creative work or study:  pens, pencils, books, perhaps a musical instrument like a guitar or keyboard.\n\nBanner Title:\nLofi Music (in a simple, clean sans-serif font) placed subtly in the top left or right corner.\n\nBackground Details:\nThe room should have a cozy and lived-in feel.  Posters, shelves filled with books and knick-knacks, and comfortable furniture like a beanbag chair or armchair contribute to this atmosphere. The city skyline outside the window should be slightly blurred, adding to the dreamy and introspective mood.\n\nColor Palette:\nPredominantly warm, muted tones.  Think oranges, browns, deep blues, and purples. The overall palette should evoke a sense of calm and relaxation.\n\nComposition:\nThe image should have a balanced composition, drawing the viewer's eye to the central elements on the desk. The use of depth of field, with the foreground elements in focus and the background slightly blurred, will enhance the atmospheric quality of the scene.  The overall impression should be one of peaceful contemplation and creative focus.\n"
+        "((Realistic photo)), ((detailed)), ((best quality)), ((realistic photo))\n\nScene Description:\nA cozy, dimly lit room bathed in the warm glow of a late afternoon sun.  Dust motes dance in the golden light filtering through a half-drawn curtain.  On a cluttered desk sits an open laptop displaying a music production software interface with a waveform visible. Headphones rest beside the laptop, and scattered around are notebooks filled with musical notations, sketches, and scribbled lyrics.  A steaming mug of coffee or tea sits next to a small, potted succulent.  Outside the window, a blurred cityscape suggests a bustling urban environment, contrasting with the peaceful atmosphere of the room.\n\nBanner Title:  \nrealistic photo **\"Lofi Music\"** in large, realistic photo, elegant lettering, positioned prominently at the top center of the image, blending seamlessly with the calm and contemplative atmosphere.\n\nBackground Details:\nThe room should have a lived-in, slightly cluttered feel, suggesting a creative space.  Bookshelves overflowing with books, vinyl records stacked against a wall, and perhaps a vintage record player contribute to the ambiance. The lighting is key, emphasizing the warm, golden hues of the late afternoon sun.\n\nColor Palette:\nA muted palette of warm browns, oranges, and yellows dominates the scene, creating a sense of calm and comfort. The light from the window provides a warm, golden glow.  Subtle accents of green from the plant and perhaps a cool blue from the laptop screen offer subtle contrasts.\n\nComposition:  \nThe composition should be balanced and inviting, drawing the viewer into the peaceful and creative atmosphere. The focus should be on the desk and its contents, with the background details adding to the overall sense of calm and contemplation. The lighting should create a sense of depth and warmth.\n"
       ],
       "color": "#232",
       "bgcolor": "#353",
@@ -1251,7 +1198,7 @@
         82
       ],
       "flags": {},
-      "order": 15,
+      "order": 14,
       "mode": 4,
       "inputs": [
         {
@@ -1346,7 +1293,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 13,
+      "order": 12,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1382,7 +1329,7 @@
         126
       ],
       "flags": {},
-      "order": 17,
+      "order": 16,
       "mode": 4,
       "inputs": [
         {
@@ -1504,6 +1451,59 @@
       "widgets_values": [
         3.5
       ]
+    },
+    {
+      "id": 59,
+      "type": "TextCombinations",
+      "pos": [
+        -814.538818359375,
+        -169.9390411376953
+      ],
+      "size": [
+        407.96759033203125,
+        787.0101928710938
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "output1",
+          "type": "STRING",
+          "links": [
+            104
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "output2",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "TextCombinations",
+        "ttNbgOverride": {
+          "color": "#232",
+          "bgcolor": "#353",
+          "groupcolor": "#8A8"
+        }
+      },
+      "widgets_values": [
+        "describe \"Young woman warming hands by fireplace, cozy winter vibes\" with realistic photo style as a prompt based on this exact format. Banner title: realistic photo **\"Lofi Music\"** in large, realistic photo, elegant lettering, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.",
+        "```\n((Realistic photo)), ((detailed)), ((best quality)), ((realistic photo))\n\nScene Description:\nA vibrant and festive Vietnamese Lunar New Year celebration. The scene features a bustling environment with traditional decorations: red lanterns hanging in the air, peach blossoms in full bloom, and kumquat trees adorned with golden fruits. In the foreground, people in colorful áo dài (traditional Vietnamese attire) are smiling and engaging in joyous activities such as giving red envelopes (lì xì) to children and enjoying Tết delicacies.\n\nBanner Title:  \n{textStyle} **\"{title}\"** in large, elegant lettering, {thumb_style}, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.  \n\nBackground Details:\nA lively village or urban setting, glowing with strings of festive lights, banners, and colorful decorations. Fireworks illuminate the twilight sky, adding a sense of wonder. Vibrant market stalls and close-knit family gatherings underscore the themes of community and tradition.  \n\nColor Palette:\nA harmonious blend of auspicious colors like radiant reds and gleaming golds, symbolizing luck and prosperity. These tones are complemented by soft pinks from peach blossoms, verdant greens of kumquat trees, and an ethereal glow from the lighting. The overall lighting is soft and immersive, exuding warmth and joy.  \n\nComposition:  \nThe scene features a dynamic and balanced arrangement of cultural elements and animated interactions. Attention is given to the detailed textures of traditional clothing, the vibrant energy of decorations, and the genuine expressions of happiness, perfectly encapsulating the spirit of Vietnamese New Year celebrations. \n```",
+        "text1 + text2 to output1, text2 to output2",
+        " ",
+        "false",
+        750592453754946,
+        "randomize"
+      ],
+      "color": "#332922",
+      "bgcolor": "#593930",
+      "shape": 1
     }
   ],
   "links": [
@@ -1866,10 +1866,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.5989500000000006,
+      "scale": 1.5535220464769017,
       "offset": [
-        1089.3931465840956,
-        1300.7072053502236
+        1629.1477876661993,
+        469.32175164809354
       ]
     },
     "ue_links": [],
