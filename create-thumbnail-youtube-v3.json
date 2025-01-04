@@ -1,6 +1,6 @@
 {
-  "last_node_id": 233,
-  "last_link_id": 300,
+  "last_node_id": 252,
+  "last_link_id": 330,
   "nodes": [
     {
       "id": 70,
@@ -110,7 +110,7 @@
         106
       ],
       "flags": {},
-      "order": 28,
+      "order": 36,
       "mode": 0,
       "inputs": [
         {
@@ -178,7 +178,7 @@
         46
       ],
       "flags": {},
-      "order": 29,
+      "order": 37,
       "mode": 0,
       "inputs": [
         {
@@ -287,7 +287,7 @@
         102
       ],
       "flags": {},
-      "order": 30,
+      "order": 38,
       "mode": 4,
       "inputs": [
         {
@@ -369,7 +369,7 @@
         126
       ],
       "flags": {},
-      "order": 22,
+      "order": 30,
       "mode": 0,
       "inputs": [
         {
@@ -444,7 +444,7 @@
         "Node name for S&R": "RandomNoise"
       },
       "widgets_values": [
-        839259575274706,
+        685686985812446,
         "randomize"
       ]
     },
@@ -493,7 +493,7 @@
         46
       ],
       "flags": {},
-      "order": 27,
+      "order": 35,
       "mode": 0,
       "inputs": [
         {
@@ -537,7 +537,7 @@
         126
       ],
       "flags": {},
-      "order": 19,
+      "order": 27,
       "mode": 0,
       "inputs": [
         {
@@ -585,8 +585,8 @@
       "id": 61,
       "type": "Gemini_API_Zho",
       "pos": [
-        -353.0472106933594,
-        -87.53656005859375
+        -352.305419921875,
+        -74.18445587158203
       ],
       "size": [
         382.7574768066406,
@@ -595,8 +595,8 @@
       "flags": {
         "collapsed": false
       },
-      "order": 18,
-      "mode": 0,
+      "order": 25,
+      "mode": 4,
       "inputs": [
         {
           "name": "image",
@@ -641,8 +641,8 @@
       "id": 60,
       "type": "ShowText|pysssss",
       "pos": [
-        -352.93609619140625,
-        -151.6388702392578
+        -352.1943054199219,
+        -138.28671264648438
       ],
       "size": [
         384.9148254394531,
@@ -651,8 +651,8 @@
       "flags": {
         "collapsed": true
       },
-      "order": 16,
-      "mode": 0,
+      "order": 21,
+      "mode": 4,
       "inputs": [
         {
           "name": "text",
@@ -723,58 +723,6 @@
       ]
     },
     {
-      "id": 58,
-      "type": "ShowText|pysssss",
-      "pos": [
-        -352.5586242675781,
-        99.56525421142578
-      ],
-      "size": [
-        382.5568542480469,
-        535.3076171875
-      ],
-      "flags": {
-        "collapsed": false
-      },
-      "order": 20,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "text",
-          "type": "STRING",
-          "link": 201,
-          "widget": {
-            "name": "text"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [
-            106,
-            207
-          ],
-          "slot_index": 0,
-          "shape": 6
-        }
-      ],
-      "title": "Generated Prompt 🐍",
-      "properties": {
-        "Node name for S&R": "ShowText|pysssss"
-      },
-      "widgets_values": [
-        [
-          "A highly detailed and cinematic 4k image of a sailing ship spaceship flying through space, surrounded by aliens, in a surreal and cinematic sci-fi style, with movie lighting. \n"
-        ],
-        "((Realistic photo)), ((detailed)), ((best quality)), ((realistic photo))\n\nScene Description:\nA young woman with long, flowing hair sits on a plush, comfortable rug in front of a crackling fireplace. She holds her hands out towards the flames, warming them.  Her expression is relaxed and peaceful. She wears a thick, cozy sweater and soft woolen socks.  A steaming mug sits beside her on the rug.\n\nBanner Title:  \nrealistic photo, elegant lettering **\"Lofi Music\"** in large, realistic photo, elegant lettering, positioned prominently at the top center of the image, blending seamlessly with the cozy atmosphere.  \n\nBackground Details:\nA dimly lit, inviting living room with warm, earthy tones.  Bookshelves filled with books line the walls, and a soft throw blanket is draped over the arm of a nearby armchair.  A window, slightly frosted from the cold outside, hints at a snowy landscape.\n\nColor Palette:\nWarm and inviting tones of orange and yellow from the firelight dominate the scene.  These are complemented by the soft browns and creams of the rug, sweater, and surrounding furniture.  Touches of cool blue and grey from the window and shadows add depth. The overall lighting is soft and dim, creating a sense of intimacy and relaxation.\n\nComposition:  \nThe focus is on the woman and the warm glow of the fireplace, creating a sense of peace and tranquility.  The composition is balanced and inviting, drawing the viewer into the cozy scene. Attention is given to the realistic textures of the sweater, rug, and the flickering flames, enhancing the overall sense of warmth and comfort.\n```\n"
-      ],
-      "color": "#232",
-      "bgcolor": "#353",
-      "shape": 2
-    },
-    {
       "id": 26,
       "type": "LoraLoader",
       "pos": [
@@ -786,7 +734,7 @@
         126
       ],
       "flags": {},
-      "order": 21,
+      "order": 29,
       "mode": 0,
       "inputs": [
         {
@@ -831,46 +779,6 @@
       ]
     },
     {
-      "id": 55,
-      "type": "LoraLoaderModelOnly",
-      "pos": [
-        -450,
-        -850
-      ],
-      "size": [
-        315,
-        82
-      ],
-      "flags": {},
-      "order": 15,
-      "mode": 4,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 78
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            85
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoraLoaderModelOnly"
-      },
-      "widgets_values": [
-        "FLUX.1-Turbo-Alpha.safetensors",
-        1
-      ]
-    },
-    {
       "id": 62,
       "type": "CLIPTextEncode",
       "pos": [
@@ -884,7 +792,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 25,
+      "order": 33,
       "mode": 0,
       "inputs": [
         {
@@ -895,7 +803,7 @@
         {
           "name": "text",
           "type": "STRING",
-          "link": 106,
+          "link": 317,
           "widget": {
             "name": "text"
           }
@@ -935,7 +843,7 @@
         126
       ],
       "flags": {},
-      "order": 17,
+      "order": 24,
       "mode": 4,
       "inputs": [
         {
@@ -991,7 +899,7 @@
         58.31459426879883
       ],
       "flags": {},
-      "order": 26,
+      "order": 34,
       "mode": 0,
       "inputs": [
         {
@@ -1018,100 +926,6 @@
       ]
     },
     {
-      "id": 59,
-      "type": "TextCombinations",
-      "pos": [
-        -816.2877197265625,
-        -152.44813537597656
-      ],
-      "size": [
-        407.96759033203125,
-        787.0101928710938
-      ],
-      "flags": {},
-      "order": 10,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "output1",
-          "type": "STRING",
-          "links": [
-            104
-          ],
-          "slot_index": 0,
-          "shape": 3
-        },
-        {
-          "name": "output2",
-          "type": "STRING",
-          "links": null,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "TextCombinations",
-        "ttNbgOverride": {
-          "color": "#232",
-          "bgcolor": "#353",
-          "groupcolor": "#8A8"
-        }
-      },
-      "widgets_values": [
-        "describe \"Young woman warming hands by fireplace, cozy winter vibes\" with realistic photo style as a prompt based on this exact format. Banner title: realistic photo **\"Lofi Music\"** in large, realistic photo, elegant lettering, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.",
-        "```\n((Realistic photo)), ((detailed)), ((best quality)), ((realistic photo))\n\nScene Description:\nA vibrant and festive Vietnamese Lunar New Year celebration. The scene features a bustling environment with traditional decorations: red lanterns hanging in the air, peach blossoms in full bloom, and kumquat trees adorned with golden fruits. In the foreground, people in colorful áo dài (traditional Vietnamese attire) are smiling and engaging in joyous activities such as giving red envelopes (lì xì) to children and enjoying Tết delicacies.\n\nBanner Title:  \n{textStyle} **\"{title}\"** in large, elegant lettering, {thumb_style}, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.  \n\nBackground Details:\nA lively village or urban setting, glowing with strings of festive lights, banners, and colorful decorations. Fireworks illuminate the twilight sky, adding a sense of wonder. Vibrant market stalls and close-knit family gatherings underscore the themes of community and tradition.  \n\nColor Palette:\nA harmonious blend of auspicious colors like radiant reds and gleaming golds, symbolizing luck and prosperity. These tones are complemented by soft pinks from peach blossoms, verdant greens of kumquat trees, and an ethereal glow from the lighting. The overall lighting is soft and immersive, exuding warmth and joy.  \n\nComposition:  \nThe scene features a dynamic and balanced arrangement of cultural elements and animated interactions. Attention is given to the detailed textures of traditional clothing, the vibrant energy of decorations, and the genuine expressions of happiness, perfectly encapsulating the spirit of Vietnamese New Year celebrations. \n```",
-        "text1 + text2 to output1, text2 to output2",
-        " ",
-        "false",
-        1026113407571497,
-        "randomize"
-      ],
-      "color": "#332922",
-      "bgcolor": "#593930",
-      "shape": 1
-    },
-    {
-      "id": 17,
-      "type": "BasicScheduler",
-      "pos": [
-        690.765380859375,
-        -569.7496337890625
-      ],
-      "size": [
-        464.12835693359375,
-        106
-      ],
-      "flags": {},
-      "order": 24,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 89,
-          "slot_index": 0
-        }
-      ],
-      "outputs": [
-        {
-          "name": "SIGMAS",
-          "type": "SIGMAS",
-          "links": [
-            20
-          ],
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "BasicScheduler"
-      },
-      "widgets_values": [
-        "ddim_uniform",
-        19,
-        1
-      ]
-    },
-    {
       "id": 11,
       "type": "DualCLIPLoader",
       "pos": [
@@ -1123,7 +937,7 @@
         106
       ],
       "flags": {},
-      "order": 11,
+      "order": 10,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1147,56 +961,6 @@
       ]
     },
     {
-      "id": 47,
-      "type": "ProPostFilmGrain",
-      "pos": [
-        2184.189453125,
-        -165.9424591064453
-      ],
-      "size": [
-        295.24066162109375,
-        300.5332336425781
-      ],
-      "flags": {},
-      "order": 33,
-      "mode": 4,
-      "inputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 120
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            66
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ProPostFilmGrain"
-      },
-      "widgets_values": [
-        false,
-        "Fine",
-        0.5,
-        0.4,
-        0.2,
-        0.1,
-        1,
-        0,
-        1,
-        208294971311172,
-        "randomize"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
       "id": 41,
       "type": "ImageUpscaleWithModel",
       "pos": [
@@ -1208,7 +972,7 @@
         46
       ],
       "flags": {},
-      "order": 31,
+      "order": 39,
       "mode": 0,
       "inputs": [
         {
@@ -1252,7 +1016,7 @@
         58
       ],
       "flags": {},
-      "order": 12,
+      "order": 11,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1276,51 +1040,6 @@
       "bgcolor": "#653"
     },
     {
-      "id": 32,
-      "type": "PatchModelAddDownscale",
-      "pos": [
-        688.6187133789062,
-        -899.4456787109375
-      ],
-      "size": [
-        465.2356262207031,
-        202
-      ],
-      "flags": {},
-      "order": 23,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 54
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            55
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "PatchModelAddDownscale"
-      },
-      "widgets_values": [
-        3,
-        2,
-        0,
-        0.35,
-        true,
-        "nearest-exact",
-        "nearest-exact"
-      ]
-    },
-    {
       "id": 76,
       "type": "ImageScale",
       "pos": [
@@ -1332,7 +1051,7 @@
         130
       ],
       "flags": {},
-      "order": 32,
+      "order": 40,
       "mode": 0,
       "inputs": [
         {
@@ -1373,7 +1092,7 @@
         178
       ],
       "flags": {},
-      "order": 34,
+      "order": 42,
       "mode": 4,
       "inputs": [
         {
@@ -1415,10 +1134,10 @@
       ],
       "size": [
         295.0576171875,
-        594.3218383789062
+        598
       ],
       "flags": {},
-      "order": 35,
+      "order": 43,
       "mode": 0,
       "inputs": [
         {
@@ -1429,7 +1148,7 @@
         {
           "name": "positive_text_opt",
           "type": "STRING",
-          "link": 207,
+          "link": 316,
           "widget": {
             "name": "positive_text_opt"
           },
@@ -1468,11 +1187,546 @@
       ]
     },
     {
+      "id": 55,
+      "type": "LoraLoaderModelOnly",
+      "pos": [
+        -450,
+        -850
+      ],
+      "size": [
+        315,
+        82
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 78
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            85
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoraLoaderModelOnly"
+      },
+      "widgets_values": [
+        "FLUX.1-Turbo-Alpha.safetensors",
+        1
+      ]
+    },
+    {
+      "id": 47,
+      "type": "ProPostFilmGrain",
+      "pos": [
+        2184.189453125,
+        -165.9424591064453
+      ],
+      "size": [
+        295.24066162109375,
+        300.5332336425781
+      ],
+      "flags": {},
+      "order": 41,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 120
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            66
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ProPostFilmGrain"
+      },
+      "widgets_values": [
+        false,
+        "Fine",
+        0.5,
+        0.4,
+        0.2,
+        0.1,
+        1,
+        0,
+        1,
+        343664684800950,
+        "randomize"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 59,
+      "type": "TextCombinations",
+      "pos": [
+        -815.5458984375,
+        -139.09597778320312
+      ],
+      "size": [
+        407.96759033203125,
+        787.0101928710938
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "output1",
+          "type": "STRING",
+          "links": [
+            104
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "output2",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "TextCombinations",
+        "ttNbgOverride": {
+          "color": "#232",
+          "bgcolor": "#353",
+          "groupcolor": "#8A8"
+        }
+      },
+      "widgets_values": [
+        "describe \"Young woman warming hands by fireplace, cozy winter vibes\" with realistic photo style as a prompt based on this exact format. Banner title: realistic photo **\"Lofi Music\"** in large, realistic photo, elegant lettering, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.",
+        "```\n((Realistic photo)), ((detailed)), ((best quality)), ((realistic photo))\n\nScene Description:\nA vibrant and festive Vietnamese Lunar New Year celebration. The scene features a bustling environment with traditional decorations: red lanterns hanging in the air, peach blossoms in full bloom, and kumquat trees adorned with golden fruits. In the foreground, people in colorful áo dài (traditional Vietnamese attire) are smiling and engaging in joyous activities such as giving red envelopes (lì xì) to children and enjoying Tết delicacies.\n\nBanner Title:  \n{textStyle} **\"{title}\"** in large, elegant lettering, {thumb_style}, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.  \n\nBackground Details:\nA lively village or urban setting, glowing with strings of festive lights, banners, and colorful decorations. Fireworks illuminate the twilight sky, adding a sense of wonder. Vibrant market stalls and close-knit family gatherings underscore the themes of community and tradition.  \n\nColor Palette:\nA harmonious blend of auspicious colors like radiant reds and gleaming golds, symbolizing luck and prosperity. These tones are complemented by soft pinks from peach blossoms, verdant greens of kumquat trees, and an ethereal glow from the lighting. The overall lighting is soft and immersive, exuding warmth and joy.  \n\nComposition:  \nThe scene features a dynamic and balanced arrangement of cultural elements and animated interactions. Attention is given to the detailed textures of traditional clothing, the vibrant energy of decorations, and the genuine expressions of happiness, perfectly encapsulating the spirit of Vietnamese New Year celebrations. \n```",
+        "text1 + text2 to output1, text2 to output2",
+        " ",
+        "false",
+        169296195858252,
+        "randomize"
+      ],
+      "color": "#332922",
+      "bgcolor": "#593930",
+      "shape": 1
+    },
+    {
+      "id": 247,
+      "type": "Griptape Create: Text",
+      "pos": [
+        -811.1044311523438,
+        811.0464477539062
+      ],
+      "size": [
+        398.2696838378906,
+        125.25346374511719
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OUTPUT",
+          "type": "STRING",
+          "links": [
+            311
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Griptape Create: Text"
+      },
+      "widgets_values": [
+        "((Realistic photo)), ((detailed)), ((best quality)), ((realistic photo))"
+      ]
+    },
+    {
+      "id": 58,
+      "type": "ShowText|pysssss",
+      "pos": [
+        -351.81683349609375,
+        112.9173583984375
+      ],
+      "size": [
+        382.5568542480469,
+        535.3076171875
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 28,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 201,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0,
+          "shape": 6
+        }
+      ],
+      "title": "Generated Prompt 🐍",
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        [
+          "A highly detailed and cinematic 4k image of a sailing ship spaceship flying through space, surrounded by aliens, in a surreal and cinematic sci-fi style, with movie lighting. \n"
+        ],
+        "((Realistic photo)), ((detailed)), ((best quality)), ((realistic photo))\n\nScene Description:\nA young woman with long, flowing hair sits on a plush, comfortable rug in front of a crackling fireplace. She holds her hands out towards the flames, warming them.  Her expression is relaxed and peaceful. She wears a thick, cozy sweater and soft woolen socks.  A steaming mug sits beside her on the rug.\n\nBanner Title:  \nrealistic photo, elegant lettering **\"Lofi Music\"** in large, realistic photo, elegant lettering, positioned prominently at the top center of the image, blending seamlessly with the cozy atmosphere.  \n\nBackground Details:\nA dimly lit, inviting living room with warm, earthy tones.  Bookshelves filled with books line the walls, and a soft throw blanket is draped over the arm of a nearby armchair.  A window, slightly frosted from the cold outside, hints at a snowy landscape.\n\nColor Palette:\nWarm and inviting tones of orange and yellow from the firelight dominate the scene.  These are complemented by the soft browns and creams of the rug, sweater, and surrounding furniture.  Touches of cool blue and grey from the window and shadows add depth. The overall lighting is soft and dim, creating a sense of intimacy and relaxation.\n\nComposition:  \nThe focus is on the woman and the warm glow of the fireplace, creating a sense of peace and tranquility.  The composition is balanced and inviting, drawing the viewer into the cozy scene. Attention is given to the realistic textures of the sweater, rug, and the flickering flames, enhancing the overall sense of warmth and comfort.\n```\n"
+      ],
+      "color": "#232",
+      "bgcolor": "#353",
+      "shape": 2
+    },
+    {
+      "id": 32,
+      "type": "PatchModelAddDownscale",
+      "pos": [
+        688.6187133789062,
+        -899.4456787109375
+      ],
+      "size": [
+        465.2356262207031,
+        202
+      ],
+      "flags": {},
+      "order": 31,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 54
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            55
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PatchModelAddDownscale"
+      },
+      "widgets_values": [
+        3,
+        2,
+        0,
+        0.35,
+        true,
+        "bilinear",
+        "bilinear"
+      ]
+    },
+    {
+      "id": 245,
+      "type": "Griptape Create: Text",
+      "pos": [
+        -817.5880126953125,
+        993.7180786132812
+      ],
+      "size": [
+        398.2696838378906,
+        125.25346374511719
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OUTPUT",
+          "type": "STRING",
+          "links": [
+            312,
+            321
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Griptape Create: Text"
+      },
+      "widgets_values": [
+        "Scene Description:"
+      ]
+    },
+    {
+      "id": 242,
+      "type": "Griptape Combine: Merge Texts",
+      "pos": [
+        -264.92431640625,
+        1271.9940185546875
+      ],
+      "size": [
+        243.60000610351562,
+        202
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input_1",
+          "type": "STRING",
+          "link": 311
+        },
+        {
+          "name": "input_2",
+          "type": "STRING",
+          "link": 321
+        },
+        {
+          "name": "input_3",
+          "type": "STRING",
+          "link": 326
+        },
+        {
+          "name": "input_4",
+          "type": "STRING",
+          "link": 327
+        },
+        {
+          "name": "input_5",
+          "type": "STRING",
+          "link": 328
+        },
+        {
+          "name": "input_6",
+          "type": "STRING",
+          "link": 329
+        },
+        {
+          "name": "input_7",
+          "type": "STRING",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "OUTPUT",
+          "type": "STRING",
+          "links": [
+            310
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Griptape Combine: Merge Texts"
+      },
+      "widgets_values": [
+        "\\n\\n",
+        1
+      ]
+    },
+    {
+      "id": 248,
+      "type": "Griptape Create: Text",
+      "pos": [
+        -813.459228515625,
+        1640.127197265625
+      ],
+      "size": [
+        393.3653259277344,
+        76
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OUTPUT",
+          "type": "STRING",
+          "links": [
+            328
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Griptape Create: Text"
+      },
+      "widgets_values": [
+        "Background detail:"
+      ]
+    },
+    {
+      "id": 249,
+      "type": "Searge_LLM_Node",
+      "pos": [
+        -812.7593994140625,
+        1774.491455078125
+      ],
+      "size": [
+        393.8695373535156,
+        216
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "adv_options_config",
+          "type": "SRGADVOPTIONSCONFIG",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "generated",
+          "type": "STRING",
+          "links": [
+            325,
+            329
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "original",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Searge_LLM_Node"
+      },
+      "widgets_values": [
+        "Show detail background of scene: \"Young woman in wheat field at sunrise glow\"",
+        34534534534,
+        "Mistral-7B-Instruct-v0.3.Q4_K_M.gguf",
+        4096,
+        true,
+        "Generate a prompt from \"{prompt}\""
+      ]
+    },
+    {
+      "id": 246,
+      "type": "ShowText|pysssss",
+      "pos": [
+        20.697420120239258,
+        1273.491943359375
+      ],
+      "size": [
+        801.5358276367188,
+        356.72076416015625
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 310,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            316,
+            317
+          ],
+          "slot_index": 0,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "((Realistic photo)), ((detailed)), ((best quality)), ((realistic photo))\n\nScene Description:\n\nA serene, sunrise-inspired image captures the beauty of a young woman surrounded by a sea of golden wheat fields. The soft morning light casts a warm glow on the woman's delicate features as she turns her gaze towards the horizon. Her hair cascades down around her shoulders like rippling waves in the wind, and she is dressed simply yet elegantly in flowing, natural fibers. The wheat field stretches out to the edges of the frame, the golden stalks swaying gently in the breeze. A sense of peacefulness permeates the scene as day breaks over this idyllic setting, creating a moment frozen in time that evokes feelings of tranquility and nostalgia for simpler days gone by.\n\nBanner Title:\nA clean and modern sans-serif **\"Morning Music\"** in large, elegant lettering, realistic photo, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 239,
+      "type": "Searge_Output_Node",
+      "pos": [
+        22.71956443786621,
+        1191.03173828125
+      ],
+      "size": [
+        612.8402099609375,
+        192.27931213378906
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "*",
+          "link": 304
+        }
+      ],
+      "outputs": [],
+      "title": "Searge Output Node - Preview",
+      "properties": {
+        "Node name for S&R": "Searge_Output_Node"
+      },
+      "widgets_values": [
+        "A serene, sunrise-inspired image captures the beauty of a young woman surrounded by a sea of golden wheat fields. The soft morning light casts a warm glow on the woman's delicate features as she turns her gaze towards the horizon. Her hair cascades down around her shoulders like rippling waves in the wind, and she is dressed simply yet elegantly in flowing, natural fibers. The wheat field stretches out to the edges of the frame, the golden stalks swaying gently in the breeze. A sense of peacefulness permeates the scene as day breaks over this idyllic setting, creating a moment frozen in time that evokes feelings of tranquility and nostalgia for simpler days gone by."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
       "id": 179,
       "type": "ttN text",
       "pos": [
-        1847.277587890625,
-        324.70166015625
+        1847.3272705078125,
+        644.7557983398438
       ],
       "size": [
         295.6632080078125,
@@ -1481,7 +1735,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 13,
+      "order": 17,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1506,32 +1760,129 @@
       "bgcolor": "#335"
     },
     {
-      "id": 180,
-      "type": "easy string",
+      "id": 244,
+      "type": "Griptape Create: Text",
       "pos": [
-        -807.6901245117188,
-        801.9707641601562
+        -818.4593505859375,
+        1455.75048828125
       ],
       "size": [
-        315,
-        58
+        398.2696838378906,
+        125.25346374511719
       ],
       "flags": {},
-      "order": 14,
+      "order": 18,
       "mode": 0,
       "inputs": [],
       "outputs": [
         {
-          "name": "string",
+          "name": "OUTPUT",
+          "type": "STRING",
+          "links": [
+            314,
+            323,
+            327
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Griptape Create: Text"
+      },
+      "widgets_values": [
+        "Banner Title:\nA clean and modern sans-serif **\"Morning Music\"** in large, elegant lettering, realistic photo, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.  "
+      ]
+    },
+    {
+      "id": 17,
+      "type": "BasicScheduler",
+      "pos": [
+        690.765380859375,
+        -569.7496337890625
+      ],
+      "size": [
+        464.12835693359375,
+        106
+      ],
+      "flags": {},
+      "order": 32,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 89,
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            20
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BasicScheduler"
+      },
+      "widgets_values": [
+        "ddim_uniform",
+        25,
+        1
+      ]
+    },
+    {
+      "id": 238,
+      "type": "Searge_LLM_Node",
+      "pos": [
+        -819.7311401367188,
+        1176.966552734375
+      ],
+      "size": [
+        400,
+        216
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "adv_options_config",
+          "type": "SRGADVOPTIONSCONFIG",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "generated",
+          "type": "STRING",
+          "links": [
+            304,
+            307,
+            326
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "original",
           "type": "STRING",
           "links": null
         }
       ],
       "properties": {
-        "Node name for S&R": "easy string"
+        "Node name for S&R": "Searge_LLM_Node"
       },
       "widgets_values": [
-        ""
+        "Young woman in wheat field at sunrise glow",
+        239849583948544,
+        "Mistral-7B-Instruct-v0.3.Q4_K_M.gguf",
+        4096,
+        true,
+        "Generate a prompt from \"{prompt}\""
       ]
     }
   ],
@@ -1745,14 +2096,6 @@
       "STRING"
     ],
     [
-      106,
-      58,
-      0,
-      62,
-      1,
-      "STRING"
-    ],
-    [
       107,
       27,
       1,
@@ -1809,19 +2152,131 @@
       "IMAGE"
     ],
     [
-      207,
-      58,
+      208,
+      179,
+      0,
+      178,
+      2,
+      "STRING"
+    ],
+    [
+      304,
+      238,
+      0,
+      239,
+      0,
+      "*"
+    ],
+    [
+      307,
+      238,
+      0,
+      242,
+      0,
+      "STRING"
+    ],
+    [
+      310,
+      242,
+      0,
+      246,
+      0,
+      "STRING"
+    ],
+    [
+      311,
+      247,
+      0,
+      242,
+      0,
+      "STRING"
+    ],
+    [
+      312,
+      245,
+      0,
+      242,
+      1,
+      "STRING"
+    ],
+    [
+      314,
+      244,
+      0,
+      242,
+      1,
+      "STRING"
+    ],
+    [
+      316,
+      246,
       0,
       178,
       1,
       "STRING"
     ],
     [
-      208,
-      179,
+      317,
+      246,
       0,
-      178,
+      62,
+      1,
+      "STRING"
+    ],
+    [
+      321,
+      245,
+      0,
+      242,
+      1,
+      "STRING"
+    ],
+    [
+      323,
+      244,
+      0,
+      242,
       2,
+      "STRING"
+    ],
+    [
+      325,
+      249,
+      0,
+      242,
+      3,
+      "STRING"
+    ],
+    [
+      326,
+      238,
+      0,
+      242,
+      2,
+      "STRING"
+    ],
+    [
+      327,
+      244,
+      0,
+      242,
+      3,
+      "STRING"
+    ],
+    [
+      328,
+      248,
+      0,
+      242,
+      4,
+      "STRING"
+    ],
+    [
+      329,
+      249,
+      0,
+      242,
+      5,
       "STRING"
     ]
   ],
@@ -1882,8 +2337,8 @@
       "id": 5,
       "title": "LLM - Gemini AI",
       "bounding": [
-        -831.92431640625,
-        -233.7884979248047,
+        -831.1824951171875,
+        -220.43634033203125,
         898.0881958007812,
         891.2529907226562
       ],
@@ -1895,10 +2350,10 @@
       "id": 7,
       "title": "LLM",
       "bounding": [
-        -830.6566162109375,
-        717.1118774414062,
-        898.3623657226562,
-        900.0799560546875
+        -829.2907104492188,
+        727.4542236328125,
+        1661.365234375,
+        1673.669189453125
       ],
       "color": "#3f789e",
       "font_size": 24,
@@ -1908,10 +2363,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.5445000000000025,
+      "scale": 1.0610764609500052,
       "offset": [
-        1003.5462237179581,
-        974.4196360527952
+        1045.3660081139426,
+        -727.9183806636531
       ]
     },
     "ue_links": [],

@@ -18,7 +18,7 @@ BACKEND_SERVER_ADDRESS = os.getenv('BACKEND_SERVER_ADDRESS', 'host.docker.intern
 REMOTE_SERVER_ADDRESS = os.getenv('REMOTE_SERVER_ADDRESS', 'host.docker.internal:8188')
 
 # Choose a text style (consider making this configurable or less random)
-TEXT_STYLE = "A clean and modern sans-serif " # Consider: random.choice(["The handwritten big text", "A clean and modern sans-serif "])
+TEXT_STYLE = "A clean and modern sans-serif" # Consider: random.choice(["The handwritten big text", "A clean and modern sans-serif "])
 
 # Use a session for connection pooling
 session = requests.Session()

@@ -168,7 +168,17 @@ INIT_REQUEST = [
         ]),
         "title": "Slow Mornings",
         "file_name": "slow_mornings",
-        "day_of_week": [5, 6],
+        "day_of_week": [5],
+    },
+    {
+        "short_description": random.choice([
+            "Young woman lounging with book in sunny patio",
+            "Young woman strolling through vibrant morning market",
+            "Young woman arranging flowers on rustic wooden table",
+        ]),
+        "title": "Summer's End",
+        "file_name": "summers_end",
+        "day_of_week": [6],
     },
     {
         "short_description": random.choice([
@@ -181,3 +191,6 @@ INIT_REQUEST = [
         "day_of_week": [7],
     }
 ]
+
+
+DATASET_TRAINED_FOLDER = Path(os.getenv('DATASET_TRAINED_FOLDER', "/dataset_trained"))
