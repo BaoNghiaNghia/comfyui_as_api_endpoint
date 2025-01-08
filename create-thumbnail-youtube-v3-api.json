@@ -28,7 +28,8 @@
     "inputs": {
       "clip_name1": "t5xxl_fp8_e4m3fn.safetensors",
       "clip_name2": "clip_l.safetensors",
-      "type": "flux"
+      "type": "flux",
+      "device": "default"
     },
     "class_type": "DualCLIPLoader",
     "_meta": {
@@ -38,7 +39,7 @@
   "12": {
     "inputs": {
       "unet_name": "flux1-dev-fp8.safetensors",
-      "weight_dtype": "default"
+      "weight_dtype": "fp8_e4m3fn_fast"
     },
     "class_type": "UNETLoader",
     "_meta": {
@@ -85,7 +86,7 @@
   "17": {
     "inputs": {
       "scheduler": "ddim_uniform",
-      "steps": 25,
+      "steps": 22,
       "denoise": 1,
       "model": [
         "27",
@@ -115,7 +116,7 @@
   },
   "25": {
     "inputs": {
-      "noise_seed": 267851898303235
+      "noise_seed": 201072982431890
     },
     "class_type": "RandomNoise",
     "_meta": {
@@ -125,15 +126,15 @@
   "26": {
     "inputs": {
       "lora_name": "flux.1_lora_flyway_Epic-detail_v2.safetensors",
-      "strength_model": 0.5,
-      "strength_clip": 0.4,
+      "strength_model": 0.7000000000000001,
+      "strength_clip": 1,
       "model": [
-        "49",
+        "12",
         0
       ],
       "clip": [
-        "49",
-        1
+        "11",
+        0
       ]
     },
     "class_type": "LoraLoader",
@@ -162,8 +163,8 @@
   },
   "29": {
     "inputs": {
-      "width": 1304,
-      "height": 728,
+      "width": 1248,
+      "height": 704,
       "batch_size": 1
     },
     "class_type": "EmptyLatentImage",
@@ -178,8 +179,8 @@
       "start_percent": 0,
       "end_percent": 0.35,
       "downscale_after_skip": true,
-      "downscale_method": "bicubic",
-      "upscale_method": "bicubic",
+      "downscale_method": "bilinear",
+      "upscale_method": "bilinear",
       "model": [
         "27",
         0
@@ -228,84 +229,10 @@
       "title": "FluxGuidance"
     }
   },
-  "49": {
-    "inputs": {
-      "lora_name": "Textimprover-FLUX-V0.4.safetensors",
-      "strength_model": 0.5,
-      "strength_clip": 0.2,
-      "model": [
-        "12",
-        0
-      ],
-      "clip": [
-        "11",
-        0
-      ]
-    },
-    "class_type": "LoraLoader",
-    "_meta": {
-      "title": "Load LoRA (Fix hand)"
-    }
-  },
-  "58": {
-    "inputs": {
-      "text": [
-        "61",
-        0
-      ],
-      "text2": "Banner title: A gracefully hand-drawn **\"Deep Focus Music\"** in large, elegant lettering, positioned prominently at the top center of the image, blending seamlessly with the urban soundscape.\n\nScene Description:\nA vibrant and bustling city scene at night, rendered in the Flux Lora art style, with its characteristic fluid, luminous, and dynamic visuals. Street musicians perform amidst a backdrop of towering skyscrapers, glowing neon signs, and the soft hum of traffic. People stroll along sidewalks, some stopping to listen to the music, others continuing on their way. Food vendors offer delicious street food, adding to the rich tapestry of urban life.  Intricate details capture the energy of the city: reflections in puddles, the steam rising from food stalls, and the movement of people in the crowd.\n\nBackground Details:\nA lively urban setting with glowing storefronts, streetlights casting dramatic shadows, and a sense of movement and activity. Cars, buses, and bicycles navigate the streets, adding to the urban rhythm.  Architectural elements, like fire escapes and balconies, add depth and complexity to the scene.\n\nColor Palette:\nA blend of cool blues and purples dominate the night scene, punctuated by warm yellows and oranges from streetlights and neon signs. The overall lighting creates a moody yet vibrant atmosphere, capturing the energy of a city at night. Hints of greens and reds from street signs and vendor stalls add pops of color.\n\nComposition:\nThe scene features a dynamic and balanced arrangement of urban elements and human interactions. Attention is given to the textures of the urban environment, the flow of movement, and the interplay of light and shadow. The scene evokes a sense of immersion and energy, perfectly encapsulating the spirit of city life at night.\n"
-    },
-    "class_type": "ShowText|pysssss",
-    "_meta": {
-      "title": "Show Text 🐍"
-    }
-  },
-  "59": {
-    "inputs": {
-      "text1": "describe \"Play Music In The City\" as a prompt based on this exact format. Banner title: A gracefully hand-drawn **\"Deep Focus Music\"** in large, elegant lettering, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.",
-      "text2": "```\nScene Description:  \nA vibrant and festive Vietnamese Lunar New Year celebration captured in the Flux Lora art style, known for its fluid, luminous, and dynamic visuals. The scene showcases a bustling environment enriched with intricate details: traditional red lanterns suspended in mid-air, delicate peach blossoms in full bloom, and kumquat trees adorned with glistening golden fruits. In the foreground, people dressed in flowing, vividly colored áo dài (traditional Vietnamese attire) engage in heartwarming activities like presenting lì xì (red envelopes) to cheerful children and sharing traditional Tết delicacies.  \n\nBanner Title:  \nA gracefully hand-drawn **\"Happy New Year\"** in large, elegant lettering, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.  \n\nBackground Details:  \nA lively village or urban setting, glowing with strings of festive lights, banners, and colorful decorations. Fireworks illuminate the twilight sky, adding a sense of wonder. Vibrant market stalls and close-knit family gatherings underscore the themes of community and tradition.  \n\nColor Palette:  \nA harmonious blend of auspicious colors like radiant reds and gleaming golds, symbolizing luck and prosperity. These tones are complemented by soft pinks from peach blossoms, verdant greens of kumquat trees, and an ethereal glow from the lighting. The overall lighting is soft and immersive, exuding warmth and joy.  \n\nComposition:  \nThe scene features a dynamic and balanced arrangement of cultural elements and animated interactions. Attention is given to the detailed textures of traditional clothing, the vibrant energy of decorations, and the genuine expressions of happiness, perfectly encapsulating the spirit of Vietnamese New Year celebrations.  \n\n```",
-      "operation": "text1 + text2 to output1, text2 to output2",
-      "delimiter": " ",
-      "use_seed": "false",
-      "seed": 235955470652648
-    },
-    "class_type": "TextCombinations",
-    "_meta": {
-      "title": "Text Combinations 2 (Mikey)"
-    }
-  },
-  "60": {
-    "inputs": {
-      "text": [
-        "59",
-        0
-      ],
-      "text2": "describe \"Play Music In The City\" as a prompt based on this exact format. Banner title: A gracefully hand-drawn **\"Deep Focus Music\"** in large, elegant lettering, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere. ```\nScene Description:  \nA vibrant and festive Vietnamese Lunar New Year celebration captured in the Flux Lora art style, known for its fluid, luminous, and dynamic visuals. The scene showcases a bustling environment enriched with intricate details: traditional red lanterns suspended in mid-air, delicate peach blossoms in full bloom, and kumquat trees adorned with glistening golden fruits. In the foreground, people dressed in flowing, vividly colored áo dài (traditional Vietnamese attire) engage in heartwarming activities like presenting lì xì (red envelopes) to cheerful children and sharing traditional Tết delicacies.  \n\nBanner Title:  \nA gracefully hand-drawn **\"Happy New Year\"** in large, elegant lettering, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.  \n\nBackground Details:  \nA lively village or urban setting, glowing with strings of festive lights, banners, and colorful decorations. Fireworks illuminate the twilight sky, adding a sense of wonder. Vibrant market stalls and close-knit family gatherings underscore the themes of community and tradition.  \n\nColor Palette:  \nA harmonious blend of auspicious colors like radiant reds and gleaming golds, symbolizing luck and prosperity. These tones are complemented by soft pinks from peach blossoms, verdant greens of kumquat trees, and an ethereal glow from the lighting. The overall lighting is soft and immersive, exuding warmth and joy.  \n\nComposition:  \nThe scene features a dynamic and balanced arrangement of cultural elements and animated interactions. Attention is given to the detailed textures of traditional clothing, the vibrant energy of decorations, and the genuine expressions of happiness, perfectly encapsulating the spirit of Vietnamese New Year celebrations.  \n\n```"
-    },
-    "class_type": "ShowText|pysssss",
-    "_meta": {
-      "title": "Show Text 🐍"
-    }
-  },
-  "61": {
-    "inputs": {
-      "prompt": [
-        "60",
-        0
-      ],
-      "model_name": "gemini-1.5-pro-latest",
-      "stream": false,
-      "api_key": "AIzaSyAO5XPik3WO225cp5vQXagi-BOmhjNkTzc"
-    },
-    "class_type": "Gemini_API_Zho",
-    "_meta": {
-      "title": "✨Gemini_API_Zho"
-    }
-  },
   "62": {
     "inputs": {
       "text": [
-        "58",
+        "246",
         0
       ],
       "clip": [
@@ -315,7 +242,7 @@
     },
     "class_type": "CLIPTextEncode",
     "_meta": {
-      "title": "Mô tả chi tiết"
+      "title": "Positive Text"
     }
   },
   "76": {
@@ -345,12 +272,14 @@
       "job_data_per_image": "disabled",
       "job_custom_text": "",
       "save_metadata": "enabled",
-      "counter_digits": 2,
+      "counter_digits": 5,
       "counter_position": "last",
       "one_counter_per_folder": "disabled",
       "image_preview": "enabled",
+      "output_ext": ".jpg",
+      "quality": 10,
       "positive_text_opt": [
-        "58",
+        "246",
         0
       ],
       "negative_text_opt": [
@@ -364,16 +293,82 @@
     },
     "class_type": "SaveImageExtended",
     "_meta": {
-      "title": "Save Image Extended"
+      "title": "💾 Save Image Extended"
     }
   },
   "179": {
     "inputs": {
-      "text": "((Realisian-Neg, bad_pictures, bad_prompt_version2, BadDream, BadNegAnatomyV1-neg, easynegative, FastNegativeV2, fcNeg-neg, negative_hand-neg, NegfeetV2, ng_deepnegative_v1_75t, UnrealisticDream, verybadimagenegative_v1.3, aid291, bad-hands-5, NEGS Bad Hands, NEGS Bad Image v4, NEGS Bad Prompt v2)):1.16,\njpeg artifacts, ((monochrome, watermark, white letters, worst quality ,low quality, normal quality, signature, username, ((logo ,text, font)))):2,\nskin spots, acnes, skin blemishes, age spot, glans, ((bad anatomy, extra limbs, ugly)):1.3, ((multi people)), mutated(hands, arms, fingers), (interlocked fingers:1.2), tattoo"
+      "text": "blur, distortion, text, watermark"
     },
     "class_type": "ttN text",
     "_meta": {
-      "title": "Positive text"
+      "title": "Negative Text"
+    }
+  },
+  "238": {
+    "inputs": {
+      "text": "Young woman standing on cliff, ocean sunrise beauty",
+      "random_seed": 239849583948544,
+      "model": "Mistral-7B-Instruct-v0.3-Q6_K.gguf",
+      "max_tokens": 4096,
+      "apply_instructions": true,
+      "instructions": "Generate a prompt from \"{prompt}\""
+    },
+    "class_type": "Searge_LLM_Node",
+    "_meta": {
+      "title": "Searge LLM Node"
+    }
+  },
+  "242": {
+    "inputs": {
+      "merge_string": "\\n\\n",
+      "input_1": [
+        "247",
+        0
+      ],
+      "input_2": [
+        "238",
+        0
+      ],
+      "input_3": [
+        "244",
+        0
+      ]
+    },
+    "class_type": "Griptape Combine: Merge Texts",
+    "_meta": {
+      "title": "Griptape Combine: Merge Texts"
+    }
+  },
+  "244": {
+    "inputs": {
+      "STRING": "Banner Title:\n\nA clean and modern sans-serif **\"Morning Music\"** in large, elegant lettering, realistic photo, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.  "
+    },
+    "class_type": "Griptape Create: Text",
+    "_meta": {
+      "title": "Griptape Create: Text"
+    }
+  },
+  "246": {
+    "inputs": {
+      "text": [
+        "242",
+        0
+      ],
+      "text2": "((Realistic photo)), ((detailed)), ((best quality)), ((realistic photo))\n\nScene Description:\n\nA stunning sunrise over the ocean sets the stage for this evocative image of a young woman standing on a cliff's edge. The subject of the image is a beautiful, youthful woman with long hair blowing gently in the wind, her eyes captivated by the breathtaking beauty that surrounds her. She stands tall and confident, framed perfectly against the backdrop of a vibrant sunrise, its warm hues illuminating both the ocean below and the woman herself. The cliff's edge is rugged yet picturesque, offering an unparalleled view of the crashing waves beneath. This image captures not only the beauty of nature but also the sense of serenity and adventure that comes with standing atop a cliff on a breathtaking ocean sunrise.\n\nBanner Title:\n\nA clean and modern sans-serif **\"Morning Music\"** in large, elegant lettering, realistic photo, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere."
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Show Text 🐍"
+    }
+  },
+  "247": {
+    "inputs": {
+      "STRING": "((Realistic photo)), ((detailed)), ((best quality)), ((realistic photo))\n\nScene Description:"
+    },
+    "class_type": "Griptape Create: Text",
+    "_meta": {
+      "title": "Griptape Create: Text"
     }
   }
 }

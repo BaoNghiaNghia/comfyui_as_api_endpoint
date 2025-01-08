@@ -14,7 +14,7 @@ async def get_index():
     """_summary
         Function describe: This function is used to generate a scene template 2.
     """
-    
+
     return FileResponse("ui/index.html")
 
 
@@ -24,7 +24,7 @@ async def generate_images_api(request: PromptRequest):
     """_summary
         Function describe: This function is used to generate a scene template 2.
     """
-    
+
     try:
         # # Authenticate if email and password are provided
         # if request.token:
@@ -64,7 +64,7 @@ async def download_file(file_name: str, subfolder: str):
     """_summary
         Function describe: This function is used to generate a scene template 2.
     """
-    
+
     try:
         file_path = download_single_image(file_name, subfolder)
 

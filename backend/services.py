@@ -90,7 +90,7 @@ async def get_images(ws, prompt, noise_seed):
 
     try:
         while True:
-            out = await asyncio.wait_for(ws.recv(), timeout=600)  # Timeout after 10 minutes
+            out = ws.recv()
             if isinstance(out, str):
                 message = json.loads(out)
                 if message['type'] == 'progress':
@@ -297,7 +297,6 @@ async def generate_images(short_description, title, thumbnail_number=1, thumb_st
 
         # Check if AI model is running queue
         queue_count = check_current_queue()
-
         if queue_count and (len(queue_count["queue_running"]) > 0 or len(queue_count["queue_pending"]) > 0):
             raise Exception(f'AI model is running another thumbnail images generation (Running: {len(queue_count["queue_running"])}, Pending: {len(queue_count["queue_pending"])}). Please try again later.')
 
@@ -310,21 +309,25 @@ async def generate_images(short_description, title, thumbnail_number=1, thumb_st
         workflow["178"]["inputs"]["foldername_prefix"] = subfolder
         workflow["178"]["inputs"]["filename_prefix"] = filename_prefix
         
-        # Simplify prompt construction
-        workflow["59"]["inputs"]["text1"] = (
-            f'describe "{short_description}" with {thumb_style} style as a prompt based on this exact format. '
-            f'Banner title: {TEXT_STYLE} **"{title}"** in large, {thumb_style}, elegant lettering, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.'
-        )
-        workflow["59"]["inputs"]["text2"] = create_prompt_and_call_api(short_description, title, thumb_style)
+        # # Option 1: Use Gemini AI - Simplify prompt construction
+        # # workflow["59"]["inputs"]["text1"] = (
+        # #     f'describe "{short_description}" with {thumb_style} style as a prompt based on this exact format. '
+        # #     f'Banner title: {TEXT_STYLE} **"{title}"** in large, {thumb_style}, elegant lettering, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.'
+        # # )
+        # # workflow["59"]["inputs"]["text2"] = create_prompt_and_call_api(short_description, title, thumb_style)
+        # # if subfolder == SUBFOLDER_TOOL_RENDER:
+        # #     api_key_list = GEMINI_KEY_TOOL_RENDER
+        # # elif subfolder == SUBFOLDER_TEAM_AUTOMATION:
+        # #     api_key_list = GEMINI_KEY_TEAM_AUTOMATION
+        # # else:
+        # #     raise ValueError(f"Unsupported subfolder: {subfolder}")
 
-        if subfolder == SUBFOLDER_TOOL_RENDER:
-            api_key_list = GEMINI_KEY_TOOL_RENDER
-        elif subfolder == SUBFOLDER_TEAM_AUTOMATION:
-            api_key_list = GEMINI_KEY_TEAM_AUTOMATION
-        else:
-            raise ValueError(f"Unsupported subfolder: {subfolder}")
+        # # workflow["61"]["inputs"]["api_key"] = random.choice(api_key_list)
 
-        workflow["61"]["inputs"]["api_key"] = random.choice(api_key_list)
+
+        # # Option 2: Use Mistral LLM Model
+        workflow["238"]["inputs"]["text"] = short_description
+
 
         workflow["29"]["inputs"]["batch_size"] = thumbnail_number
         workflow["25"]["inputs"]["noise_seed"] = noise_seed
