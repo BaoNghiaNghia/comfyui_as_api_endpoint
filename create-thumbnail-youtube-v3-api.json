@@ -116,7 +116,7 @@
   },
   "25": {
     "inputs": {
-      "noise_seed": 201072982431890
+      "noise_seed": 592545258999484
     },
     "class_type": "RandomNoise",
     "_meta": {
@@ -126,8 +126,8 @@
   "26": {
     "inputs": {
       "lora_name": "flux.1_lora_flyway_Epic-detail_v2.safetensors",
-      "strength_model": 0.7000000000000001,
-      "strength_clip": 1,
+      "strength_model": 0.5,
+      "strength_clip": 0.5,
       "model": [
         "12",
         0
@@ -163,8 +163,8 @@
   },
   "29": {
     "inputs": {
-      "width": 1248,
-      "height": 704,
+      "width": 1304,
+      "height": 728,
       "batch_size": 1
     },
     "class_type": "EmptyLatentImage",
@@ -179,8 +179,8 @@
       "start_percent": 0,
       "end_percent": 0.35,
       "downscale_after_skip": true,
-      "downscale_method": "bilinear",
-      "upscale_method": "bilinear",
+      "downscale_method": "nearest-exact",
+      "upscale_method": "nearest-exact",
       "model": [
         "27",
         0
@@ -218,7 +218,7 @@
   },
   "43": {
     "inputs": {
-      "guidance": 3.5,
+      "guidance": 4,
       "conditioning": [
         "62",
         0
@@ -267,17 +267,17 @@
       "filename_keys": "steps, noise_seed",
       "foldername_prefix": "tool_render",
       "foldername_keys": "",
-      "delimiter": "underscore",
+      "delimiter": "_",
       "save_job_data": "disabled",
-      "job_data_per_image": "disabled",
+      "job_data_per_image": false,
       "job_custom_text": "",
-      "save_metadata": "enabled",
-      "counter_digits": 5,
+      "save_metadata": false,
+      "counter_digits": 1,
       "counter_position": "last",
-      "one_counter_per_folder": "disabled",
-      "image_preview": "enabled",
+      "one_counter_per_folder": false,
+      "image_preview": true,
       "output_ext": ".jpg",
-      "quality": 10,
+      "quality": 100,
       "positive_text_opt": [
         "246",
         0
@@ -319,6 +319,18 @@
       "title": "Searge LLM Node"
     }
   },
+  "239": {
+    "inputs": {
+      "text": [
+        "238",
+        0
+      ]
+    },
+    "class_type": "Searge_Output_Node",
+    "_meta": {
+      "title": "Searge Output Node - Preview"
+    }
+  },
   "242": {
     "inputs": {
       "merge_string": "\\n\\n",
@@ -327,10 +339,14 @@
         0
       ],
       "input_2": [
-        "238",
+        "245",
         0
       ],
       "input_3": [
+        "238",
+        0
+      ],
+      "input_4": [
         "244",
         0
       ]
@@ -349,6 +365,15 @@
       "title": "Griptape Create: Text"
     }
   },
+  "245": {
+    "inputs": {
+      "STRING": "Scene Description:"
+    },
+    "class_type": "Griptape Create: Text",
+    "_meta": {
+      "title": "Griptape Create: Text"
+    }
+  },
   "246": {
     "inputs": {
       "text": [
@@ -359,12 +384,12 @@
     },
     "class_type": "ShowText|pysssss",
     "_meta": {
-      "title": "Show Text 🐍"
+      "title": "✴️ U-NAI Get Text"
     }
   },
   "247": {
     "inputs": {
-      "STRING": "((Realistic photo)), ((detailed)), ((best quality)), ((realistic photo))\n\nScene Description:"
+      "STRING": "((Realistic photo)), ((detailed)), ((best quality)), ((realistic photo))"
     },
     "class_type": "Griptape Create: Text",
     "_meta": {
