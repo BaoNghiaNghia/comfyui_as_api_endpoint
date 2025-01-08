@@ -318,7 +318,7 @@ async def generate_images(short_description, title, thumbnail_number=1, thumb_st
         # # workflow["59"]["inputs"]["text2"] = create_prompt_and_call_api(short_description, title, thumb_style)
         # # if subfolder == SUBFOLDER_TOOL_RENDER:
         # #     api_key_list = GEMINI_KEY_TOOL_RENDER
-        # # elif subfolder == SUBFOLDER_TEAM_AUTOMATION:
+        # # elif subfolder == SUBFOLDER_TEAM_AUTOMATION: 
         # #     api_key_list = GEMINI_KEY_TEAM_AUTOMATION
         # # else:
         # #     raise ValueError(f"Unsupported subfolder: {subfolder}")
@@ -328,7 +328,9 @@ async def generate_images(short_description, title, thumbnail_number=1, thumb_st
 
         # # Option 2: Use Mistral LLM Model
         workflow["238"]["inputs"]["text"] = short_description
-
+        workflow["244"]["inputs"]["STRING"] = (
+            f'Banner title: {TEXT_STYLE} **"{title}"** in large, {thumb_style}, elegant lettering, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.'
+        )
 
         workflow["29"]["inputs"]["batch_size"] = thumbnail_number
         workflow["25"]["inputs"]["noise_seed"] = noise_seed
