@@ -16,6 +16,7 @@ logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %
 COMFY_UI_SERVER_ADDRESS = os.getenv('COMFY_UI_SERVER_ADDRESS', 'host.docker.internal:8188')
 BACKEND_SERVER_ADDRESS = os.getenv('BACKEND_SERVER_ADDRESS', 'host.docker.internal:8000')
 REMOTE_SERVER_ADDRESS = os.getenv('REMOTE_SERVER_ADDRESS', 'host.docker.internal:8000')
+# REMOTE_SERVER_ADDRESS = os.getenv('REMOTE_SERVER_ADDRESS', 'sscrender.ddns.net:8000')
 
 # Choose a text style (consider making this configurable or less random)
 TEXT_STYLE = "A clean and modern sans-serif" # Consider: random.choice(["The handwritten big text", "A clean and modern sans-serif "])
