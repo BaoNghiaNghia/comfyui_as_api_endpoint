@@ -2,10 +2,11 @@ import os
 import random
 import asyncio
 import datetime
+import numpy as np
 from pathlib import Path
 from celery import shared_task
 from .services import check_current_queue, generate_images
-from .constants import THUMBNAIL_STYLE_LIST, SUBFOLDER_TOOL_RENDER, SUBFOLDER_TEAM_AUTOMATION, MAX_IMAGES_THRESHOLD, COUNT_IMAGES_TO_DELETE, INIT_REQUEST
+from .constants import THUMBNAIL_STYLE_LIST, SUBFOLDER_TOOL_RENDER, SUBFOLDER_TEAM_AUTOMATION, MAX_IMAGES_THRESHOLD, COUNT_IMAGES_TO_DELETE, INIT_REQUEST, THUMBNAIL_PER_TIMES
 
 TEAM_AUTOMATION_FOLDER = Path(f"/thumbnail_img/{SUBFOLDER_TEAM_AUTOMATION}")
 TOOL_RENDER_FOLDER = Path(f"/thumbnail_img/{SUBFOLDER_TOOL_RENDER}")
@@ -36,9 +37,9 @@ async def render_random_from_init_request():
     print(f"----- Rendering a random image for request: {random_request['file_name']}")
 
     await generate_images(
-        random_request["short_description"],        # short_description
+        np.random.choice(random_request["short_description"]),        # short_description
         random_request["title"],                    # title
-        1,                                          # thumbnail_number
+        THUMBNAIL_PER_TIMES,                                          # thumbnail_number
         random.choice(THUMBNAIL_STYLE_LIST),        # thumb_style
         SUBFOLDER_TEAM_AUTOMATION,                  # subfolder
         random_request["file_name"]                 # filename_prefix
@@ -48,7 +49,6 @@ async def generate_images_api():
     """
     Asynchronous worker function to generate images based on API requests.
     """
-    THUMBNAIL_PER_TIMES = 2
 
     today = datetime.datetime.now()
     day_of_week_number = today.weekday()  # Monday is 0, Sunday is 6
@@ -86,12 +86,12 @@ async def generate_images_api():
         return
 
     # Select a random request from the matching objects
-    random_request = random.choice(matching_objects)
+    random_request = np.random.choice(matching_objects)
 
     print(f"Processing request: {random_request['file_name']}")
 
     await generate_images(
-        random_request["short_description"],        # short_description
+        np.random.choice(random_request["short_description"]),        # short_description
         random_request["title"],                    # title
         THUMBNAIL_PER_TIMES,                        # thumbnail_number
         random.choice(THUMBNAIL_STYLE_LIST),        # thumb_style
