@@ -53,7 +53,7 @@ async def generate_images_api():
     await generate_images(
         random_request["short_description"],        # short_description
         random_request["title"],                    # title
-        1,                                          # thumbnail_number
+        2,                                          # thumbnail_number
         random.choice(THUMBNAIL_STYLE_LIST),        # thumb_style
         SUBFOLDER_TEAM_AUTOMATION,                  # subfolder
         random_request["file_name"]                 # filename_prefix

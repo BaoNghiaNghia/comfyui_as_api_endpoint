@@ -328,9 +328,10 @@ async def generate_images(short_description, title, thumbnail_number=1, thumb_st
 
         # Option 2: Use Mistral LLM Model
         workflow["238"]["inputs"]["text"] = short_description
-        workflow["244"]["inputs"]["STRING"] = (
-            f'Banner title: {TEXT_STYLE} **"{title}"** in large, {thumb_style}, elegant lettering, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.'
-        )
+
+        option1 = f'Banner title: {TEXT_STYLE} **"{title}"** in large, elegant lettering, positioned prominently at the center of the image.'
+        option2 = f'Banner title: The future fonted title "{title}" is in neon, glowing, as if outlined by laser, exuding a sense of technology and a cold and mysterious atmosphere.'
+        workflow["244"]["inputs"]["STRING"] = random.choice([option1, option2])
 
         workflow["29"]["inputs"]["batch_size"] = thumbnail_number
         workflow["25"]["inputs"]["noise_seed"] = noise_seed
