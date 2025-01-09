@@ -10,8 +10,41 @@ from .constants import THUMBNAIL_STYLE_LIST, SUBFOLDER_TOOL_RENDER, SUBFOLDER_TE
 TEAM_AUTOMATION_FOLDER = Path(f"/thumbnail_img/{SUBFOLDER_TEAM_AUTOMATION}")
 TOOL_RENDER_FOLDER = Path(f"/thumbnail_img/{SUBFOLDER_TOOL_RENDER}")
 
+async def render_random_from_init_request():
+    """
+    Render a random image from the INIT_REQUEST list when there are no files in the folder.
+    Only selects requests matching the current day of the week.
+    """
+    if not INIT_REQUEST:
+        print("----- No requests in INIT_REQUEST. Cannot render a random image.")
+        return
 
-async def generate_images_api():
+    today = datetime.datetime.now()
+    day_of_week_number = today.weekday()  # Monday is 0, Sunday is 6
+    print("Today is day number:", day_of_week_number)
+
+    # Filter requests matching the current day of the week
+    valid_requests = [
+        request for request in INIT_REQUEST if day_of_week_number in request["day_of_week"]
+    ]
+
+    if not valid_requests:
+        print("----- No valid requests in INIT_REQUEST for today's day of the week.")
+        return
+
+    random_request = random.choice(valid_requests)
+    print(f"----- Rendering a random image for request: {random_request['file_name']}")
+
+    await generate_images(
+        random_request["short_description"],        # short_description
+        random_request["title"],                    # title
+        1,                                          # thumbnail_number
+        random.choice(THUMBNAIL_STYLE_LIST),        # thumb_style
+        SUBFOLDER_TEAM_AUTOMATION,                  # subfolder
+        random_request["file_name"]                 # filename_prefix
+    )
+
+async def generate_images_api(file_count):
     """_summary_
         Asynchronous worker function to generate images based on API requests.
         This function processes a list of initial requests (INIT_REQUEST), determines the prefixes of file names,
@@ -40,10 +73,7 @@ async def generate_images_api():
     print("Today is day number:", day_of_week_number)
 
     # Filter requests that match both the smallest prefixes and the current day of the week
-    matching_objects = [
-        request for request in INIT_REQUEST
-        if request["file_name"] in smallest_prefixes and day_of_week_number in request["day_of_week"]
-    ]
+    matching_objects = [request for request in INIT_REQUEST if (request["file_name"] in smallest_prefixes) and (day_of_week_number in request["day_of_week"])]
 
     # Ensure there's a valid request to process for today
     if not matching_objects:
@@ -73,10 +103,9 @@ def check_and_generate_images():
 
 
 async def generate_images_logic():
-    """_summary
-        Function describe: This function is used to generate images based on the current queue status and the number of images in the folder.
     """
-
+    Function describe: This function is used to generate images based on the current queue status and the number of images in the folder.
+    """
     try:
         # Call the queue checking function
         queue_count = check_current_queue()
@@ -100,12 +129,17 @@ async def generate_images_logic():
         file_count = sum(1 for file in os.listdir(TEAM_AUTOMATION_FOLDER) if os.path.isfile(os.path.join(TEAM_AUTOMATION_FOLDER, file)))
 
         # Check file count against the threshold
+        if file_count == 0:
+            print("----- Folder has no files. Rendering a random image from INIT_REQUEST.")
+            await render_random_from_init_request()
+            return
+
         if file_count < MAX_IMAGES_THRESHOLD:
-            print(f"--------------------------------- START GENEREATING ------------------------------------")
+            print(f"--------------------------------- START GENERATING ------------------------------------")
             print(f"----- Folder has {file_count} files. Run generate image thumbnail AI Model until {MAX_IMAGES_THRESHOLD} files.")
 
             # Generate images asynchronously
-            await generate_images_api()
+            await generate_images_api(file_count)
         else:
             print(f"----- Folder has {file_count} files, skipping generation.")
 
