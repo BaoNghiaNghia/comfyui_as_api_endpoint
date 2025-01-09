@@ -12,3 +12,4 @@ redis
 flower
 django-celery-beat
 watchdog
+numpy
