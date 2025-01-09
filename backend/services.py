@@ -7,7 +7,7 @@ import requests
 import websocket
 from urllib.parse import urlencode
 from fastapi import HTTPException
-from .constants import GEMINI_KEY_TOOL_RENDER, GEMINI_KEY_TEAM_AUTOMATION, SUBFOLDER_TEAM_AUTOMATION, SUBFOLDER_TOOL_RENDER, CLIENT_ID, FILE_DIRECTORY
+from .constants import CLIENT_ID, FILE_DIRECTORY, FLUX_LORA_STEP
 
 
 
@@ -309,7 +309,9 @@ async def generate_images(short_description, title, thumbnail_number=1, thumb_st
 
         workflow["178"]["inputs"]["foldername_prefix"] = subfolder
         workflow["178"]["inputs"]["filename_prefix"] = filename_prefix
-        
+
+        workflow["17"]["inputs"]["steps"] = FLUX_LORA_STEP
+
         # Option 1: Use Gemini AI - Simplify prompt construction
         # workflow["59"]["inputs"]["text1"] = (
         #     f'describe "{short_description}" with {thumb_style} style as a prompt based on this exact format. '
