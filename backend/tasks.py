@@ -21,6 +21,8 @@ async def generate_images_api():
         Returns:
             None
     """
+    
+    THUMBNAIL_PER_TIMES = 2
 
     prefixes = list({request["file_name"] for request in INIT_REQUEST})
 
@@ -53,7 +55,7 @@ async def generate_images_api():
     await generate_images(
         random_request["short_description"],        # short_description
         random_request["title"],                    # title
-        2,                                          # thumbnail_number
+        THUMBNAIL_PER_TIMES,                                          # thumbnail_number
         random.choice(THUMBNAIL_STYLE_LIST),        # thumb_style
         SUBFOLDER_TEAM_AUTOMATION,                  # subfolder
         random_request["file_name"]                 # filename_prefix
