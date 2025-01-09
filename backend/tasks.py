@@ -37,12 +37,12 @@ async def render_random_from_init_request():
     print(f"----- Rendering a random image for request: {random_request['file_name']}")
 
     await generate_images(
-        np.random.choice(random_request["short_description"]),        # short_description
-        random_request["title"],                    # title
-        THUMBNAIL_PER_TIMES,                                          # thumbnail_number
-        random.choice(THUMBNAIL_STYLE_LIST),        # thumb_style
-        SUBFOLDER_TEAM_AUTOMATION,                  # subfolder
-        random_request["file_name"]                 # filename_prefix
+        np.random.choice(random_request["short_description"]),          # short_description
+        random_request["title"],                                        # title
+        THUMBNAIL_PER_TIMES,                                            # thumbnail_number
+        random.choice(THUMBNAIL_STYLE_LIST),                            # thumb_style
+        SUBFOLDER_TEAM_AUTOMATION,                                      # subfolder
+        random_request["file_name"]                                     # filename_prefix
     )
 
 async def generate_images_api():
@@ -91,12 +91,12 @@ async def generate_images_api():
     print(f"Processing request: {random_request['file_name']}")
 
     await generate_images(
-        np.random.choice(random_request["short_description"]),        # short_description
-        random_request["title"],                    # title
-        THUMBNAIL_PER_TIMES,                        # thumbnail_number
-        random.choice(THUMBNAIL_STYLE_LIST),        # thumb_style
-        SUBFOLDER_TEAM_AUTOMATION,                  # subfolder
-        random_request["file_name"]                 # filename_prefix
+        np.random.choice(random_request["short_description"]),          # short_description
+        random_request["title"],                                        # title
+        THUMBNAIL_PER_TIMES,                                            # thumbnail_number
+        random.choice(THUMBNAIL_STYLE_LIST),                            # thumb_style
+        SUBFOLDER_TEAM_AUTOMATION,                                      # subfolder
+        random_request["file_name"]                                     # filename_prefix
     )
 
 
