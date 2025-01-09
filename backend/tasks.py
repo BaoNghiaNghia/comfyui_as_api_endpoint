@@ -44,52 +44,61 @@ async def render_random_from_init_request():
         random_request["file_name"]                 # filename_prefix
     )
 
-async def generate_images_api(file_count):
-    """_summary_
-        Asynchronous worker function to generate images based on API requests.
-        This function processes a list of initial requests (INIT_REQUEST), determines the prefixes of file names,
-        counts the occurrences of each prefix, and selects the prefix with the smallest count. It then randomly
-        chooses a request with the selected prefix and calls the generate_images function with the details from
-        the chosen request.
-        Returns:
-            None
+async def generate_images_api():
     """
-    
+    Asynchronous worker function to generate images based on API requests.
+    """
     THUMBNAIL_PER_TIMES = 2
 
-    prefixes = list({request["file_name"] for request in INIT_REQUEST})
+    today = datetime.datetime.now()
+    day_of_week_number = today.weekday()  # Monday is 0, Sunday is 6
 
+    # Filter requests that match the current day of the week
+    valid_requests = [
+        request for request in INIT_REQUEST if day_of_week_number in request["day_of_week"]
+    ]
+
+    if not valid_requests:
+        print("No valid requests in INIT_REQUEST for today's day of the week.")
+        return
+
+    # Extract prefixes from valid requests
+    prefixes = list({request["file_name"] for request in valid_requests})
+
+    # Count occurrences of each prefix in valid requests
     counts = {prefix: 0 for prefix in prefixes}
-    for request in INIT_REQUEST:
+    for request in valid_requests:
         for prefix in prefixes:
             if request["file_name"].startswith(prefix):
                 counts[prefix] += 1
 
+    # Find the prefix with the smallest count
     smallest_count = min(counts.values())
     smallest_prefixes = [prefix for prefix, count in counts.items() if count == smallest_count]
 
-    today = datetime.datetime.now()
-    day_of_week_number = today.weekday()  # Monday is 0, Sunday is 6
-    print("Today is day number:", day_of_week_number)
+    # Filter requests by the smallest prefixes
+    matching_objects = [
+        request for request in valid_requests if request["file_name"] in smallest_prefixes
+    ]
 
-    # Filter requests that match both the smallest prefixes and the current day of the week
-    matching_objects = [request for request in INIT_REQUEST if (request["file_name"] in smallest_prefixes) and (day_of_week_number in request["day_of_week"])]
-
-    # Ensure there's a valid request to process for today
     if not matching_objects:
-        print("No matching objects for today's day of the week.")
+        print("No matching objects after filtering by prefixes.")
         return
 
+    # Select a random request from the matching objects
     random_request = random.choice(matching_objects)
+
+    print(f"Processing request: {random_request['file_name']}")
 
     await generate_images(
         random_request["short_description"],        # short_description
         random_request["title"],                    # title
-        THUMBNAIL_PER_TIMES,                                          # thumbnail_number
+        THUMBNAIL_PER_TIMES,                        # thumbnail_number
         random.choice(THUMBNAIL_STYLE_LIST),        # thumb_style
         SUBFOLDER_TEAM_AUTOMATION,                  # subfolder
         random_request["file_name"]                 # filename_prefix
     )
+
 
 
 
@@ -139,7 +148,7 @@ async def generate_images_logic():
             print(f"----- Folder has {file_count} files. Run generate image thumbnail AI Model until {MAX_IMAGES_THRESHOLD} files.")
 
             # Generate images asynchronously
-            await generate_images_api(file_count)
+            await generate_images_api()
         else:
             print(f"----- Folder has {file_count} files, skipping generation.")
 
