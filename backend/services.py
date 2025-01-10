@@ -311,6 +311,11 @@ async def generate_images(short_description, title, thumbnail_number=1, thumb_st
         workflow["178"]["inputs"]["filename_prefix"] = filename_prefix
 
         workflow["17"]["inputs"]["steps"] = FLUX_LORA_STEP
+        workflow["26"]["inputs"]["lora_name"] = "flux.1_lora_flyway_ink-dynamic.safetensors"
+        #    "lora_name": "flux.1_lora_flyway_Hyper-Illustration_v1.0.safetensors",
+        #    "lora_name": "flux.1_lora_flyway_ink-dynamic.safetensors",
+        #    "lora_name": "flux.1_lora_flyway_Epic-detail_v2.safetensors",
+
 
         # Option 1: Use Gemini AI - Simplify prompt construction
         # workflow["59"]["inputs"]["text1"] = (
@@ -326,6 +331,7 @@ async def generate_images(short_description, title, thumbnail_number=1, thumb_st
         #     raise ValueError(f"Unsupported subfolder: {subfolder}")
 
         # workflow["61"]["inputs"]["api_key"] = random.choice(api_key_list)
+
 
 
         # Option 2: Use Mistral LLM Model
