@@ -7,7 +7,7 @@ import requests
 import websocket
 from urllib.parse import urlencode
 from fastapi import HTTPException
-from .constants import CLIENT_ID, FILE_DIRECTORY, FLUX_LORA_STEP
+from .constants import CLIENT_ID, FILE_DIRECTORY, FLUX_LORA_STEP, SUBFOLDER_TOOL_RENDER, SUBFOLDER_TEAM_AUTOMATION, GEMINI_KEY_TOOL_RENDER, GEMINI_KEY_TEAM_AUTOMATION
 
 
 
@@ -279,6 +279,36 @@ def create_prompt_and_call_api(input_string, title, thumb_style):
 
 
 
+async def logic_llm_option1(workflow, short_description, title, thumb_style, subfolder):
+    """Implements Option 1 logic using Gemini AI."""
+    workflow["59"]["inputs"]["text1"] = (
+        f'describe "{short_description}" with {thumb_style} style as a prompt based on this exact format. '
+        f'Banner title: {TEXT_STYLE} **"{title}"** in large, {thumb_style}, elegant lettering, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.'
+    )
+    workflow["59"]["inputs"]["text2"] = create_prompt_and_call_api(short_description, title, thumb_style)
+
+    if subfolder == SUBFOLDER_TOOL_RENDER:
+        api_key_list = GEMINI_KEY_TOOL_RENDER
+    elif subfolder == SUBFOLDER_TEAM_AUTOMATION:
+        api_key_list = GEMINI_KEY_TEAM_AUTOMATION
+    else:
+        raise ValueError(f"Unsupported subfolder: {subfolder}")
+
+    workflow["61"]["inputs"]["api_key"] = random.choice(api_key_list)
+    return workflow
+
+
+async def logic_llm_option2(workflow, short_description, title):
+    """Implements Option 2 logic using Mistral LLM Model."""
+    workflow["238"]["inputs"]["text"] = short_description
+
+    option1 = f'Banner title: {TEXT_STYLE} **"{title}"** in large, elegant lettering, positioned prominently at the center of the image.'
+    option2 = f'Banner title: The future fonted title "{title}" is in neon, glowing, as if outlined by laser, exuding a sense of technology and a cold and mysterious atmosphere.'
+    workflow["244"]["inputs"]["STRING"] = random.choice([option1, option2])
+
+    return workflow
+
+
 async def generate_images(short_description, title, thumbnail_number=1, thumb_style='realistic photo', subfolder='tool_render', filename_prefix='ytbthumb'):
     """
         Generates images using the ComfyUI workflow via WebSocket.
@@ -299,7 +329,7 @@ async def generate_images(short_description, title, thumbnail_number=1, thumb_st
         # Check if AI model is running queue
         queue_count = check_current_queue()
         if queue_count and (len(queue_count["queue_running"]) > 0 or len(queue_count["queue_pending"]) > 0):
-            raise Exception(f'AI model is running another thumbnail images generation (Running: {len(queue_count["queue_running"])}, Pending: {len(queue_count["queue_pending"])}). Please try again later.')
+            raise Exception(f'AI model is running another thumbnail images generation (Running: {len(queue_count["queue_running"])} Pending: {len(queue_count["queue_pending"])}). Please try again later.')
 
         with open("create-thumbnail-youtube-v3-api.json", "r", encoding="utf-8") as f:
             workflow_data = f.read()
@@ -312,38 +342,14 @@ async def generate_images(short_description, title, thumbnail_number=1, thumb_st
 
         workflow["17"]["inputs"]["steps"] = FLUX_LORA_STEP
         workflow["26"]["inputs"]["lora_name"] = "flux.1_lora_flyway_ink-dynamic.safetensors"
-        #    "lora_name": "flux.1_lora_flyway_Hyper-Illustration_v1.0.safetensors",
-        #    "lora_name": "flux.1_lora_flyway_ink-dynamic.safetensors",
-        #    "lora_name": "flux.1_lora_flyway_Epic-detail_v2.safetensors",
 
-
-        # Option 1: Use Gemini AI - Simplify prompt construction
-        # workflow["59"]["inputs"]["text1"] = (
-        #     f'describe "{short_description}" with {thumb_style} style as a prompt based on this exact format. '
-        #     f'Banner title: {TEXT_STYLE} **"{title}"** in large, {thumb_style}, elegant lettering, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.'
-        # )
-        # workflow["59"]["inputs"]["text2"] = create_prompt_and_call_api(short_description, title, thumb_style)
-        # if subfolder == SUBFOLDER_TOOL_RENDER:
-        #     api_key_list = GEMINI_KEY_TOOL_RENDER
-        # elif subfolder == SUBFOLDER_TEAM_AUTOMATION: 
-        #     api_key_list = GEMINI_KEY_TEAM_AUTOMATION
-        # else:
-        #     raise ValueError(f"Unsupported subfolder: {subfolder}")
-
-        # workflow["61"]["inputs"]["api_key"] = random.choice(api_key_list)
-
-
-
-        # Option 2: Use Mistral LLM Model
-        workflow["238"]["inputs"]["text"] = short_description
-
-        option1 = f'Banner title: {TEXT_STYLE} **"{title}"** in large, elegant lettering, positioned prominently at the center of the image.'
-        option2 = f'Banner title: The future fonted title "{title}" is in neon, glowing, as if outlined by laser, exuding a sense of technology and a cold and mysterious atmosphere.'
-        workflow["244"]["inputs"]["STRING"] = random.choice([option1, option2])
+        # Uncomment the desired option
+        # workflow = await logic_llm_option1(workflow, short_description, title, thumb_style, subfolder)
+        workflow = await logic_llm_option2(workflow, short_description, title)
 
         workflow["29"]["inputs"]["batch_size"] = thumbnail_number
         workflow["25"]["inputs"]["noise_seed"] = noise_seed
-        
+
         images = await get_images(ws, workflow, noise_seed)
         return images
 
@@ -359,6 +365,7 @@ async def generate_images(short_description, title, thumbnail_number=1, thumb_st
                 ws.close()
             except Exception as e:
                 logging.error(f"Error closing WebSocket: {e}")
+
 
 def download_single_image(file_name: str, subfolder: str):
     """
