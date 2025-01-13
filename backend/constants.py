@@ -1,7 +1,6 @@
 import uuid
 import os
 from pathlib import Path
-import random
 
 # "realistic photo",
 # "illustration",
@@ -114,6 +113,28 @@ FILE_DIRECTORY = Path(os.getenv('OUTPUT_IMAGE_FOLDER', "/thumbnail_img"))
 
 THUMBNAIL_PER_TIMES = 2
 
+THUMBNAIL_SIZE_FULLHD = {
+    'original': {
+        'width': 1280,
+        'height': 720
+    },
+    'scaled': {
+        'width': 1920,
+        'height': 1080
+    },
+}
+
+THUMBNAIL_SIZE_RECTANGLE = {
+    'original': {
+        'width': 1080,
+        'height': 1080
+    },
+    'scaled': {
+        'width': 1080,
+        'height': 1080
+    },
+}
+
 INIT_REQUEST = [
     # {
     #     "short_description": [
@@ -223,3 +244,4 @@ INIT_REQUEST = [
 
 
 DATASET_TRAINED_FOLDER = Path(os.getenv('DATASET_TRAINED_FOLDER', "/dataset_trained"))
+

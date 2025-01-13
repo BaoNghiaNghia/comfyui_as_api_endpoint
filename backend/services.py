@@ -7,7 +7,7 @@ import requests
 import websocket
 from urllib.parse import urlencode
 from fastapi import HTTPException
-from .constants import CLIENT_ID, FILE_DIRECTORY, FLUX_LORA_STEP, SUBFOLDER_TOOL_RENDER, SUBFOLDER_TEAM_AUTOMATION, GEMINI_KEY_TOOL_RENDER, GEMINI_KEY_TEAM_AUTOMATION
+from .constants import CLIENT_ID, FILE_DIRECTORY, FLUX_LORA_STEP, SUBFOLDER_TOOL_RENDER, SUBFOLDER_TEAM_AUTOMATION, GEMINI_KEY_TOOL_RENDER, GEMINI_KEY_TEAM_AUTOMATION, THUMBNAIL_SIZE_FULLHD
 
 
 
@@ -331,7 +331,7 @@ async def generate_images(short_description, title, thumbnail_number=1, thumb_st
         if queue_count and (len(queue_count["queue_running"]) > 0 or len(queue_count["queue_pending"]) > 0):
             raise Exception(f'AI model is running another thumbnail images generation (Running: {len(queue_count["queue_running"])} Pending: {len(queue_count["queue_pending"])}). Please try again later.')
 
-        with open("workflow-thumbnail-youtube-v3-api.json", "r", encoding="utf-8") as f:
+        with open("thumbnail-youtube-v3-api.json", "r", encoding="utf-8") as f:
             workflow_data = f.read()
 
         workflow = json.loads(workflow_data)
@@ -339,6 +339,11 @@ async def generate_images(short_description, title, thumbnail_number=1, thumb_st
 
         workflow["178"]["inputs"]["foldername_prefix"] = subfolder
         workflow["178"]["inputs"]["filename_prefix"] = filename_prefix
+        
+        # Thumbnail size setup
+        workflow["29"]["inputs"]["width"] = THUMBNAIL_SIZE_FULLHD['original']['width']
+        workflow["29"]["inputs"]["height"] = THUMBNAIL_SIZE_FULLHD['original']['height']
+        workflow["29"]["inputs"]["batch_size"] = thumbnail_number
 
         workflow["17"]["inputs"]["steps"] = FLUX_LORA_STEP
         workflow["26"]["inputs"]["lora_name"] = "flux.1_lora_flyway_ink-dynamic.safetensors"
@@ -347,7 +352,6 @@ async def generate_images(short_description, title, thumbnail_number=1, thumb_st
         # workflow = await logic_llm_option1(workflow, short_description, title, thumb_style, subfolder)
         workflow = await logic_llm_option2(workflow, short_description, title)
 
-        workflow["29"]["inputs"]["batch_size"] = thumbnail_number
         workflow["25"]["inputs"]["noise_seed"] = noise_seed
 
         images = await get_images(ws, workflow, noise_seed)
