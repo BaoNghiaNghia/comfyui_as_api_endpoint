@@ -52,3 +52,7 @@ vendor/
 outputs/
 
 celerybeat-schedule
+
+ComfyUI/models/
+ComfyUI/outputs/
+python_embeded/
