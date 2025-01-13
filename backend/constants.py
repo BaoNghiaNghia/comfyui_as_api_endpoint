@@ -103,7 +103,10 @@ SUBFOLDER_TEAM_AUTOMATION = 'team_automation'
 
 MAX_IMAGES_THRESHOLD = 1500
 COUNT_IMAGES_TO_DELETE = 5
-FLUX_LORA_STEP = 30
+FLUX_LORA_STEP = {
+    'team_automation': 30,
+    'tool_render': 25,
+}
 
 DEFAULT_FILENAME_PREFIX = 'ytbthumb'
 
@@ -113,28 +116,28 @@ FILE_DIRECTORY = Path(os.getenv('OUTPUT_IMAGE_FOLDER', "/thumbnail_img"))
 
 THUMBNAIL_PER_TIMES = 2
 
-THUMBNAIL_SIZE_FULLHD = {
-    'original': {
-        'width': 1280,
-        'height': 720
+THUMBNAIL_SIZES = {
+    'fullhd': {
+        'original': {
+            'width': 1280,
+            'height': 720
+        },
+        'scaled': {
+            'width': 1920,
+            'height': 1080
+        },
     },
-    'scaled': {
-        'width': 1920,
-        'height': 1080
+    'rectangle': {
+        'original': {
+            'width': 1080,
+            'height': 1080
+        },
+        'scaled': {
+            'width': 1080,
+            'height': 1080
+        },
     },
 }
-
-THUMBNAIL_SIZE_RECTANGLE = {
-    'original': {
-        'width': 1080,
-        'height': 1080
-    },
-    'scaled': {
-        'width': 1080,
-        'height': 1080
-    },
-}
-
 INIT_REQUEST = [
     # {
     #     "short_description": [

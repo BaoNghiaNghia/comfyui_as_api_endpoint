@@ -6,7 +6,7 @@ import numpy as np
 from pathlib import Path
 from celery import shared_task
 from .services import check_current_queue, generate_images
-from .constants import THUMBNAIL_STYLE_LIST, SUBFOLDER_TOOL_RENDER, SUBFOLDER_TEAM_AUTOMATION, MAX_IMAGES_THRESHOLD, COUNT_IMAGES_TO_DELETE, INIT_REQUEST, THUMBNAIL_PER_TIMES
+from .constants import THUMBNAIL_STYLE_LIST, SUBFOLDER_TOOL_RENDER, SUBFOLDER_TEAM_AUTOMATION, MAX_IMAGES_THRESHOLD, COUNT_IMAGES_TO_DELETE, INIT_REQUEST, THUMBNAIL_PER_TIMES, FLUX_LORA_STEP
 
 TEAM_AUTOMATION_FOLDER = Path(f"/thumbnail_img/{SUBFOLDER_TEAM_AUTOMATION}")
 TOOL_RENDER_FOLDER = Path(f"/thumbnail_img/{SUBFOLDER_TOOL_RENDER}")
@@ -42,7 +42,8 @@ async def render_random_from_init_request():
         THUMBNAIL_PER_TIMES,                                            # thumbnail_number
         random.choice(THUMBNAIL_STYLE_LIST),                            # thumb_style
         SUBFOLDER_TEAM_AUTOMATION,                                      # subfolder
-        random_request["file_name"]                                     # filename_prefix
+        random_request["file_name"],                                     # filename_prefix
+        FLUX_LORA_STEP['team_automation']
     )
 
 async def generate_images_api():
@@ -96,7 +97,8 @@ async def generate_images_api():
         THUMBNAIL_PER_TIMES,                                            # thumbnail_number
         random.choice(THUMBNAIL_STYLE_LIST),                            # thumb_style
         SUBFOLDER_TEAM_AUTOMATION,                                      # subfolder
-        random_request["file_name"]                                     # filename_prefix
+        random_request["file_name"],                                     # filename_prefix
+        FLUX_LORA_STEP['team_automation']
     )
 
 

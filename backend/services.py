@@ -7,7 +7,7 @@ import requests
 import websocket
 from urllib.parse import urlencode
 from fastapi import HTTPException
-from .constants import CLIENT_ID, FILE_DIRECTORY, FLUX_LORA_STEP, SUBFOLDER_TOOL_RENDER, SUBFOLDER_TEAM_AUTOMATION, GEMINI_KEY_TOOL_RENDER, GEMINI_KEY_TEAM_AUTOMATION, THUMBNAIL_SIZE_FULLHD
+from .constants import CLIENT_ID, FILE_DIRECTORY, FLUX_LORA_STEP, SUBFOLDER_TOOL_RENDER, SUBFOLDER_TEAM_AUTOMATION, GEMINI_KEY_TOOL_RENDER, GEMINI_KEY_TEAM_AUTOMATION, THUMBNAIL_SIZES
 
 
 
@@ -309,7 +309,7 @@ async def logic_llm_option2(workflow, short_description, title):
     return workflow
 
 
-async def generate_images(short_description, title, thumbnail_number=1, thumb_style='realistic photo', subfolder='tool_render', filename_prefix='ytbthumb'):
+async def generate_images(short_description, title, thumbnail_number=1, thumb_style='realistic photo', subfolder='tool_render', filename_prefix='ytbthumb', lora_step=FLUX_LORA_STEP['tool_render']):
     """
         Generates images using the ComfyUI workflow via WebSocket.
     """
@@ -341,11 +341,14 @@ async def generate_images(short_description, title, thumbnail_number=1, thumb_st
         workflow["178"]["inputs"]["filename_prefix"] = filename_prefix
         
         # Thumbnail size setup
-        workflow["29"]["inputs"]["width"] = THUMBNAIL_SIZE_FULLHD['original']['width']
-        workflow["29"]["inputs"]["height"] = THUMBNAIL_SIZE_FULLHD['original']['height']
+        
+        workflow["29"]["inputs"]["width"] = THUMBNAIL_SIZES['fullhd']['original']['width']
+        workflow["29"]["inputs"]["height"] = THUMBNAIL_SIZES['fullhd']['original']['height']
         workflow["29"]["inputs"]["batch_size"] = thumbnail_number
+        workflow["76"]["inputs"]["width"] = THUMBNAIL_SIZES['fullhd']['scaled']['width']
+        workflow["76"]["inputs"]["height"] = THUMBNAIL_SIZES['fullhd']['scaled']['height']
 
-        workflow["17"]["inputs"]["steps"] = FLUX_LORA_STEP
+        workflow["17"]["inputs"]["steps"] = lora_step
         workflow["26"]["inputs"]["lora_name"] = "flux.1_lora_flyway_ink-dynamic.safetensors"
 
         # Uncomment the desired option

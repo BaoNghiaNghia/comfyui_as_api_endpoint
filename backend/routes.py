@@ -3,7 +3,7 @@ from fastapi.responses import FileResponse
 from .models import PromptRequest
 from .services import generate_images, authenticate_user, download_single_image
 from .tasks import check_and_generate_images
-from .constants import DEFAULT_FILENAME_PREFIX, SUBFOLDER_TOOL_RENDER
+from .constants import DEFAULT_FILENAME_PREFIX, SUBFOLDER_TOOL_RENDER, FLUX_LORA_STEP
 
 
 router = APIRouter()
@@ -42,7 +42,7 @@ async def generate_images_api(request: PromptRequest):
         if not request.thumb_style:
             raise HTTPException(status_code=400, detail="Must be select style of thumbnail.")
 
-        images = await generate_images(request.short_description, request.title, request.thumbnail_number, request.thumb_style, SUBFOLDER_TOOL_RENDER, DEFAULT_FILENAME_PREFIX)
+        images = await generate_images(request.short_description, request.title, request.thumbnail_number, request.thumb_style, SUBFOLDER_TOOL_RENDER, DEFAULT_FILENAME_PREFIX, FLUX_LORA_STEP['tool_render'])
 
         if not images:
             raise HTTPException(status_code=500, detail="Image generation failed.")
