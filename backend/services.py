@@ -331,7 +331,7 @@ async def generate_images(short_description, title, thumbnail_number=1, thumb_st
         if queue_count and (len(queue_count["queue_running"]) > 0 or len(queue_count["queue_pending"]) > 0):
             raise Exception(f'AI model is running another thumbnail images generation (Running: {len(queue_count["queue_running"])} Pending: {len(queue_count["queue_pending"])}). Please try again later.')
 
-        with open("thumbnail-youtube-v3-api.json", "r", encoding="utf-8") as f:
+        with open("create-thumbnail-youtube-v3-api.json", "r", encoding="utf-8") as f:
             workflow_data = f.read()
 
         workflow = json.loads(workflow_data)
