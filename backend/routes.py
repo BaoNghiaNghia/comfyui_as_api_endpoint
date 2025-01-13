@@ -1,5 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import FileResponse
+from transformers import AutoTokenizer, AutoModelForCausalLM
 from .models import PromptRequest
 from .services import generate_images, authenticate_user, download_single_image
 from .tasks import check_and_generate_images
@@ -16,6 +17,30 @@ async def get_index():
     """
 
     return FileResponse("ui/index.html")
+
+
+# Endpoint to generate images
+@router.get("/generate_llm")
+async def prompt_llm(request: PromptRequest):
+    # Load the model and tokenizer
+    model_name = "Llama-3.2-1B.safetensors"
+    tokenizer = AutoTokenizer.from_pretrained(model_name)
+    model = AutoModelForCausalLM.from_pretrained(model_name)
+
+    # Define your prompt
+    prompt = "Explain the process of photosynthesis in simple terms."
+
+    # Tokenize the prompt
+    inputs = tokenizer(prompt, return_tensors="pt")
+
+    # Generate a response
+    output = model.generate(**inputs, max_length=100, num_return_sequences=1)
+
+    # Decode the output
+    response = tokenizer.decode(output[0], skip_special_tokens=True)
+
+    # Print the generated response
+    return response
 
 
 # Endpoint to generate images

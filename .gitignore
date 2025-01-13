@@ -56,3 +56,5 @@ celerybeat-schedule
 ComfyUI/models/
 ComfyUI/outputs/
 python_embeded/
+
+*.safetensors
