@@ -126,8 +126,8 @@
   "26": {
     "inputs": {
       "lora_name": "flux.1_lora_flyway_Epic-detail_v2.safetensors",
-      "strength_model": 0.5,
-      "strength_clip": 0.5,
+      "strength_model": 0.7,
+      "strength_clip": 0.7,
       "model": [
         "12",
         0
