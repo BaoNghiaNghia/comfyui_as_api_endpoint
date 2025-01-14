@@ -13,4 +13,3 @@ flower
 django-celery-beat
 watchdog
 numpy
-transformers

@@ -10,15 +10,15 @@ x-service-base:
     - external_network
 
 services:
-  web:
-    <<: *service-base
-    container_name: web
-    ports:
-      - "8000:8000"
-    environment:
-      - PYTHONUNBUFFERED=1
-      - PYTHONDONTWRITEBYTECODE=1
-    command: ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+  # web:
+  #   <<: *service-base
+  #   container_name: web
+  #   ports:
+  #     - "8000:8000"
+  #   environment:
+  #     - PYTHONUNBUFFERED=1
+  #     - PYTHONDONTWRITEBYTECODE=1
+  #   command: ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
 
   redis:
     image: redis:alpine
@@ -28,9 +28,9 @@ services:
     networks:
       - external_network
 
-  celery_worker:
+  celery-worker:
     <<: *service-base
-    container_name: celery_worker
+    container_name: worker
     depends_on:
       - redis
     environment:
@@ -38,9 +38,9 @@ services:
       - CELERY_RESULT_BACKEND=redis://redis:6379/0
     command: ["celery", "-A", "backend.celery_app", "worker", "--loglevel=info"]
 
-  celery_beat:
+  celery-beat:
     <<: *service-base
-    container_name: celery_beat
+    container_name: beat
     depends_on:
       - redis
     environment:
@@ -48,16 +48,16 @@ services:
       - CELERY_RESULT_BACKEND=redis://redis:6379/0
     command: ["celery", "-A", "backend.celery_app", "beat", "--loglevel=info"]
 
-  flower:
-    <<: *service-base
-    container_name: flower
-    depends_on:
-      - redis
-    environment:
-      - CELERY_BROKER_URL=redis://redis:6379/0
-    ports:
-      - "5555:5555"
-    command: ["celery", "-A", "backend.celery_app", "flower", "--port=5555"]
+  # flower:
+  #   <<: *service-base
+  #   container_name: flower
+  #   depends_on:
+  #     - redis
+  #   environment:
+  #     - CELERY_BROKER_URL=redis://redis:6379/0
+  #   ports:
+  #     - "5555:5555"
+  #   command: ["celery", "-A", "backend.celery_app", "flower", "--port=5555"]
 
 networks:
   external_network:

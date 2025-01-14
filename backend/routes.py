@@ -1,6 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import FileResponse
 from transformers import AutoTokenizer, AutoModelForCausalLM
+
 from .models import PromptRequest
 from .services import generate_images, authenticate_user, download_single_image
 from .tasks import check_and_generate_images
@@ -20,10 +21,10 @@ async def get_index():
 
 
 # Endpoint to generate images
-@router.get("/generate_llm")
+@router.post("/generate_llm")
 async def prompt_llm(request: PromptRequest):
     # Load the model and tokenizer
-    model_name = "Llama-3.2-1B.safetensors"
+    model_name = "meta-llama/Llama-3.2-1B"
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     model = AutoModelForCausalLM.from_pretrained(model_name)
 
@@ -40,8 +41,7 @@ async def prompt_llm(request: PromptRequest):
     response = tokenizer.decode(output[0], skip_special_tokens=True)
 
     # Print the generated response
-    return response
-
+    print(response)
 
 # Endpoint to generate images
 @router.post("/generate_images/thumbnail-youtube")
