@@ -34,7 +34,7 @@ async def prompt_llm():
     """
     try:
         # "meta-llama/Meta-Llama-3.1-8B-Instruct"
-        model_id = "C:\\Ytb Thumbnail AI\\Llama-3.2-1B"
+        model_id = "D:\\Ytb Thumbnail AI\\Llama-3.2-1B"
 
         pipeline = transformers.pipeline(
             "text-generation",

@@ -1,6 +1,6 @@
 {
-  "last_node_id": 270,
-  "last_link_id": 363,
+  "last_node_id": 276,
+  "last_link_id": 374,
   "nodes": [
     {
       "id": 13,
@@ -14,7 +14,7 @@
         106
       ],
       "flags": {},
-      "order": 32,
+      "order": 35,
       "mode": 0,
       "inputs": [
         {
@@ -82,7 +82,7 @@
         46
       ],
       "flags": {},
-      "order": 33,
+      "order": 36,
       "mode": 0,
       "inputs": [
         {
@@ -191,7 +191,7 @@
         102
       ],
       "flags": {},
-      "order": 34,
+      "order": 37,
       "mode": 4,
       "inputs": [
         {
@@ -304,7 +304,7 @@
         46
       ],
       "flags": {},
-      "order": 31,
+      "order": 34,
       "mode": 0,
       "inputs": [
         {
@@ -350,7 +350,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 15,
+      "order": 18,
       "mode": 4,
       "inputs": [
         {
@@ -435,7 +435,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 29,
+      "order": 32,
       "mode": 0,
       "inputs": [
         {
@@ -446,7 +446,7 @@
         {
           "name": "text",
           "type": "STRING",
-          "link": 338,
+          "link": 373,
           "widget": {
             "name": "text"
           }
@@ -486,7 +486,7 @@
         58.31459426879883
       ],
       "flags": {},
-      "order": 30,
+      "order": 33,
       "mode": 0,
       "inputs": [
         {
@@ -524,7 +524,7 @@
         46
       ],
       "flags": {},
-      "order": 35,
+      "order": 38,
       "mode": 0,
       "inputs": [
         {
@@ -603,7 +603,7 @@
         82
       ],
       "flags": {},
-      "order": 14,
+      "order": 15,
       "mode": 4,
       "inputs": [
         {
@@ -645,7 +645,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 24,
+      "order": 27,
       "mode": 4,
       "inputs": [
         {
@@ -692,7 +692,7 @@
         202
       ],
       "flags": {},
-      "order": 27,
+      "order": 30,
       "mode": 0,
       "inputs": [
         {
@@ -739,7 +739,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 19,
+      "order": 24,
       "mode": 4,
       "inputs": [
         {
@@ -829,7 +829,7 @@
         106
       ],
       "flags": {},
-      "order": 28,
+      "order": 31,
       "mode": 0,
       "inputs": [
         {
@@ -906,7 +906,7 @@
         178
       ],
       "flags": {},
-      "order": 38,
+      "order": 41,
       "mode": 4,
       "inputs": [
         {
@@ -949,7 +949,7 @@
         130
       ],
       "flags": {},
-      "order": 36,
+      "order": 39,
       "mode": 0,
       "inputs": [
         {
@@ -990,7 +990,7 @@
         126
       ],
       "flags": {},
-      "order": 23,
+      "order": 26,
       "mode": 4,
       "inputs": [
         {
@@ -1043,24 +1043,29 @@
       ],
       "size": [
         243.60000610351562,
-        122
+        142
       ],
       "flags": {},
-      "order": 16,
-      "mode": 0,
+      "order": 17,
+      "mode": 4,
       "inputs": [
         {
           "name": "input_1",
           "type": "STRING",
-          "link": 342
+          "link": 369
         },
         {
           "name": "input_2",
           "type": "STRING",
-          "link": 343
+          "link": 370
         },
         {
           "name": "input_3",
+          "type": "STRING",
+          "link": 371
+        },
+        {
+          "name": "input_4",
           "type": "STRING",
           "link": null
         }
@@ -1097,8 +1102,8 @@
       "flags": {
         "collapsed": false
       },
-      "order": 20,
-      "mode": 0,
+      "order": 23,
+      "mode": 4,
       "inputs": [
         {
           "name": "text",
@@ -1113,10 +1118,7 @@
         {
           "name": "STRING",
           "type": "STRING",
-          "links": [
-            337,
-            338
-          ],
+          "links": [],
           "slot_index": 0,
           "shape": 6
         }
@@ -1132,109 +1134,6 @@
       "bgcolor": "#653"
     },
     {
-      "id": 59,
-      "type": "TextCombinations",
-      "pos": [
-        -815.5458984375,
-        -139.09597778320312
-      ],
-      "size": [
-        407.96759033203125,
-        787.0101928710938
-      ],
-      "flags": {},
-      "order": 8,
-      "mode": 4,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "output1",
-          "type": "STRING",
-          "links": [
-            104
-          ],
-          "slot_index": 0,
-          "shape": 3
-        },
-        {
-          "name": "output2",
-          "type": "STRING",
-          "links": null,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "TextCombinations",
-        "ttNbgOverride": {
-          "color": "#232",
-          "bgcolor": "#353",
-          "groupcolor": "#8A8"
-        }
-      },
-      "widgets_values": [
-        "describe \"Young woman warming hands by fireplace, cozy winter vibes\" with realistic photo style as a prompt based on this exact format. Banner title: realistic photo **\"Lofi Music\"** in large, realistic photo, elegant lettering, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.",
-        "```\n((Realistic photo)), ((detailed)), ((best quality)), ((realistic photo))\n\nScene Description:\nA vibrant and festive Vietnamese Lunar New Year celebration. The scene features a bustling environment with traditional decorations: red lanterns hanging in the air, peach blossoms in full bloom, and kumquat trees adorned with golden fruits. In the foreground, people in colorful áo dài (traditional Vietnamese attire) are smiling and engaging in joyous activities such as giving red envelopes (lì xì) to children and enjoying Tết delicacies.\n\nBanner Title:  \n{textStyle} **\"{title}\"** in large, elegant lettering, {thumb_style}, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.  \n\nBackground Details:\nA lively village or urban setting, glowing with strings of festive lights, banners, and colorful decorations. Fireworks illuminate the twilight sky, adding a sense of wonder. Vibrant market stalls and close-knit family gatherings underscore the themes of community and tradition.  \n\nColor Palette:\nA harmonious blend of auspicious colors like radiant reds and gleaming golds, symbolizing luck and prosperity. These tones are complemented by soft pinks from peach blossoms, verdant greens of kumquat trees, and an ethereal glow from the lighting. The overall lighting is soft and immersive, exuding warmth and joy.  \n\nComposition:  \nThe scene features a dynamic and balanced arrangement of cultural elements and animated interactions. Attention is given to the detailed textures of traditional clothing, the vibrant energy of decorations, and the genuine expressions of happiness, perfectly encapsulating the spirit of Vietnamese New Year celebrations. \n```",
-        "text1 + text2 to output1, text2 to output2",
-        " ",
-        "false",
-        343907252044576,
-        "randomize"
-      ],
-      "color": "#332922",
-      "bgcolor": "#593930",
-      "shape": 1
-    },
-    {
-      "id": 238,
-      "type": "Searge_LLM_Node",
-      "pos": [
-        -809.4053955078125,
-        1001.4739990234375
-      ],
-      "size": [
-        400,
-        216
-      ],
-      "flags": {},
-      "order": 9,
-      "mode": 4,
-      "inputs": [
-        {
-          "name": "adv_options_config",
-          "type": "SRGADVOPTIONSCONFIG",
-          "link": null,
-          "shape": 7
-        }
-      ],
-      "outputs": [
-        {
-          "name": "generated",
-          "type": "STRING",
-          "links": [
-            307,
-            326
-          ],
-          "slot_index": 0
-        },
-        {
-          "name": "original",
-          "type": "STRING",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "Searge_LLM_Node"
-      },
-      "widgets_values": [
-        "Young woman standing on cliff, ocean sunrise beauty",
-        239849583948544,
-        "Mistral-7B-Instruct-v0.3-Q6_K.gguf",
-        4096,
-        true,
-        "Generate a prompt from \"{prompt}\""
-      ]
-    },
-    {
       "id": 26,
       "type": "LoraLoader",
       "pos": [
@@ -1246,7 +1145,7 @@
         126
       ],
       "flags": {},
-      "order": 25,
+      "order": 28,
       "mode": 0,
       "inputs": [
         {
@@ -1288,42 +1187,6 @@
         "Capybara Chill_v1.0.safetensors",
         1,
         1
-      ]
-    },
-    {
-      "id": 244,
-      "type": "Griptape Create: Text",
-      "pos": [
-        -809.4619140625,
-        1280.3040771484375
-      ],
-      "size": [
-        398.2696838378906,
-        125.25346374511719
-      ],
-      "flags": {},
-      "order": 10,
-      "mode": 4,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "OUTPUT",
-          "type": "STRING",
-          "links": [
-            314,
-            323,
-            327,
-            341,
-            343
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "Griptape Create: Text"
-      },
-      "widgets_values": [
-        "Banner Title:\n\nA clean and modern sans-serif **\"Morning Music\"** in large, elegant lettering, realistic photo, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.  "
       ]
     },
     {
@@ -1378,7 +1241,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 11,
+      "order": 8,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1441,7 +1304,7 @@
         818
       ],
       "flags": {},
-      "order": 40,
+      "order": 43,
       "mode": 0,
       "inputs": [
         {
@@ -1452,7 +1315,7 @@
         {
           "name": "positive_text_opt",
           "type": "STRING",
-          "link": 337,
+          "link": 374,
           "widget": {
             "name": "positive_text_opt"
           },
@@ -1504,7 +1367,7 @@
         300.5332336425781
       ],
       "flags": {},
-      "order": 37,
+      "order": 40,
       "mode": 4,
       "inputs": [
         {
@@ -1555,7 +1418,7 @@
         146
       ],
       "flags": {},
-      "order": 39,
+      "order": 42,
       "mode": 0,
       "inputs": [
         {
@@ -1606,7 +1469,7 @@
         126
       ],
       "flags": {},
-      "order": 26,
+      "order": 29,
       "mode": 4,
       "inputs": [
         {
@@ -1663,7 +1526,7 @@
         126
       ],
       "flags": {},
-      "order": 18,
+      "order": 20,
       "mode": 4,
       "inputs": [
         {
@@ -1719,7 +1582,7 @@
         480
       ],
       "flags": {},
-      "order": 17,
+      "order": 16,
       "mode": 0,
       "inputs": [
         {
@@ -1783,7 +1646,7 @@
         110.45697784423828
       ],
       "flags": {},
-      "order": 12,
+      "order": 9,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1805,18 +1668,191 @@
       ]
     },
     {
-      "id": 258,
+      "id": 238,
+      "type": "Searge_LLM_Node",
+      "pos": [
+        -809.4053955078125,
+        1001.4739990234375
+      ],
+      "size": [
+        400,
+        216
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "adv_options_config",
+          "type": "SRGADVOPTIONSCONFIG",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "generated",
+          "type": "STRING",
+          "links": [
+            307,
+            326,
+            370
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "original",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Searge_LLM_Node"
+      },
+      "widgets_values": [
+        "Young woman standing on cliff, ocean sunrise beauty",
+        239849583948544,
+        "Mistral-7B-Instruct-v0.3-Q6_K.gguf",
+        4096,
+        true,
+        "Generate a prompt from \"{prompt}\""
+      ]
+    },
+    {
+      "id": 244,
+      "type": "Griptape Create: Text",
+      "pos": [
+        -809.4619140625,
+        1280.3040771484375
+      ],
+      "size": [
+        398.2696838378906,
+        125.25346374511719
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OUTPUT",
+          "type": "STRING",
+          "links": [
+            314,
+            323,
+            327,
+            341,
+            368,
+            371
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Griptape Create: Text"
+      },
+      "widgets_values": [
+        "Banner Title:\n\nA clean and modern sans-serif **\"Morning Music\"** in large, elegant lettering, realistic photo, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.  "
+      ]
+    },
+    {
+      "id": 59,
+      "type": "TextCombinations",
+      "pos": [
+        -815.5458984375,
+        -139.09597778320312
+      ],
+      "size": [
+        407.96759033203125,
+        787.0101928710938
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "output1",
+          "type": "STRING",
+          "links": [
+            104
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "output2",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "TextCombinations",
+        "ttNbgOverride": {
+          "color": "#232",
+          "bgcolor": "#353",
+          "groupcolor": "#8A8"
+        }
+      },
+      "widgets_values": [
+        "describe \"Young woman warming hands by fireplace, cozy winter vibes\" with realistic photo style as a prompt based on this exact format. Banner title: realistic photo **\"Lofi Music\"** in large, realistic photo, elegant lettering, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.",
+        "```\n((Realistic photo)), ((detailed)), ((best quality)), ((realistic photo))\n\nScene Description:\nA vibrant and festive Vietnamese Lunar New Year celebration. The scene features a bustling environment with traditional decorations: red lanterns hanging in the air, peach blossoms in full bloom, and kumquat trees adorned with golden fruits. In the foreground, people in colorful áo dài (traditional Vietnamese attire) are smiling and engaging in joyous activities such as giving red envelopes (lì xì) to children and enjoying Tết delicacies.\n\nBanner Title:  \n{textStyle} **\"{title}\"** in large, elegant lettering, {thumb_style}, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.  \n\nBackground Details:\nA lively village or urban setting, glowing with strings of festive lights, banners, and colorful decorations. Fireworks illuminate the twilight sky, adding a sense of wonder. Vibrant market stalls and close-knit family gatherings underscore the themes of community and tradition.  \n\nColor Palette:\nA harmonious blend of auspicious colors like radiant reds and gleaming golds, symbolizing luck and prosperity. These tones are complemented by soft pinks from peach blossoms, verdant greens of kumquat trees, and an ethereal glow from the lighting. The overall lighting is soft and immersive, exuding warmth and joy.  \n\nComposition:  \nThe scene features a dynamic and balanced arrangement of cultural elements and animated interactions. Attention is given to the detailed textures of traditional clothing, the vibrant energy of decorations, and the genuine expressions of happiness, perfectly encapsulating the spirit of Vietnamese New Year celebrations. \n```",
+        "text1 + text2 to output1, text2 to output2",
+        " ",
+        "false",
+        343907252044576,
+        "randomize"
+      ],
+      "color": "#332922",
+      "bgcolor": "#593930",
+      "shape": 1
+    },
+    {
+      "id": 276,
+      "type": "Griptape Create: Text",
+      "pos": [
+        -806.8818969726562,
+        817.0341186523438
+      ],
+      "size": [
+        398.2696838378906,
+        125.25346374511719
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OUTPUT",
+          "type": "STRING",
+          "links": [
+            369
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Griptape Create: Text"
+      },
+      "widgets_values": [
+        "((Realistic photo)), ((detailed)), ((best quality)), ((realistic photo))\n\nScene Description:"
+      ]
+    },
+    {
+      "id": 275,
       "type": "OllamaGenerateAdvance",
       "pos": [
-        -1272.8101806640625,
-        779.2952270507812
+        -809.0185546875,
+        1622.08935546875
       ],
       "size": [
         402.9281921386719,
         650.2944946289062
       ],
       "flags": {},
-      "order": 13,
+      "order": 14,
       "mode": 0,
       "inputs": [
         {
@@ -1834,7 +1870,7 @@
           "name": "response",
           "type": "STRING",
           "links": [
-            342
+            364
           ],
           "slot_index": 0
         },
@@ -1865,6 +1901,99 @@
         "text",
         ""
       ]
+    },
+    {
+      "id": 271,
+      "type": "Griptape Combine: Merge Texts",
+      "pos": [
+        -332.23162841796875,
+        1621.5390625
+      ],
+      "size": [
+        243.60000610351562,
+        102
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input_1",
+          "type": "STRING",
+          "link": 364,
+          "shape": 7
+        },
+        {
+          "name": "input_2",
+          "type": "STRING",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "OUTPUT",
+          "type": "STRING",
+          "links": [
+            366
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Griptape Combine: Merge Texts"
+      },
+      "widgets_values": [
+        "\\n\\n",
+        1
+      ]
+    },
+    {
+      "id": 272,
+      "type": "ShowText|pysssss",
+      "pos": [
+        -331.9661560058594,
+        1874.7493896484375
+      ],
+      "size": [
+        433.7019348144531,
+        390.6485290527344
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 366,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            373,
+            374
+          ],
+          "slot_index": 0,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "Here is a generated description:\n\n\"The capybara sat drinking coffee on the desk in the room, its large brown eyes half-lidded as it savored the bitter flavor. The warm glow of the morning sun streamed through the window, casting a gentle shadow across its fur, while the soft hum of the computer in the background created a soothing white noise. A scattered mess of papers and pens littered the surface around the capybara, giving the impression that it had been working late into the night. The cup itself was filled to the brim with steaming hot coffee, the crema-kissed surface glistening slightly as the capybara lifted its head to take a sip.\""
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
     }
   ],
   "links": [
@@ -2181,43 +2310,11 @@
       "STRING"
     ],
     [
-      337,
-      246,
-      0,
-      178,
-      1,
-      "STRING"
-    ],
-    [
-      338,
-      246,
-      0,
-      62,
-      1,
-      "STRING"
-    ],
-    [
       341,
       244,
       0,
       242,
       0,
-      "STRING"
-    ],
-    [
-      342,
-      258,
-      0,
-      242,
-      0,
-      "STRING"
-    ],
-    [
-      343,
-      244,
-      0,
-      242,
-      1,
       "STRING"
     ],
     [
@@ -2275,6 +2372,70 @@
       266,
       0,
       "IMAGE"
+    ],
+    [
+      364,
+      275,
+      0,
+      271,
+      0,
+      "STRING"
+    ],
+    [
+      366,
+      271,
+      0,
+      272,
+      0,
+      "STRING"
+    ],
+    [
+      368,
+      244,
+      0,
+      242,
+      0,
+      "STRING"
+    ],
+    [
+      369,
+      276,
+      0,
+      242,
+      0,
+      "STRING"
+    ],
+    [
+      370,
+      238,
+      0,
+      242,
+      1,
+      "STRING"
+    ],
+    [
+      371,
+      244,
+      0,
+      242,
+      2,
+      "STRING"
+    ],
+    [
+      373,
+      272,
+      0,
+      62,
+      1,
+      "STRING"
+    ],
+    [
+      374,
+      272,
+      0,
+      178,
+      1,
+      "STRING"
     ]
   ],
   "groups": [
@@ -2342,15 +2503,28 @@
       "color": "#3f789e",
       "font_size": 24,
       "flags": {}
+    },
+    {
+      "id": 8,
+      "title": "LLM - Use Model Ollama (Option 3)",
+      "bounding": [
+        -838.6089477539062,
+        1530.318359375,
+        989.1890258789062,
+        784.061767578125
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
     }
   ],
   "config": {},
   "extra": {
     "ds": {
-      "scale": 1.2284597357367466,
+      "scale": 0.620921323059155,
       "offset": [
-        1521.9145564311252,
-        -605.4381590022859
+        1316.9216720278066,
+        111.22501889083402
       ]
     },
     "ue_links": [],
@@ -2363,13 +2537,13 @@
       "ComfyUI-Gemini": "98d91fc2340d23c671c2e1425c2ce62ce2f8c2c1",
       "ComfyUI-post-processing-nodes": "b265f36ef5988154bee2aa808d8abe8a2a197847",
       "comfyui-griptape": "2.1.09",
-      "mikey_nodes": "637bc18f8e18cc662a8411efbc7013adc7845ae7",
-      "ComfyUI_Searge_LLM": "3ea788875d772577ab92044bc4a8397755eb4a24",
       "masquerade-nodes-comfyui": "432cb4d146a391b387a0cd25ace824328b5b61cf",
       "comfyui_tinyterranodes": "2.0.5",
       "save-image-extended-comfyui": "2.64",
       "comfyui-propost": "df6a6d122498f57ad7195d58e07701a501c9dcb6",
       "ComfyUI_Comfyroll_CustomNodes": "d78b780ae43fcf8c6b7c6505e6ffb4584281ceca",
+      "ComfyUI_Searge_LLM": "3ea788875d772577ab92044bc4a8397755eb4a24",
+      "mikey_nodes": "637bc18f8e18cc662a8411efbc7013adc7845ae7",
       "comfyui-ollama": "2.0.1"
     }
   },
