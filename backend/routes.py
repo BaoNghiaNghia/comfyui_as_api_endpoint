@@ -21,27 +21,44 @@ async def get_index():
 
 
 # Endpoint to generate images
-@router.post("/generate_llm")
-async def prompt_llm(request: PromptRequest):
-    # Load the model and tokenizer
-    model_name = "meta-llama/Llama-3.2-1B"
-    tokenizer = AutoTokenizer.from_pretrained(model_name)
-    model = AutoModelForCausalLM.from_pretrained(model_name)
+@router.get("/generate_llm")
+async def prompt_llm():
+    """
+    Generate a response to a predefined prompt using a locally stored model.
+    
+    Args:
+        max_length (int): The maximum length of the response.
+        
+    Returns:
+        str: The generated response, or an error message if something goes wrong.
+    """
+    try:
+        # "meta-llama/Meta-Llama-3.1-8B-Instruct"
+        model_id = "C:\\Ytb Thumbnail AI\\Llama-3.2-1B"
 
-    # Define your prompt
-    prompt = "Explain the process of photosynthesis in simple terms."
+        pipeline = transformers.pipeline(
+            "text-generation",
+            model=model_id,
+            model_kwargs={"torch_dtype": torch.bfloat16},
+            device_map="auto",
+        )
 
-    # Tokenize the prompt
-    inputs = tokenizer(prompt, return_tensors="pt")
+        messages = [
+            # {"role": "system", "content": "You are a pirate chatbot who always responds in pirate speak!"},
+            {"role": "user", "content": "Who are you?"},
+        ]
 
-    # Generate a response
-    output = model.generate(**inputs, max_length=100, num_return_sequences=1)
+        outputs = pipeline(
+            messages,
+            max_new_tokens=100,
+        )
+        
+        return outputs[0]
+    
+    except Exception as e:
+        # Handle exceptions and return a descriptive error message
+        return f"An error occurred: {str(e)}"
 
-    # Decode the output
-    response = tokenizer.decode(output[0], skip_special_tokens=True)
-
-    # Print the generated response
-    print(response)
 
 # Endpoint to generate images
 @router.post("/generate_images/thumbnail-youtube")

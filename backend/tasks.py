@@ -22,7 +22,6 @@ async def render_random_from_init_request():
 
     today = datetime.datetime.now()
     day_of_week_number = today.weekday()  # Monday is 0, Sunday is 6
-    print("Today is day number:", day_of_week_number)
 
     # Filter requests matching the current day of the week
     valid_requests = [

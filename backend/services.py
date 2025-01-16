@@ -15,8 +15,8 @@ logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %
 
 COMFY_UI_SERVER_ADDRESS = os.getenv('COMFY_UI_SERVER_ADDRESS', 'host.docker.internal:8188')
 BACKEND_SERVER_ADDRESS = os.getenv('BACKEND_SERVER_ADDRESS', 'host.docker.internal:8000')
-REMOTE_SERVER_ADDRESS = os.getenv('REMOTE_SERVER_ADDRESS', 'host.docker.internal:8000')
-# REMOTE_SERVER_ADDRESS = os.getenv('REMOTE_SERVER_ADDRESS', 'sscrender.ddns.net:8000')
+# REMOTE_SERVER_ADDRESS = os.getenv('REMOTE_SERVER_ADDRESS', 'host.docker.internal:8000')
+REMOTE_SERVER_ADDRESS = os.getenv('REMOTE_SERVER_ADDRESS', 'sscauto.ddns.net:8000')
 
 # Choose a text style (consider making this configurable or less random)
 TEXT_STYLE = "A clean and modern sans-serif" # Consider: random.choice(["The handwritten big text", "A clean and modern sans-serif "])
@@ -302,9 +302,12 @@ async def logic_llm_option2(workflow, short_description, title):
     """Implements Option 2 logic using Mistral LLM Model."""
     workflow["238"]["inputs"]["text"] = short_description
 
-    option1 = f'Banner title: {TEXT_STYLE} **"{title}"** in large, elegant lettering, positioned prominently at the center of the image.'
-    option2 = f'Banner title: The future fonted title "{title}" is in neon, glowing, as if outlined by laser, exuding a sense of technology and a cold and mysterious atmosphere.'
-    workflow["244"]["inputs"]["STRING"] = random.choice([option1, option2])
+    if title == "":
+        workflow["244"]["inputs"]["STRING"] = ""
+    else:
+        option1 = f'Banner title: {TEXT_STYLE} **"{title}"** in large, elegant lettering, positioned prominently at the center of the image.'
+        option2 = f'Banner title: The future fonted title "{title}" is in neon, glowing, as if outlined by laser, exuding a sense of technology and a cold and mysterious atmosphere.'
+        workflow["244"]["inputs"]["STRING"] = random.choice([option1, option2])
 
     return workflow
 
@@ -341,7 +344,6 @@ async def generate_images(short_description, title, thumbnail_number=1, thumb_st
         workflow["178"]["inputs"]["filename_prefix"] = filename_prefix
         
         # Thumbnail size setup
-        
         workflow["29"]["inputs"]["width"] = THUMBNAIL_SIZES['fullhd']['original']['width']
         workflow["29"]["inputs"]["height"] = THUMBNAIL_SIZES['fullhd']['original']['height']
         workflow["29"]["inputs"]["batch_size"] = thumbnail_number
