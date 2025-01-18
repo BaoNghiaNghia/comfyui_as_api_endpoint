@@ -344,14 +344,14 @@ async def generate_images(short_description, title, thumbnail_number=1, thumb_st
         workflow["178"]["inputs"]["filename_prefix"] = filename_prefix
         
         # Thumbnail size setup
-        workflow["29"]["inputs"]["width"] = THUMBNAIL_SIZES['fullhd']['original']['width']
-        workflow["29"]["inputs"]["height"] = THUMBNAIL_SIZES['fullhd']['original']['height']
+        workflow["29"]["inputs"]["width"] = THUMBNAIL_SIZES['rectangle']['original']['width']
+        workflow["29"]["inputs"]["height"] = THUMBNAIL_SIZES['rectangle']['original']['height']
         workflow["29"]["inputs"]["batch_size"] = thumbnail_number
-        workflow["76"]["inputs"]["width"] = THUMBNAIL_SIZES['fullhd']['scaled']['width']
-        workflow["76"]["inputs"]["height"] = THUMBNAIL_SIZES['fullhd']['scaled']['height']
+        workflow["76"]["inputs"]["width"] = THUMBNAIL_SIZES['rectangle']['scaled']['width']
+        workflow["76"]["inputs"]["height"] = THUMBNAIL_SIZES['rectangle']['scaled']['height']
 
         workflow["17"]["inputs"]["steps"] = lora_step
-        workflow["26"]["inputs"]["lora_name"] = "flux.1_lora_flyway_ink-dynamic.safetensors"
+        workflow["26"]["inputs"]["lora_name"] = "STUDIO PORTRAIT - FLUX_v1.0.safetensors"
 
         # Uncomment the desired option
         # workflow = await logic_llm_option1(workflow, short_description, title, thumb_style, subfolder)
