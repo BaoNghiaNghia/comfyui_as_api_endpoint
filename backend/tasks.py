@@ -6,18 +6,18 @@ import numpy as np
 from pathlib import Path
 from celery import shared_task
 from .services import check_current_queue, generate_images
-from .constants import THUMBNAIL_STYLE_LIST, SUBFOLDER_TOOL_RENDER, SUBFOLDER_TEAM_AUTOMATION, MAX_IMAGES_THRESHOLD, COUNT_IMAGES_TO_DELETE, INIT_REQUEST, THUMBNAIL_PER_TIMES, FLUX_LORA_STEP
+from .constants import THUMBNAIL_STYLE_LIST, SUBFOLDER_TOOL_RENDER, SUBFOLDER_TEAM_AUTOMATION, MAX_IMAGES_THRESHOLD, COUNT_IMAGES_TO_DELETE, INIT_50_ANIMAL_REQUEST, THUMBNAIL_PER_TIMES, FLUX_LORA_STEP, INIT_CHRISTMAS_REQUEST
 
 TEAM_AUTOMATION_FOLDER = Path(f"/thumbnail_img/{SUBFOLDER_TEAM_AUTOMATION}")
 TOOL_RENDER_FOLDER = Path(f"/thumbnail_img/{SUBFOLDER_TOOL_RENDER}")
 
 async def render_random_from_init_request():
     """
-    Render a random image from the INIT_REQUEST list when there are no files in the folder.
+    Render a random image from the INIT_50_ANIMAL_REQUEST list when there are no files in the folder.
     Only selects requests matching the current day of the week.
     """
-    if not INIT_REQUEST:
-        print("----- No requests in INIT_REQUEST. Cannot render a random image.")
+    if not INIT_50_ANIMAL_REQUEST:
+        print("----- No requests in INIT_50_ANIMAL_REQUEST. Cannot render a random image.")
         return
 
     today = datetime.datetime.now()
@@ -25,11 +25,11 @@ async def render_random_from_init_request():
 
     # Filter requests matching the current day of the week
     valid_requests = [
-        request for request in INIT_REQUEST if day_of_week_number in request["day_of_week"]
+        request for request in INIT_50_ANIMAL_REQUEST if day_of_week_number in request["day_of_week"]
     ]
 
     if not valid_requests:
-        print("----- No valid requests in INIT_REQUEST for today's day of the week.")
+        print("----- No valid requests in INIT_50_ANIMAL_REQUEST for today's day of the week.")
         return
 
     random_request = random.choice(valid_requests)
@@ -55,11 +55,11 @@ async def generate_images_api():
 
     # Filter requests that match the current day of the week
     valid_requests = [
-        request for request in INIT_REQUEST if day_of_week_number in request["day_of_week"]
+        request for request in INIT_50_ANIMAL_REQUEST if day_of_week_number in request["day_of_week"]
     ]
 
     if not valid_requests:
-        print("No valid requests in INIT_REQUEST for today's day of the week.")
+        print("No valid requests in INIT_50_ANIMAL_REQUEST for today's day of the week.")
         return
 
     # Extract prefixes from valid requests
@@ -140,7 +140,7 @@ async def generate_images_logic():
 
         # Check file count against the threshold
         if file_count == 0:
-            print("----- Folder has no files. Rendering a random image from INIT_REQUEST.")
+            print("----- Folder has no files. Rendering a random image from INIT_50_ANIMAL_REQUEST.")
             await render_random_from_init_request()
             return
 

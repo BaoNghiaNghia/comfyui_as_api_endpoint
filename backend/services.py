@@ -353,16 +353,16 @@ async def generate_images(short_description, title, thumbnail_number=1, thumb_st
         workflow["17"]["inputs"]["steps"] = lora_step
 
         # Model 50  animal
-        # workflow["26"]["inputs"]["lora_name"] = "Children's illustrated story book.safetensors"
-        # workflow["26"]["inputs"]["strength_model"] = 1
-        # workflow["26"]["inputs"]["strength_clip"] = 1
-        # workflow["27"]["inputs"]["lora_name"] = "Round world chubby little animals doll toys.safetensors"
+        workflow["26"]["inputs"]["lora_name"] = "Children's illustrated story book.safetensors"
+        workflow["26"]["inputs"]["strength_model"] = 1
+        workflow["26"]["inputs"]["strength_clip"] = 1
+        workflow["27"]["inputs"]["lora_name"] = "Round world chubby little animals doll toys.safetensors"
 
         # Model Poster Simple
-        workflow["26"]["inputs"]["lora_name"] = "flux.1_lora_flyway_Epic-detail_v2.safetensors"
-        workflow["26"]["inputs"]["strength_model"] = 0.2
-        workflow["26"]["inputs"]["strength_clip"] = 0.2
-        workflow["27"]["inputs"]["lora_name"] = "flux.1_lora_flyway_doodle-poster.safetensors"
+        # workflow["26"]["inputs"]["lora_name"] = "flux.1_lora_flyway_Epic-detail_v2.safetensors"
+        # workflow["26"]["inputs"]["strength_model"] = 0.2
+        # workflow["26"]["inputs"]["strength_clip"] = 0.2
+        # workflow["27"]["inputs"]["lora_name"] = "flux.1_lora_flyway_doodle-poster.safetensors"
 
         # Uncomment the desired option
         # workflow = await logic_llm_option1(workflow, short_description, title, thumb_style, subfolder)
