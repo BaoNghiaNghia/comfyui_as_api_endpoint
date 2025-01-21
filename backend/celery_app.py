@@ -20,7 +20,7 @@ celery_app.conf.update(
 celery_app.conf.beat_schedule = {
     "check-and-generate-images": {
         "task": "backend.tasks.check_and_generate_images",
-        "schedule": crontab(minute="*/1", hour=[2], day_of_week="*"),
+        "schedule": crontab(minute="*/1", hour=[14,15,16,17,18,19,20,21,22,23,2,4,6,7,8,9,10,11,12,13,14,15], day_of_week="*"),
     },
     "delete-oldest-images-tool-render": {
         "task": "backend.tasks.delete_oldest_images_tool_render",
