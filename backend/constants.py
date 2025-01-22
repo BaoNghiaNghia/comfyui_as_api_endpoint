@@ -152,7 +152,6 @@ INIT_50_ANIMAL_REQUEST = [
             "A Capybara on a boat, record player spinning, calm lake reflections, blooming flowers, bright sky, peaceful lofi moment, anime watercolor painting style",
             "A Capybara on tree stump, headphones on, small radio, wildflowers surrounding, sunlight beams, cheerful forest lofi scene, anime watercolor painting style",
         ],
-        # "animation_prompt":"",
         "title": "Chillhop Music",
         "file_name": "capybara_music",
         "day_of_week": [0,1,2,3,4,5,6],
@@ -1010,13 +1009,21 @@ INIT_50_ANIMAL_REQUEST = [
 ]
 
 
-INIT_CHRISTMAS_REQUEST = [
+INIT_NORMAL_REQUEST = [
     {
         "short_description": [
             "Santa Claus checking his gift list in a cozy toy workshop filled with toys and tools, realistic lighting and details"
         ],
         "title": "Christmas Music",
         "file_name": "christmas_music",
+        "day_of_week": [0,1,2,3,4,5,6],
+    },
+    {
+        "short_description": [
+            "A peaceful scene of a woman in a white summer dress sitting on a wooden swing in a green field of yellow flowers under warm sunlight, realistic lighting and details"
+        ],
+        "title": "Morning Music",
+        "file_name": "morning_music",
         "day_of_week": [0,1,2,3,4,5,6],
     },
 ]
