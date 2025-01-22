@@ -1,15 +1,24 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, UploadFile, Form, HTTPException, Query
+from typing import Annotated
+import httpx
+import json
+import requests
+import time
+from pathlib import Path
+import asyncio
+
 from fastapi.responses import FileResponse
 from transformers import AutoTokenizer, AutoModelForCausalLM
+from ollama import chat
+import base64
+from ollama import ChatResponse
 
-from .models import PromptRequest
+from .models import PromptRequest, LLMRequest
 from .services import generate_images, authenticate_user, download_single_image
 from .tasks import check_and_generate_images
-from .constants import DEFAULT_FILENAME_PREFIX, SUBFOLDER_TOOL_RENDER, FLUX_LORA_STEP
-
+from .constants import DEFAULT_FILENAME_PREFIX, SUBFOLDER_TOOL_RENDER, FLUX_LORA_STEP, SUBFOLDER_TEAM_AUTOMATION
 
 router = APIRouter()
-
 
 @router.get("/")
 async def get_index():
@@ -21,43 +30,63 @@ async def get_index():
 
 
 # Endpoint to generate images
-@router.get("/generate_llm")
-async def prompt_llm():
-    """
-    Generate a response to a predefined prompt using a locally stored model.
-    
-    Args:
-        max_length (int): The maximum length of the response.
-        
-    Returns:
-        str: The generated response, or an error message if something goes wrong.
-    """
+@router.post("/generate_llm/image_caption")
+async def generate_image_caption(request: LLMRequest):
+    # Read the image content and encode it to base64
     try:
-        # "meta-llama/Meta-Llama-3.1-8B-Instruct"
-        model_id = "D:\\Ytb Thumbnail AI\\Llama-3.2-1B"
+        if not request.short_description:
+            raise HTTPException(status_code=400, detail="Short description is required.")
+        if not request.file_path:
+            raise HTTPException(status_code=400, detail="File name is required.")
 
-        pipeline = transformers.pipeline(
-            "text-generation",
-            model=model_id,
-            model_kwargs={"torch_dtype": torch.bfloat16},
-            device_map="auto",
-        )
-
-        messages = [
-            # {"role": "system", "content": "You are a pirate chatbot who always responds in pirate speak!"},
-            {"role": "user", "content": "Who are you?"},
-        ]
-
-        outputs = pipeline(
-            messages,
-            max_new_tokens=100,
-        )
+        image_filename = Path(f"/thumbnail_img/{SUBFOLDER_TEAM_AUTOMATION}/{request.file_path}")  # Image in the same directory
+        # Read the image content and encode it to base64
+        with open(image_filename, "rb") as img_file:
+            encoded_image = base64.b64encode(img_file.read()).decode("utf-8")
         
-        return outputs[0]
+        # Send the POST request to the image captioning API
+        response = requests.post("http://host.docker.internal:11434/api/chat", json={
+            "model": 'llama3.2-vision',
+            "messages": [
+                {
+                    "role": "user",
+                    "content": request.short_description,
+                    "images": [encoded_image]  # Use the base64-encoded image here
+                }
+            ]
+        }, stream=True)  # Set stream=True to handle chunked responses
+        
+        # Check if the request was successful
+        if response.status_code == 200:
+            full_caption = ""
+            # Iterate over each chunk of the response
+            for chunk in response.iter_lines():
+                if chunk:
+                    try:
+                        # Parse the JSON chunk safely using json.loads
+                        chunk_data = chunk.decode('utf-8')
+                        message = json.loads(chunk_data)  # Safe JSON parsing
+                        # Extract and concatenate the content from the message
+                        full_caption += message['message']['content']
+                    except (ValueError, SyntaxError) as e:
+                        print(f"Error parsing chunk: {e}")
+            
+            # Print the final concatenated caption
+            return full_caption.strip()
+        else:
+            print(f"Failed to get a valid response. Status Code: {response.status_code}")
+            print("Response Text:", response.text)
+            return {"error": "Request failed", "status_code": response.status_code, "response_text": response.text}
     
-    except Exception as e:
-        # Handle exceptions and return a descriptive error message
-        return f"An error occurred: {str(e)}"
+    except HTTPException as http_exception:
+        raise http_exception
+
+    except ValueError as value_error:
+        raise HTTPException(status_code=400, detail=f"Value error: {str(value_error)}")
+
+    except Exception as exception:
+        raise HTTPException(status_code=500, detail=f"{str(exception)}")
+
 
 
 # Endpoint to generate images

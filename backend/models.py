@@ -12,3 +12,8 @@ class PromptRequest(BaseModel):
     thumb_style: str
     domain: str
     token: str
+
+
+class LLMRequest(BaseModel):
+    short_description: str
+    file_path: str
