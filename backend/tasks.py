@@ -1,7 +1,7 @@
 import os
 import random
 import asyncio
-import datetime
+from datetime import datetime
 import numpy as np
 from pathlib import Path
 from celery import shared_task
