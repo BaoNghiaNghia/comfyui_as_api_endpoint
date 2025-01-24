@@ -101,7 +101,7 @@ GEMINI_KEY_TEAM_AUTOMATION = [
 SUBFOLDER_TOOL_RENDER = 'tool_render'
 SUBFOLDER_TEAM_AUTOMATION = 'team_automation'
 
-MAX_IMAGES_THRESHOLD = 2500
+MAX_IMAGES_THRESHOLD = 36000
 COUNT_IMAGES_TO_DELETE = 5
 FLUX_LORA_STEP = {
     'team_automation': 30,
@@ -138,6 +138,63 @@ THUMBNAIL_SIZES = {
         },
     },
 }
+
+INIT_CHARACTER_REQUEST = [
+    # {
+    #     "short_description": [
+    #         "3D style, A detailed depiction of Miles Morales from 'Spider-Man: Beyond the Spider-Verse' sitting on a futuristic chair, reading a book in a serene and immersive space. The environment features intricate neon-lit cityscape architecture visible through a large window, giving a sense of depth. Miles is wearing his signature black and red Spider-Man suit, with the mask partially removed, revealing his thoughtful expression as he focuses on the book. His pose is relaxed, with one leg crossed over the other, and the book resting in his hands. The lighting is a mix of warm ambient light from the room and the cool glow of neon lights outside, creating a balanced and captivating atmosphere. The perspective emphasizes the depth of the room, with bookshelves and technological elements subtly included in the background",
+    #         "3D style, A creative and atmospheric scene featuring Miles Morales from 'Spider-Man: Beyond the Spider-Verse' sitting cross-legged on a levitating platform surrounded by books floating in mid-air. He is immersed in reading an ancient-looking, glowing tome, with his Spider-Man suit augmented by subtle, futuristic tech accents. The backdrop features a stunning, layered view of a sprawling, vibrant futuristic cityscape with countless flying vehicles and colorful neon lights extending into the horizon. The lighting is otherworldly, combining soft glows from the floating books, the warm glow of Miles' tome, and the cool, radiant lights from the city beyond. The overall feel is imaginative and deeply immersive, with dynamic depth and motion in the scene",
+    #     ],
+    #     "title": "Chillhop Music",
+    #     "file_name": "spiderman_music",
+    #     "day_of_week": [0,1,2,3,4,5,6],
+    # },
+    # {
+    #     "short_description": [
+    #         "3D style, Sasuke Uchiha from 'Naruto' sitting on a traditional Japanese wooden veranda, reading a book with a calm, introspective expression. He is dressed in his classic dark blue outfit with the Uchiha clan symbol visible on his back. His posture is relaxed, with one leg bent and the other extended forward, the book resting lightly in his hands. The background features a serene, lush garden with a koi pond, blooming cherry blossoms, and soft rays of sunlight filtering through the trees, creating a tranquil and deeply immersive atmosphere. The perspective captures the depth of the garden, with the horizon gently fading into misty mountains",
+    #         "3D style, Sasuke Uchiha from 'Naruto' seated in a grand, ancient library filled with towering shelves of scrolls and books, exuding an aura of mystery and depth. He is wearing his Akatsuki cloak, slightly open to reveal his traditional attire underneath. His pose is composed, sitting cross-legged on a raised platform, intently reading a worn-out scroll illuminated by the warm glow of a single hanging lantern. The surrounding library features intricate wooden carvings and beams, with shadows stretching into the distance to emphasize the scale and depth of the space. The atmosphere is quiet and contemplative, enhanced by the subtle contrast of warm light and dark shadows",
+    #         ],
+    #     "title": "Chillhop Music",
+    #     "file_name": "sasuke_music",
+    #     "day_of_week": [0,1,2,3,4,5,6],
+    # },
+    # {
+    #     "short_description": [
+    #         "3D style, Levi Ackerman from 'Attack on Titan' sitting on a simple wooden chair by a large window, reading a book with a calm, focused expression. He is wearing his signature Survey Corps uniform, with the green cloak draped casually over the back of the chair. His posture is upright yet relaxed, one leg crossed over the other, holding the book in his gloved hands. The setting features a sunlit interior of an old, rustic room with wooden beams and stone walls, while the window reveals a vast, peaceful landscape of rolling hills and distant mountains. The soft natural light streaming through the window highlights the textures of the room and the details of Levi’s attire, creating an immersive and serene atmosphere",
+    #         "3D style, Levi Ackerman from 'Attack on Titan' seated at a wooden table in a dimly lit study, engrossed in reading a leather-bound book. He is dressed in his formal Survey Corps attire, with his cravat slightly loosened, adding a touch of casual elegance to his composed demeanor. The study is filled with tall shelves lined with books and scattered with maps and papers, exuding a scholarly atmosphere. A single candle on the table casts a warm, flickering glow, contrasting with the cool shadows that stretch into the background, enhancing the room's depth. Levi’s focused gaze and the subtle interplay of light and shadow create an atmosphere of quiet intensity and intellectual curiosity",
+    #     ],
+    #     "title": "Chillhop Music",
+    #     "file_name": "levi_ackerman_music",
+    #     "day_of_week": [0,1,2,3,4,5,6],
+    # },
+    # {
+    #     "short_description": [
+    #         "3D style, Nezuko Kamado from 'Demon Slayer' sitting gracefully on a traditional tatami mat in a cozy Japanese-style room, reading a beautifully illustrated book with a curious and peaceful expression. She is wearing her signature pink kimono with a geometric pattern, her hair neatly tied with a ribbon, and the bamboo muzzle resting beside her on the floor. The room is softly lit by the warm glow of a paper lantern, and the sliding shoji doors are partially open, revealing a tranquil garden with bamboo groves and the soft glow of fireflies in the evening light. The composition emphasizes the depth of the room and the serenity of the setting, blending the indoor warmth with the outdoor calm",
+    #         "3D style, Nezuko Kamado from 'Demon Slayer' seated on a large tree stump in a forest clearing, intently reading a small, worn book resting on her lap. She is dressed in her traditional pink and black outfit, her haori draping slightly over the edge of the stump. Surrounding her are towering trees with sunlight filtering through the leaves, creating dappled light patterns on the ground and adding depth to the forest scene. Nearby, small forest animals, like rabbits and birds, curiously gather around her as she reads, adding a whimsical and heartwarming touch to the peaceful atmosphere",
+    #         ],
+    #     "title": "Chillhop Music",
+    #     "file_name": "nezuko_music",
+    #     "day_of_week": [0,1,2,3,4,5,6],
+    # },
+    # {
+    #     "short_description": [
+    #         "3D style, Vegeta from 'Dragon Ball' sitting cross-legged on a rocky cliff, meditating with a focused and intense expression. He is dressed in his classic Saiyan armor, slightly weathered from training, and his arms rest calmly on his knees. The cliff overlooks a vast, otherworldly landscape with glowing blue rivers, jagged rock formations, and distant mountains under a dramatic sky filled with swirling clouds and a glowing sunset. His aura faintly shimmers with energy, blending into the ambient light, creating an atmosphere of power and tranquility. The composition highlights the immense depth of the terrain, with Vegeta's form silhouetted against the expansive horizon",
+    #         "3D style, Vegeta from 'Dragon Ball' meditating in a serene Saiyan training chamber, designed with futuristic, minimalist architecture. He sits in the center of a glowing circular platform, cross-legged, eyes closed, and his body surrounded by a faint, flickering golden aura. The chamber features high ceilings and an open skylight, revealing a star-filled sky with distant planets visible. Energy patterns ripple subtly across the platform, and the soft hum of power in the air adds a sense of intensity and focus. The depth of the chamber is emphasized by the receding walls, illuminated with soft, glowing lines, creating a meditative and futuristic atmosphere",
+    #         ],
+    #     "title": "Chillhop Music",
+    #     "file_name": "vegeta_music",
+    #     "day_of_week": [0,1,2,3,4,5,6],
+    # },
+    # {
+    #     "short_description": [
+    #         "3D style, Roronoa Zoro from 'One Piece' sitting cross-legged on a grassy hilltop at sunrise, meditating with a calm yet focused expression. His iconic green haramaki and swords are resting nearby, carefully arranged beside him. The hill overlooks a sprawling ocean with waves glistening under the soft golden light of dawn, and distant islands barely visible on the horizon. Gentle wind rustles the grass and carries the sound of the waves, adding a serene and immersive atmosphere. The depth of the scene is emphasized by the contrast between the close details of Zoro’s posture and the vast, open landscape stretching into the distance",
+    #     ],
+    #     "title": "Chillhop Music",
+    #     "file_name": "zoro_music",
+    #     "day_of_week": [0,1,2,3,4,5,6],
+    # },
+]
+
 INIT_50_ANIMAL_REQUEST = [
     {
         "short_description": [

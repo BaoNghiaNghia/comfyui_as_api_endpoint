@@ -17,3 +17,6 @@ class PromptRequest(BaseModel):
 class LLMRequest(BaseModel):
     short_description: str
     file_path: str
+
+class RewriteRequest(BaseModel):
+    short_description: str

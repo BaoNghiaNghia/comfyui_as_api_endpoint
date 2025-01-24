@@ -13,7 +13,7 @@ from ollama import chat
 import base64
 from ollama import ChatResponse
 
-from .models import PromptRequest, LLMRequest
+from .models import PromptRequest, LLMRequest, RewriteRequest
 from .services import generate_images, authenticate_user, download_single_image
 from .tasks import check_and_generate_images
 from .constants import DEFAULT_FILENAME_PREFIX, SUBFOLDER_TOOL_RENDER, FLUX_LORA_STEP, SUBFOLDER_TEAM_AUTOMATION
@@ -27,6 +27,55 @@ async def get_index():
     """
 
     return FileResponse("ui/index.html")
+
+@router.post("/rewrite_paragraph")
+async def rewrite_paragraph(request: RewriteRequest):
+    try:
+        # Validate the input paragraph
+        if not request.short_description:
+            raise HTTPException(status_code=400, detail="Paragraph to rewrite is required.")
+        
+        # Prepare the payload for llama3.2
+        payload = {
+            "model": "llama3.2:3b",
+            "messages": [
+                {
+                    "role": "user",
+                    "content": f"Rewrite the following paragraph in a different style but keep the same meaning:\n\n{request.short_description}"
+                }
+            ]
+        }
+
+        # Send the request to the external API
+        api_url = "http://host.docker.internal:11434/api/chat"
+        response = requests.post(api_url, json=payload, stream=True)  # Use streaming response
+
+        # Check response status
+        if response.status_code == 200:
+            response_text = ""
+            for chunk in response.iter_lines():
+                if chunk:
+                    try:
+                        # Parse each chunk as a valid JSON object
+                        chunk_data = json.loads(chunk.decode("utf-8"))
+                        # Extract and append the content
+                        response_text += chunk_data.get("message", {}).get("content", "")
+                    except json.JSONDecodeError as e:
+                        print(f"JSON decoding error: {e}")
+                        continue  # Skip invalid chunks
+            
+            if response_text.strip():
+                return {"original": request.short_description, "rewritten": response_text.strip()}
+            else:
+                raise HTTPException(status_code=500, detail="No valid response content received from Llama3.2.")
+
+        else:
+            raise HTTPException(status_code=response.status_code, detail=response.text)
+
+    except HTTPException as e:
+        raise e
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Unexpected error: {str(e)}")
 
 
 # Endpoint to generate images
