@@ -50,27 +50,32 @@ async def generate_images_api():
     Asynchronous worker function to generate images based on API requests.
     """
 
-    today = datetime.datetime.now()
-    day_of_week_number = today.weekday()  # Monday is 0, Sunday is 6
+    today = datetime.now()
+    day_of_week_number = today.weekday()  # Monday = 0, Sunday = 6
 
-    # Filter requests that match the current day of the week
+    # Filter requests that match today's day of the week
     valid_requests = [
         request for request in INIT_50_ANIMAL_REQUEST if day_of_week_number in request["day_of_week"]
     ]
 
     if not valid_requests:
-        print("No valid requests in INIT_50_ANIMAL_REQUEST for today's day of the week.")
-        return
+        return {"message": "No valid requests for today's day of the week.", "counts": {}}
 
     # Extract prefixes from valid requests
     prefixes = list({request["file_name"] for request in valid_requests})
 
-    # Count occurrences of each prefix in valid requests
+    # Initialize counts for each prefix
     counts = {prefix: 0 for prefix in prefixes}
-    for request in valid_requests:
-        for prefix in prefixes:
-            if request["file_name"].startswith(prefix):
-                counts[prefix] += 1
+
+    # Count files in the folder matching each prefix
+    if TEAM_AUTOMATION_FOLDER.exists() and TEAM_AUTOMATION_FOLDER.is_dir():
+        for file in TEAM_AUTOMATION_FOLDER.iterdir():
+            if file.is_file():
+                for prefix in prefixes:
+                    if file.name.startswith(prefix):
+                        counts[prefix] += 1
+    else:
+        raise HTTPException(status_code=404, detail=f"Folder not found: {TEAM_AUTOMATION_FOLDER}")
 
     # Find the prefix with the smallest count
     smallest_count = min(counts.values())

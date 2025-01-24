@@ -4,6 +4,7 @@ import httpx
 import json
 import requests
 import time
+from datetime import datetime
 from pathlib import Path
 import asyncio
 
@@ -16,7 +17,9 @@ from ollama import ChatResponse
 from .models import PromptRequest, LLMRequest, RewriteRequest
 from .services import generate_images, authenticate_user, download_single_image
 from .tasks import check_and_generate_images
-from .constants import DEFAULT_FILENAME_PREFIX, SUBFOLDER_TOOL_RENDER, FLUX_LORA_STEP, SUBFOLDER_TEAM_AUTOMATION
+from .constants import DEFAULT_FILENAME_PREFIX, SUBFOLDER_TOOL_RENDER, FLUX_LORA_STEP, SUBFOLDER_TEAM_AUTOMATION, INIT_50_ANIMAL_REQUEST
+
+TEAM_AUTOMATION_FOLDER = Path(f"/thumbnail_img/{SUBFOLDER_TEAM_AUTOMATION}")
 
 router = APIRouter()
 
@@ -27,6 +30,8 @@ async def get_index():
     """
 
     return FileResponse("ui/index.html")
+
+
 
 @router.post("/rewrite_paragraph")
 async def rewrite_paragraph(request: RewriteRequest):
@@ -136,6 +141,66 @@ async def generate_image_caption(request: LLMRequest):
     except Exception as exception:
         raise HTTPException(status_code=500, detail=f"{str(exception)}")
 
+
+
+# Endpoint to generate images
+@router.get("/count_image")
+async def count_image():
+    try:
+        today = datetime.now()
+        day_of_week_number = today.weekday()  # Monday = 0, Sunday = 6
+
+        # Filter requests that match today's day of the week
+        valid_requests = [
+            request for request in INIT_50_ANIMAL_REQUEST if day_of_week_number in request["day_of_week"]
+        ]
+
+        if not valid_requests:
+            return {"message": "No valid requests for today's day of the week.", "counts": {}}
+
+        # Extract prefixes from valid requests
+        prefixes = list({request["file_name"] for request in valid_requests})
+
+        # Initialize counts for each prefix
+        counts = {prefix: 0 for prefix in prefixes}
+
+        # Count files in the folder matching each prefix
+        if TEAM_AUTOMATION_FOLDER.exists() and TEAM_AUTOMATION_FOLDER.is_dir():
+            for file in TEAM_AUTOMATION_FOLDER.iterdir():
+                if file.is_file():
+                    for prefix in prefixes:
+                        if file.name.startswith(prefix):
+                            counts[prefix] += 1
+        else:
+            raise HTTPException(status_code=404, detail=f"Folder not found: {TEAM_AUTOMATION_FOLDER}")
+
+        # Sort the counts dictionary by value in descending order
+        sorted_counts = dict(sorted(counts.items(), key=lambda item: item[1], reverse=True))
+
+        # Find the prefix with the smallest count
+        smallest_count = min(counts.values())
+        smallest_prefixes = [prefix for prefix, count in counts.items() if count == smallest_count]
+
+        # Filter requests by the smallest prefixes
+        matching_objects = [
+            request for request in valid_requests if request["file_name"] in smallest_prefixes
+        ]
+
+        return {
+            "counts": sorted_counts,
+            "smallest_count": smallest_count,
+            "smallest_prefixes": smallest_prefixes,
+            "matching_objects": matching_objects
+        }
+
+    except HTTPException as http_exception:
+        raise http_exception
+
+    except ValueError as value_error:
+        raise HTTPException(status_code=400, detail=f"Value error: {str(value_error)}")
+
+    except Exception as exception:
+        raise HTTPException(status_code=500, detail=f"{str(exception)}")
 
 
 # Endpoint to generate images
