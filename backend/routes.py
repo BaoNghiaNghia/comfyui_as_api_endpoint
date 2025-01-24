@@ -187,6 +187,7 @@ async def count_image():
         ]
 
         return {
+            "total_count": len(sorted_counts),
             "counts": sorted_counts,
             "smallest_count": smallest_count,
             "smallest_prefixes": smallest_prefixes,
