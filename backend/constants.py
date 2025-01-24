@@ -3916,7 +3916,40 @@ INIT_50_ANIMAL_REQUEST = [
         "file_name": "pug",
         "day_of_week": [0,1,2,3,4,5,6]
     },
-
+    {
+        "short_description": [
+            "A Coyote sitting at a desk with a laptop, focused on the screen, papers scattered around, a warm light shining on the workspace, calm and concentrated atmosphere, anime watercolor painting style",
+            "A Coyote working on a project with headphones on, coding away with a cup of coffee beside, soft desk lamp lighting, peaceful and focused vibe, anime watercolor painting style",
+            "A Coyote surrounded by open books, working on a computer, taking notes on a notepad, the quiet hum of concentration in the air, anime watercolor painting style",
+            "A Coyote at a desk, typing on a laptop, notes and coding books piled around, natural light from a nearby window, calm and dedicated atmosphere, anime watercolor painting style",
+            "A Coyote wearing glasses, staring at the computer screen, coding carefully, a steaming cup of tea by the side, peaceful and thoughtful ambiance, anime watercolor painting style",
+            "A Coyote in a cozy office, focusing on a screen, papers and notes scattered across the desk, soft glowing desk light, deep in concentration, anime watercolor painting style",
+            "A Coyote working late at a desk, a laptop in front, surrounded by coding books, late-night focus with soft lighting, anime watercolor painting style",
+            "A Coyote sitting in front of dual screens, coding and debugging, papers with sketches around, a cup of coffee steaming beside, absorbed in work, anime watercolor painting style",
+            "A Coyote sitting at a minimalist desk, coding, with a focused expression, a quiet atmosphere, soft light illuminating the space, anime watercolor painting style",
+            "A Coyote typing away at a computer, a pile of books and notepads beside, working in deep focus on a project, anime watercolor painting style",
+        ],
+        "title": "",
+        "file_name": "coyote",
+        "day_of_week": [0,1,2,3,4,5,6]
+    },
+    {
+        "short_description": [
+            "A Koala resting peacefully in a eucalyptus tree, eyes closed, curled up in a comfortable position, soft sunlight filtering through the leaves, serene and calm vibe, anime watercolor painting style",
+            "A Koala napping in the crook of a tree, its body relaxed and eyes closed, surrounded by green leaves and branches, gentle breeze rustling, tranquil atmosphere, anime watercolor painting style",
+            "A Koala sleeping soundly on a tree branch, nestled between the leaves, quiet and peaceful surroundings, soft natural light illuminating its furry body, anime watercolor painting style",
+            "A Koala curled up in a cozy nook on a eucalyptus tree, eyes closed, deep in sleep, peaceful and quiet mood, dappled sunlight filtering through the branches, anime watercolor painting style",
+            "A Koala lying comfortably on a tree, sleeping with its eyes closed, the calmness of the forest around it, warm light peeking through the trees, anime watercolor painting style",
+            "A Koala resting on a high branch, surrounded by eucalyptus leaves, its eyes shut in deep slumber, serene and tranquil environment, anime watercolor painting style",
+            "A Koala snoozing gently on a tree, its body relaxed and still, soft light from the sun glowing through the foliage, peaceful and restful atmosphere, anime watercolor painting style",
+            "A Koala sleeping on a thick branch, nestled comfortably against the trunk, surrounded by soft green leaves, peaceful silence, anime watercolor painting style",
+            "A Koala resting on a tree, eyes closed, enjoying a peaceful nap, surrounded by nature's tranquility, soft, dappled sunlight shining down, anime watercolor painting style",
+            "A Koala sleeping in a calm and quiet forest, curled up on a branch, the leaves around gently swaying, a sense of calm and stillness, anime watercolor painting style",
+        ],
+        "title": "Sleeping Peace",
+        "file_name": "koala",
+        "day_of_week": [0,1,2,3,4,5,6]
+    },
 ]
 
 
