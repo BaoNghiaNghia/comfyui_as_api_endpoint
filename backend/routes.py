@@ -191,7 +191,7 @@ async def count_image():
             "counts": sorted_counts,
             "smallest_count": smallest_count,
             "smallest_prefixes": smallest_prefixes,
-            "matching_objects": matching_objects
+            # "matching_objects": matching_objects
         }
 
     except HTTPException as http_exception:
