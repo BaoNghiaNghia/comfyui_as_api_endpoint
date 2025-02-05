@@ -131,7 +131,7 @@ async def generate_image_caption(request: LLMRequest):
             print(f"Failed to get a valid response. Status Code: {response.status_code}")
             print("Response Text:", response.text)
             return {"error": "Request failed", "status_code": response.status_code, "response_text": response.text}
-    
+
     except HTTPException as http_exception:
         raise http_exception
 
@@ -164,9 +164,9 @@ async def count_image():
         # Initialize counts for each prefix
         counts = {prefix: 0 for prefix in prefixes}
 
-        # Count files in the folder matching each prefix
+        # Count files in the folder and subfolders matching each prefix
         if TEAM_AUTOMATION_FOLDER.exists() and TEAM_AUTOMATION_FOLDER.is_dir():
-            for file in TEAM_AUTOMATION_FOLDER.iterdir():
+            for file in TEAM_AUTOMATION_FOLDER.rglob("*"):  # Recursively iterate through subfolders
                 if file.is_file():
                     for prefix in prefixes:
                         if file.name.startswith(prefix):

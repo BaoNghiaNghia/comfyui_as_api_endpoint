@@ -3270,7 +3270,7 @@ INIT_50_ANIMAL_REQUEST = [
             "Mario – The Super Mario Bros. Movie sitting at a desk by the window, sunlight falling on the pages of a book, concentration focused.",
         ],
         "title": "",
-        "file_name": "Mario",
+        "file_name": "mario_the_super_mario_bros",
         "day_of_week": [0,1,2,3,4,5,6]
     },
     {
@@ -3287,7 +3287,7 @@ INIT_50_ANIMAL_REQUEST = [
             "Luigi – The Super Mario Bros. Movie sitting at a desk by the window, sunlight falling on the pages of a book, concentration focused.",
         ],
         "title": "",
-        "file_name": "Luigi",
+        "file_name": "luigi_the_super_mario_bros",
         "day_of_week": [0,1,2,3,4,5,6]
     },
     {
