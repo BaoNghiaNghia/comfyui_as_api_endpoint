@@ -87,7 +87,6 @@ async def generate_images_api():
 
     # Count files in the folder and subfolders matching each prefix
     if TEAM_AUTOMATION_FOLDER.exists() and TEAM_AUTOMATION_FOLDER.is_dir():
-        print(f" ------- {TEAM_AUTOMATION_FOLDER.rglob("*")}")
         for file in TEAM_AUTOMATION_FOLDER.rglob("*"):  # Recursively iterate through subfolders
             if file.is_file():
                 for prefix in prefixes:
