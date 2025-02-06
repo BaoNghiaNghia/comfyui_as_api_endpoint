@@ -689,23 +689,6 @@ INIT_50_ANIMAL_REQUEST = [
     #     "file_name": "bald_eagle",
     #     "day_of_week": [0,1,2,3,4,5,6]
     # },
-    {
-        "short_description": [
-            "A Samoyed wearing a winter hat, curled up under a soft blanket, peaceful sleep in a cozy bedroom, warm light glowing from the lamp.",
-            "A Samoyed wearing a winter hat, lying on their back, hands resting on their chest, calm expression, in a softly lit room.",
-            "A Samoyed wearing a winter hat, drifting into sleep, window open with a light breeze, soft moonlight shining in.",
-            "A Samoyed wearing a winter hat, napping on a hammock, surrounded by nature, gentle sunlight filtering through the trees.",
-            "A Samoyed wearing a winter hat, sleeping soundly with a stuffed animal, blanket tucked around them, a peaceful night sky visible through the window.",
-            "A Samoyed wearing a winter hat, resting under a warm duvet, sound of raindrops gently hitting the window, quiet and serene.",
-            "A Samoyed wearing a winter hat, with a sleep mask on, lying on a comfortable bed, complete silence, and tranquility.",
-            "A Samoyed wearing a winter hat, dozing off on a soft couch, with a warm cup of tea on the side, and a calm atmosphere.",
-            "A Samoyed wearing a winter hat, curled up with a pillow, bedroom lit by soft candles, deep relaxation before sleep.",
-            "A Samoyed wearing a winter hat, in a cozy bedroom, blankets snugly wrapped, room filled with gentle ambient sounds.",
-        ],
-        "title": "",
-        "file_name": "samoyed",
-        "day_of_week": [0,1,2,3,4,5,6]
-    },
     # {
     #     "short_description": [
     #         "A Cockatiel wearing a tiny flower crown, curled up under a soft blanket, peaceful sleep in a cozy bedroom, warm light glowing from the lamp.",
@@ -842,23 +825,6 @@ INIT_50_ANIMAL_REQUEST = [
     #     "file_name": "akita_inu",
     #     "day_of_week": [0,1,2,3,4,5,6]
     # },
-    {
-        "short_description": [
-            "A Highland Cow wearing a herbal wreath, curled up under a soft blanket, peaceful sleep in a cozy bedroom, warm light glowing from the lamp.",
-            "A Highland Cow wearing a herbal wreath, lying on their back, hands resting on their chest, calm expression, in a softly lit room.",
-            "A Highland Cow wearing a herbal wreath, drifting into sleep, window open with a light breeze, soft moonlight shining in.",
-            "A Highland Cow wearing a herbal wreath, napping on a hammock, surrounded by nature, gentle sunlight filtering through the trees.",
-            "A Highland Cow wearing a herbal wreath, sleeping soundly with a stuffed animal, blanket tucked around them, a peaceful night sky visible through the window.",
-            "A Highland Cow wearing a herbal wreath, resting under a warm duvet, sound of raindrops gently hitting the window, quiet and serene.",
-            "A Highland Cow wearing a herbal wreath, with a sleep mask on, lying on a comfortable bed, complete silence, and tranquility.",
-            "A Highland Cow wearing a herbal wreath, dozing off on a soft couch, with a warm cup of tea on the side, and a calm atmosphere.",
-            "A Highland Cow wearing a herbal wreath, curled up with a pillow, bedroom lit by soft candles, deep relaxation before sleep.",
-            "A Highland Cow wearing a herbal wreath, in a cozy bedroom, blankets snugly wrapped, room filled with gentle ambient sounds.",
-        ],
-        "title": "",
-        "file_name": "highland_cow",
-        "day_of_week": [0,1,2,3,4,5,6]
-    },
     # {
     #     "short_description": [
     #         "A Kiwi with a golden beak accessory, curled up under a soft blanket, peaceful sleep in a cozy bedroom, warm light glowing from the lamp.",
@@ -3035,23 +3001,6 @@ INIT_50_ANIMAL_REQUEST = [
     #     "file_name": "cavalier_king_charles_spaniel",
     #     "day_of_week": [0,1,2,3,4,5,6]
     # },
-    {
-        "short_description": [
-            "An Akita wearing a traditional Japanese headband, meditating in a quiet room, eyes closed, mind deeply focused, calm and peaceful environment.",
-            "An Akita wearing a traditional Japanese headband, in deep thought, writing in a journal, soft lighting around them, total concentration.",
-            "An Akita wearing a traditional Japanese headband, practicing yoga, focused deeply on their breath, quiet and serene atmosphere in a peaceful studio.",
-            "An Akita wearing a traditional Japanese headband, solving puzzles on a table, deeply focused, surrounded by pieces, soft background light.",
-            "An Akita wearing a traditional Japanese headband, with a book in hand, eyes scanning the page intensely, dimly lit study area, deeply focused.",
-            "An Akita wearing a traditional Japanese headband, sitting in a quiet park, reading the newspaper, focusing intently on the details.",
-            "An Akita wearing a traditional Japanese headband, sketching in a notebook, completely absorbed in their artwork, serene and calm atmosphere.",
-            "An Akita wearing a traditional Japanese headband, holding a camera, concentrating on capturing the perfect shot, quiet outdoor environment.",
-            "An Akita wearing a traditional Japanese headband, playing chess, studying the board with full concentration, soft music in the background.",
-            "An Akita wearing a traditional Japanese headband, in a workshop, working on a craft project, deeply focused on their task at hand.",
-        ],
-        "title": "",
-        "file_name": "akita",
-        "day_of_week": [0,1,2,3,4,5,6]
-    },
     # {
     #     "short_description": [
     #         "A Saluki wearing a silk shawl, meditating in a quiet room, eyes closed, mind deeply focused, calm and peaceful environment.",
@@ -3256,6 +3205,66 @@ INIT_50_ANIMAL_REQUEST = [
     #     "file_name": "pug",
     #     "day_of_week": [0,1,2,3,4,5,6]
     # },
+
+
+
+
+
+
+
+
+    
+    {
+        "short_description": [
+            "A Highland Cow wearing a herbal wreath, curled up under a soft blanket, peaceful sleep in a cozy bedroom, warm light glowing from the lamp.",
+            "A Highland Cow wearing a herbal wreath, lying on their back, hands resting on their chest, calm expression, in a softly lit room.",
+            "A Highland Cow wearing a herbal wreath, drifting into sleep, window open with a light breeze, soft moonlight shining in.",
+            "A Highland Cow wearing a herbal wreath, napping on a hammock, surrounded by nature, gentle sunlight filtering through the trees.",
+            "A Highland Cow wearing a herbal wreath, sleeping soundly with a stuffed animal, blanket tucked around them, a peaceful night sky visible through the window.",
+            "A Highland Cow wearing a herbal wreath, resting under a warm duvet, sound of raindrops gently hitting the window, quiet and serene.",
+            "A Highland Cow wearing a herbal wreath, with a sleep mask on, lying on a comfortable bed, complete silence, and tranquility.",
+            "A Highland Cow wearing a herbal wreath, dozing off on a soft couch, with a warm cup of tea on the side, and a calm atmosphere.",
+            "A Highland Cow wearing a herbal wreath, curled up with a pillow, bedroom lit by soft candles, deep relaxation before sleep.",
+            "A Highland Cow wearing a herbal wreath, in a cozy bedroom, blankets snugly wrapped, room filled with gentle ambient sounds.",
+        ],
+        "title": "",
+        "file_name": "highland_cow",
+        "day_of_week": [0,1,2,3,4,5,6]
+    },
+    {
+        "short_description": [
+            "An Akita wearing a traditional Japanese headband, meditating in a quiet room, eyes closed, mind deeply focused, calm and peaceful environment.",
+            "An Akita wearing a traditional Japanese headband, in deep thought, writing in a journal, soft lighting around them, total concentration.",
+            "An Akita wearing a traditional Japanese headband, practicing yoga, focused deeply on their breath, quiet and serene atmosphere in a peaceful studio.",
+            "An Akita wearing a traditional Japanese headband, solving puzzles on a table, deeply focused, surrounded by pieces, soft background light.",
+            "An Akita wearing a traditional Japanese headband, with a book in hand, eyes scanning the page intensely, dimly lit study area, deeply focused.",
+            "An Akita wearing a traditional Japanese headband, sitting in a quiet park, reading the newspaper, focusing intently on the details.",
+            "An Akita wearing a traditional Japanese headband, sketching in a notebook, completely absorbed in their artwork, serene and calm atmosphere.",
+            "An Akita wearing a traditional Japanese headband, holding a camera, concentrating on capturing the perfect shot, quiet outdoor environment.",
+            "An Akita wearing a traditional Japanese headband, playing chess, studying the board with full concentration, soft music in the background.",
+            "An Akita wearing a traditional Japanese headband, in a workshop, working on a craft project, deeply focused on their task at hand.",
+        ],
+        "title": "",
+        "file_name": "akita",
+        "day_of_week": [0,1,2,3,4,5,6]
+    },
+    {
+        "short_description": [
+            "A Samoyed wearing a winter hat, curled up under a soft blanket, peaceful sleep in a cozy bedroom, warm light glowing from the lamp.",
+            "A Samoyed wearing a winter hat, lying on their back, hands resting on their chest, calm expression, in a softly lit room.",
+            "A Samoyed wearing a winter hat, drifting into sleep, window open with a light breeze, soft moonlight shining in.",
+            "A Samoyed wearing a winter hat, napping on a hammock, surrounded by nature, gentle sunlight filtering through the trees.",
+            "A Samoyed wearing a winter hat, sleeping soundly with a stuffed animal, blanket tucked around them, a peaceful night sky visible through the window.",
+            "A Samoyed wearing a winter hat, resting under a warm duvet, sound of raindrops gently hitting the window, quiet and serene.",
+            "A Samoyed wearing a winter hat, with a sleep mask on, lying on a comfortable bed, complete silence, and tranquility.",
+            "A Samoyed wearing a winter hat, dozing off on a soft couch, with a warm cup of tea on the side, and a calm atmosphere.",
+            "A Samoyed wearing a winter hat, curled up with a pillow, bedroom lit by soft candles, deep relaxation before sleep.",
+            "A Samoyed wearing a winter hat, in a cozy bedroom, blankets snugly wrapped, room filled with gentle ambient sounds.",
+        ],
+        "title": "",
+        "file_name": "samoyed",
+        "day_of_week": [0,1,2,3,4,5,6]
+    },
     {
         "short_description": [
             "Mario – The Super Mario Bros. Movie sitting at a desk, reading a textbook, soft desk lamp glow, calm and focused atmosphere.",
