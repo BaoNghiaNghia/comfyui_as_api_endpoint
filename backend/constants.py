@@ -1265,7 +1265,7 @@ INIT_50_ANIMAL_REQUEST = [
     "file_name": "tiger_shark",
     "day_of_week": [0,1,2,3,4,5,6],
 },
-    {
+{
     "short_description": [
         "A Great White Shark wearing a seashell necklace, gracefully twirls in the deep ocean, its shimmering fins trailing behind as bubbles rise around coral and mystical light enhances the serene, deep-focus atmosphere.",
 	"A Great White Shark wearing a seashell necklace, hovers near a glowing coral reef, its fins rippling gently as bioluminescent creatures drift by, creating a peaceful, deep-focus ambiance.",
@@ -2048,7 +2048,7 @@ INIT_50_ANIMAL_REQUEST = [
     "file_name": "amazon_river_dolphin",
     "day_of_week": [0,1,2,3,4,5,6],
 },
-    {
+{
     "short_description": [
         "A Blobfish wearing a small umbrella hat, gracefully twirls in the deep ocean, its shimmering fins trailing behind as bubbles rise around coral and mystical light enhances the serene, deep-focus atmosphere.",
 	"A Blobfish wearing a small umbrella hat, hovers near a glowing coral reef, its fins rippling gently as bioluminescent creatures drift by, creating a peaceful, deep-focus ambiance.",
