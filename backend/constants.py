@@ -2,60 +2,6 @@ import uuid
 import os
 from pathlib import Path
 
-# "realistic photo",
-# "illustration",
-# "cartoon",
-# "comic",
-# "dark",
-# "water color",
-# "pixel art",
-# "surreal",
-# "oil painting",
-# "nature",
-# "ink print",
-# "pencil",
-# "retrowave",
-# "vintage japanese",
-# "lifestyle",
-# "collage",
-# "glitchart",
-# "retroglow",
-# "lowkey cinematic",
-# "analog memories",
-# "trippy illustration",
-# "fantasy cartoon",
-# "pastel paint",
-# "arcadebits",
-# "squishy 3d",
-# "product photography",
-# "historical",
-# "felted",
-# "podium",
-# "redveil",
-# "darklight dreamscaped",
-# "dreamlandscapes",
-# "linework",
-# "sonny anime",
-# "soft pasty",
-# "soft retro",
-# "plushy world",
-# "film effect",
-# "anime",
-# "warnand cold",
-# "sparking",
-# "blurry long exposure",
-# "flutted glass",
-# "glimmerish",
-# "forties influence",
-# "dadapop",
-# "eighties movie",
-# "renaissance fashion",
-# "fineart",
-# "neo classicart",
-# "highend light",
-# "anime",
-# "3d colorful",
-# "anime"
 
 
 THUMBNAIL_STYLE_LIST = [
@@ -102,6 +48,7 @@ SUBFOLDER_TOOL_RENDER = 'tool_render'
 SUBFOLDER_TEAM_AUTOMATION = 'team_automation'
 
 MAX_IMAGES_THRESHOLD = 36000
+COUNT_IMAGE_PER_FOLDER = 350
 COUNT_IMAGES_TO_DELETE = 5
 FLUX_LORA_STEP = {
     'team_automation': 30,
@@ -2480,15 +2427,15 @@ INIT_50_ANIMAL_REQUEST = [
     {
     "short_description": [
         "A Ball Python wearing a ring on its tail, paces slowly across a wooden study, its sharp gaze scanning ancient books as candlelight flickers, creating a serene, deep-focus atmosphere.",
-	"A Ball Python wearing a ring on its tail, sits near a large wooden desk, its beak tapping gently on an open scroll as dim candlelight glows, enhancing the deep-focus ambiance.",
-	"A Ball Python wearing a ring on its tail, gazes out a rain-streaked window, listening to the soft patter of raindrops as candlelight flickers, creating a peaceful, deep-focus mood.",
-	"A Ball Python wearing a ring on its tail, stands near a crackling fireplace, watching the flames dance while the warm glow illuminates the ancient books, deepening the tranquil, focused setting.",
-	"A Ball Python wearing a ring on its tail, carefully nudges an old book on a wooden desk, its feathers shimmering under the dim candlelight in the deep-focus study.",
-	"A Ball Python wearing a ring on its tail, walks across a moonlit veranda, the gentle night breeze rustling leaves as soft fireflies flicker in the quiet, deep-focus ambiance.",
-	"A Ball Python wearing a ring on its tail, stands under a large tree, the sound of distant thunder rolling as warm lanterns glow around, creating a calm, deep-focus outdoor setting.",
-	"A Ball Python wearing a ring on its tail, rests beside a stack of scrolls, its presence adding to the mystical aura of the wooden study bathed in warm, flickering candlelight.",
-	"A Ball Python wearing a ring on its tail, carefully observes an intricate map on a worn wooden table, the dim lantern light casting soft shadows in the deep-focus study.",
-	"A Ball Python wearing a ring on its tail, stands by an open door, watching the gentle rain soak the wooden deck as soft candlelight glows behind, creating a tranquil, deep-focus atmosphere.",
+        "A Ball Python wearing a ring on its tail, sits near a large wooden desk, its beak tapping gently on an open scroll as dim candlelight glows, enhancing the deep-focus ambiance.",
+        "A Ball Python wearing a ring on its tail, gazes out a rain-streaked window, listening to the soft patter of raindrops as candlelight flickers, creating a peaceful, deep-focus mood.",
+        "A Ball Python wearing a ring on its tail, stands near a crackling fireplace, watching the flames dance while the warm glow illuminates the ancient books, deepening the tranquil, focused setting.",
+        "A Ball Python wearing a ring on its tail, carefully nudges an old book on a wooden desk, its feathers shimmering under the dim candlelight in the deep-focus study.",
+        "A Ball Python wearing a ring on its tail, walks across a moonlit veranda, the gentle night breeze rustling leaves as soft fireflies flicker in the quiet, deep-focus ambiance.",
+        "A Ball Python wearing a ring on its tail, stands under a large tree, the sound of distant thunder rolling as warm lanterns glow around, creating a calm, deep-focus outdoor setting.",
+        "A Ball Python wearing a ring on its tail, rests beside a stack of scrolls, its presence adding to the mystical aura of the wooden study bathed in warm, flickering candlelight.",
+        "A Ball Python wearing a ring on its tail, carefully observes an intricate map on a worn wooden table, the dim lantern light casting soft shadows in the deep-focus study.",
+        "A Ball Python wearing a ring on its tail, stands by an open door, watching the gentle rain soak the wooden deck as soft candlelight glows behind, creating a tranquil, deep-focus atmosphere.",
     ],
     "title": "",
     "file_name": "ball_python",

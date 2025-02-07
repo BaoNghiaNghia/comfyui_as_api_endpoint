@@ -7,7 +7,7 @@ import numpy as np
 from pathlib import Path
 from celery import shared_task
 from .services import check_current_queue, generate_images
-from .constants import THUMBNAIL_STYLE_LIST, SUBFOLDER_TOOL_RENDER, SUBFOLDER_TEAM_AUTOMATION, MAX_IMAGES_THRESHOLD, COUNT_IMAGES_TO_DELETE, INIT_50_ANIMAL_REQUEST, THUMBNAIL_PER_TIMES, FLUX_LORA_STEP
+from .constants import THUMBNAIL_STYLE_LIST, SUBFOLDER_TOOL_RENDER, SUBFOLDER_TEAM_AUTOMATION, MAX_IMAGES_THRESHOLD, COUNT_IMAGES_TO_DELETE, INIT_50_ANIMAL_REQUEST, THUMBNAIL_PER_TIMES, FLUX_LORA_STEP, COUNT_IMAGE_PER_FOLDER
 
 TEAM_AUTOMATION_FOLDER = Path(f"/thumbnail_img/{SUBFOLDER_TEAM_AUTOMATION}")
 
@@ -98,16 +98,18 @@ async def generate_images_api():
 
     # Find the prefix with the smallest count
     smallest_count = min(counts.values())
+
+    # ✅ **Bypass condition: If smallest_count >= 350, stop execution**
+    if smallest_count >= COUNT_IMAGE_PER_FOLDER:
+        print(f"Skipping image generation: Smallest count ({smallest_count}) reached the limit.")
+        return {"message": "Bypass triggered: Image count limit reached.", "counts": counts}
+
     smallest_prefixes = [prefix for prefix, count in counts.items() if count == smallest_count]
     sorted_counts = dict(sorted(counts.items(), key=lambda item: item[1], reverse=True))
 
     # If smallest_prefixes is empty, get a random prefix from counts
     if not smallest_prefixes:
         smallest_prefixes = [random.choice(list(counts.keys()))]
-
-    print(f"-------------------------------------------------")
-    print(json.dumps(sorted_counts, indent=4))
-    print(f"-------------------------------------------------")
 
     # Filter requests by the smallest prefixes
     matching_objects = [
