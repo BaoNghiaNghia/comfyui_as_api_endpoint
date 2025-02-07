@@ -3496,7 +3496,7 @@ INIT_50_ANIMAL_REQUEST = [
             "Maui – Moana sitting at a desk by the window, sunlight falling on the pages of a book, concentration focused.",
         ],
         "title": "",
-        "file_name": "maui",
+        "file_name": "maui_moana",
         "day_of_week": [0,1,2,3,4,5,6]
     },
     {
