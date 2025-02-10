@@ -147,6 +147,38 @@ async def generate_images_api():
 
 
 
+@shared_task(name="backend.tasks.images-to-video-generation")
+def images_to_video_generation():
+    try:
+        asyncio.run(generate_images_to_videos())
+    except Exception as e:
+        print(f"----- Error in worker `Generate images`: {e}")
+
+
+
+async def generate_images_to_videos():
+    """
+
+    """
+    try:
+        # Call the queue checking function
+        queue_count = check_current_queue()
+
+        # Handle the case where the queue_count is None
+        if queue_count is None:
+            print("----- Error: Could not fetch the current queue in AI Model. Skipping task execution.")
+            return
+
+        # Proceed if queue_count is valid
+        if len(queue_count.get("queue_running", [])) > 0 or len(queue_count.get("queue_pending", [])) > 0:
+            print(f"AI model is running another image to video generation (Running: {len(queue_count.get('queue_running', []))}, Pending: {len(queue_count.get('queue_pending', []))}). Please try again later.")
+            return
+
+        
+    except Exception as e:
+        print(f"----- Error generating video from image: {e}")
+
+
 
 @shared_task(name="backend.tasks.check_and_generate_images")
 def check_and_generate_images():

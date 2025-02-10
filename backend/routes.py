@@ -93,7 +93,7 @@ async def generate_image_caption(request: LLMRequest):
         if not request.file_path:
             raise HTTPException(status_code=400, detail="File name is required.")
 
-        image_filename = Path(f"/thumbnail_img/{SUBFOLDER_TEAM_AUTOMATION}/{request.file_path}")  # Image in the same directory
+        image_filename = Path(f"{request.file_path}")  # Image in the same directory
         # Read the image content and encode it to base64
         with open(image_filename, "rb") as img_file:
             encoded_image = base64.b64encode(img_file.read()).decode("utf-8")
@@ -101,6 +101,7 @@ async def generate_image_caption(request: LLMRequest):
         # Send the POST request to the image captioning API
         response = requests.post("http://host.docker.internal:11434/api/chat", json={
             "model": 'llama3.2-vision',
+            # "model": 'deepseek-r1',
             "messages": [
                 {
                     "role": "user",
@@ -111,16 +112,14 @@ async def generate_image_caption(request: LLMRequest):
         }, stream=True)  # Set stream=True to handle chunked responses
         
         # Check if the request was successful
-        if response.status_code == 200:
+        if response.status_code === 200:
             full_caption = ""
             # Iterate over each chunk of the response
             for chunk in response.iter_lines():
                 if chunk:
                     try:
-                        # Parse the JSON chunk safely using json.loads
                         chunk_data = chunk.decode('utf-8')
-                        message = json.loads(chunk_data)  # Safe JSON parsing
-                        # Extract and concatenate the content from the message
+                        message = json.loads(chunk_data)
                         full_caption += message['message']['content']
                     except (ValueError, SyntaxError) as e:
                         print(f"Error parsing chunk: {e}")
