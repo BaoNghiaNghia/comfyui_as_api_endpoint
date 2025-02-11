@@ -112,7 +112,7 @@ async def generate_image_caption(request: LLMRequest):
         }, stream=True)  # Set stream=True to handle chunked responses
         
         # Check if the request was successful
-        if response.status_code === 200:
+        if response.status_code == 200:
             full_caption = ""
             # Iterate over each chunk of the response
             for chunk in response.iter_lines():

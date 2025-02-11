@@ -22,10 +22,10 @@ celery_app.conf.beat_schedule = {
         "task": "backend.tasks.check_and_generate_images",
         "schedule": crontab(minute="*/1", hour=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23], day_of_week="*"),
     },
-    "images-to-video-generation": {
-        "task": "backend.tasks.images-to-video-generation",
-        "schedule": crontab(minute="*/5", hour=[0], day_of_week="*"),
-    },
+    # "images-to-video-generation": {
+    #     "task": "backend.tasks.images_to_video_generation",
+    #     "schedule": crontab(minute="*/5", hour=[0], day_of_week="*"),
+    # },
     "delete-oldest-images-tool-render": {
         "task": "backend.tasks.delete_oldest_images_tool_render",
         "schedule": crontab(hour=[1,2,3], minute="*/5", day_of_week="*"),
