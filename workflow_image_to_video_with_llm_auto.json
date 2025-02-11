@@ -210,91 +210,6 @@
       "bgcolor": "#653"
     },
     {
-      "id": 20,
-      "type": "CLIPLoader",
-      "pos": [
-        -3398.970458984375,
-        2113.971923828125
-      ],
-      "size": [
-        334.3205261230469,
-        91.85958099365234
-      ],
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            54,
-            56
-          ],
-          "slot_index": 0,
-          "shape": 3,
-          "label": "CLIP"
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CLIPLoader"
-      },
-      "widgets_values": [
-        "t5xxl_fp8.safetensors",
-        "sd3",
-        "default"
-      ]
-    },
-    {
-      "id": 31,
-      "type": "CogVideoTextEncode",
-      "pos": [
-        -2930.724853515625,
-        2248.13232421875
-      ],
-      "size": [
-        463.01251220703125,
-        144
-      ],
-      "flags": {},
-      "order": 8,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 56,
-          "label": "CLIP"
-        }
-      ],
-      "outputs": [
-        {
-          "name": "conditioning",
-          "type": "CONDITIONING",
-          "links": [
-            86
-          ],
-          "slot_index": 0,
-          "shape": 3,
-          "label": "条件"
-        },
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CogVideoTextEncode"
-      },
-      "widgets_values": [
-        "The video is not of a high quality, it has a low resolution. Watermark present in each frame. Strange motion trajectory. ",
-        1,
-        true
-      ]
-    },
-    {
       "id": 54,
       "type": "LLMLoader",
       "pos": [
@@ -308,7 +223,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 2,
+      "order": 1,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -345,7 +260,7 @@
         239.3846893310547
       ],
       "flags": {},
-      "order": 10,
+      "order": 9,
       "mode": 0,
       "inputs": [
         {
@@ -380,114 +295,6 @@
       ]
     },
     {
-      "id": 61,
-      "type": "easy showAnything",
-      "pos": [
-        -3728.53076171875,
-        2122.23046875
-      ],
-      "size": [
-        251.82518005371094,
-        225.20396423339844
-      ],
-      "flags": {},
-      "order": 14,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "anything",
-          "type": "*",
-          "link": 119,
-          "label": "输入任何",
-          "shape": 7
-        }
-      ],
-      "outputs": [
-        {
-          "name": "output",
-          "type": "*",
-          "links": null,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "easy showAnything"
-      },
-      "widgets_values": [
-        ", a photograph taken with a green filter that gives it a dreamy, ethereal quality. The image captures a young woman with fair skin and straight, dark brown hair pulled back into a loose bun. She has a warm, inviting smile, revealing her teeth, and her eyes are partially closed, conveying a sense of contentment or tranquility. She is dressed in a sleeveless black top with a plunging neckline, which highlights her slender neck and collarbone. The background is dark and blurred, with hints of colorful lights, possibly from a city skyline or a festive setting, indicating an urban or night-time environment. The lights in the background create a bokeh effect, adding a sense of depth and mystery. The woman is holding a string of warm, glowing fairy lights, which she appears to be playing with, adding a touch of whimsy and magic to the scene. The overall mood is one of calm and joy, enhanced by the soft, green-filtered lighting and the playful nature of the fairy lights.\n\n1girl, solo, looking at viewer, smile, bare shoulders, upper body, teeth, grin, blurry, realistic, horror \\(theme\\)."
-      ]
-    },
-    {
-      "id": 56,
-      "type": "LLMSampler",
-      "pos": [
-        -3519.4462890625,
-        1684.640625
-      ],
-      "size": [
-        240.9768829345703,
-        290
-      ],
-      "flags": {},
-      "order": 15,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "CUSTOM",
-          "link": 111,
-          "label": "模型"
-        },
-        {
-          "name": "prompt",
-          "type": "STRING",
-          "link": 145,
-          "widget": {
-            "name": "prompt"
-          },
-          "label": "提示词"
-        },
-        {
-          "name": "system_msg",
-          "type": "STRING",
-          "link": 113,
-          "widget": {
-            "name": "system_msg"
-          },
-          "label": "系统提示词"
-        }
-      ],
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [
-            114,
-            143
-          ],
-          "slot_index": 0,
-          "shape": 3,
-          "label": "字符串"
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LLMSampler"
-      },
-      "widgets_values": [
-        "You are an assistant who perfectly describes images.",
-        "",
-        126,
-        0.2,
-        0.95,
-        40,
-        0,
-        0,
-        1.1,
-        143,
-        "randomize"
-      ]
-    },
-    {
       "id": 1,
       "type": "DownloadAndLoadCogVideoModel",
       "pos": [
@@ -499,7 +306,7 @@
         224.14712524414062
       ],
       "flags": {},
-      "order": 3,
+      "order": 2,
       "mode": 0,
       "inputs": [
         {
@@ -663,7 +470,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 4,
+      "order": 3,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -749,7 +556,7 @@
         200
       ],
       "flags": {},
-      "order": 9,
+      "order": 8,
       "mode": 0,
       "inputs": [
         {
@@ -858,7 +665,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 5,
+      "order": 4,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -951,7 +758,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 6,
+      "order": 5,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -985,7 +792,7 @@
         314
       ],
       "flags": {},
-      "order": 7,
+      "order": 6,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1030,7 +837,7 @@
         238
       ],
       "flags": {},
-      "order": 11,
+      "order": 10,
       "mode": 0,
       "inputs": [
         {
@@ -1196,6 +1003,199 @@
         6,
         "DPM++",
         0.0563
+      ]
+    },
+    {
+      "id": 61,
+      "type": "easy showAnything",
+      "pos": [
+        -3728.53076171875,
+        2114.716552734375
+      ],
+      "size": [
+        251.82518005371094,
+        225.20396423339844
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 119,
+          "label": "输入任何",
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        ", a photograph taken with a green filter that gives it a dreamy, ethereal quality. The image captures a young woman with fair skin and straight, dark brown hair pulled back into a loose bun. She has a warm, inviting smile, revealing her teeth, and her eyes are partially closed, conveying a sense of contentment or tranquility. She is dressed in a sleeveless black top with a plunging neckline, which highlights her slender neck and collarbone. The background is dark and blurred, with hints of colorful lights, possibly from a city skyline or a festive setting, indicating an urban or night-time environment. The lights in the background create a bokeh effect, adding a sense of depth and mystery. The woman is holding a string of warm, glowing fairy lights, which she appears to be playing with, adding a touch of whimsy and magic to the scene. The overall mood is one of calm and joy, enhanced by the soft, green-filtered lighting and the playful nature of the fairy lights.\n\n1girl, solo, looking at viewer, smile, bare shoulders, upper body, teeth, grin, blurry, realistic, horror \\(theme\\)."
+      ]
+    },
+    {
+      "id": 31,
+      "type": "CogVideoTextEncode",
+      "pos": [
+        -2928.24560546875,
+        2274.577880859375
+      ],
+      "size": [
+        463.01251220703125,
+        144
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 56,
+          "label": "CLIP"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "links": [
+            86
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "条件"
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CogVideoTextEncode"
+      },
+      "widgets_values": [
+        "The video is not of a high quality, it has a low resolution. Watermark present in each frame. Strange motion trajectory. ",
+        1,
+        true
+      ]
+    },
+    {
+      "id": 20,
+      "type": "CLIPLoader",
+      "pos": [
+        -3395.664794921875,
+        2141.24365234375
+      ],
+      "size": [
+        334.3205261230469,
+        91.85958099365234
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            54,
+            56
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "CLIP"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "t5xxl_fp8.safetensors",
+        "sd3",
+        "default"
+      ]
+    },
+    {
+      "id": 56,
+      "type": "LLMSampler",
+      "pos": [
+        -3517.79345703125,
+        1678.855712890625
+      ],
+      "size": [
+        240.9768829345703,
+        290
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "CUSTOM",
+          "link": 111,
+          "label": "模型"
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "link": 145,
+          "widget": {
+            "name": "prompt"
+          },
+          "label": "提示词"
+        },
+        {
+          "name": "system_msg",
+          "type": "STRING",
+          "link": 113,
+          "widget": {
+            "name": "system_msg"
+          },
+          "label": "系统提示词"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            114,
+            143
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "字符串"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LLMSampler"
+      },
+      "widgets_values": [
+        "You are an assistant who perfectly describes images.",
+        "",
+        126,
+        0.2,
+        0.95,
+        40,
+        0,
+        0,
+        1.1,
+        143,
+        "randomize"
       ]
     }
   ],
@@ -1407,23 +1407,23 @@
     "ds": {
       "scale": 1.2100000000000002,
       "offset": {
-        "0": 4365.54541015625,
-        "1": -1779.438720703125
+        "0": 4180.11328125,
+        "1": -1540.650634765625
       }
     },
     "node_versions": {
       "comfyui-frame-interpolation": "1.0.6",
       "comfyui-videohelpersuite": "1.5.1",
-      "comfy-core": "0.3.14",
-      "ComfyUI-CogVideoXWrapper": "dbc63f622dd095391335612d0c7d7bbff8745cc8",
       "comfyui_vlm_nodes": "1.0.6",
       "comfyui-wd14-tagger": "1.0.0",
-      "comfyui-easy-use": "1.2.7",
+      "ComfyUI-CogVideoXWrapper": "dbc63f622dd095391335612d0c7d7bbff8745cc8",
       "ComfyUI-Universal-Styler": "bfe88489ff250a84bc25c210d84a58135f9a8a8f",
       "pr-was-node-suite-comfyui-47064894": "1.0.2",
       "ComfyUI_HF_Servelress_Inference": "2cfcc03013c2bf3a71bfd2edb10a0b6627dd6c2a",
       "comfy-mtb": "0.2.1",
-      "ComfyUI-KJNodes": "86b5453a5ca9ecb883eedc9d0a96bf942b9ca73e"
+      "comfy-core": "0.3.14",
+      "ComfyUI-KJNodes": "86b5453a5ca9ecb883eedc9d0a96bf942b9ca73e",
+      "comfyui-easy-use": "1.2.7"
     },
     "ue_links": [],
     "VHS_latentpreview": false,

@@ -219,8 +219,6 @@ async def generate_images_logic():
         # Count all folders (directories) inside TEAM_AUTOMATION_FOLDER
         folder_count = sum(1 for item in TEAM_AUTOMATION_FOLDER.iterdir() if item.is_dir())
 
-        print(f"----- {file_count} files and {folder_count} subfolders.")
-
         # Check file count against the threshold
         if folder_count == 0:
             print("----- Folder has no files. Rendering a random image from INIT_50_ANIMAL_REQUEST.")
