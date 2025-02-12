@@ -135,6 +135,57 @@ async def get_images(ws, prompt, noise_seed):
     except Exception as e:
         logging.error(f"An unexpected error occurred while getting images for prompt {prompt_id}: {e}")
         raise
+async def get_videos(ws, prompt, noise_seed):
+    """Retrieves images generated from a prompt, handling WebSocket communication."""
+    prompt_id = queue_prompt(prompt)['prompt_id']
+    last_reported_percentage = 0
+
+    try:
+        while True:
+            out = ws.recv()
+            if isinstance(out, str):
+                message = json.loads(out)
+                if message['type'] == 'progress':
+                    data = message['data']
+                    current_progress = data['value']
+                    max_progress = data['max']
+                    percentage = int((current_progress / max_progress) * 100)
+
+                    if percentage >= last_reported_percentage + 10:
+                        last_reported_percentage = percentage
+                        logging.info(f"PromptID: {prompt_id} - Process: {percentage} %")
+
+                elif message['type'] == 'executing':
+                    data = message['data']
+                    if data['node'] is None and data['prompt_id'] == prompt_id:
+                        break
+            else:
+                continue
+
+        # Fetch history and validate structure
+        history = get_history(prompt_id).get(prompt_id, {})
+        output_data = history.get('outputs', {}).get("178", {}) # Access 'outputs' safely
+        images = output_data.get('images', [])
+
+        # Process images
+        for output_image in images:
+            try:
+                filename = output_image['filename']
+                subfolder = output_image['subfolder']
+                output_image['file_path'] = f"http://{REMOTE_SERVER_ADDRESS}/download-images?file_name={filename}&subfolder={subfolder}"
+                output_image['seed'] = noise_seed
+            except KeyError as e:
+                logging.warning(f"Missing key in image data: {e}")
+
+        return images
+    
+    except asyncio.TimeoutError:
+        logging.error(f"Timeout while waiting for prompt {prompt_id} to complete.")
+        raise
+
+    except Exception as e:
+        logging.error(f"An unexpected error occurred while getting images for prompt {prompt_id}: {e}")
+        raise
 
 
 def authenticate_user(domain, token):
@@ -372,6 +423,82 @@ async def generate_images(short_description, title, thumbnail_number=1, thumb_st
 
         images = await get_images(ws, workflow, noise_seed)
         return images
+
+    except (ConnectionError, FileNotFoundError, ValueError) as e:
+        raise e
+
+    except Exception as e:
+        logging.error(f"Unexpected error in generate_images: {e}")
+        raise
+    finally:
+        if ws:
+            try:
+                ws.close()
+            except Exception as e:
+                logging.error(f"Error closing WebSocket: {e}")
+
+
+async def generate_video_from_image(short_description, title, thumbnail_number=1, thumb_style='realistic photo', subfolder='tool_render', filename_prefix='ytbthumb', lora_step=FLUX_LORA_STEP['tool_render']):
+    """
+        Generates images using the ComfyUI workflow via WebSocket.
+    """
+
+    ws = None
+    try:
+        ws = websocket.WebSocket()
+        ws_url = f"ws://{COMFY_UI_SERVER_ADDRESS}/ws?clientId={CLIENT_ID}"
+
+        try:
+            ws.connect(ws_url)
+
+        except websocket.WebSocketConnectionClosedException as e:
+            raise ConnectionError(f"Could not establish WebSocket connection: {e}")
+        except Exception as e:
+            raise Exception(f"Model AI Stopped: {e}")
+
+        # Check if AI model is running queue
+        queue_count = check_current_queue()
+        if queue_count and (len(queue_count["queue_running"]) > 0 or len(queue_count["queue_pending"]) > 0):
+            raise Exception(f'AI model is running another thumbnail images generation (Running: {len(queue_count["queue_running"])} Pending: {len(queue_count["queue_pending"])}). Please try again later.')
+
+        with open("api-create-thumbnail-youtube-v3.json", "r", encoding="utf-8") as f:
+            workflow_data = f.read()
+
+        workflow = json.loads(workflow_data)
+        noise_seed = random.randint(100000000000000, 1000000000000000)
+
+        # workflow["178"]["inputs"]["foldername_prefix"] = subfolder
+        # workflow["178"]["inputs"]["filename_prefix"] = filename_prefix
+        
+        # # Thumbnail size setup
+        # workflow["29"]["inputs"]["width"] = THUMBNAIL_SIZES['fullhd']['original']['width']
+        # workflow["29"]["inputs"]["height"] = THUMBNAIL_SIZES['fullhd']['original']['height']
+        # workflow["29"]["inputs"]["batch_size"] = thumbnail_number
+        # workflow["76"]["inputs"]["width"] = THUMBNAIL_SIZES['fullhd']['scaled']['width']
+        # workflow["76"]["inputs"]["height"] = THUMBNAIL_SIZES['fullhd']['scaled']['height']
+
+        # workflow["17"]["inputs"]["steps"] = lora_step
+
+        # # Model 50  animal
+        # workflow["26"]["inputs"]["lora_name"] = "Children's illustrated story book.safetensors"
+        # workflow["26"]["inputs"]["strength_model"] = 1
+        # workflow["26"]["inputs"]["strength_clip"] = 1
+        # workflow["27"]["inputs"]["lora_name"] = "Round world chubby little animals doll toys.safetensors"
+
+        # # Model Poster Simple
+        # # workflow["26"]["inputs"]["lora_name"] = "flux.1_lora_flyway_Epic-detail_v2.safetensors"
+        # # workflow["26"]["inputs"]["strength_model"] = 0.2
+        # # workflow["26"]["inputs"]["strength_clip"] = 0.2
+        # # workflow["27"]["inputs"]["lora_name"] = "flux.1_lora_flyway_doodle-poster.safetensors"
+
+        # # Uncomment the desired option
+        # # workflow = await logic_llm_option1(workflow, short_description, title, thumb_style, subfolder)
+        # workflow = await logic_llm_option2(workflow, short_description, title)
+
+        # workflow["25"]["inputs"]["noise_seed"] = noise_seed
+
+        # images = await get_videos(ws, workflow, noise_seed)
+        # return images
 
     except (ConnectionError, FileNotFoundError, ValueError) as e:
         raise e

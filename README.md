@@ -385,3 +385,10 @@ curl --location 'http://sscrender.ddns.net:8000/generate_images/thumbnail-youtub
 ```
 
 Với `file_path` là đường dẫn để download thumbnail
+
+
+```json
+python.exe -m pip install torch==2.5.1+cu121 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+
+pip install xformers==0.0.29.post3
+```

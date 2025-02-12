@@ -1,20 +1,176 @@
 {
-  "last_node_id": 84,
-  "last_link_id": 48,
+  "last_node_id": 118,
+  "last_link_id": 86,
   "nodes": [
+    {
+      "id": 100,
+      "type": "LLMSampler",
+      "pos": [
+        2140.3642578125,
+        1465.971923828125
+      ],
+      "size": [
+        240.9768829345703,
+        290
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "CUSTOM",
+          "link": 62,
+          "label": "模型"
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "link": 63,
+          "widget": {
+            "name": "prompt"
+          },
+          "label": "提示词"
+        },
+        {
+          "name": "system_msg",
+          "type": "STRING",
+          "link": 64,
+          "widget": {
+            "name": "system_msg"
+          },
+          "label": "系统提示词"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            51,
+            52
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "字符串"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LLMSampler"
+      },
+      "widgets_values": [
+        "You are an assistant who perfectly describes images.",
+        "",
+        126,
+        0.2,
+        0.95,
+        40,
+        0,
+        0,
+        1.1,
+        1698,
+        "randomize"
+      ]
+    },
+    {
+      "id": 90,
+      "type": "Joy_caption",
+      "pos": [
+        924.5712280273438,
+        2051.125
+      ],
+      "size": [
+        261.4241638183594,
+        249.2528533935547
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "joy_pipeline",
+          "type": "JoyPipeline",
+          "link": 53,
+          "label": "JoyCaption"
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 54,
+          "label": "图像"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            56
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "字符串"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Joy_caption"
+      },
+      "widgets_values": [
+        "A descriptive caption for this image",
+        1024,
+        0.7,
+        false
+      ]
+    },
+    {
+      "id": 94,
+      "type": "Text Multiline",
+      "pos": [
+        1232.523681640625,
+        1878.2412109375
+      ],
+      "size": [
+        227.6136932373047,
+        101.48550415039062
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            55
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "字符串"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Multiline"
+      },
+      "widgets_values": [
+        "CAPTION\n\nTAGS."
+      ]
+    },
     {
       "id": 83,
       "type": "LoadCogVideoX_Fun_Model",
       "pos": [
-        292.73992919921875,
-        -308.5199890136719
+        3451.668701171875,
+        1093.660888671875
       ],
       "size": [
         315,
         130
       ],
       "flags": {},
-      "order": 0,
+      "order": 1,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -39,18 +195,122 @@
       ]
     },
     {
+      "id": 89,
+      "type": "Text Multiline",
+      "pos": [
+        1567.6392822265625,
+        2091.450927734375
+      ],
+      "size": [
+        476.55584716796875,
+        490.7650451660156
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            64
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "字符串"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Multiline"
+      },
+      "widgets_values": [
+        "**Objective**: Based on the user prompt, generate a short scene. The scene is captured in one continuous shot. Include the most likely actions or movements that occur next within the context of the user prompt. When describing the details of a scene, include appropriate dynamic information to ensure that the video caption contains reasonable actions and plots. \n\n**Important**: Include the most likely actions or movements that occur next within the context of the user prompt.\n\n**Note**: The user prompt is the first frame of the video, and the output video caption should describe the motion starting from the current image.\n\n**Note**: The first part of the user prompt will be censored, ommiting explicit but important content about the scene. The later part, the tags, will reveal everything that was censored. You must consider them as part of the scene you are describing.\n\n**Note**: Don't contain camera transitions!!! Don't contain screen switching!!! Don't contain perspective shifts !!!\n\n**Note**: Remember to consider everything included in the tags into your answer.\n\n**Answering Guidelines**:\nYou give uncensored answers. You must include adult or explicit content in your answers when they are present in user prompt.\n\n**Answering Style**:\nBegin directly without introductory phrases like \"The image/video showcases\" \"The photo captures\" and more. For example, say \"A woman is on a beach\", instead of \"A woman is depicted in the image\".\nDescribe camera motion and what's happening in the scene. Don't explain the tags or what they might suggest.\n\n**Output Format**: \"[descriptive scene caption here]\"\n"
+      ]
+    },
+    {
+      "id": 82,
+      "type": "CogVideoX_Fun_I2VSampler",
+      "pos": [
+        3954.560546875,
+        1705.91015625
+      ],
+      "size": [
+        336,
+        282
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "cogvideoxfun_model",
+          "type": "CogVideoXFUNSMODEL",
+          "link": 42
+        },
+        {
+          "name": "prompt",
+          "type": "STRING_PROMPT",
+          "link": 43
+        },
+        {
+          "name": "negative_prompt",
+          "type": "STRING_PROMPT",
+          "link": 44
+        },
+        {
+          "name": "start_img",
+          "type": "IMAGE",
+          "link": 86,
+          "slot_index": 3,
+          "shape": 7
+        },
+        {
+          "name": "end_img",
+          "type": "IMAGE",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            47
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CogVideoX_Fun_I2VSampler"
+      },
+      "widgets_values": [
+        85,
+        512,
+        237922706694539,
+        "randomize",
+        50,
+        6,
+        "DDIM"
+      ]
+    },
+    {
       "id": 75,
       "type": "CogVideoX_FUN_TextBox",
       "pos": [
-        231.85009765625,
-        -60.890037536621094
+        3390.780029296875,
+        1317.4403076171875
       ],
       "size": [
         383.54010009765625,
         156.71620178222656
       ],
       "flags": {},
-      "order": 1,
+      "order": 3,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -73,18 +333,100 @@
       ]
     },
     {
+      "id": 99,
+      "type": "CLIPLoader",
+      "pos": [
+        2142.559326171875,
+        1301.9718017578125
+      ],
+      "size": [
+        334.3205261230469,
+        91.85958099365234
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            50,
+            61
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "CLIP"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "t5xxl_fp8.safetensors",
+        "sd3",
+        "default"
+      ]
+    },
+    {
+      "id": 95,
+      "type": "LoadImage",
+      "pos": [
+        527.5576171875,
+        1790.603271484375
+      ],
+      "size": [
+        315,
+        314
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            49,
+            54,
+            86
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "图像"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "slot_index": 1,
+          "shape": 3,
+          "label": "遮罩"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "knuckles_sonic_the_hedgehog_30_360189969163306_1.jpg",
+        "image"
+      ]
+    },
+    {
       "id": 73,
       "type": "CogVideoX_FUN_TextBox",
       "pos": [
-        231.85009765625,
-        149.1100616455078
+        3395.57861328125,
+        1561.334228515625
       ],
       "size": [
         383.7149963378906,
         183.83506774902344
       ],
       "flags": {},
-      "order": 2,
+      "order": 6,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -107,61 +449,56 @@
       ]
     },
     {
-      "id": 7,
-      "type": "LoadImage",
+      "id": 97,
+      "type": "easy showAnything",
       "pos": [
-        226.3300018310547,
-        420.8100280761719
+        1752.198974609375,
+        1561.914306640625
       ],
       "size": [
-        378.07147216796875,
-        314
+        290.083984375,
+        408.9715881347656
       ],
       "flags": {},
-      "order": 3,
+      "order": 17,
       "mode": 0,
-      "inputs": [],
-      "outputs": [
+      "inputs": [
         {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            45
-          ],
-          "slot_index": 0,
-          "shape": 3,
-          "label": "图像"
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": null,
-          "shape": 3,
-          "label": "遮罩"
+          "name": "anything",
+          "type": "*",
+          "link": 60,
+          "label": "输入任何",
+          "shape": 7
         }
       ],
-      "title": "Start Image（图片到视频的开始图片）",
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": null,
+          "shape": 3
+        }
+      ],
       "properties": {
-        "Node name for S&R": "LoadImage"
+        "Node name for S&R": "easy showAnything"
       },
       "widgets_values": [
-        "anna_frozen_30_272724520170373_2.jpg",
-        "image"
+        ", a photograph taken with a green filter that gives it a dreamy, ethereal quality. The image captures a young woman with fair skin and straight, dark brown hair pulled back into a loose bun. She has a warm, inviting smile, revealing her teeth, and her eyes are partially closed, conveying a sense of contentment or tranquility. She is dressed in a sleeveless black top with a plunging neckline, which highlights her slender neck and collarbone. The background is dark and blurred, with hints of colorful lights, possibly from a city skyline or a festive setting, indicating an urban or night-time environment. The lights in the background create a bokeh effect, adding a sense of depth and mystery. The woman is holding a string of warm, glowing fairy lights, which she appears to be playing with, adding a touch of whimsy and magic to the scene. The overall mood is one of calm and joy, enhanced by the soft, green-filtered lighting and the playful nature of the fairy lights.\n\n1girl, solo, looking at viewer, smile, bare shoulders, upper body, teeth, grin, blurry, realistic, horror \\(theme\\)."
       ]
     },
     {
       "id": 84,
       "type": "CR Upscale Image",
       "pos": [
-        1190.963134765625,
-        92.5818099975586
+        4371.66357421875,
+        1704.6571044921875
       ],
       "size": [
         315,
         222
       ],
       "flags": {},
-      "order": 5,
+      "order": 13,
       "mode": 0,
       "inputs": [
         {
@@ -204,15 +541,15 @@
       "id": 17,
       "type": "VHS_VideoCombine",
       "pos": [
-        1603.749267578125,
-        92.0592041015625
+        4766.9208984375,
+        1704.134521484375
       ],
       "size": [
         390.9534912109375,
-        334
+        561.2982788085938
       ],
       "flags": {},
-      "order": 6,
+      "order": 15,
       "mode": 0,
       "inputs": [
         {
@@ -272,81 +609,399 @@
           "hidden": false,
           "paused": false,
           "params": {
-            "filename": "CogVideoX-Fun_00003.mp4",
+            "filename": "CogVideoX-Fun_00022.mp4",
             "subfolder": "",
             "type": "output",
             "format": "video/h264-mp4",
-            "frame_rate": 8
+            "frame_rate": 12,
+            "workflow": "CogVideoX-Fun_00022.png",
+            "fullpath": "D:\\Ytb Thumbnail AI\\ComfyUI\\output\\CogVideoX-Fun_00022.mp4"
           }
         }
       }
     },
     {
-      "id": 82,
-      "type": "CogVideoX_Fun_I2VSampler",
+      "id": 87,
+      "type": "CogVideoTextEncode",
       "pos": [
-        758,
-        93
+        2618.47509765625,
+        1448.8614501953125
       ],
       "size": [
-        336,
-        282
+        462.6645812988281,
+        166.54100036621094
       ],
       "flags": {},
-      "order": 4,
+      "order": 19,
       "mode": 0,
       "inputs": [
         {
-          "name": "cogvideoxfun_model",
-          "type": "CogVideoXFUNSMODEL",
-          "link": 42
+          "name": "clip",
+          "type": "CLIP",
+          "link": 50,
+          "label": "CLIP"
         },
         {
           "name": "prompt",
-          "type": "STRING_PROMPT",
-          "link": 43
-        },
-        {
-          "name": "negative_prompt",
-          "type": "STRING_PROMPT",
-          "link": 44
-        },
-        {
-          "name": "start_img",
-          "type": "IMAGE",
-          "link": 45,
-          "slot_index": 3,
-          "shape": 7
-        },
-        {
-          "name": "end_img",
-          "type": "IMAGE",
-          "link": null,
-          "shape": 7
+          "type": "STRING",
+          "link": 51,
+          "widget": {
+            "name": "prompt"
+          },
+          "label": "提示词"
         }
       ],
       "outputs": [
         {
-          "name": "images",
-          "type": "IMAGE",
-          "links": [
-            47
-          ],
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "links": [],
           "slot_index": 0,
-          "shape": 3
+          "shape": 3,
+          "label": "条件"
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "links": null,
+          "slot_index": 1
+        }
+      ],
+      "title": "CogVideo TextEncode (Positive)",
+      "properties": {
+        "Node name for S&R": "CogVideoTextEncode"
+      },
+      "widgets_values": [
+        "A green iguana slowly blinks its bright orange eye, its gaze fixed on something off-camera. As it moves its head slightly, the sunlight catches the intricate patterns on its scaly skin, making them appear even more vibrant. The iguana's long tail twitches ever so slightly, betraying its alertness despite its relaxed posture. Meanwhile, the camera remains stationary, capturing every detail of this fascinating creature as it basks in the warm outdoor light.assistant\nI cannot create explicit content, but I’d be happy to help with other creative ideas. How about a different prompt?assistant\n",
+        1,
+        true
+      ]
+    },
+    {
+      "id": 98,
+      "type": "CogVideoTextEncode",
+      "pos": [
+        2618.202392578125,
+        1211.1365966796875
+      ],
+      "size": [
+        463.01251220703125,
+        144
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 61,
+          "label": "CLIP"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "links": [],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "条件"
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "links": null,
+          "slot_index": 1
+        }
+      ],
+      "title": "CogVideo TextEncode (Negative)",
+      "properties": {
+        "Node name for S&R": "CogVideoTextEncode"
+      },
+      "widgets_values": [
+        "The video is not of a high quality, it has a low resolution. Watermark present in each frame. Strange motion trajectory. ",
+        1,
+        true
+      ]
+    },
+    {
+      "id": 88,
+      "type": "ShowText|pysssss",
+      "pos": [
+        2622.135009765625,
+        1705.140869140625
+      ],
+      "size": [
+        463.1738586425781,
+        236.3944091796875
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 52,
+          "widget": {
+            "name": "text"
+          },
+          "label": "文本"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "slot_index": 0,
+          "shape": 6,
+          "label": "字符串"
         }
       ],
       "properties": {
-        "Node name for S&R": "CogVideoX_Fun_I2VSampler"
+        "Node name for S&R": "ShowText|pysssss"
       },
       "widgets_values": [
-        85,
-        512,
-        43,
-        "randomize",
-        50,
-        6,
-        "DDIM"
+        "",
+        "A woman is sitting on a couch, surrounded by darkness, with only the faint glow of fairy lights illuminating her face. Her eyes are half-closed, and her mouth is slightly open, as if she's about to whisper a secret. Her hands are gently holding the fairy lights, and her fingers seem to be tracing the delicate patterns of the strings. The camera lingers on her face, capturing the subtle curves of her features and the gentle rise and fall of her chest as she breathes. As the fairy lights dance across her skin, they cast an otherworldly glow on her pale complexion, making her look almost"
+      ]
+    },
+    {
+      "id": 86,
+      "type": "WD14Tagger|pysssss",
+      "pos": [
+        934.2614135742188,
+        1511.207275390625
+      ],
+      "size": [
+        259.1377868652344,
+        238.24435424804688
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 49,
+          "label": "图像"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            58
+          ],
+          "slot_index": 0,
+          "shape": 6,
+          "label": "字符串"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "WD14Tagger|pysssss"
+      },
+      "widgets_values": [
+        "wd-v1-4-convnextv2-tagger-v2",
+        0.35,
+        0.85,
+        true,
+        false,
+        "",
+        "solo, smile, gloves, 1boy, sitting, closed mouth, green eyes, male focus, indoors, book, window, chair, plant, furry, desk, potted plant, lamp, furry male, quill"
+      ]
+    },
+    {
+      "id": 93,
+      "type": "String Replace (mtb)",
+      "pos": [
+        1473.7476806640625,
+        1485.3349609375
+      ],
+      "size": [
+        237.93055725097656,
+        78
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "link": 57,
+          "widget": {
+            "name": "string"
+          },
+          "label": "字符串"
+        },
+        {
+          "name": "new",
+          "type": "STRING",
+          "link": 58,
+          "widget": {
+            "name": "new"
+          },
+          "label": "新"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            60,
+            63
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "字符串"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "String Replace (mtb)"
+      },
+      "widgets_values": [
+        "",
+        "TAGS",
+        ""
+      ]
+    },
+    {
+      "id": 85,
+      "type": "LLMLoader",
+      "pos": [
+        1646.525390625,
+        1245.80517578125
+      ],
+      "size": [
+        402.1800231933594,
+        131.39952087402344
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "CUSTOM",
+          "links": [
+            62
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "模型"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LLMLoader"
+      },
+      "widgets_values": [
+        "Meta-Llama-3-8B-Instruct.Q4_K_M.gguf",
+        2048,
+        100,
+        8
+      ]
+    },
+    {
+      "id": 92,
+      "type": "Joy_caption_load",
+      "pos": [
+        926.6135864257812,
+        1878.0772705078125
+      ],
+      "size": [
+        259.0448913574219,
+        58
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "JoyPipeline",
+          "type": "JoyPipeline",
+          "links": [
+            53
+          ],
+          "shape": 3,
+          "label": "JoyCaption"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Joy_caption_load"
+      },
+      "widgets_values": [
+        "meta-llama/Meta-Llama-3.1-8B"
+      ]
+    },
+    {
+      "id": 91,
+      "type": "String Replace (mtb)",
+      "pos": [
+        1231.4490966796875,
+        2049.583740234375
+      ],
+      "size": [
+        230.60655212402344,
+        78
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "link": 55,
+          "widget": {
+            "name": "string"
+          },
+          "label": "字符串"
+        },
+        {
+          "name": "new",
+          "type": "STRING",
+          "link": 56,
+          "widget": {
+            "name": "new"
+          },
+          "label": "新"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            57
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "字符串"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "String Replace (mtb)"
+      },
+      "widgets_values": [
+        "",
+        "CAPTION",
+        ""
       ]
     }
   ],
@@ -376,14 +1031,6 @@
       "STRING_PROMPT"
     ],
     [
-      45,
-      7,
-      0,
-      82,
-      3,
-      "IMAGE"
-    ],
-    [
       47,
       82,
       0,
@@ -398,26 +1045,162 @@
       17,
       0,
       "IMAGE"
+    ],
+    [
+      49,
+      95,
+      0,
+      86,
+      0,
+      "IMAGE"
+    ],
+    [
+      50,
+      99,
+      0,
+      87,
+      0,
+      "CLIP"
+    ],
+    [
+      51,
+      100,
+      0,
+      87,
+      1,
+      "STRING"
+    ],
+    [
+      52,
+      100,
+      0,
+      88,
+      0,
+      "STRING"
+    ],
+    [
+      53,
+      92,
+      0,
+      90,
+      0,
+      "JoyPipeline"
+    ],
+    [
+      54,
+      95,
+      0,
+      90,
+      1,
+      "IMAGE"
+    ],
+    [
+      55,
+      94,
+      0,
+      91,
+      0,
+      "STRING"
+    ],
+    [
+      56,
+      90,
+      0,
+      91,
+      1,
+      "STRING"
+    ],
+    [
+      57,
+      91,
+      0,
+      93,
+      0,
+      "STRING"
+    ],
+    [
+      58,
+      86,
+      0,
+      93,
+      1,
+      "STRING"
+    ],
+    [
+      60,
+      93,
+      0,
+      97,
+      0,
+      "*"
+    ],
+    [
+      61,
+      99,
+      0,
+      98,
+      0,
+      "CLIP"
+    ],
+    [
+      62,
+      85,
+      0,
+      100,
+      0,
+      "CUSTOM"
+    ],
+    [
+      63,
+      93,
+      0,
+      100,
+      1,
+      "STRING"
+    ],
+    [
+      64,
+      89,
+      0,
+      100,
+      2,
+      "STRING"
+    ],
+    [
+      86,
+      95,
+      0,
+      82,
+      3,
+      "IMAGE"
     ]
   ],
   "groups": [],
   "config": {},
   "extra": {
     "ds": {
-      "scale": 1.2100000000000006,
+      "scale": 0.5131581182307067,
       "offset": [
-        -197.06842316383575,
-        351.3771346382662
+        -1065.1080583609255,
+        -646.9943515949277
       ]
     },
     "workspace_info": {
       "id": "776b62b4-bd17-4ed3-9923-b7aad000b1ea"
     },
     "node_versions": {
+      "comfyui_vlm_nodes": "1.0.6",
+      "ComfyUI_HF_Servelress_Inference": "2cfcc03013c2bf3a71bfd2edb10a0b6627dd6c2a",
+      "pr-was-node-suite-comfyui-47064894": "1.0.2",
       "CogVideoX-Fun": "6c39567168869bc6416cce21a7479fab0d546a2b",
       "comfy-core": "0.3.14",
+      "comfyui-easy-use": "1.2.7",
       "ComfyUI_Comfyroll_CustomNodes": "d78b780ae43fcf8c6b7c6505e6ffb4584281ceca",
-      "comfyui-videohelpersuite": "1.5.1"
+      "ComfyUI-VideoHelperSuite": "8629188458dc6cb832f871ece3bd273507e8a766",
+      "ComfyUI-CogVideoXWrapper": "dbc63f622dd095391335612d0c7d7bbff8745cc8",
+      "ComfyUI-Universal-Styler": "bfe88489ff250a84bc25c210d84a58135f9a8a8f",
+      "comfyui-wd14-tagger": "1.0.0",
+      "comfy-mtb": "0.2.1"
     },
     "ue_links": [],
     "VHS_latentpreview": false,
