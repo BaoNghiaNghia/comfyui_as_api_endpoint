@@ -96,20 +96,29 @@ async def generate_images_api():
     if not counts:
         return {"message": "No existing files found for comparison.", "counts": {}}
 
-    # Find the prefix with the smallest count
-    smallest_count = min(counts.values())
+    # ✅ **Filter out prefixes where count is >= COUNT_IMAGE_PER_FOLDER**
+    filtered_prefixes = {
+        prefix: count for prefix, count in counts.items() if count < COUNT_IMAGE_PER_FOLDER
+    }
 
-    # ✅ **Bypass condition: If smallest_count >= 350, stop execution**
-    if smallest_count >= COUNT_IMAGE_PER_FOLDER:
-        print(f"Skipping image generation: Smallest count ({smallest_count}) reached the limit.")
-        return {"message": "Bypass triggered: Image count limit reached.", "counts": counts}
+    if not filtered_prefixes:
+        print(f"Skipping image generation: All prefixes reached the limit ({COUNT_IMAGE_PER_FOLDER}).")
+        return {"message": "Bypass triggered: All prefixes exceeded the limit.", "counts": counts}
 
-    smallest_prefixes = [prefix for prefix, count in counts.items() if count == smallest_count]
-    sorted_counts = dict(sorted(counts.items(), key=lambda item: item[1], reverse=True))
+    print(f"------ Total filtered prefixes: {len(filtered_prefixes)}")
 
-    # If smallest_prefixes is empty, get a random prefix from counts
+    # Find the smallest count from filtered prefixes
+    smallest_count = min(filtered_prefixes.values())
+
+    # Get prefixes that match the smallest count
+    smallest_prefixes = [prefix for prefix, count in filtered_prefixes.items() if count == smallest_count]
+
+    # Sort counts in descending order (optional for reporting)
+    sorted_counts = dict(sorted(filtered_prefixes.items(), key=lambda item: item[1], reverse=True))
+
+    # If no smallest prefixes, pick a random prefix from filtered ones
     if not smallest_prefixes:
-        smallest_prefixes = [random.choice(list(counts.keys()))]
+        smallest_prefixes = [random.choice(list(filtered_prefixes.keys()))]
 
     # Filter requests by the smallest prefixes
     matching_objects = [
