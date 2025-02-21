@@ -43,8 +43,6 @@ async def render_random_from_init_request():
     folder_path = TEAM_AUTOMATION_FOLDER / file_name
     folder_path.mkdir(parents=True, exist_ok=True)  # Ensure folder exists
 
-    print(f"----- Rendering a random image for request: {file_name} in {folder_path}")
-
     # # Ensure short_description is not empty
     if not random_request["short_description"]:
         print(f"Warning: No descriptions found for {file_name}. Skipping image generation.")
@@ -104,8 +102,6 @@ async def generate_images_api():
     if not filtered_prefixes:
         print(f"Skipping image generation: All prefixes reached the limit ({COUNT_IMAGE_PER_FOLDER}).")
         return {"message": "Bypass triggered: All prefixes exceeded the limit.", "counts": counts}
-
-    print(f"------ Total filtered prefixes: {len(filtered_prefixes)}")
 
     # Find the smallest count from filtered prefixes
     smallest_count = min(filtered_prefixes.values())

@@ -1,6 +1,6 @@
 {
   "last_node_id": 276,
-  "last_link_id": 374,
+  "last_link_id": 376,
   "nodes": [
     {
       "id": 13,
@@ -14,7 +14,7 @@
         106
       ],
       "flags": {},
-      "order": 35,
+      "order": 34,
       "mode": 0,
       "inputs": [
         {
@@ -82,7 +82,7 @@
         46
       ],
       "flags": {},
-      "order": 36,
+      "order": 35,
       "mode": 0,
       "inputs": [
         {
@@ -191,7 +191,7 @@
         102
       ],
       "flags": {},
-      "order": 37,
+      "order": 36,
       "mode": 4,
       "inputs": [
         {
@@ -255,7 +255,7 @@
         "Node name for S&R": "RandomNoise"
       },
       "widgets_values": [
-        643537244834068,
+        423695927762215,
         "randomize"
       ]
     },
@@ -304,7 +304,7 @@
         46
       ],
       "flags": {},
-      "order": 34,
+      "order": 33,
       "mode": 0,
       "inputs": [
         {
@@ -340,8 +340,8 @@
       "id": 60,
       "type": "ShowText|pysssss",
       "pos": [
-        -352.1943054199219,
-        -138.28671264648438
+        -348.59075927734375,
+        586.8460083007812
       ],
       "size": [
         384.9148254394531,
@@ -350,7 +350,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 18,
+      "order": 16,
       "mode": 4,
       "inputs": [
         {
@@ -435,7 +435,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 32,
+      "order": 31,
       "mode": 0,
       "inputs": [
         {
@@ -446,7 +446,7 @@
         {
           "name": "text",
           "type": "STRING",
-          "link": 373,
+          "link": 375,
           "widget": {
             "name": "text"
           }
@@ -486,7 +486,7 @@
         58.31459426879883
       ],
       "flags": {},
-      "order": 33,
+      "order": 32,
       "mode": 0,
       "inputs": [
         {
@@ -524,7 +524,7 @@
         46
       ],
       "flags": {},
-      "order": 38,
+      "order": 37,
       "mode": 0,
       "inputs": [
         {
@@ -635,8 +635,8 @@
       "id": 58,
       "type": "ShowText|pysssss",
       "pos": [
-        -351.81683349609375,
-        112.9173583984375
+        -348.21331787109375,
+        838.050048828125
       ],
       "size": [
         382.5568542480469,
@@ -645,7 +645,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 27,
+      "order": 26,
       "mode": 4,
       "inputs": [
         {
@@ -692,7 +692,7 @@
         202
       ],
       "flags": {},
-      "order": 30,
+      "order": 29,
       "mode": 0,
       "inputs": [
         {
@@ -729,8 +729,8 @@
       "id": 61,
       "type": "Gemini_API_Zho",
       "pos": [
-        -352.305419921875,
-        -74.18445587158203
+        -348.70184326171875,
+        650.9482421875
       ],
       "size": [
         382.7574768066406,
@@ -739,7 +739,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 24,
+      "order": 21,
       "mode": 4,
       "inputs": [
         {
@@ -818,47 +818,6 @@
       ]
     },
     {
-      "id": 17,
-      "type": "BasicScheduler",
-      "pos": [
-        690.765380859375,
-        -569.7496337890625
-      ],
-      "size": [
-        464.12835693359375,
-        106
-      ],
-      "flags": {},
-      "order": 31,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 89,
-          "slot_index": 0
-        }
-      ],
-      "outputs": [
-        {
-          "name": "SIGMAS",
-          "type": "SIGMAS",
-          "links": [
-            20
-          ],
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "BasicScheduler"
-      },
-      "widgets_values": [
-        "ddim_uniform",
-        22,
-        1
-      ]
-    },
-    {
       "id": 29,
       "type": "EmptyLatentImage",
       "pos": [
@@ -895,61 +854,18 @@
       "shape": 2
     },
     {
-      "id": 48,
-      "type": "ColorCorrect",
-      "pos": [
-        1844.0069580078125,
-        23.831546783447266
-      ],
-      "size": [
-        298.55828857421875,
-        178
-      ],
-      "flags": {},
-      "order": 41,
-      "mode": 4,
-      "inputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 66
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ColorCorrect"
-      },
-      "widgets_values": [
-        0,
-        0,
-        0,
-        2,
-        2,
-        1
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
       "id": 76,
       "type": "ImageScale",
       "pos": [
-        1844.2052001953125,
-        -165.02426147460938
+        1839.490478515625,
+        -167.3820037841797
       ],
       "size": [
         297.8346862792969,
         130
       ],
       "flags": {},
-      "order": 39,
+      "order": 38,
       "mode": 0,
       "inputs": [
         {
@@ -990,7 +906,7 @@
         126
       ],
       "flags": {},
-      "order": 26,
+      "order": 25,
       "mode": 4,
       "inputs": [
         {
@@ -1038,16 +954,16 @@
       "id": 242,
       "type": "Griptape Combine: Merge Texts",
       "pos": [
-        -303.1570129394531,
-        810.2080688476562
+        -302.45263671875,
+        -170.1481475830078
       ],
       "size": [
         243.60000610351562,
         142
       ],
       "flags": {},
-      "order": 17,
-      "mode": 4,
+      "order": 19,
+      "mode": 0,
       "inputs": [
         {
           "name": "input_1",
@@ -1089,285 +1005,18 @@
       ]
     },
     {
-      "id": 246,
-      "type": "ShowText|pysssss",
-      "pos": [
-        -301.0622863769531,
-        1012.3087768554688
-      ],
-      "size": [
-        433.7019348144531,
-        390.6485290527344
-      ],
-      "flags": {
-        "collapsed": false
-      },
-      "order": 23,
-      "mode": 4,
-      "inputs": [
-        {
-          "name": "text",
-          "type": "STRING",
-          "link": 310,
-          "widget": {
-            "name": "text"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [],
-          "slot_index": 0,
-          "shape": 6
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ShowText|pysssss"
-      },
-      "widgets_values": [
-        "",
-        "Here is a generated description:\n\n\"The capybara sat drinking coffee on the desk in the room, its large brown eyes half-lidded as it savored the bitter flavor. The warm glow of the morning sun streamed through the window, casting a gentle shadow across its fur, while the soft hum of the computer in the background created a soothing white noise. A scattered mess of papers and pens littered the surface around the capybara, giving the impression that it had been working late into the night. The cup itself was filled to the brim with steaming hot coffee, the crema-kissed surface glistening slightly as the capybara lifted its head to take a sip.\""
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
-      "id": 26,
-      "type": "LoraLoader",
-      "pos": [
-        -520,
-        -450
-      ],
-      "size": [
-        414.3505554199219,
-        126
-      ],
-      "flags": {},
-      "order": 28,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 87
-        },
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 93
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            90
-          ],
-          "slot_index": 0,
-          "shape": 3
-        },
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            91
-          ],
-          "slot_index": 1,
-          "shape": 3
-        }
-      ],
-      "title": "Load LoRA (Image Upgrader)",
-      "properties": {
-        "Node name for S&R": "LoraLoader"
-      },
-      "widgets_values": [
-        "Capybara Chill_v1.0.safetensors",
-        1,
-        1
-      ]
-    },
-    {
-      "id": 267,
-      "type": "Image To Mask",
-      "pos": [
-        3401.39404296875,
-        -16.788530349731445
-      ],
-      "size": [
-        315,
-        58
-      ],
-      "flags": {},
-      "order": 21,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 356
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": [
-            357
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "Image To Mask"
-      },
-      "widgets_values": [
-        "intensity"
-      ]
-    },
-    {
-      "id": 179,
-      "type": "ttN text",
-      "pos": [
-        3776.75927734375,
-        131.9348907470703
-      ],
-      "size": [
-        295.6632080078125,
-        144.54531860351562
-      ],
-      "flags": {
-        "collapsed": false
-      },
-      "order": 8,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "text",
-          "type": "STRING",
-          "links": [
-            208
-          ],
-          "slot_index": 0
-        }
-      ],
-      "title": "Negative Text",
-      "properties": {
-        "Node name for S&R": "ttN text",
-        "ttNnodeVersion": "1.0.0"
-      },
-      "widgets_values": [
-        "blur, distortion, text, watermark"
-      ],
-      "color": "#223",
-      "bgcolor": "#335"
-    },
-    {
-      "id": 268,
-      "type": "PreviewImage",
-      "pos": [
-        3398.1669921875,
-        365.569580078125
-      ],
-      "size": [
-        210,
-        246
-      ],
-      "flags": {},
-      "order": 22,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 358
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "Node name for S&R": "PreviewImage"
-      },
-      "widgets_values": []
-    },
-    {
-      "id": 178,
-      "type": "SaveImageExtended",
-      "pos": [
-        4157.412109375,
-        -26.296152114868164
-      ],
-      "size": [
-        295.0576171875,
-        818
-      ],
-      "flags": {},
-      "order": 43,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 353
-        },
-        {
-          "name": "positive_text_opt",
-          "type": "STRING",
-          "link": 374,
-          "widget": {
-            "name": "positive_text_opt"
-          },
-          "shape": 7
-        },
-        {
-          "name": "negative_text_opt",
-          "type": "STRING",
-          "link": 208,
-          "widget": {
-            "name": "negative_text_opt"
-          },
-          "shape": 7
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "Node name for S&R": "SaveImageExtended"
-      },
-      "widgets_values": [
-        "ytbthumb",
-        "steps, noise_seed",
-        "tool_render",
-        "",
-        "_",
-        "disabled",
-        false,
-        "",
-        false,
-        5,
-        "last",
-        false,
-        "enabled",
-        ".jpg",
-        100,
-        "",
-        ""
-      ]
-    },
-    {
       "id": 47,
       "type": "ProPostFilmGrain",
       "pos": [
-        2184.189453125,
-        -165.9424591064453
+        2179.473876953125,
+        -168.30023193359375
       ],
       "size": [
         295.24066162109375,
         300.5332336425781
       ],
       "flags": {},
-      "order": 40,
+      "order": 39,
       "mode": 4,
       "inputs": [
         {
@@ -1400,119 +1049,11 @@
         1,
         0,
         1,
-        7996405812934,
+        268711066480686,
         "randomize"
       ],
       "color": "#432",
       "bgcolor": "#653"
-    },
-    {
-      "id": 266,
-      "type": "ImageCompositeMasked",
-      "pos": [
-        3776.044921875,
-        -324.0921630859375
-      ],
-      "size": [
-        315,
-        146
-      ],
-      "flags": {},
-      "order": 42,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "destination",
-          "type": "IMAGE",
-          "link": 362
-        },
-        {
-          "name": "source",
-          "type": "IMAGE",
-          "link": 361
-        },
-        {
-          "name": "mask",
-          "type": "MASK",
-          "link": 357,
-          "shape": 7
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            353
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ImageCompositeMasked"
-      },
-      "widgets_values": [
-        0,
-        0,
-        false
-      ]
-    },
-    {
-      "id": 27,
-      "type": "LoraLoader",
-      "pos": [
-        -59.782371520996094,
-        -449.5978088378906
-      ],
-      "size": [
-        414.3505554199219,
-        126
-      ],
-      "flags": {},
-      "order": 29,
-      "mode": 4,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 90
-        },
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 91
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            54,
-            89
-          ],
-          "slot_index": 0,
-          "shape": 3
-        },
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            107
-          ],
-          "slot_index": 1,
-          "shape": 3
-        }
-      ],
-      "title": "Load LoRA (Text Poster)",
-      "properties": {
-        "Node name for S&R": "LoraLoader"
-      },
-      "widgets_values": [
-        "flux.1_lora_flyway_doodle-poster.safetensors",
-        1,
-        1
-      ]
     },
     {
       "id": 50,
@@ -1571,19 +1112,370 @@
       ]
     },
     {
+      "id": 59,
+      "type": "TextCombinations",
+      "pos": [
+        -811.9422607421875,
+        586.0367431640625
+      ],
+      "size": [
+        407.96759033203125,
+        787.0101928710938
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "output1",
+          "type": "STRING",
+          "links": [
+            104
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "output2",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "TextCombinations",
+        "ttNbgOverride": {
+          "color": "#232",
+          "bgcolor": "#353",
+          "groupcolor": "#8A8"
+        }
+      },
+      "widgets_values": [
+        "describe \"Young woman warming hands by fireplace, cozy winter vibes\" with realistic photo style as a prompt based on this exact format. Banner title: realistic photo **\"Lofi Music\"** in large, realistic photo, elegant lettering, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.",
+        "```\n((Realistic photo)), ((detailed)), ((best quality)), ((realistic photo))\n\nScene Description:\nA vibrant and festive Vietnamese Lunar New Year celebration. The scene features a bustling environment with traditional decorations: red lanterns hanging in the air, peach blossoms in full bloom, and kumquat trees adorned with golden fruits. In the foreground, people in colorful áo dài (traditional Vietnamese attire) are smiling and engaging in joyous activities such as giving red envelopes (lì xì) to children and enjoying Tết delicacies.\n\nBanner Title:  \n{textStyle} **\"{title}\"** in large, elegant lettering, {thumb_style}, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.  \n\nBackground Details:\nA lively village or urban setting, glowing with strings of festive lights, banners, and colorful decorations. Fireworks illuminate the twilight sky, adding a sense of wonder. Vibrant market stalls and close-knit family gatherings underscore the themes of community and tradition.  \n\nColor Palette:\nA harmonious blend of auspicious colors like radiant reds and gleaming golds, symbolizing luck and prosperity. These tones are complemented by soft pinks from peach blossoms, verdant greens of kumquat trees, and an ethereal glow from the lighting. The overall lighting is soft and immersive, exuding warmth and joy.  \n\nComposition:  \nThe scene features a dynamic and balanced arrangement of cultural elements and animated interactions. Attention is given to the detailed textures of traditional clothing, the vibrant energy of decorations, and the genuine expressions of happiness, perfectly encapsulating the spirit of Vietnamese New Year celebrations. \n```",
+        "text1 + text2 to output1, text2 to output2",
+        " ",
+        "false",
+        842865439101478,
+        "randomize"
+      ],
+      "color": "#332922",
+      "bgcolor": "#593930",
+      "shape": 1
+    },
+    {
+      "id": 276,
+      "type": "Griptape Create: Text",
+      "pos": [
+        -806.1779174804688,
+        -163.3220977783203
+      ],
+      "size": [
+        398.2696838378906,
+        125.25346374511719
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OUTPUT",
+          "type": "STRING",
+          "links": [
+            369
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Griptape Create: Text"
+      },
+      "widgets_values": [
+        "((Realistic photo)), ((detailed)), ((best quality)), ((realistic photo))\n\nScene Description:"
+      ]
+    },
+    {
+      "id": 275,
+      "type": "OllamaGenerateAdvance",
+      "pos": [
+        179.38119506835938,
+        596.489990234375
+      ],
+      "size": [
+        402.9281921386719,
+        650.2944946289062
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "context",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "context"
+          },
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "type": "STRING",
+          "links": [
+            364
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "context",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "OllamaGenerateAdvance"
+      },
+      "widgets_values": [
+        "generate this prompt",
+        false,
+        "http://127.0.0.1:11434",
+        "llama3.2:3b",
+        "describe \"The capybara sat drinking coffee on the desk in the room\" with realistic photo style",
+        692363728,
+        "randomize",
+        100,
+        0.9,
+        0.8,
+        -1,
+        1,
+        60,
+        true,
+        "text",
+        "",
+        null
+      ]
+    },
+    {
+      "id": 271,
+      "type": "Griptape Combine: Merge Texts",
+      "pos": [
+        656.168212890625,
+        595.939697265625
+      ],
+      "size": [
+        243.60000610351562,
+        102
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "input_1",
+          "type": "STRING",
+          "link": 364,
+          "shape": 7
+        },
+        {
+          "name": "input_2",
+          "type": "STRING",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "OUTPUT",
+          "type": "STRING",
+          "links": [
+            366
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Griptape Combine: Merge Texts"
+      },
+      "widgets_values": [
+        "\\n\\n",
+        1
+      ]
+    },
+    {
+      "id": 272,
+      "type": "ShowText|pysssss",
+      "pos": [
+        656.4336547851562,
+        849.1502075195312
+      ],
+      "size": [
+        433.7019348144531,
+        390.6485290527344
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 22,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 366,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [],
+          "slot_index": 0,
+          "shape": 6
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "Here is a generated description:\n\n\"The capybara sat drinking coffee on the desk in the room, its large brown eyes half-lidded as it savored the bitter flavor. The warm glow of the morning sun streamed through the window, casting a gentle shadow across its fur, while the soft hum of the computer in the background created a soothing white noise. A scattered mess of papers and pens littered the surface around the capybara, giving the impression that it had been working late into the night. The cup itself was filled to the brim with steaming hot coffee, the crema-kissed surface glistening slightly as the capybara lifted its head to take a sip.\""
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 26,
+      "type": "LoraLoader",
+      "pos": [
+        -520,
+        -450
+      ],
+      "size": [
+        414.3505554199219,
+        126
+      ],
+      "flags": {},
+      "order": 27,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 87
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 93
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            90
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            91
+          ],
+          "slot_index": 1,
+          "shape": 3
+        }
+      ],
+      "title": "Load LoRA (Image Upgrader)",
+      "properties": {
+        "Node name for S&R": "LoraLoader"
+      },
+      "widgets_values": [
+        "Children's illustrated story book.safetensors",
+        1,
+        1
+      ]
+    },
+    {
+      "id": 27,
+      "type": "LoraLoader",
+      "pos": [
+        -59.782371520996094,
+        -449.5978088378906
+      ],
+      "size": [
+        414.3505554199219,
+        126
+      ],
+      "flags": {},
+      "order": 28,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 90
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 91
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            54,
+            89
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            107
+          ],
+          "slot_index": 1,
+          "shape": 3
+        }
+      ],
+      "title": "Load LoRA (Text Poster)",
+      "properties": {
+        "Node name for S&R": "LoraLoader"
+      },
+      "widgets_values": [
+        "Round world chubby little animals doll toys.safetensors",
+        1,
+        1
+      ]
+    },
+    {
       "id": 264,
       "type": "CR Draw Text",
       "pos": [
-        2873.052978515625,
-        -17.483631134033203
+        1249.372802734375,
+        1094.01953125
       ],
       "size": [
         400,
         480
       ],
       "flags": {},
-      "order": 16,
-      "mode": 0,
+      "order": 18,
+      "mode": 4,
       "inputs": [
         {
           "name": "text",
@@ -1600,7 +1492,6 @@
           "type": "IMAGE",
           "links": [
             356,
-            358,
             361
           ],
           "slot_index": 0
@@ -1638,16 +1529,16 @@
       "id": 265,
       "type": "ttN text",
       "pos": [
-        2594.725830078125,
-        -14.416972160339355
+        1427.2513427734375,
+        912.7808227539062
       ],
       "size": [
         220.91400146484375,
         110.45697784423828
       ],
       "flags": {},
-      "order": 9,
-      "mode": 0,
+      "order": 11,
+      "mode": 4,
       "inputs": [],
       "outputs": [
         {
@@ -1668,19 +1559,252 @@
       ]
     },
     {
+      "id": 179,
+      "type": "ttN text",
+      "pos": [
+        1797.3726806640625,
+        1414.1885986328125
+      ],
+      "size": [
+        295.6632080078125,
+        144.54531860351562
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 12,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [
+            208
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Negative Text",
+      "properties": {
+        "Node name for S&R": "ttN text",
+        "ttNnodeVersion": "1.0.0"
+      },
+      "widgets_values": [
+        "blur, distortion, text, watermark"
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 267,
+      "type": "Image To Mask",
+      "pos": [
+        1798.0882568359375,
+        1292.1158447265625
+      ],
+      "size": [
+        296.4939270019531,
+        58.771087646484375
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 356
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            357
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Image To Mask"
+      },
+      "widgets_values": [
+        "intensity"
+      ]
+    },
+    {
+      "id": 266,
+      "type": "ImageCompositeMasked",
+      "pos": [
+        1803.9864501953125,
+        600.0410766601562
+      ],
+      "size": [
+        315,
+        146
+      ],
+      "flags": {},
+      "order": 41,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "destination",
+          "type": "IMAGE",
+          "link": 362
+        },
+        {
+          "name": "source",
+          "type": "IMAGE",
+          "link": 361
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 357,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            353
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageCompositeMasked"
+      },
+      "widgets_values": [
+        0,
+        0,
+        false
+      ]
+    },
+    {
+      "id": 48,
+      "type": "ColorCorrect",
+      "pos": [
+        1839.292236328125,
+        21.473756790161133
+      ],
+      "size": [
+        298.55828857421875,
+        178
+      ],
+      "flags": {},
+      "order": 40,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 66
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ColorCorrect"
+      },
+      "widgets_values": [
+        0,
+        0,
+        0,
+        2,
+        2,
+        1
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 178,
+      "type": "SaveImageExtended",
+      "pos": [
+        2162.141357421875,
+        749.5430297851562
+      ],
+      "size": [
+        295.0576171875,
+        818
+      ],
+      "flags": {},
+      "order": 42,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 353
+        },
+        {
+          "name": "positive_text_opt",
+          "type": "STRING",
+          "link": 376,
+          "widget": {
+            "name": "positive_text_opt"
+          },
+          "shape": 7
+        },
+        {
+          "name": "negative_text_opt",
+          "type": "STRING",
+          "link": 208,
+          "widget": {
+            "name": "negative_text_opt"
+          },
+          "shape": 7
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImageExtended"
+      },
+      "widgets_values": [
+        "ytbthumb",
+        "steps, noise_seed",
+        "tool_render",
+        "",
+        "_",
+        "disabled",
+        false,
+        "",
+        false,
+        5,
+        "last",
+        false,
+        "enabled",
+        ".jpg",
+        100,
+        "",
+        ""
+      ]
+    },
+    {
       "id": 238,
       "type": "Searge_LLM_Node",
       "pos": [
-        -809.4053955078125,
-        1001.4739990234375
+        -808.701416015625,
+        21.117855072021484
       ],
       "size": [
         400,
         216
       ],
       "flags": {},
-      "order": 10,
-      "mode": 4,
+      "order": 13,
+      "mode": 0,
       "inputs": [
         {
           "name": "adv_options_config",
@@ -1710,7 +1834,7 @@
         "Node name for S&R": "Searge_LLM_Node"
       },
       "widgets_values": [
-        "Young woman standing on cliff, ocean sunrise beauty",
+        "A Capybara wearing a cowboy hat, sitting at a desk, reading a textbook, soft desk lamp glow, calm and focused atmosphere.",
         239849583948544,
         "Mistral-7B-Instruct-v0.3-Q6_K.gguf",
         4096,
@@ -1722,15 +1846,15 @@
       "id": 244,
       "type": "Griptape Create: Text",
       "pos": [
-        -809.4619140625,
-        1280.3040771484375
+        -808.7579345703125,
+        299.94769287109375
       ],
       "size": [
         398.2696838378906,
         125.25346374511719
       ],
       "flags": {},
-      "order": 11,
+      "order": 14,
       "mode": 4,
       "inputs": [],
       "outputs": [
@@ -1756,218 +1880,26 @@
       ]
     },
     {
-      "id": 59,
-      "type": "TextCombinations",
-      "pos": [
-        -815.5458984375,
-        -139.09597778320312
-      ],
-      "size": [
-        407.96759033203125,
-        787.0101928710938
-      ],
-      "flags": {},
-      "order": 12,
-      "mode": 4,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "output1",
-          "type": "STRING",
-          "links": [
-            104
-          ],
-          "slot_index": 0,
-          "shape": 3
-        },
-        {
-          "name": "output2",
-          "type": "STRING",
-          "links": null,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "TextCombinations",
-        "ttNbgOverride": {
-          "color": "#232",
-          "bgcolor": "#353",
-          "groupcolor": "#8A8"
-        }
-      },
-      "widgets_values": [
-        "describe \"Young woman warming hands by fireplace, cozy winter vibes\" with realistic photo style as a prompt based on this exact format. Banner title: realistic photo **\"Lofi Music\"** in large, realistic photo, elegant lettering, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.",
-        "```\n((Realistic photo)), ((detailed)), ((best quality)), ((realistic photo))\n\nScene Description:\nA vibrant and festive Vietnamese Lunar New Year celebration. The scene features a bustling environment with traditional decorations: red lanterns hanging in the air, peach blossoms in full bloom, and kumquat trees adorned with golden fruits. In the foreground, people in colorful áo dài (traditional Vietnamese attire) are smiling and engaging in joyous activities such as giving red envelopes (lì xì) to children and enjoying Tết delicacies.\n\nBanner Title:  \n{textStyle} **\"{title}\"** in large, elegant lettering, {thumb_style}, positioned prominently at the top center of the image, blending seamlessly with the celebratory atmosphere.  \n\nBackground Details:\nA lively village or urban setting, glowing with strings of festive lights, banners, and colorful decorations. Fireworks illuminate the twilight sky, adding a sense of wonder. Vibrant market stalls and close-knit family gatherings underscore the themes of community and tradition.  \n\nColor Palette:\nA harmonious blend of auspicious colors like radiant reds and gleaming golds, symbolizing luck and prosperity. These tones are complemented by soft pinks from peach blossoms, verdant greens of kumquat trees, and an ethereal glow from the lighting. The overall lighting is soft and immersive, exuding warmth and joy.  \n\nComposition:  \nThe scene features a dynamic and balanced arrangement of cultural elements and animated interactions. Attention is given to the detailed textures of traditional clothing, the vibrant energy of decorations, and the genuine expressions of happiness, perfectly encapsulating the spirit of Vietnamese New Year celebrations. \n```",
-        "text1 + text2 to output1, text2 to output2",
-        " ",
-        "false",
-        343907252044576,
-        "randomize"
-      ],
-      "color": "#332922",
-      "bgcolor": "#593930",
-      "shape": 1
-    },
-    {
-      "id": 276,
-      "type": "Griptape Create: Text",
-      "pos": [
-        -806.8818969726562,
-        817.0341186523438
-      ],
-      "size": [
-        398.2696838378906,
-        125.25346374511719
-      ],
-      "flags": {},
-      "order": 13,
-      "mode": 4,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "OUTPUT",
-          "type": "STRING",
-          "links": [
-            369
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "Griptape Create: Text"
-      },
-      "widgets_values": [
-        "((Realistic photo)), ((detailed)), ((best quality)), ((realistic photo))\n\nScene Description:"
-      ]
-    },
-    {
-      "id": 275,
-      "type": "OllamaGenerateAdvance",
-      "pos": [
-        -809.0185546875,
-        1622.08935546875
-      ],
-      "size": [
-        402.9281921386719,
-        650.2944946289062
-      ],
-      "flags": {},
-      "order": 14,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "context",
-          "type": "STRING",
-          "link": null,
-          "widget": {
-            "name": "context"
-          },
-          "shape": 7
-        }
-      ],
-      "outputs": [
-        {
-          "name": "response",
-          "type": "STRING",
-          "links": [
-            364
-          ],
-          "slot_index": 0
-        },
-        {
-          "name": "context",
-          "type": "STRING",
-          "links": null
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "OllamaGenerateAdvance"
-      },
-      "widgets_values": [
-        "generate this prompt",
-        false,
-        "http://127.0.0.1:11434",
-        "llama3.2:3b",
-        "describe \"The capybara sat drinking coffee on the desk in the room\" with realistic photo style",
-        139354719,
-        "randomize",
-        100,
-        0.9,
-        0.8,
-        -1,
-        1,
-        60,
-        true,
-        "text",
-        ""
-      ]
-    },
-    {
-      "id": 271,
-      "type": "Griptape Combine: Merge Texts",
-      "pos": [
-        -332.23162841796875,
-        1621.5390625
-      ],
-      "size": [
-        243.60000610351562,
-        102
-      ],
-      "flags": {},
-      "order": 19,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "input_1",
-          "type": "STRING",
-          "link": 364,
-          "shape": 7
-        },
-        {
-          "name": "input_2",
-          "type": "STRING",
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "name": "OUTPUT",
-          "type": "STRING",
-          "links": [
-            366
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "Griptape Combine: Merge Texts"
-      },
-      "widgets_values": [
-        "\\n\\n",
-        1
-      ]
-    },
-    {
-      "id": 272,
+      "id": 246,
       "type": "ShowText|pysssss",
       "pos": [
-        -331.9661560058594,
-        1874.7493896484375
+        -300.35791015625,
+        37.0842170715332
       ],
       "size": [
-        433.7019348144531,
-        390.6485290527344
+        367.6961364746094,
+        385.0732727050781
       ],
       "flags": {
         "collapsed": false
       },
-      "order": 25,
+      "order": 24,
       "mode": 0,
       "inputs": [
         {
           "name": "text",
           "type": "STRING",
-          "link": 366,
+          "link": 310,
           "widget": {
             "name": "text"
           }
@@ -1978,8 +1910,8 @@
           "name": "STRING",
           "type": "STRING",
           "links": [
-            373,
-            374
+            375,
+            376
           ],
           "slot_index": 0,
           "shape": 6
@@ -1990,10 +1922,51 @@
       },
       "widgets_values": [
         "",
-        "Here is a generated description:\n\n\"The capybara sat drinking coffee on the desk in the room, its large brown eyes half-lidded as it savored the bitter flavor. The warm glow of the morning sun streamed through the window, casting a gentle shadow across its fur, while the soft hum of the computer in the background created a soothing white noise. A scattered mess of papers and pens littered the surface around the capybara, giving the impression that it had been working late into the night. The cup itself was filled to the brim with steaming hot coffee, the crema-kissed surface glistening slightly as the capybara lifted its head to take a sip.\""
+        "((Realistic photo)), ((detailed)), ((best quality)), ((realistic photo))\n\nScene Description:\n\nIn a warm, calm and focused atmosphere, a playful yet endearing scene unfolds: A capybara sits at a wooden desk, donning a classic cowboy hat. The capybara is engrossed in the pages of a textbook, its eyes narrowing as it concentrates intently on the material before it. In the background, a soft glow emanates from an antique desk lamp, casting gentle shadows that enhance the cozy and intimate setting. Details like worn-out books stacked neatly beside the capybara and a coffee cup with half-drunk tea add to the overall ambiance of focused study and peaceful solitude. This charming illustration showcases both the quirky appeal of its subject, the capybara, as well as a serene and contemplative atmosphere."
       ],
       "color": "#432",
       "bgcolor": "#653"
+    },
+    {
+      "id": 17,
+      "type": "BasicScheduler",
+      "pos": [
+        690.765380859375,
+        -569.7496337890625
+      ],
+      "size": [
+        464.12835693359375,
+        106
+      ],
+      "flags": {},
+      "order": 30,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 89,
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            20
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BasicScheduler"
+      },
+      "widgets_values": [
+        "ddim_uniform",
+        30,
+        1
+      ]
     }
   ],
   "links": [
@@ -2350,14 +2323,6 @@
       "MASK"
     ],
     [
-      358,
-      264,
-      0,
-      268,
-      0,
-      "IMAGE"
-    ],
-    [
       361,
       264,
       0,
@@ -2422,16 +2387,16 @@
       "STRING"
     ],
     [
-      373,
-      272,
+      375,
+      246,
       0,
       62,
       1,
       "STRING"
     ],
     [
-      374,
-      272,
+      376,
+      246,
       0,
       178,
       1,
@@ -2443,10 +2408,10 @@
       "id": 1,
       "title": "Upscale by Model",
       "bounding": [
-        1824.9852294921875,
-        -249.96026611328125,
-        669.3701171875,
-        1278.2266845703125
+        1820.2705078125,
+        -252.31800842285156,
+        676.630126953125,
+        708.3167114257812
       ],
       "color": "#3f789e",
       "font_size": 24,
@@ -2482,10 +2447,10 @@
       "id": 5,
       "title": "LLM - Gemini AI (Option 1)",
       "bounding": [
-        -831.1824951171875,
-        -220.43634033203125,
-        898.0881958007812,
-        891.2529907226562
+        -827.578857421875,
+        504.6964111328125,
+        922.0551147460938,
+        888.773681640625
       ],
       "color": "#3f789e",
       "font_size": 24,
@@ -2495,10 +2460,10 @@
       "id": 7,
       "title": "LLM - Use Model Mistral (Option 2)",
       "bounding": [
-        -829.2907104492188,
-        727.4542236328125,
-        980.7190551757812,
-        700.57177734375
+        -828.5867309570312,
+        -252.9019775390625,
+        922.3524780273438,
+        696.8462524414062
       ],
       "color": "#3f789e",
       "font_size": 24,
@@ -2508,10 +2473,23 @@
       "id": 8,
       "title": "LLM - Use Model Ollama (Option 3)",
       "bounding": [
-        -838.6089477539062,
-        1530.318359375,
+        149.79080200195312,
+        504.7188415527344,
         989.1890258789062,
         784.061767578125
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 9,
+      "title": "Group",
+      "bounding": [
+        1221.3638916015625,
+        504.7374572753906,
+        1276.1173095703125,
+        1099.76025390625
       ],
       "color": "#3f789e",
       "font_size": 24,
@@ -2521,31 +2499,33 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.620921323059155,
-      "offset": [
-        1316.9216720278066,
-        111.22501889083402
-      ]
+      "scale": 0.5131581182307067,
+      "offset": {
+        "0": 1899.978759765625,
+        "1": 1163.6624755859375
+      }
     },
     "ue_links": [],
     "VHS_latentpreview": false,
     "VHS_latentpreviewrate": 0,
     "node_versions": {
-      "comfy-core": "0.3.10",
+      "comfy-core": "0.3.14",
       "facerestore_cf": "67f90bc6be976fb58169866155346b0da13bebee",
-      "ComfyUI-Universal-Styler": "bfe88489ff250a84bc25c210d84a58135f9a8a8f",
+      "ComfyUI-Custom-Scripts": "bbda5e52ad580c13ceaa53136d9c2bed9137bd2e",
       "ComfyUI-Gemini": "98d91fc2340d23c671c2e1425c2ce62ce2f8c2c1",
-      "ComfyUI-post-processing-nodes": "b265f36ef5988154bee2aa808d8abe8a2a197847",
-      "comfyui-griptape": "2.1.09",
-      "masquerade-nodes-comfyui": "432cb4d146a391b387a0cd25ace824328b5b61cf",
-      "comfyui_tinyterranodes": "2.0.5",
-      "save-image-extended-comfyui": "2.64",
+      "comfyui-griptape": "2.2.5",
       "comfyui-propost": "df6a6d122498f57ad7195d58e07701a501c9dcb6",
+      "mikey_nodes": "185d2d16d0fc9de70e82ad024be85d6d20a36e56",
+      "comfyui-ollama": "2.0.1",
       "ComfyUI_Comfyroll_CustomNodes": "d78b780ae43fcf8c6b7c6505e6ffb4584281ceca",
-      "ComfyUI_Searge_LLM": "3ea788875d772577ab92044bc4a8397755eb4a24",
-      "mikey_nodes": "637bc18f8e18cc662a8411efbc7013adc7845ae7",
-      "comfyui-ollama": "2.0.1"
-    }
+      "comfyui_tinyterranodes": "2.0.6",
+      "masquerade-nodes-comfyui": "432cb4d146a391b387a0cd25ace824328b5b61cf",
+      "ComfyUI-post-processing-nodes": "c49a05254795403648f2c1774b6f5ea39f96e7d5",
+      "save-image-extended-comfyui": "2.64.0",
+      "ComfyUI_Searge_LLM": "3ea788875d772577ab92044bc4a8397755eb4a24"
+    },
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
   },
   "version": 0.4
 }
