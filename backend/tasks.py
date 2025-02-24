@@ -110,7 +110,7 @@ async def generate_images_api():
     smallest_prefixes = [prefix for prefix, count in filtered_prefixes.items() if count == smallest_count]
 
     # Sort counts in descending order (optional for reporting)
-    sorted_counts = dict(sorted(filtered_prefixes.items(), key=lambda item: item[1], reverse=True))
+    # sorted_counts = dict(sorted(filtered_prefixes.items(), key=lambda item: item[1], reverse=True))
 
     # If no smallest prefixes, pick a random prefix from filtered ones
     if not smallest_prefixes:
@@ -192,6 +192,17 @@ def check_and_generate_images():
 
     except Exception as e:
         print(f"----- Error in worker `Generate images`: {e}")
+
+
+
+@shared_task(name="backend.tasks.check_and_generate_images_religion")
+def check_and_generate_images_religion():
+    try:
+        asyncio.run(generate_images_logic())
+
+    except Exception as e:
+        print(f"----- Error in worker `Generate images`: {e}")
+
 
 
 async def generate_images_logic():

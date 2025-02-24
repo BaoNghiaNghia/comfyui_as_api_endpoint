@@ -148,7 +148,7 @@ INIT_20_RELIGION_REQUEST = [
             "A young woman in a flowing white dress stands with hands clasped in prayer, bathed in a celestial beam of light descending from above. The background transitions from deep midnight blue at the top to soft lavender at the bottom, creating a dreamlike atmosphere.",
         ],
         "title": "",
-        "file_name": "Morning_Grace",
+        "file_name": "Religion_Morning_Grace",
         "day_of_week": [0,1,2,3,4,5,6],
     },
     {
@@ -156,7 +156,7 @@ INIT_20_RELIGION_REQUEST = [
             "A construction worker in dusty clothes stands in silent prayer, hands clasped, as a brilliant ray of light surrounds him. The gradient background shifts from deep brick red to a glowing amber.",
         ],
         "title": "",
-        "file_name": "Rise_&_Bless",
+        "file_name": "Religion_Rise_&_Bless",
         "day_of_week": [0,1,2,3,4,5,6],
     },
     {
@@ -164,7 +164,7 @@ INIT_20_RELIGION_REQUEST = [
             "A woman dressed in a long robe kneels with hands together, head bowed, as a single ethereal ray of light embraces her. The gradient behind her transitions from deep indigo to soft pastel blue, enhancing the scene’s divine essence.",
         ],
         "title": "",
-        "file_name": "Sacred_Sunrise",
+        "file_name": "Religion_Sacred_Sunrise",
         "day_of_week": [0,1,2,3,4,5,6],
     },
     {
@@ -172,7 +172,7 @@ INIT_20_RELIGION_REQUEST = [
             "A devoted worshipper stands in prayer, hands folded near their chest, as rays of silver light cascade down from the heavens. The background features a smooth gradient from dark navy blue to glowing cyan, creating a celestial ambiance.",
         ],
         "title": "",
-        "file_name": "Heavenly_Dawn",
+        "file_name": "Religion_Heavenly_Dawn",
         "day_of_week": [0,1,2,3,4,5,6],
     },
     {
@@ -180,7 +180,7 @@ INIT_20_RELIGION_REQUEST = [
             "A lone figure stands with hands clasped tightly in prayer, their silhouette outlined by a powerful white light descending upon them. The background glows with a vibrant gradient from fiery orange at the top to deep crimson below, evoking a sense of passion and faith.",
         ],
         "title": "",
-        "file_name": "Light_of_Morning",
+        "file_name": "Religion_Light_of_Morning",
         "day_of_week": [0,1,2,3,4,5,6],
     },
     {
@@ -188,7 +188,7 @@ INIT_20_RELIGION_REQUEST = [
             "A young woman in casual clothes stands with hands clasped in prayer, eyes closed, as a warm golden light from above gently bathes her. The background fades from deep midnight blue to soft pastel pink, creating a tranquil ambiance.",
         ],
         "title": "",
-        "file_name": "Workday_Worship",
+        "file_name": "Religion_Workday_Worship",
         "day_of_week": [0,1,2,3,4,5,6],
     },
     {
@@ -196,7 +196,7 @@ INIT_20_RELIGION_REQUEST = [
             "A mystical scene of a beautiful red hair woman standing with hands clasped in prayer, their face hidden as golden rays cascade down upon them. The background is a rich gradient of warm pink fading into a deep cosmic purple, giving a celestial energy.",
         ],
         "title": "",
-        "file_name": "Faithful_Focus",
+        "file_name": "Religion_Faithful_Focus",
         "day_of_week": [0,1,2,3,4,5,6],
     },
     {
@@ -204,7 +204,7 @@ INIT_20_RELIGION_REQUEST = [
             "A middle-aged man in a hoodie and jeans kneels with his hands together in deep prayer, illuminated by a ray of soft white light. The background smoothly transitions from dark teal at the top to gentle lavender at the bottom.",
         ],
         "title": "",
-        "file_name": "Grace_at_Work",
+        "file_name": "Religion_Grace_at_Work",
         "day_of_week": [0,1,2,3,4,5,6],
     },
     {
@@ -212,7 +212,7 @@ INIT_20_RELIGION_REQUEST = [
             "A warrior in ancient robes kneels before an unseen force, hands pressed together as divine light engulfs him. The ethereal background shifts from molten gold at the top to a tranquil sky blue at the bottom, giving the scene an otherworldly serenity.",
         ],
         "title": "",
-        "file_name": "Divine_Productivity",
+        "file_name": "Religion_Divine_Productivity",
         "day_of_week": [0,1,2,3,4,5,6],
     },
     {
@@ -220,7 +220,7 @@ INIT_20_RELIGION_REQUEST = [
             "A distinguished gentleman kneels, his hands clasped tightly in deep prayer, his face uplifted towards the divine light shining down upon him. The radiant glow illuminates his serene expression, casting soft highlights on his features. The surreal background blends electric blue into a gentle lavender glow, creating a mystical atmosphere that enhances his spiritual devotion.",
         ],
         "title": "",
-        "file_name": "Holy_Hustle",
+        "file_name": "Religion_Holy_Hustle",
         "day_of_week": [0,1,2,3,4,5,6],
     },
     {
@@ -228,7 +228,7 @@ INIT_20_RELIGION_REQUEST = [
             "A teenage boy wearing a t-shirt and jeans stands with hands folded in devotion, as a beam of heavenly light shines down upon him. The gradient background shifts from deep navy blue to a glowing cyan.",
         ],
         "title": "",
-        "file_name": "Evening_Grace",
+        "file_name": "Religion_Evening_Grace",
         "day_of_week": [0,1,2,3,4,5,6],
     },
     {
@@ -236,7 +236,7 @@ INIT_20_RELIGION_REQUEST = [
             "A woman in a casual summer dress kneels on an invisible floor, her hands pressed together as she prays, while a soft golden light cascades down. The background blends from warm amber at the top to soft pastel peach below.",
         ],
         "title": "",
-        "file_name": "Twilight_Blessings",
+        "file_name": "Religion_Twilight_Blessings",
         "day_of_week": [0,1,2,3,4,5,6],
     },
     {
@@ -244,7 +244,7 @@ INIT_20_RELIGION_REQUEST = [
             "A woman wearing a cozy sweater kneels with her hands folded in silent prayer, her figure enveloped in warm, soft light. The background gently shifts from deep forest green to a cool turquoise.",
         ],
         "title": "",
-        "file_name": "Sacred_Sunset",
+        "file_name": "Religion_Sacred_Sunset",
         "day_of_week": [0,1,2,3,4,5,6],
     },
     {
@@ -252,7 +252,7 @@ INIT_20_RELIGION_REQUEST = [
             "A young woman in a simple hoodie stands with her fingers intertwined in prayer, eyes closed, bathed in a divine beam of sunlight. The background glows in a gentle gradient from pale pink to deep indigo.",
         ],
         "title": "",
-        "file_name": "Peaceful_Dusk",
+        "file_name": "Religion_Peaceful_Dusk",
         "day_of_week": [0,1,2,3,4,5,6],
     },
     {
@@ -260,7 +260,7 @@ INIT_20_RELIGION_REQUEST = [
             "A man in a business suit stands alone with hands clasped, head slightly bowed, as radiant white light engulfs him. The background transitions smoothly from deep violet to soft lilac.",
         ],
         "title": "",
-        "file_name": "Night_of_Light",
+        "file_name": "Religion_Night_of_Light",
         "day_of_week": [0,1,2,3,4,5,6],
     },
     {
@@ -268,7 +268,7 @@ INIT_20_RELIGION_REQUEST = [
             "A bearded man in a casual jacket sits on the edge of his bed, his head tilted up, hands clasped in deep prayer, as a ray of divine light falls upon him. The background glows in a gradient from burnt orange to muted purple, creating a serene and mystical atmosphere.",
         ],
         "title": "",
-        "file_name": "Nightly_Prayers",
+        "file_name": "Religion_Nightly_Prayers",
         "day_of_week": [0,1,2,3,4,5,6],
     },
     {
@@ -276,7 +276,7 @@ INIT_20_RELIGION_REQUEST = [
             "A woman in a hoodie sits cross-legged on her bed, praying with her hands clasped, her face peaceful as a silver light shines down from above. The background fades from deep midnight blue to soft lavender, casting a tranquil glow over the entire scene.",
         ],
         "title": "",
-        "file_name": "Rest_in_His_Grace",
+        "file_name": "Religion_Rest_in_His_Grace",
         "day_of_week": [0,1,2,3,4,5,6],
     },
     {
@@ -284,7 +284,7 @@ INIT_20_RELIGION_REQUEST = [
             "A man in a worn-out jacket kneels on his bed in deep contemplation, his hands clasped in heartfelt prayer as a sharp white beam of light illuminates him. The background shifts from pure black to radiant gold, highlighting his solemn devotion.",
         ],
         "title": "",
-        "file_name": "Sacred_Slumber",
+        "file_name": "Religion_Sacred_Slumber",
         "day_of_week": [0,1,2,3,4,5,6],
     },
     {
@@ -292,7 +292,7 @@ INIT_20_RELIGION_REQUEST = [
             "A teenage girl in casual clothes kneels on her bed with her hands pressed together, her face serene as a column of divine light envelops her. The background smoothly transitions from crimson red to deep violet, giving the scene a mystical and sacred feel.",
         ],
         "title": "",
-        "file_name": "Heavenly_Night",
+        "file_name": "Religion_Heavenly_Night",
         "day_of_week": [0,1,2,3,4,5,6],
     },
     {
@@ -300,7 +300,7 @@ INIT_20_RELIGION_REQUEST = [
             "A beautiful black-haired woman in a simple white shirt and jeans kneels on her bed, her hands clasped tightly in deep prayer, eyes closed in serene devotion. A divine beam of celestial light descends upon her, illuminating her gentle features. The background is a deep midnight blue, fading into rich indigo and soft violet at the edges, creating a dramatic contrast that makes her glow with an ethereal presence.",
         ],
         "title": "",
-        "file_name": "Peaceful_Sleep",
+        "file_name": "Religion_Peaceful_Sleep",
         "day_of_week": [0,1,2,3,4,5,6],
     },
 ]
