@@ -48,16 +48,16 @@ services:
       - CELERY_RESULT_BACKEND=redis://redis:6379/0
     command: ["celery", "-A", "backend.celery_app", "beat", "--loglevel=info"]
 
-  # flower:
-  #   <<: *service-base
-  #   container_name: flower
-  #   depends_on:
-  #     - redis
-  #   environment:
-  #     - CELERY_BROKER_URL=redis://redis:6379/0
-  #   ports:
-  #     - "5555:5555"
-  #   command: ["celery", "-A", "backend.celery_app", "flower", "--port=5555"]
+  flower:
+    <<: *service-base
+    container_name: flower
+    depends_on:
+      - redis
+    environment:
+      - CELERY_BROKER_URL=redis://redis:6379/0
+    ports:
+      - "5555:5555"
+    command: ["celery", "-A", "backend.celery_app", "flower", "--port=5555"]
 
 networks:
   external_network:
